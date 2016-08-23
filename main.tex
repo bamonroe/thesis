@@ -1,0 +1,80 @@
+\documentclass[11pt,a4paper]{report}
+
+\usepackage{subfiles}
+
+\usepackage[justification=centering]{caption}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{setspace}	% For line spacing
+\usepackage{csquotes}	% For quoting
+\usepackage[hidelinks]{hyperref} %To make references into links
+\usepackage{amsmath}	% For equation stuff
+\usepackage{amssymb}	% For math symbols
+\usepackage{amsthm}		% For theorem environments
+\usepackage{relsize}	% To resize math symbols
+\usepackage{bm}			% For Bold math Symbols
+\usepackage{nicefrac}	% For nice looking fractions
+\usepackage{graphicx}	% For Graphics
+
+% Stuff for Tables
+\usepackage{caption}
+\usepackage{adjustbox}
+\usepackage{booktabs}		% For \toprule, \midrule, and \bottomrule
+\usepackage{pgfplotstable}	% Generates a table from a CSV
+\pgfplotsset{compat=1.12}
+\setlength{\extrarowheight}{.5em}
+
+\usepackage[stretch=15]{microtype}	% Read about this, tested it, and was sold.
+\usepackage[backend=biber, refsegment=chapter, doi=false, isbn=false, url=false, style=authoryear-comp, maxnames=99]{biblatex}	%For bibliography stuff
+\renewbibmacro{in:}{}
+\addbibresource{~/Dropbox/Papers/library.bib}	% The path to the bibliography file
+
+% Convenience Commands
+\newcommand\CE{\ensuremath{\mathit{CE}}}  % Certainty Equivalent
+\newcommand\Prob{\ensuremath{\mathit{Pr}}}  % Probability
+\newcommand{\E}{\operatorname{E}}			% Variance Operator
+\newcommand{\Var}{\operatorname{Var}}		% Variance Operator
+\newcommand\OB{\ensuremath{\succ^{\!*}}}   % Certainty Equivalent
+
+
+% Make a break a column title into 2 lines
+\newcommand{\cnline}[2][c]{%
+	\setlength{\extrarowheight}{0em}
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}
+	\setlength{\extrarowheight}{5em}
+}
+
+\title{This is my Thesis}
+\author{Brian Albert Monroe}
+
+%\makeatletter
+%\newcommand*{\toccontents}{\@starttoc{toc}
+%\makeatother
+
+\usepackage{tableof} % For good table of contents
+\AtBeginDocument{\tofOpenTocFileForWrite}% see tableof's doc
+
+%\usepackage{titletoc}
+%\startcontents
+
+
+\begin{document}
+\pagenumbering{arabic}
+\maketitle
+\onehalfspacing
+
+%\printcontents{}{-1}{% parts are add to toc
+%\setcounter{tocdepth}{2}%
+%\chapter*{\contentsname}%  or section ... 
+%}
+\tableof{}
+\newpage
+
+\subfile{ch1/ch1}
+\subfile{ch2/ch2}
+\subfile{ch3/ch3}
+
+\printbibliography
+
+\end{document}

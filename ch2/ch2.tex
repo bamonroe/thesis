@@ -1,0 +1,1286 @@
+\begin{document}
+\onehalfspacing
+\chapter{Normative Justification for Stochastic Models}
+
+\tableof{ch2}
+\toftagstart{ch2}
+
+The recent interest in the ability of stochastic choice models to explain choice behavior that seemingly violates Expected Utility Theory (EUT) has led to a variety of calls for, and attempts to, seek out a \enquote{true} stochastic model or combination of  models which best describe observed choice behavior in experiments.
+The first call for such a research effort was apparently \textcite{Edwards1954}, who accused economics of becoming \enquote{exceedingly elaborate, mathematical, and voluminous} \textcite[380]{Edwards1954} in its attempt to explain the diversity of empirical choice data and criticized economists as \enquote{mak\textins*{ing} assumptions, and from these assumptions they deduce theorems which presumably can be tested, though it seems unlikely that the testing will ever occur.}
+\textcite{Edwards1954} proposed that individuals may be making choices stochastically as opposed to deterministically, which married some of the extent findings of psychology at the time with economics to help explain the data, both from psychology and economics.
+
+A more recent call to study stochastic models was issued by \textcite[1321]{Hey1994} after conducting rigorous subject-by-subject tests of some of the popular proposed alternatives to EUT, alongside EUT.
+They conclude that \enquote{possibly the overriding feature of our analysis is the importance of error \textelp{} Perhaps we should now spend some time on thinking about the noise, rather than about even more alternatives to EU?}
+A wealth of stochastic models has resulted from economists and psychologists taking up the project proposed by \textcite{Hey1994}.
+This chapter seeks to describe the results of this effort to improve the descriptive capabilities of this call to research, and introduce a much needed discussion of the normative promise of some of these models.
+
+
+\subsection{The Specification of Stochastic Models}
+
+The number of models developed by researchers engaged in the stochastic project can largely be categorized into three classes of stochastic models.
+\textcite[1301]{Hey1994} proposed a stochastic choice model which incorporates a random error term into the evaluation of the lotteries by subjects.
+The roots of this type of model date back to \textcite{Fechner1966a} and \textcite{Luce1959}, and has subsequently been called a \enquote{Strong Utility} (SU) or \enquote{Fechnerian} model.
+There are, however, a large number of models that have been derived from the SU model, and so we will refer generally to this class of models as \enquote{Random Error} (RE) models.
+\textcite{Harless1994} had undertaken their own analysis of various alternatives to EUT and suggested a stochastic model which allows for subjects to potentially disregard their underlying preferences and choose between the available options with equal probability.
+The models in this class are called the \enquote{Constant Error} or \enquote{Tremble} (TR) models.
+\textcite{Loomes1995} reconsidered and generalized a model initially proposed by \textcite{Becker1963} called the \enquote{Random Preference} (RP) model which, in its most popular form, allows for subjects to have some distribution of preference relations from which they randomly choose every time they evaluate a choice situation.
+Generally, any model that calls for an agent to have a distribution of preference relations belongs to the RP class.{\footnotemark}
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	There are other members of the RP model class that are less commonly utilized, one of which will be discussed later.
+	For now, when referring to the RP model, we refer to the formulation specified by \textcite{Loomes1995}, where one preference relation is drawn per decision situation.
+}
+
+A less popular class of stochastic choice models proposed by \textcite{Machina1985} and \textcite{Chew1991}, suggests that subjects have deterministic preferences for \enquote{stochastic options} and thus deliberately engage in adding randomness to their choices.
+That is, subjects could have convex indifference curves in the Marshack-Machina Triangle space,{\footnotemark} and therefore a probabilistic (linear) mixture of two lotteries lies on a higher indifference curve than any two lines which lie on the same curve.
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	The Marshack-Machina Triangle was developed by \textcite{Machina1987} as a way to represent the relation of lotteries with up to 3 outcomes and preferences for those lotteries.
+	Each vertex of the triangle represents an outcome, and any point in the triangle represents a lottery.
+	Any point on a vertex of the triangle represents a lottery with a 100\% composition of one outcome.
+	Any interior point represents a lottery composed of a mixture of outcomes, with the relative proportion of any outcome in the lottery defined by its geometric distance from its corresponding vertex.
+	If the independence axiom holds, a straight line between any two points in the triangle space indicates all the lotteries to which agent would be indifferent.
+	Parallel lines thus indicate either an increase or decrease in preference.
+	A strictly convex curve connecting 2 lottery points represents a violation of the independence axiom.
+}
+
+\textcite{Hey1995} tested the \enquote{stochastic options} theory of \textcite{Machina1985} using the \enquote{Quadratic Mixture} model of \textcite{Chew1991} and find strong evidence against it.
+The model itself has some restrictive aspects for estimation: \enquote{First, the likelihood function, although continuous everywhere, is not smoothly so; there are kinks in the function with resulting discontinuities in the derivatives.
+Second, for certain parameter sets, certain observations are \textit{impossible}} [emphasis in the original]\parencite*[164]{Hey1995}.
+Out of a sample of 45 subjects, \textcite{Hey1995} find only 4 subjects that they can fit the model to at all, and of these 4, for only 2 does the \enquote{Quadratic Mixture} model fit better than a RE type model, and of these 2, for only one subject are the estimated coefficients plausible \parencite*[167]{Hey1995}.
+It appears that continued investigation of this class of models has essentially ceased since these results.
+Keeping with this pattern, when referring to stochastic models for the remainder of this text we do not include this class of models in our definition.
+
+These general classes of stochastic choice constitute the bulk of the research on stochastic models, with the RE models possibly being the most widely employed models when estimating utility parameters from choice data.
+To better understand these models and their implication, we will begin by defining some high level notation to characterize how these models operate.
+
+For each option $j$ in a set of alternatives $t$, stochastic models generate a probability that an agent will select that option from the set.
+These probabilities are referred to as \enquote{choice probabilities} and are generally related to an underlying determinisitic relation of preference.
+First, we will define the Rank Dependent Utility (RDU) structure as formulated by \textcite{Quiggin1982}, which nests EUT as a special case, as the deterministic structure of preference.
+Second we will define the manner in which RP, TR, and RE  models relate this deterministic structure to the stochastic specification of probabilities of choice.
+
+RDU is characterized by the following function:
+\begin{equation}
+	\label{eq:RDU}
+	RDU = \sum_{i=1}^{I} \left[ w_i(p) \times u(x_i) \right]
+\end{equation}
+\noindent where $i$ indexes the outcomes, $x_i$, from $\{1,\ldots,I\}$ with $i=1$ being the smallest outcome in the lottery and $i=I$ being the greatest outcome in the lottery, $u(\cdot)$ returns the utility of its argument, $w_i(\cdot)$ returns the decision weight applied to outcome $i$ given the distribution of probabilities ranked by outcome, $p$.
+
+The utility function $u(\cdot)$ can take many functional forms due to its property of being unique up to an affine transformation, and can be normalized in various was, as illustrated by \textcite{Hey1994}.
+It will sometimes be useful to use a functional form to make certain concepts clearer and in such cases the constant relative risk aversion (CRRA) function will be employed:
+\begin{equation}
+	\label{eq:CRRA}
+	u(x) = \frac{x^{(1-r)}}{(1-r)}
+\end{equation}
+\noindent where $r$ is the coefficient of relative risk aversion \parencite{Pratt1964}.
+Other popular functions such as the constant absolute risk aversion (CARA) function, or the Expo-Power function \parencite{Saha1993} can also be employed without loss of generality.
+
+The decision weight function, $w_i(\cdot)$, takes the form:
+\begin{equation}
+	\label{eq:dweight}
+	w_i(p) = 
+	\begin{cases} 
+		\omega\left(\displaystyle\sum_{j=i}^I p_j\right) - \omega\left(\displaystyle\sum_{k=i+1}^I p_k\right) & \text{for } i<I \\
+		\omega(p_i) & \text{for } i = I 
+	\end{cases}
+\end{equation}
+\noindent where the probability weighting function, $\omega(\cdot)$, can take a variety of parametric or non-parametric forms.
+Many functions have been proposed for $\omega(\cdot)$; One is the \enquote{Inverse-S} shaped function popularized by \textcite{Tversky1992}:
+\begin{equation}
+	\label{eq:pw:kahneman}
+	\omega(p_i) = \frac{p_i^\gamma}{\biggl(\sum\limits_{k=0}^{I-1} p_k^\gamma\biggr)^{ \frac{1}{\gamma} } }
+\end{equation}
+
+\noindent Another is the power function used by \textcite{Quiggin1982}:
+\begin{equation}
+	\label{eq:pw:quiggin}
+	\omega(p_i)=p_i^\gamma
+\end{equation}
+
+\noindent The flexible function proposed by \textcite{Prelec1998} is also popular:
+\begin{equation}
+	\label{eq:pw:prelec}
+	\omega(p_i)=\exp(-\beta(-\ln(p_i))^\alpha)
+\end{equation}
+
+\noindent where $\alpha > 0$ and $\beta > 0$.
+In all cases there exist values for the shaping parameters which allow $w_i(p) = p_i$, the special case of EUT.
+When both a decision weight function applied to probabilities and a utility function applied to outcomes are defined, we have what is called a utility structure.
+
+To make a general point about notation, consider lottery $j$ with $I_j = 2$ possible outcomes, and lottery $k$ with $I_k = 3$ possible outcomes. 
+Suppose that $x_i^j \neq x_i^k \; \forall i$.
+A lottery $j^*$ can be constructed with $I_{j^*}= I_j + I_k = 5$ such that it is equivalent to lottery $j$ by adding the outcomes in lottery $k$ to lottery $j$ and setting the probabilities associated with each of these added outcomes equal to $0$.
+Similarly for lottery $k$.
+This equivalence property holds for all EUT and RDU functional forms as zero probability outcomes are given no weight in either structure.
+The common set of combined outcomes is what \textcite{Wilcox2008} refers to as the choice scenario's \enquote{context}.
+Throughout this chapter, the $j^*$ form of lotteries will be assumed whenever utilizing notation concerning the composition of individual lotteries.
+This allows for identical notation to be utilized when comparing the probabilities of ranked outcomes across lotteries.
+
+We now define a single choice scenario or task, $t$, as a discrete set of $J$ mutually exclusive options from which a subject is asked to select one for payment.
+The most common form of such a task is a binary choice problem where subjects are presented with 2 alternatives and asked to select one for payment, $t=\left\{X_1,X_2\right\}$ .
+Each element of $t$, $X_j$, is a vector of the option's observable characteristics, such as various outcomes and the associated probability of those outcomes in a lottery.
+When presented with such a task, should the subject have a deterministic choice process and preference structure, the subject is assumed to choose option $j$ over the alternative $k$ if and only if the utility of option $j$ was at least as great the utility of option $k$:
+\begin{equation}
+	\label{eq:ychoice}
+	y_t = j \;\Leftrightarrow\; X_{jt} \succcurlyeq X_{kt} \;\Leftrightarrow\; G(\beta_n , X_j) \geq G(\beta_n , X_k)
+\end{equation}
+
+\noindent where $G(\cdot)$ is some utility structure such as RDU in equation (\ref{eq:RDU}), $\beta_n$ is the unobservable vector of parameters of the utility structure for subject $n$, such as probability weights and utilities of outcomes, $X$ is defined above, and $y_i=j$ is a function that simply records which option $j$ is selected.
+
+In this deterministic case, the preference relation $\succcurlyeq$ provides all the necessary conditions for the creation of a utility function $G(\cdot)$, meaning it is complete, transitive, and continuous.
+Since this is the case, $\succcurlyeq$ necessarily provides a complete ranking of all the available alternatives in task $t$.
+It will be convenient to denote this ranking explicitly throughout this chapter by setting the $j$ subscript of option $X_{jt}$ equal to its ranking in task $t$:
+\begin{equation}
+	\label{eq:outcomerank} 
+	X_{1t} \succcurlyeq^n X_{2t} \succcurlyeq^n \ldots \succcurlyeq^n X_{jt} \succcurlyeq^n \ldots \succcurlyeq^n X_{Jt}\\
+\end{equation}
+
+\noindent This allows us to rank the utility of the $J$ options in task $t$ likewise:
+\begin{equation}
+	\label{eq:utilityrank}
+	G(\beta_n,X_{1t}) \geq G(\beta_n,X_{2t}) \geq \ldots \geq G(\beta_n,X_{jt}) \geq \ldots \geq G(\beta_n,X_{Jt})
+\end{equation}
+
+With $y_t$ defined and the options in task $t$ ranked, we can also define the set of options in task $t$ not selected by subject $n$ as follows:
+\begin{equation}
+	\label{eq:emptyset}
+	Z = t \,\backslash\, y = \{z \in t \;|\; z \notin y \}
+\end{equation}
+
+Similar to equation (\ref{eq:utilityrank}), we can set the $j$ subscript of the $J-1$ unchosen options in $Z$ equal to their respective ranking in $Z$:
+\begin{equation}
+	\label{eq:Zutilityrank}
+	G(\beta_n,X_{1t}^Z) \geq G(\beta_n,X_{2t}^Z) \geq \ldots \geq G(\beta_n,X_{jt}^Z) \geq \ldots \geq G(\beta_n,X_{(J-1)t}^Z)
+\end{equation}
+ 
+With these base definitions in place, generalized formulations of the classes of stochastic models can be specified.
+As stated above, the RP model characterizes each observed choice made by an agent as conforming to a deterministic preference relation which is drawn at random from a set of such relations whenever the agent is confronted with a choice scenario.
+While the set preference relations can have a discrete distribution, the RP model is most commonly discussed in terms of utility functions with the relevant parameter vector, $\beta_n$, being continuously distributed according to some density function, $F_n(\beta | \alpha)$.
+In this definition, $\alpha$ is a vector containing the necessary parameters to define the shape of the distribution.
+Thus the probability of choice in a RP model is simply the probability that a vector $\beta_n^*$ is drawn from the distribution governed by $F_n(\beta | \alpha)$ that would deterministically satisfy that choice:
+\begin{equation}
+	\label{eq:RP0}
+	{\Prob}(y_t=j) = {\Prob}(j=1) = {\Prob}\left( \beta_n^* \,|\, G(\beta_n^*,X_{jt}) \geq G(\beta_n^*,X_{1t}^Z)\right)
+\end{equation}
+
+\noindent If we let $ B_t = \left\{ \beta_n^* \,|\, G(\beta_n^*,X_{jt}) \geq G(\beta_n^*,X_{1t}^Z)\right\}$, given the density function $F_n(\beta | \alpha)$:
+\begin{equation}
+	\label{eq:RP.f}
+	{\Prob}(y_t=j) = \int_{\beta \in B_t} dF_n(\beta|\alpha)
+\end{equation}
+
+Note the implication concerning first order stochastic dominance (FOSD){\footnotemark} with the above specification. Should $X_j$ FOSD $X_k$, there is no monotonic preference relation $\beta^*$ that will allow $G(\beta^*,X_{kt}) \geq G(\beta^*,X_{jt})$.
+Thus, if we observe $y_t = k$ in such a scenario, the RP model collapses econometrically.
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	Lottery $j$ first order stochastically dominates (FOSD) lottery $k$ iff:
+	\begin{align*}
+		\forall \, x_i , \; \sum_i^I p_i^j \; \geq \; \sum_i^I p_i^k \quad \textit{and} \quad \exists \, x_i , \; \sum_i^I p_i^j \; > \; \sum_i^I p_i^k 
+	\end{align*}
+	where $i$ ranks the outcomes of lotteries $j$ and $k$ as described in equation (\ref{eq:RDU}).
+	All deterministic theories of utility require the dominating option to be chosen over the dominated option.
+}
+
+RE models assume that the utility of each option is evaluated with some error term, which is assumed to be homoscedastic with the SU model and generally assumed to be heteroscedastic with its derivatives, but with a mean of $0$ in either case.
+A choice is characterized as incorporating this error.
+Assuming a binary choice scenario, the error terms and utility functions must satisfy the following given the choice of option $j$:
+\begin{align}
+	\label{eq:RE0}
+	\begin{split}
+		G(\beta_n,X_{jt}) + \epsilon_{jt} \;&\geq\; G(\beta_n,X_{kt}) + \epsilon_{kt}\\
+		\left[G(\beta_n,X_{jt}) + \epsilon_{jt}\right] \;&-\; \left[G(\beta_n,X_{kt}) + \epsilon_{kt}\right] \geq 0
+	\end{split}
+\end{align}
+
+\noindent Setting $\epsilon_{jt} - \epsilon_{kt} = \epsilon_t\lambda_n$, where $\lambda_n$ is proportional to the standard deviation of $\epsilon_t$,{\footnotemark} we can rewrite equation (\ref{eq:RE0}) as:
+\begin{align}
+	\label{eq:RE1}
+	\begin{split}
+		G(\beta_n,X_{jt}) &- G(\beta_n,X_{kt}) + \epsilon_t\lambda_n \geq 0\\
+		\epsilon_t \geq \frac{1}{\lambda_n} \left[ G(\beta_n,X_{jt}) \right.  &- \left. G(\beta_n,X_{kt}) \right]
+	\end{split}
+\end{align}
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{ 
+	It is useful to recognize that what is described as \enquote{noise} in the data is determined by the variance (or standard deviation) of the error term, not its mean.
+	If the sign and magnitude of the mean of the error were anything but 0, choices would reveal a biased preference, but if the variance is sufficiently small, the choices are unlikely to reveal apparent deviations from a utility theory.
+}
+
+\noindent Thus for RE models, the probability option $j$ is chosen is given by:
+\begin{align}
+	\label{eq:RE.2}
+	\begin{split}
+	{\Prob}(y_t = j) &= {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda_n} \left[ G(\beta_n,X_{kt}) - G(\beta_n,X_{jt}) \right] \right)\\
+	&= 1 - F\left( \dfrac{G(\beta_n,X_{kt}) - G(\beta_n,X_{jt})}{D(\beta_n,X_t)\lambda_n^* }  \right)
+	\end{split}
+\end{align}
+
+\noindent where $\lambda^*$ is a precision parameter that remains after $\lambda_n$ is adjusted by $D(\beta_n,X)$ for heteroscedastic models.
+As $\lambda^*$ approaches $0$, choice probabilities approach $0$ or $1$, while as $\lambda^*$ approaches $\infty$, choice probabilities approach $0.5$.
+The asterisk will be dropped from the remaining formulae to save space.
+$F(\cdot)$ is some cumulative distribution function (cdf) such that $F(0) = 0.5$ and $F(x) = 1 - F(-x)$.
+Usually $F(\cdot)$ is taken to be either the normal or logistic function, but any distribution function satisfying the previous conditions is acceptable.
+When discussing the SU model in throughout this chapter, what is referred to is the model specified in equation (\ref{eq:RE.2}) with $D(\beta_n,X_t) = 1$.
+This results in the SU model being homoscedastic.
+
+If utilizing the logistic function, equation (\ref{eq:RE.2}) resembles a latent index model popularly used in a variety of econometric applications, but with a non-linear latent index.
+While equation (\ref{eq:RE.2}) represents the common 2 option case, using the logistic cdf, the RE model can be rewritten to accomodate $J$ alternatives:
+\begin{equation}
+	\label{eq:RE.f}
+	{\Prob}(y_t=j) =\dfrac{\exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)}{ \displaystyle\sum_{i=1}^J \left[ \exp\!\left( \dfrac{ G(\beta_n,X_{it}) }{ D(\beta_n,X_{t})\lambda_n }  \right)  \right]  } 
+\end{equation}
+
+With the TR model the \enquote{observed} probability of choice, ${\Prob}(y_n=j)$, needs to be distinguished from the choice probability which would be modeled should the tremble not exist, ${\Prob}_0(y_n=j)$.
+The agent is said to \enquote{tremble} with probability $\phi_n$ and select among the available options with equal probability, and with probability $(1-\phi_n)$ select an option according to the underlying process:
+\begin{equation}
+	\label{eq:TR.f}
+	{\Prob}(y_t=j) = (1-\phi) {\Prob}(y_t=j) + \frac{\phi}{J}
+\end{equation}
+When \textcite{Harless1994} proposed the TR model, the underlying choice process was made deterministic, assuming that ${\Prob}_0(y_t=1) = 1$.
+\textcite{Loomes2002} however, proposed that ${\Prob}_0(y_t=j)$ was generated from the RP model as specified in equation (\ref{eq:RP.f}).
+
+\subsection{The Empirical Support for Stochastic Models}
+
+The previous section provided for the econometric specification of the classes of stochastic models typically utilized in the literature to estimate parameters from choice data.
+The choice of model to utilize however, has not been ad hoc; 
+because each stochastic model assigns very specific assumptions to the nature of the \enquote{noise} or randomness in choice data, these assumptions \enquote{amount to identifying restrictions which may affect the relative performance of the theories under scrutiny} \parencite[1091]{Ballinger1997}.
+In much the same way as the various alternatives to EUT were proposed and then received rigorous testing, stochastic models have also been rigorously tested on the basis of their identifying restrictions.
+
+\textcite{Ballinger1997} engaged in detailed tests of the SU and TR models, along with various assumptions about the heterogeneity of subjects, and find generally mixed results.
+The various models must be combined with somewhat unsavory assumptions about the nature of the heterogeneity of the population to make them statistically plausible.
+The TR model performs the worst, and requires the most assumptions.
+Ultimately \textcite[1104]{Ballinger1997} conclude by continuing the call for development and testing of the stochastic component of choice.
+
+\textcite{Carbone1997} investigates the RP model, in addition to the TR and SU models, by estimating each model for each subject in the experiment, and finds that the SU model performs the best of the three, with RP a close second.
+\textcite[307]{Carbone1997} notes that if the set of alternative lotteries contains a lottery that stochastically dominates the others, the RP model requires the subject to always select the stochastically dominating lottery from the set, and that \enquote{this feature is of importance as it seems to capture well the experimental evidence.} 
+This feature of RP models, however, presents a problem when estimating preferences from choice data because although violations of FOSD typically constitute a relatively small fraction of choices observed in experiments, this small fraction is frequently replicated in experiments.
+
+\textcite{Loomes1998} (LS) performed a similar investigation of the RP, TR, and SU models and strongly reject the TR model and to a lesser extent the SU model.
+The SU model over-predicts violations of FOSD; however, they note, as \textcite{Carbone1997} did, that even one violation of stochastic dominance in a dataset is sufficient to cause the stand-alone RP model to collapse econometrically, and thus LS reject the model due to the few observations where stochastic dominance was violated.
+LS note however that the RP model can potentially accommodate these violations if it is combined with another stochastic choice model, such as the TR model.
+This point will be discussed in more detail subsequently.
+LS also report systematic deviations from EUT at the edges of the Marshak-Machina triangle, and suggest that these cannot be fully accommodated by any of the stochastic models.
+In these instances, they suggest it is EUT that fails, not the stochastic model.
+
+\textcite{Loomes2002} also test the RP, TR, and SU models.
+They recognize that \enquote{\textins*{t}here is no obvious reason to assume that only one of these forms of randomness is present} \parencite*[106]{Loomes2002}.{\footnotemark}
+When faced with a choice situation, an agent may be best characterized as randomly drawing a preference from some set of preferences (RP model), evaluating the choice situation given that randomly drawn preference with some error (SU model), and then, with some positive probability, selecting an option irrespective of the agent's evaluation (TR model).
+Practically, this means estimating additional parameters and making clear the identifying restrictions of any combination of these models, but mathematically these models are not mutually exclusive.{\footnotemark}
+
+\addtocounter{footnote}{-2}
+\stepcounter{footnote}\footnotetext{ 
+	This is a point with which we only partly agree.
+	While we agree that there isn't an obvious reason why some models cannot be jointly present, there \textit{is} an obvious restriction on combining stochastic models: normative coherence.
+	As will be expanded on later, the RP model fails to satisfy this restriction.
+}
+\stepcounter{footnote}\footnotetext{
+	To illustrate the combination of RP, RE, and TR models derived in equations (\ref{eq:RP.f}), (\ref{eq:RE.f}), and (\ref{eq:TR.f}):
+	\begin{align*}
+		{\Prob}(y_t=j) = \frac{\phi}{J} + (1-\phi)\int_{\beta \in B_t}  {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda} \left[ G(\beta_n,X_{kt}) - G(\beta_n,X_{jt}) \right] \,\big|\, \beta \right) dF_n(\beta|\alpha)
+	\end{align*}
+	This model would require the estimation of $\alpha, \lambda$ and $\phi$.
+}
+
+\textcite{Loomes2002} report that the best fitting stochastic model was RP plus TR paired with RDU.
+At least two other interesting conclusions were made: The estimated probability of TR diminished with the number of questions answered by the subjects, as did apparent deviations from EUT, and in addition, when pairs with one lottery that stochastically dominates the other are removed from estimation, it is no longer clear that the RP model is superior to the SU model.
+This result suggests that \enquote{trembles} can be un-learned.
+\textcite{Hey2001} and \textcite{Moffatt2002} report similar results from experiments where it appears that noise is reduced with repetition.
+\textcite{Hey2001} also reports diminishing deviations from EUT with repetition.
+
+Other than the prominent TR, SU, and RP models, there are a variety of alternatives that receive less attention, most of which are derivatives of the SU model with heteroscedastic error terms as opposed to the homoscedastic error of SU.{\footnotemark}
+While TR and RP models can be manipulated in different ways to possibly explain more of the observed choice behavior,{\footnotemark} such attempts often leave underlying, core problems with these models unattended to.
+For instance, if TR models predict that with some probability choices will be made irrespective of underlying preferences, why then should this probability vary depending on certain special cases of choice scenarios faced by the subject? Even with flexible distributions of RP models, there is no underlying utility theory which allows violations of FOSD, hence standard, stand-alone RP models can never accommodate such observed violations.{\footnotemark} 
+In contrast, the ability to manipulate the error term of the SU model in a tractable manner is part of what makes the SU model and its derivatives such popular models of stochastic choice.
+
+\addtocounter{footnote}{-3}
+\stepcounter{footnote}\footnotetext{ The SU model posits an error term with a variance that is independent of the domain of the utility function it is added to, thus it is said to be homoscedastic.
+If the error term is correlated with some part of the domain of the utility function it is added to, it is said to be heteroscedastic.
+There are many ways in which this correlation may occur, leading to a large variety of heteroscedastic models.}
+\stepcounter{footnote}\footnotetext{ E.g, trembles could apply differently to FOSD pairs and non-FOSD pairs, RP models could assume flexible distributions of the agent's preferences such as the Logit-Normal or Gamma distributions.}
+\stepcounter{footnote}\footnotetext{ However, non-standard RP models can sometimes accommodate violations of FOSD.
+An example of this is a model which specifies agents as randomly drawing a new preference relation for every option in a set of alternatives instead of randomly drawing one preference relation per set of alternatives.
+we will explore the implications of this type of model, which we call the Random Preference Per Option (RPPO) model, later.
+For now, we will note that the RPPO model is very rarely utilized in the literature on stochastic models.}
+
+To understand the motivations for developing the differing SU derivative models, we will briefly describe the concept of stochastic transitivity.
+Borrowing from \textcite[210]{Wilcox2008}, consider three pairs of lotteries: $\{C,D\}$, $\{D,E\}$, and $\{C,E\}$, designated lotteries $1$, $2$, $3$, respectively.
+$P_1$ is the probability of choosing $C$ in lottery $1$, and $P_2$ and $P_3$, are the probabilities of choosing $D$ and $C$ from lotteries $2$ and $3$, respectively.
+We can define three forms of stochastic transitivity as follows:
+\begin{align*}
+	\text{Strong Stochastic Transitivity (SST):} \qquad \mathit{min}(P_1,P_2) \geq 0.5 &\Rightarrow P_3 \geq \mathit{max}(P_1,P_2) \\
+	\text{Moderate Stochastic Transitivity (MST):} \qquad \mathit{min}(P_1,P_2) \geq 0.5 &\Rightarrow P_3 \geq \mathit{min}(P_1,P_2)\\
+	\text{Weak Stochastic Transitivity (WST):} \qquad \mathit{min}(P_1,P_2) \geq 0.5 &\Rightarrow P_3 \geq 0.5
+\end{align*}
+
+Stochastic transitivity (ST) enforces a probabilistic form of transitivity for the same reasons that the non-stochastic transitivity axiom is employed for deterministic theories of choice: it is a mathematically convenient, and normatively useful way to model the choice process of a viable economic agent.
+Its consequence is that agents must make choices in a way that are at least stochastically consistent with economic success in an incentivized environment.
+Each version of ST makes descriptive and normative predictions which are operationalized by the stochastic model which incorporates them.
+For each proposed model described below, a particular version of ST is utilized because of its perceived superiority either descriptively or normatively.
+The SU model, for instance, requires SST, whereas most of the proposed derivatives of SU attempt to relax this requirement in favor of either MST or WST.
+
+\textcite{Hey1995a} proposed three RE models with heteroscedastic error terms and conducted an experiment with 80 subjects to compare the heteroscedastic models to the homoscedastic SU model, (H.1).
+In all three models, the Normal distribution was utilized for $F(\cdot)$.
+The first heteroscedastic model, (\ref{eq:Hey2}), modeled the variance of the error as an exponential function of the time taken by the subject to give an answer to the question $m$ and a corresponding coefficient:
+\begin{align*}
+	\tag{H.2}
+	\label{eq:Hey2}
+	D(\beta_n,X) &= \exp(\alpha \times m)\\
+	\lambda_n &= 1
+\end{align*}
+Thus if $\alpha > 0$, the longer (shorter) it takes a subject to answer the question, the more (less) \enquote{noisy} the subject's responses should be.
+
+The second heteroscedastic model, (H.3), modeled the error as an exponential function of the absolute value of the difference in utility of the alternatives multiplied by a coefficient, $\alpha$:
+\begin{align*}
+	\tag{H.3}
+	\label{eq:Hey3}
+	D(\beta_n,X) &= \exp\left(\alpha \times \lvert G(\beta_n,X_{kt}) - G(\beta_n,X_{jt}) \rvert\right)\\
+	\lambda_n &= 1
+\end{align*}
+Thus, if $\alpha < 0$, the larger the difference in utility of the alternatives, the smaller the noise.
+
+The third heteroscedastic model, (H.4), modeled the error as an exponential function of the \enquote{difficulty} of the question, $d$, multiplied by a coefficient, $\alpha$.
+In this specification, $d$ is the average number of outcomes per option in the set of alternatives.
+\begin{align*}
+	\tag{H.4}
+	\label{eq:Hey4}
+	D(\beta_n,X) &= \exp(\alpha \times d)\\
+	\lambda_n &= 1
+\end{align*}
+Thus, if $\alpha > 0$, the greater (smaller) the average number of outcomes per option, the greater (smaller) the noise.
+All of the heteroscedastic models nest the homoscedastic SU model as a special case (when $\alpha=0$).
+While (\ref{eq:Hey3}) and (\ref{eq:Hey4}) did not perform particularly well, (H.1) was rejected in favor of (\ref{eq:Hey2}) for 27 of 80 subjects at the 1\% level, and 36 subjects at the 5\% level \parencite*[639]{Hey1995a}.
+
+Another derivative called the \enquote{Wandering Vector} (WV) model was proposed initially by \textcite{Carroll1980} and expanded on by \textcite{Carroll1991}.
+It makes the standard deviation of the error proportional to the Euclidean distance of the probability vectors of the two alternative lotteries, $j$ and $k$.
+\begin{align*}
+	D(\beta_n,X) = \left[  \sum_{i=1}^I (p_i^j - p_i^k)^2 \right]^{1/2}
+\end{align*}
+The original rationale for this model was to incorporate MST into a stochastic model: \enquote{for many realistic multidimensional stimulus domains, SST seems \textit{too} strong.
+On the other hand, WST seems too weak.} [emphasis in the original] \parencite*[343]{Carroll1991}.
+This model was proposed in the psychology literature to accommodate noisy perceptions of multidimensional stimuli, but this can be utilized as an economic model by reinterpreting the noisy perception of stimuli as noisy measurement of utility.
+
+\textcite{Wilcox2011} expands on the \enquote{Contextual Utility} (CU) model initially proposed in \textcite{Wilcox2008}.
+It makes the standard deviation of the error proportional to the difference in utility of the greatest non-zero probability outcome and the utility of the least non-zero probability outcome.
+\begin{align*}
+	\label{eq:W.cu}
+	\begin{split}
+		&D(\beta_n,X_t) = \mathit{max}[u(x_{it})] - \mathit{min}[u(x_{it})]\\
+		&\mathit{st.}\; w_i(x_{it}) \neq 0
+	\end{split}
+\end{align*}
+This model also satisfies MST and additionally allows for the \enquote{more risk averse than} relation of \textcite{Pratt1964} to be extended to the stronger \enquote{stochastically more risk averse than} relation.
+The \enquote{stochastically more risk averse than} relation of the CU model allows for interpersonal comparisons of risk-aversion in a way that is potentially more meaningful than with the SU model \parencite*[221]{Wilcox2008}.
+
+\textcite{Busemeyer1993} propose \enquote{Decision Field Theory} (DFT), which is limited in that it is only applicable to a pair of alternatives where one alternative is a certainty and the other is a lottery of only 2 outcomes.
+If we define the set of outcomes that belong to the lottery as $H = \{x \in X_j \,|\, p_x < 1\} = \{h_1,h_2\}$ where $h_2 > h_1$ we have:
+\begin{align*}
+	D(\beta_n,X) = \left[ u(h_2) - u(h_1) \right] \sqrt{w_{h_1}(p)[1-w_{h_2}(p)]}
+\end{align*}
+The reasoning behind DFT is ultimately psychological.
+\textcite{Busemeyer1993} posit that in cases where objective probabilities of outcomes are unknown, an agent may sample from past experiences with the same decision problem to estimate what the objective probabilities are.
+This kind of decision problem is deemed choice under \enquote{uncertainty} rather than choice under \enquote{risk}.
+\enquote{Decision field theory was developed for this more natural type of uncertain decision problem} \parencite*[436]{Busemeyer1993}.
+
+\textcite{Blavatskyy2014} proposes a model (BF) deemed \enquote{Stronger Utility} similar to the \enquote{incremental EU advantage model} initially proposed by \textcite{Fishburn1987}.
+It makes the standard deviation of the error proportional to the difference in the utility of two abstract lotteries.
+The first abstract lottery is constructed to stochastically dominate all lotteries in the proposed decision scenario, but can itself be stochastically dominated by any other lottery which also scholastically dominates the proposed lotteries.
+The second abstract lottery is constructed to be stochastically dominated by both lotteries proposed in the decision scenario, while stochastically dominating any other lottery which is also stochastically dominated by both of the proposed lotteries.
+For FOSD pairs, this specification attaches a probability of 1 to the dominating option and 0 to the dominated  option.
+
+The three models proposed by \textcite{Hey1995} don't make any special predictions about the likelihood of choosing options in particular scenarios, such as with FOSD pairs, other than to hypothesize that they will improve on the explanatory fit of the SU model.
+They also require the estimation of additional parameters.
+The (H.2) and (H.4) models are very similar to the method utilized by \textcite[142]{Harrison2008a} in which observable characteristics are modeled as linear covariates of the core parameters to be estimated.
+However, \textcite{Hey1995} models the standard deviation to be exponential functions of these observable characteristics instead of linear functions, making the heteroscedasticity multiplicative rather than additive.
+The linear specification utilized by \textcite{Harrison2008a} is used to control for observable heterogeneity of subjects, not aspects of the choice scenario.
+Hey's (H.3) model, however, seems to be in the same line of thinking as the subsequent derivatives of the SU model.
+
+The other RE models mentioned above, however, often do add new implications which generally help ease some of the shortcomings of the SU model.
+The CU and the DFT models both have the benefit of extending the \enquote{more risk averse than} relation of \textcite{Pratt1964} to the \enquote{stochastically more risk averse than} relation.
+DFT additionally requires that as the lottery becomes closer to first order stochastically dominating the {\CE}, the probability of selecting the dominant option approaches 1.
+The BF model also requires that the probability of selecting the dominant option is always 1.
+Both the WV and the CU models enforce MST as opposed to the more restrictive strong SST,  as required by SU models.
+The CU, WV, DFT, and BF models don't require the estimation of any additional parameters on top of those required by the SU model, so any improvement of explanatory fit by them is free in terms of degrees of freedom used in estimation.
+
+\textcite{Wilcox2008} provides a detailed discussion of the necessary implications of the TR, RP,  and SU models, along with some of the SU model's derivatives.
+He also discusses various well known events which can sometimes be attributed to stochasticity in choice: the Common Ratio Effect, low-frequency, but persistent, violations of FOSD, and changes in choice probabilities when lotteries are simply scaled.{\footnotemark}
+Treatment is also given to whether models hold to various degrees of stochastic transitivity, whether they are descriptive about the \enquote{more risk averse than} relation, and how well the various models perform at predicting in-sample and out-of-sample choices.{\footnotemark}
+
+\addtocounter{footnote}{-2}
+\stepcounter{footnote}\footnotetext{ Borrowing again from \textcite[249]{Wilcox2008}: Consider four pairs of lotteries, $\{C,E\}$, $\{D,E\}$,$\{C,E'\}$, $\{D,E'\}$, and make the probability of selecting the first lottery in pair $\{C,E\}$, $P_{\mathit{ce}}$, and similarly for the remaining pairs.
+Simple Scalability requires that $P_{\mathit{ce}} > P_{\mathit{de}} \iff P_{\mathit{ce}'} > P_{\mathit{de}'}$.
+This requirement is only met by transitive utility structures, such as EUT and RDU, combined with stochastic models that meet SST.}
+\stepcounter{footnote}\footnotetext{ This particular topic was given extensive attention in \textcite{Wilcox2007}}
+
+\textcite{Wilcox2008} estimates WV, CU, RP, SU, and an early variation of SU proposed by \textcite{Luce1958} called \enquote{Strict Utility} on the dataset from \textcite{Hey2001}.
+He employs the  method developed by \textcite{Vuong1989} to test if the log-likelihoods of the fitted models are significantly different from each other.
+\textcite[273]{Wilcox2008} finds that given an RDU structure, the CU model fits significantly better ($p=0.013,p<0.0001$) than the WV and \enquote{Strict Utility} models in-sample, and significantly better ($p<0.0001, p=0.0005, p<0.0001, p<0.0001$) than the SU, RP, WV, and \enquote{Strict Utility} models out-of-sample.
+Given an RDU structure, the RP model fits significantly better ($p=0.0388,p<0.0001$) than the WV and \enquote{Strict Utility} models in-sample, and significantly better ($p=0.049, p<0.0191, p<0.0001$) than the SU, WV, and \enquote{Strict Utility} models out-of-sample.
+Neither the CU or RP models fit significantly better or worse than the SU model in-sample with a RDU structure.
+In all cases where the CU and RP models both fit better than a third model, the CU model fits better by a greater margin than the RP model.
+
+With an EUT structure, the CU model significantly bests every model except the SU model in-sample, and bests every model out-of-sample, while the RP model fits significantly worse ($p<0.058$) than the SU model and only bests the \enquote{Strict Utility} significantly ($p<0.0001$) in-sample, but fits significantly better ($p=0.051,p=0.016,p=0.078$) than the SU, WV, and \enquote{Strict Utility} models out-of-sample.
+In addition to fitting better than the RP model in a direct comparison, the CU model fits better than every other model that the RP model also bests, and by a greater margin than the RP model.
+
+From these results it is clear that \enquote{Strict Utility} is a poor model in terms of goodness of fit given the alternatives: it doesn't significantly fit better than any alternative model, regardless of the utility theory, either in-sample or out-of-sample.
+The WV model only does marginally better: the only model it fits significantly better than is the \enquote{Strict Utility} model.
+
+The more interesting story in light of the literature up to this point is the comparison of the SU, CU, and RP models.
+Considering in-sample fit, the SU model fits significantly better than the RP model with EUT, and with RDU there is no significant difference in goodness of fit.
+Out-of-sample the RP model fits  significantly better than the SU model under both EUT and RDU.
+This echos some of the mixed evidence up to this point concerning which of these two models is superior.
+New to the competition are the various SU derivatives.
+Two of these, the WV and \enquote{Strict Utility} models, perform relatively poorly in goodness of fit compared to the alternatives, but CU is shown to have generally superior performance compared to all the proposed models.
+The CU model has a greater log-likelihood than than all of the other models in all of the various test conditions: in-sample or out-of-sample, with EUT or RDU.
+This difference is statistically significant for many of the comparisons as noted above.
+
+This discussion is not meant to be an exhaustive list of every proposed derivative of the SU model and their implications.
+Such a list would be very long and many of these derivative models deserve detailed discussion in their own right.
+This discussion simply serves to demonstrate that, as put by \textcite[277]{Wilcox2008}, \enquote{we are witnessing a fertile period for stochastic model innovation now.}
+Nearly all of this innovation has come from the RE class of models by changing the error term in the SU model from being homoscedastic to heteroscedastic, in very particular ways that have testable implications.
+The only apparent non-SU derived innovation was to combine the TR model with the RP model to help explain the low-frequency, but persistent, violations of FOSD observed in economic experiments.{\footnotemark}
+Given the variety of theoretical implications of the various stochastic models and the repeatedly demonstrated sensitivity of goodness of fit measures to alternative stochastic models, it is no wonder that \textcite[275]{Wilcox2008} concludes: \enquote{It is hard to escape the conclusion that decision research could benefit strongly from more work on stochastic models.} 
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{ This combination of models however is not an innovation to the RP model in itself as such a combination is just as possible with the SU model and any of its derivatives.
+As stated earlier, such a combination fails to address a core problem with the RP model: normative coherence.}
+
+While such a conclusion is undoubtedly true, there is a question relevant to economics concerning these models which has been sidelined in the continuing effort to find the \enquote{true} or \enquote{best} stochastic model: \enquote{What are the likely welfare implications of an economic agent's choices in an incentivized environment given an assumed stochastic model of choice?} This is the primary question of this chapter.
+Answering this question helps to draw the distinction between economics and decision theory or psychology.
+We will argue that answering this question puts reasonable, restricting conditions on the econometric question \enquote{what is the best stochastic model to employ?}
+
+\subsection{Utility and its Relation to Welfare}
+
+With the RDU structure defined, and the stochastic models specified, we can define the basis of what will become our proposed metrics for individual welfare: the certainty equivalent.
+For any salient lottery $X_j$, and any vector $\beta_n$, there exists some certain outcome, $\CE_j$, such that subject $n$ is indifferent between the lottery and the certainty equivalent:
+\begin{equation}
+	\label{eq:CE.indiff}
+	X_j \sim^n {\CE}_j \;\Leftrightarrow\; G(\beta_n,X_j) = G(\beta_n, {\CE}_j)
+\end{equation}
+
+Combining the RDU structure from equation (\ref{eq:RDU}) with the utility function defined in equation (\ref{eq:CRRA}), we can define the {\CE} as follows:
+\begin{align}
+	\label{eq:CEcalc}
+	\begin{split}
+		&\sum_{i=0}^{I-1} w_i(p) \frac{x_{ij}^{(1-r)}}{(1-r)} = \frac{ {\CE}_j^{(1-r)}}{(1-r)}\\
+		&{\CE}_j =  \left( (1-r) \times \sum_{i=0}^{I-1} w_i(p) \frac{x_{ij}^{1-r}}{(1-r)} \right)^{ \displaystyle\nicefrac{1}{(1-r)} }
+	\end{split}
+\end{align}
+
+Thus if we assume some vector of $\beta_n$, of which $r$ and the parameters governing $w_i(p)$ are elements, we can easily calculate the {\CE} of lottery $X_j$.{\footnotemark}
+If the utility function employed is monotonically increasing in the domain, as the CRRA function is, then this leads to the  logical corollary of equation (\ref{eq:utilityrank}):
+\begin{equation}
+	\label{eq:CErank}
+	{\CE}_{n1} \geq {\CE}_{n2} \geq \ldots \geq {\CE}_{nj} \geq \ldots \geq {\CE}_{nJ}
+\end{equation}
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{ In general, the {\CE} of any lottery can easily be calculated with numerical methods even if an analytical solution doesn't exist.
+This is because the {\CE} must lie in the interval between the lowest outcome and the highest outcome.
+Numerically, one can just iterate through this interval until equation (\ref{eq:CEcalc}) is satisfied, or employ an optimization routine to look for the {\CE} directly.}
+
+With equations (\ref{eq:CEcalc}) and (\ref{eq:CErank}), we can also see that the {\CE} can itself be considered a utility function: it is complete, transitive, and continuous, which is all that is required for a utility function to be well defined.
+Utilizing the {\CE}s of options in a task is useful because of its ability to be considered a utility function, but also because it allows utility to be normalized to the units of the outcomes.
+
+We can employ the notation used for the set of unchosen alternatives, $Z$, derived in equation (\ref{eq:emptyset}), to rank the ${\CE}$s of each unchosen alternative just as in equation (\ref{eq:Zutilityrank}):
+\begin{equation}
+	\label{eq:CEZ}
+	{\CE}_{n1}^Z \geq {\CE}_{n2}^Z \geq \ldots \geq {\CE}_{nj}^Z \geq \ldots \geq {\CE}_{n(J-1)}^Z 
+\end{equation}
+
+Utilizing these {\CE}s, four metrics are proposed to help measure welfare.
+If an agent with deterministic preferences and a deterministic choice process is presented with two lotteries to chose from, $X_1$ and $X_2$, she would choose $X_1$ and receive a welfare change of ${\CE}_1 - {\CE}_2$.
+This is the thought behind the first metric.
+With this metric, a change in welfare is measured as the difference between the {\CE} of the option chosen and the {\CE} of the highest ranked alternative option:
+\begin{equation}
+	\label{eq:WCt}
+	\Delta W_{nt} = {\CE}_{nyt} - {\CE}_{n1t}^Z = {\CE}_{nt}^R
+\end{equation}
+
+This welfare metric is similar to the notion of compensating equivalence in standard consumer theory.
+If equation (\ref{eq:WCt}) is positive, it calculates the minimum amount of money the agent would need to be compensated in order to change her choice.
+If this metric is negative, it calculates the maximum the agent should be willing to pay in order to change her choice.
+
+Another metric, which also utilizes the {\CE}s, characterizes welfare received by choosing an option as a proportion of the {\CE} of the option chosen and the {\CE} that was ranked highest in the task:
+\begin{equation}
+	\label{eq:WPt}
+	\%W_{nt} = \frac{ {\CE}_{ny} }{ {\CE}_{n1} }
+\end{equation}
+
+\noindent A variation of (\ref{eq:WCt}) which can be used to make statements about welfare across tasks could be:
+\begin{equation}
+	\label{eq:WCT}
+	\Delta W_{nT} = \sum_{t=1}^T \left( {\CE}_{nyt} - {\CE}_{n1t}^Z \right)
+\end{equation}
+
+\noindent A similar variation of (\ref{eq:WPt}) could be:
+\begin{equation}
+	\label{eq:WPT}
+	\%W_{nT} = \frac{\displaystyle\sum_{t=1}^{T} {\CE}_{ny} }{\displaystyle\sum_{t=1}^{T} {\CE}_{ny}}
+\end{equation}
+
+All of these metrics have strengths and weaknesses.
+Metric (\ref{eq:WCt}) is more relevant to the case of deterministic choice as it can change from task to task, while metrics (\ref{eq:WPt}) and (\ref{eq:WPT}) will become more relevant when discussing stochastic choice models and modest claims about inter-subject welfare.
+Any agent would be best off by making a choice which maximizes either of these metrics.
+
+\subsubsection{Special Case of Random Preferences: The Random Preference Per Option Model}
+
+Before beginning the discussion of welfare, a final model belonging to the RP class will be noted which requires a more involved explanation.
+It could be the case that an agent's choices are best characterized by a version of the RP model where a different $\beta^*_{nj}$ is drawn to evaluate every option in the set of alternatives.
+We will refer to this type of RP model as the \enquote{Random Preference Per Option} (RPPO) model.
+
+When evaluating option $j$, a standard preference relation is drawn from a distribution of preference relations that ranks all the $J$ alternatives, including option $j$, according to this preference relation:
+\begin{equation}
+	\label{eq:RPPO.jorank}
+	X_{1t} \succcurlyeq^{nj} X_{2t} \succcurlyeq^{nj} \ldots \succcurlyeq^{nj} X_{jt} \succcurlyeq^{nj} \ldots \succcurlyeq^{nj} X_{Jt}
+\end{equation}
+
+\noindent A utility function exists which represents these preference relations is shaped by $\beta_n^j$:
+\begin{equation}
+	\label{eq:RPPO.jurank}
+	G(\beta_n^j,X_{1t}) \geq G(\beta_n^j,X_{2t}) \geq \ldots \geq G(\beta_n^j,X_{jt}) \geq \ldots \geq G(\beta_n^j,X_{Jt})
+\end{equation}
+
+As was shown in equation (\ref{eq:CEcalc}), a {\CE} can be calculated for each of these $\beta_n^j$ conditional utility functions such that:
+\begin{equation}
+	\label{eq:RPPO.jCErank}
+	{\CE}^j_{n1} \geq {\CE}^j_{n2} \geq \ldots \geq {\CE}^j_{nj} \geq \ldots \geq {\CE}^j_{nJ}
+\end{equation}
+
+In equations (\ref{eq:RPPO.jorank}), (\ref{eq:RPPO.jurank}), and (\ref{eq:RPPO.jCErank}), the ordinal ranking of the set of alternatives is the same.
+As stated previously, the {\CE} of an option has the same utility function properties as $G(\cdot)$, and is additionally normalized by the units of the options themselves.
+If only one $\beta_n$ vector is drawn to derive cardinal values for the set of alternatives, we have the RP model discussed previously.
+
+But, with RPPO models, when evaluating another option $k$, such that $k \neq j$, another, potentially different, preference relation is drawn and all of the $J$ alternatives, including both $j$ and $k$, are ranked according to this preference relation:
+\begin{equation}
+	\label{eq:RPPO.korank}
+	X_{1t} \succcurlyeq^{nk} X_{2t} \succcurlyeq^{nk} \ldots \succcurlyeq^{nk} X_{jt} \succcurlyeq^{nk} \ldots \succcurlyeq^{nk} X_{Jt}
+\end{equation}
+
+\noindent A utility function exists which represents these preference relations shaped by $\beta_n^k$:
+\begin{equation}
+	\label{eq:RPPO.kurank}
+	G(\beta_n^k,X_{1t}) \geq G(\beta_n^k,X_{2t}) \geq \ldots \geq G(\beta_n^k,X_{jt}) \geq \ldots \geq G(\beta_n^k,X_{Jt})
+\end{equation}
+
+\noindent And again, a {\CE} can be calculated for each of these $\beta_n^k$ conditional utility functions such that:
+\begin{equation}
+	\label{eq:RPPO.kCErank}
+	{\CE}^k_{n1} \geq {\CE}^k_{n2} \geq \ldots \geq {\CE}^k_{nj} \geq \ldots \geq {\CE}^k_{nJ}
+\end{equation}
+
+The difference between the realizations of equations (\ref{eq:RPPO.jCErank}) and (\ref{eq:RPPO.kCErank}) is twofold.
+First, the different $\beta_n^*$ vectors may lead to different ordinal rankings of the same set of alternatives.
+Second, if $\beta_n^j \neq \beta_n^k$, then there may be two different cardinal evaluations for the same option.
+
+The RPPO model takes the cardinal value of each option, evaluated using its own $\beta_n^*$  vector, and constructs an ordinal ranking of the set of alternatives based on these individual evaluations.
+To deal with the potential issue of comparing different utility functions cardinally, the utility functions $G(\cdot)$ should be normalized somehow.{\footnotemark}
+In line with the previous discussion, we will assume a normalizing function which produces a {\CE} for each option based on its individually drawn $\beta_n^*$ vector.
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{ Without the normalization, the RPPO model requires an unusual interpretation of preference relations to accommodate particular aspects of relatively common $G(\cdot)$ functions.
+An example will be presented later that will make this clearer.}
+
+Adding the superscripts $\{1,2,\ldots,x,\ldots,X\}$  to the {\CE} to indicate the option that it is associated with, and the subscripts $\{1,2,\ldots,j,\ldots,J\}$ to the {\CE} to represent its rank in the set of alternatives conditional on its individual $\beta_n^x$ vector, we could have the following ordinal ranking:
+\begin{equation}
+	\label{eq:RPPO.CErank.f}
+	{\CE}^1_{n1} \geq {\CE}^2_{n2} \geq \ldots \geq {\CE}^x_{nj} \geq \ldots \geq {\CE}^X_{nJ}
+\end{equation}
+
+Notice that the superscripts match the subscripts in this example, but this need not always be the case.
+The superscripts represent the unranked options, while the subscripts represent the RPPO ranked options.
+The following could also represent an ordinal ranking from the RPPO model:
+\begin{equation}
+	\label{eq:RPPO.CErank.a}
+	{\CE}^3_{n1} \geq {\CE}^1_{n2} \geq \ldots \geq {\CE}^x_{nj} \geq \ldots \geq {\CE}^X_{nJ}
+\end{equation}
+
+The RPPO model, as discussed here, is characterized as having random preference parameters, but is otherwise deterministic in characterizing choice.
+That is, this RPPO model characterizes an agent as choosing the option with the highest individually evaluated {\CE}.
+Just as with the RP model, additional stochasticity can be imposed by including measurement error as with RE models and/or a tremble event as with TR models.
+For now, these additional elements create unnecessary mathematical complexity for the current discussion, but they will be touched on briefly later.
+Just as in equation (\ref{eq:emptyset}), the non-chosen options can be expressed as the set of $J-1$ alternatives in task $t$ that doesn't include the chosen option:
+\begin{equation}
+	\label{eq:RPPO:emptyset}
+	Z = t \,\backslash\, y = \{z \in t \;|\; z \notin y \}
+\end{equation}
+
+
+\noindent The RPPO model therefore constructs a choice function as follows:
+\begin{equation}
+	\label{RPPO.y0}
+	y_t = x \Leftrightarrow {\CE}_{nj}^x \geq {\CE}_{nk}^z \quad \forall z \in Z
+\end{equation}
+
+That is, $y_t$ is a function that indicates that option $x$ is chosen in task $t$ if and only if the {\CE} associated with option $x$ is greater than or equal to the {\CE} of any other option $z$.
+The probability of $y_t = x$ is determined by the joint probability of observing the set $\bigl\{\beta_n^x,\{\beta_n^Z\}\bigr\}$, such that:
+\begin{equation}
+	\label{eq:RPPO.y1}
+	{\CE}(\beta_n^x,X_{1t}) \geq {\CE}(\beta_n^z,X_{jt}) \forall z \in Z
+\end{equation}
+
+\noindent Call such a set $\mathbf{B^t_n}$.
+The probability of $y_t=x$ is therefore:
+\begin{equation}
+	{\Prob}(y_t=x) = \int_{\beta_n^x \in \mathbf{B^t_n}}\int_{\beta_n^Z \in \mathbf{B^t_n}} f_{\mathbf{B^t_n}}\!\left(\beta_n^x,\{\beta_n^Z\}|\alpha\right) \;d\beta_n^x \; d\beta_n^Z
+\end{equation}
+
+\noindent where $f_{\mathbf{B^t_n}}(\beta_n^x,\{\beta_n^Z\}|\alpha)$ is the joint density of the elements of $\mathbf{B^t_n}$, the shape of which is governed by the vector $\alpha$.
+
+\subsection[The Stochastic Money Pump: A Tool for Describing Welfare \texorpdfstring{\\}{}Accumulation]{The Stochastic Money Pump: A Tool for Describing Welfare\\Accumulation}
+
+With the various classes of stochastic models defined, we will begin the discussion of the welfare implications of these models by first introducing a decision problem which resembles the \enquote{Money Pump} argument against intransitive structures which exists with deterministic choice theory, though with several important distinctions that will be made clear later.
+We will refer to this relatively simple thought experiment as a \enquote{Stochastic Money Pump} (SMP).
+Assume that there is an experimental economist who, through cleverly selected choice problems, is able to correctly identify the utility structure and stochastic process governing the choices of subjects with perfect knowledge.
+That is, the utility structure and relevant parameters $\beta_n$, as well as the correct stochastic model and relevant parameters that completely characterize some subject $n$ are all known by the experimenter.
+
+The experimenter then offers to sell a lottery ticket to the subject for some amount of money, and should the subject agree to buy the ticket, the experimenter offers to buy the ticket back from the subject for a lower amount of money.
+The subject can refuse the initial purchase, buy the ticket and refuse to sell the ticket back, or buy the ticket and sell it back to the experimenter.
+How often is the experimenter successful in extracting the difference between the buying and selling price of the ticket from the subject without giving the subject anything, and what are the welfare implications of this pair of transactions?
+The various classes of stochastic models can all have different welfare implications while predicting similar observed choice behavior.
+
+To make this example concrete, we can work this problem out numerically assuming 3 different subjects, Amy, Beth, and Cate.
+Amy operates with a random preference model of choice, Beth operates with a contextual utility model of choice, and Cate makes choices deterministically but with a tremble.
+Amy, Beth, and Cate all have the same utility structure of the RDU special case where $w_i(p)=p_i$ for all $p_i$ and incorporate the CRRA utility function from equation (\ref{eq:CRRA}).
+Amy's distribution function $F_n(\beta|\alpha)$ is $N(\mu,\sigma^2) = N(0,0.01)$, thus normal with $\alpha$ featuring a mean equal to 0 and a standard deviation of 0.1.
+Beth operates a $\beta$ vector that is composed of $r=0$, and a $\lambda_n = 0.015$.
+Cate operates with a $\beta$ vector that is composed of $r=0$ and a probability of trembling of $\phi = 0.816$.
+All values picked in this example are for ease of calculation, but the following implications hold when generalized to different parameter values.
+
+The lottery ticket has a 0.5 probability of an outcome of 10 and a 0.5 probability of an outcome of 100, and thus an expected value of 55.
+The experimenter offers to sell each of the subjects the lottery for 55.50, and to buy the lottery back at 54.50.
+These values are 0.50 above and below the {\CE} of the lottery for Beth and Cate, and  0.50 above and below the mean {\CE} of the lottery for Amy.
+The probability of the experimenter successfully extracting money costlessly is approximately equal for all three subjects:
+
+\begin{equation}
+	\label{eq:pr.extraction}
+	{\Prob}(\mathit{Extraction}) = {\Prob}(\mathit{Buy}) \times {\Prob}(\mathit{Sell}) \approx 0.167
+\end{equation}
+
+\noindent The manner in which the this probability is reached is different for each subject:
+
+\noindent For Amy,
+\begin{align}
+	\label{eq:Amy}
+	\begin{split}
+		B_{\mathit{Buy}} &= \{ \beta_A |\; G(\beta_A,X_{\mathit{Lottery}}) \geq G(\beta_A,X_{\mathit{Buy price}})\}\\
+		&= \{ r_A \big|\; r \leq -0.0232 \} \\
+		B_{\mathit{Sell}} &= \{ \beta_A |\; G(\beta_A,X_{\mathit{Sell price}}) \geq G(\beta_A,X_{\mathit{Lottery}})\}\\
+		&= \{ r_A \big|\; r \geq 0.0232 \} \\[0.5ex]
+		{\Prob}(y_{\mathit{Buy}}=\mathit{Buy}) &= \int_{\beta \in B_{\mathit{Buy}}} dF_A(\beta|\alpha) = \phi(B_{\mathit{Buy}},0,0.01)\\[0.5ex]
+		&\approx 0.408 \\
+		{\Prob}(y_{\mathit{Sell}}=\mathit{Sell}) &= \int_{\beta \in B_{\mathit{Buy}}} dF_A(\beta|\alpha) = \phi(B_{\mathit{Sell}},0,0.01)\\[0.5ex]
+		&\approx 0.408 \\
+		{\Prob}(\mathit{Extraction}_A) &= {\Prob}(y_{\mathit{Buy}} = \mathit{Buy}) \times {\Prob}(y_{\mathit{Sell}} = \mathit{Sell})\\
+		&\approx .167
+	\end{split}
+\end{align}
+
+\noindent where $\phi$ is the cumulative normal distribution.
+
+\noindent For Beth,
+\begin{align}
+	\label{eq:Beth}
+	\begin{split}
+	D(\beta_B,X) \times \lambda_B &= 0.015[u(100) - u(10)] \times 1\\
+	&= 1.35 \\
+	{\Prob}(y_{\mathit{Buy}} = \mathit{Buy}) &=\dfrac{\exp\!\left( \dfrac{ G(\beta_B,X_{\mathit{Lottery}}) }{ D(\beta_B,X)\lambda_B }  \right)}{ \exp\!\left( \dfrac{ G(\beta_B,X_{\mathit{Lottery}}) }{ D(\beta_B,X)\lambda_B }  \right) + \exp\!\left( \dfrac{ G(\beta_B,X_{\mathit{Buy\ price}}) }{ D(\beta_B,X)\lambda_B }  \right)  }\\[0.5ex]
+	&\approx 0.408 \\
+	{\Prob}(y_{\mathit{Sell}} = \mathit{Sell}) &=\dfrac{\exp\!\left( \dfrac{ G(\beta_B,X_{\mathit{Sell\ price}}) }{ D(\beta_B,X)\lambda_B }  \right)}{ \exp\!\left( \dfrac{ G(\beta_B,X_{\mathit{Lottery}}) }{ D(\beta_B,X)\lambda_B }  \right) + \exp\!\left( \dfrac{ G(\beta_B,X_{\mathit{Sell\ price}}) }{ D(\beta_B,X)\lambda_B }  \right)  }\\[0.5ex]
+	&\approx 0.408 \\
+	{\Prob}(\mathit{Extraction}_B) &= {\Prob}(y_{\mathit{Buy}} = \mathit{Buy}) \times {\Prob}(y_{\mathit{Sell}} = \mathit{Sell})\\
+	&\approx .167
+	\end{split}
+\end{align}
+
+\noindent For Cate,
+\begin{align}
+	\label{eq:Cate}
+	\begin{split}
+		{\Prob}_0(y_{\mathit{Buy}}) &=
+		\begin{cases} 
+			1 &, \quad G(\beta_C,X_{\mathit{Lottery}}) > G(\beta_C,X_{\mathit{Buy\ price}})\\
+			0.5 &, \quad G(\beta_C,X_{\mathit{Lottery}}) = G(\beta_C,X_{\mathit{Buy\ price}})\\
+			0 &, \quad G(\beta_C,X_{\mathit{Lottery}}) < G(\beta_C,X_{\mathit{Buy\ price}})
+		\end{cases} \\
+		{\Prob}_0(y_{\mathit{Sell}}) &= 
+		\begin{cases} 
+			1 &, \quad G(\beta_C,X_{\mathit{Sell\ price}}) > G(\beta_C,X_{\mathit{Lottery}})\\
+			0.5 &, \quad G(\beta_C,X_{\mathit{Sell\ price}}) = G(\beta_C,X_{\mathit{Lottery}})\\
+			0 &, \quad G(\beta_C,X_{\mathit{Sell\ price}}) < G(\beta_C,X_{\mathit{Lottery}})
+		\end{cases}\\
+		{\Prob}(y_{\mathit{Buy}}&=\mathit{Buy}) = (1-\phi) {\Prob}_0(y_{\mathit{Buy}}) + \frac{\phi}{J}\\
+		&=(1-0.816)(0) + (0.816)/2\\
+		&=0.408\\
+		{\Prob}(y_{\mathit{Sell}}&=\mathit{Sell}) = (1-\phi) {\Prob}_0(y_{\mathit{Sell}}) + \frac{\phi}{J}\\
+		&=(1-0.816)(0) + (0.816)/2\\
+		&=0.408\\
+	{\Prob}(\mathit{Extraction}_C) &= {\Prob}(y_{\mathit{Buy}} = \mathit{Buy}) \times {\Prob}(y_{\mathit{Sell}} = \mathit{Sell})\\
+	&\approx .167
+	\end{split}
+\end{align}
+
+While the observed choice behavior is identical for all three subjects, the welfare implications are not.
+According to the metrics defined by equations (\ref{eq:WCt}) and (\ref{eq:WPt}), this decision problem has the same welfare implications for Beth and Cate:
+\begin{align}
+	\label{eq:BCwelfare}
+	\begin{split}
+		\Delta W_{(B,C),\mathit{Buy}} = {\CE}_{(B,C),\mathit{Lottery}} - {\CE}_{(B,C),\mathit{Buy\ Price}} &= 55 - 55.5 = -0.50\\
+		\Delta W_{(B,C),\mathit{Sell}} = {\CE}_{(B,C),\mathit{Sell\ Price}} - {\CE}_{(B,C),\mathit{Lottery}} &= 54.5 - 55 = -0.50\\
+		\% W_{(B,C),\mathit{Buy}} = \frac{{\CE}_{(B,C),\mathit{Lottery}}}{{\CE}_{(B,C),\mathit{Buy\ Price}}} &= \frac{55}{55.5} \approx 0.99\\
+		\% W_{(B,C),\mathit{Sell}} = \frac{{\CE}_{(B,C),\mathit{Sell\ Price}}}{{\CE}_{(B,C),\mathit{Lottery}}} &= \frac{54.5}{55} \approx 0.99
+	\end{split}
+\end{align}
+
+In this case, the welfare implications of such decision problem are clear for both the TR and RE  models: with a roughly $0.167$ probability, Beth and Cate will make 2 consecutive \enquote{mistakes} or \enquote{choice errors}, which results in 1 unit of money and 1 unit of {\CE} being extracted from each of them.
+
+The other potential results are easy to calculate.
+With a ${1- {\Prob}(y_{\mathit{Buy}}} = \mathit{Buy}) = 0.592$ probability, Beth and Cate make no mistakes and experience a welfare gain:
+\begin{align}
+	\begin{split}
+		\Delta W_{(B,C),\mathit{Buy}} &= {\CE}_{(B,C),\mathit{Buy\ Price}} - {\CE}_{(B,C),\mathit{Lottery}} = 55.5 - 55 = 0.50\\
+		\% W_{(B,C),\mathit{Buy}} &= \frac{{\CE}_{(B,C),\mathit{Buy\ Price}}}{{\CE}_{(B,C),\mathit{Buy\ Price}}} = \frac{55.5}{55.5} = 1
+	\end{split}
+\end{align}
+
+With a $ {\Prob}(y_{\mathit{Buy}} = \mathit{Buy})(1 - {\Prob}(y_{\mathit{Sell}}= \mathit{Sell})) \approx 0.242$ probability, Beth and Cate make the mistake of buying the lottery ticket, but not the mistake of selling it back for less:
+\begin{align}
+	\begin{split}
+		\%W_{(B,C),T} &= \frac{\displaystyle\sum_{t=1}^{T} {\CE}_{(B,C),y,t} }{\displaystyle\sum_{t=1}^{T} {\CE}_{(B,C),1,t}} = \frac{55 + 55}{55.5 + 55} \approx 0.995 \\
+		\Delta W_{(B,C),T} &= \sum_{t=1}^T \left( {\CE}_{(B,C),y,t} - {\CE}_{(B,C)1,T}^Z \right)= \genfrac{}{}{0pt}{}{55 - 55.5}{+ 55.5 - 55} = 0
+	\end{split}
+\end{align}
+
+The RP model characterizing Amy's choices, however, does not result in an intuitive understanding of the welfare implications of this decision problem.
+The RP model discussed here, the stand-alone RP model, requires that every choice by Amy be characterized by a deterministic preference relation according to some vector $\beta_A$ randomly drawn from a distribution.
+Thus:
+\begin{align}
+	\label{eq:RP.welfare}
+	\begin{split}
+		\Delta W_{(A),\mathit{Buy}} &= {\CE}_{(A),\mathit{Lottery}} - {\CE}_{(A),\mathit{Buy\ Price}} \geq 0\\
+		\Delta W_{(A),\mathit{Sell}} &= {\CE}_{(A),\mathit{Sell\ Price}} - {\CE}_{(A),\mathit{Lottery}} \geq 0\\
+		\% W_{(A),\mathit{Buy}} &= \frac{{\CE}_{(A),\mathit{Lottery}}}{{\CE}_{(B,C),\mathit{Lottery}}} = 1\\
+		\% W_{(A),\mathit{Sell}} &= \frac{{\CE}_{(A),\mathit{Sell\ Price}}}{{\CE}_{(B,C),\mathit{Sell\ Price}}} = 1
+	\end{split}
+\end{align}
+
+According to the metric definition in (\ref{eq:WCt}) and the decision process for Amy defined in (\ref{eq:Amy}), the $\Delta W$ welfare evaluations in (\ref{eq:RP.welfare}) must be weak inequalities.
+However, the only situation where $\Delta W_{(B,C),\mathit{Buy}} = 0$ is when $r=-0.0232$, which has a probability of $0$ given that $F_A(\beta|\alpha)$ is continuous.
+Similarly for the choice between selling or not selling.
+With a probability approaching $1$, the RP model predicts that should an extraction occur the choices causing the extraction leave the subject with positive welfare.
+
+Before moving on to the normative implications of these welfare characterizations, we revisit the SMP thought experiment with two new entrants, Dana and Emma.
+Suppose that Dana's choices are characterized as being in accordance with the RPPO model discussed previously, and Emma operates a tremble model as defined by \textcite{Loomes2002}, where $ {\Prob}_0$ is defined by the RP model.
+We can pose the same questions concerning Dana and Emma's choices that we asked of Amy, Beth, and Cate's choices: \enquote{How often is the experimenter successful in extracting the difference between the buying and selling price of the ticket from the subject without giving the subject anything and what are the welfare implications of this pair of transactions?} 
+As we will see below, the answers to these questions for Dana are exactly the same as for Amy, and though the math involved with Emma is slightly more complicated, the unintuitive interpretation of welfare caused by the RP model remains.
+
+Suppose that for Dana, the marginal distributions of each option's $\beta_A^*$ vector used to construct $f_{\mathbf{B_n^t}}(\beta_n^ x,\beta_n^ z|\alpha)$ are identical and uncorrelated.{\footnotemark}
+Also, Dana's marginal distribution functions are all $N(\mu,\sigma^2) = N(0,0.01)$, thus normal with $\alpha$ consisting of a mean equal to $0$ and a standard deviation of $0.1$.
+The joint density function, $f_{\mathbf{B_n^t}}(\beta_n^x,\beta_n^z|\alpha)$, is therefore:
+\begin{align}
+	\begin{split}
+		N_2&(\mu,\Sigma) \\
+		\mu =\begin{Bmatrix}\mu_x \\ \mu_z\end{Bmatrix} &= \begin{Bmatrix}0\\0\end{Bmatrix}\\
+		\Sigma =\begin{Bmatrix} \sigma_x^2 & \rho\sigma_x\sigma_z \\  \rho\sigma_x\sigma_z & \sigma_z^2 \end{Bmatrix} &= 
+	\begin{Bmatrix} 0.01 & 0 \\  0 & 0.01 \end{Bmatrix} 
+	\end{split}
+\end{align}
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	These assumptions are made for mathematical simplicity in the following example.
+	There is no obvious reason why it should be necessary that these distributions be identical or uncorrelated, though the conceptual result would be the same even if they were not.
+}
+
+\noindent where $\mu$ is the vector of means, $\Sigma$ is the covariance matrix for the joint density function $f_{\mathbf{B_n^t}}(\beta_n^x,\beta_n^z|\alpha)$.
+The choice behavior for Dana is as follows:
+
+\noindent For Dana,
+\begin{align}
+	\begin{split}
+		{\CE}_{\mathit{Buy\ Price}} &= \mathit{Buy\ Price} \;\forall\; \beta_D\\
+		{\CE}_{\mathit{Sell\ Price}} &= \mathit{Sell\ Price} \;\forall\; \beta_D\\[1.5ex]
+		\mathbf{B_D^{\mathit{Buy}}} &= \{ \beta_D^x,\beta_D^z | {\CE}_{\mathit{Lottery}}^x \geq {\CE}_{\mathit{Buy\ Price}}^Z \}\\
+		&= \{ r_D^x,r_D^Z | r_D^x \leq -0.0232, r_D^Z \in \Re\}\\[1.5ex]
+		\mathbf{B_D^{\mathit{Sell}}} &= \{ \beta_D^x,\beta_D^z | {\CE}_{\mathit{Sell\ Price}}^x \geq {\CE}_{\mathit{Lottery}}^Z \}\\
+		&= \{ r_D^x,r_D^Z | r_D^x \geq 0.0232, r_D^Z \in \Re\}\\[1.5ex]
+		{\Prob}(y_{\mathit{Buy}} = \mathit{Buy}) &= \int_{\beta_D^x \in \mathbf{B^t_D}}\int_{\beta_D^Z \in \mathbf{B^t_D}} f_{\mathbf{B^t_D}}\!\left(\beta_D^x,\{\beta_D^Z\}|\alpha\right) \;d\beta_D^x \; d\beta_D^Z\\
+		&= \phi(r_D^Z \leq -0.0232,0,0.01) \times \phi(r_D^x \in \Re,0,0.01)\\
+		&= 0.408 \times 1\\
+		{\Prob}(y_{\mathit{Sell}} = \mathit{Sell}) &= \int_{\beta_D^x \in \mathbf{B^t_D}}\int_{\beta_D^Z \in \mathbf{B^t_D}} f_{\mathbf{B^t_D}}\!\left(\beta_D^x,\{\beta_D^Z\}|\alpha\right) \;d\beta_D^x \; d\beta_D^Z\\
+		&= \phi(r_D^x \in \Re,0,0.01) \times \phi(r_D^Z \geq 0.0232,0,0.01)\\
+		&= 1 \times 0.408\\
+	{\Prob}(\mathit{Extraction}_D) &= {\Prob}(y_{\mathit{Buy}} = \mathit{Buy}) \times {\Prob}(y_{\mathit{Sell}} = \mathit{Sell})\\
+	&\approx .167
+	\end{split}
+\end{align}
+
+This thought experiment presents a special case where the RPPO model essentially reduces to the standard RP model.
+This is due to the fact that the {\CE} of any certain amount of money is equal to that amount of money.
+Because this is true, the distributions of the $\beta_D$ vectors associated with the buying and selling prices are irrelevant.{\footnotemark}
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{ 
+	Take any degenerate lottery $X$ comprised of a single outcome $x$ with a probability of $p_x =1$.
+	The utility of this lottery is $U_X = w_x( p_x )u_x(x )$, where $w_x$ is any probability weighting function and $u_x$ is any utility function.
+	Since $w_x(p_x=1)=1$ for every probability weighting function, $U_X=u_x(x)=u_x({\CE}_x)$.
+	Since $u_x$ is a well-defined utility function, ${\CE}_x=x$ is a solution for equation (\ref{eq:CE.indiff}) for every $u_x$ and every $x$ when $p_x=1$.
+	This solution is unique when $u_x$ is monotonic as the CRRA function employed in the example is.
+}
+
+The reason why the utility functions are normalized can also be made clear with this  example.
+The CRRA function described in (\ref{eq:CRRA}) and utilized in the above example has some interesting properties around $r=1$: $u(x|r) = \ln(x)$ at $r=1$, $u(x|r) \to \infty$ as $r \to 1$ from the left, and $u(x|r) \to -\infty$ as $r \to 1$ from the right.{\footnotemark}
+If the RPPO model didn't normalize the CRRA function to its {\CE}, the set of $\{\beta_n^x,\{\beta_n^Z\}\}$  would be contradictory in its elements due to the properties of the CRRA function around $1$.
+To demonstrate, assume that the utility of the lottery is evaluated with $r_n^x = -0.0232$: what values of $r_n^Z$ satisfy equation (\ref{eq:CEcalc}) such that Dana would decide to purchase the lottery? We might expect that since $r_n^x = -0.0232$ is the value of $r_n$ that sets the utility of the lottery and the utility of the buy price equal to each other,  should the buy price be evaluated with greater risk aversion than the lottery, equation (\ref{eq:RPPO.y1}) will hold.
+That is, we might expect that should $r_n^Z > -0.0232$ Dana would prefer the lottery over the buy price.
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{ 
+	The use of $\ln(x)$ for $r =1$ is not as ad hoc as it may seem.
+	\textcite[1333]{Wakker2008} shows that if equation (\ref{eq:CRRA}) is normalized, it can be seen \enquote{that the normalized logarithmic function is the limit of the normalized power functions for $r$ tending to $0$ \textins{1}, both from above $(r >0)$ \textins{$r>1$} and from below $(r<0)$ \textins{$r<1$}:}
+	\begin{align*}
+		\lim_{r \to 0} \frac{x^r - c^r}{d^r - c^r} = \frac{\ln(x) - \ln(c)}{\ln(d) - \ln(c)} \quad \forall \; x>0 , d>c>0
+	\end{align*}
+	While \textcite{Wakker2008} uses the single exponent version of the power function, the same limit applies to the formulation of the CRRA function used in equation (\ref{eq:CRRA}), with the bracketed values of $r$ in the above quote representing the revised limits.
+}
+
+Intuitively this makes sense: an increase in risk aversion corresponds to an increase in the concavity of the utility function which implies lower utility as risk-aversion increases for a given outcome.
+While this is true when the CRRA function is normalized to its {\CE}, this isn't true without the normalization.
+Without the normalization, $\beta_n^Z$ consists of $-0.023 \leq r_n^Z \leq 0.9814$ and $r_n^Z > 1$.
+
+The gap of $(0.9814,1)$ is due to the properties of the CRRA function around 1.
+The un-normalized RPPO model allows for a relatively risky option to be chosen over a relatively less risky option should the less risky option be evaluated using a preference relation indicating intense risk aversion, but not when the less risky option is evaluated using a preference relation indicating only moderate risk aversion.
+This is intuitively backwards, though mathematically possible.
+The possibility of this kind of gap is not removed even if the marginal distributions which make up $f_{\mathbf{B^t_n}}(\beta_n^x,\{\beta_n^Z\}|\alpha)$ are correlated and can be exacerbated if they are not identical.
+
+Now, suppose Emma operates a TR model with the ${\Prob}_0$ choice probabilities generated by the RP model described for Amy and the tremble parameter described by Cate.
+Emma's choice behavior is defined as follows:
+
+\noindent For Emma,
+\begin{align}
+	\label{eq:Emma}
+	\begin{split}
+		B_{\mathit{Buy}} &= \{ \beta_E |\; G(\beta_E,X_{\mathit{Lottery}}) \geq G(\beta_E,X_{\mathit{Buy price}})\}\\
+		&= \{ r_E \big|\; r \leq -0.0232 \} \\
+		B_{\mathit{Sell}} &= \{ \beta_E |\; G(\beta_E,X_{\mathit{Sell price}}) \geq G(\beta_E,X_{\mathit{Lottery}})\}\\
+		&= \{ r_E \big|\; r \geq 0.0232 \} \\[0.5ex]
+		{\Prob}_0(y_{\mathit{Buy}}) &= \int_{\beta \in B_{\mathit{Buy}}} dF_E(\beta|\alpha) = \phi(B_{\mathit{Buy}},0,0.01)\\[0.5ex]
+		&\approx 0.408 \\
+		{\Prob}_0(y_{\mathit{Sell}}) &= \int_{\beta \in B_{\mathit{Buy}}} dF_E(\beta|\alpha) = \phi(B_{\mathit{Sell}},0,0.01)\\[0.5ex]
+		&\approx 0.408 \\
+		{\Prob}(y_{\mathit{Buy}}=\mathit{Buy}) &= (1-\phi) {\Prob}_0(y_{\mathit{Buy}}) + \frac{\phi}{J}\\
+		&=(1-0.816)(0.408) + (0.816)/2\\
+		&= 0.483072\\
+		{\Prob}(y_{\mathit{Sell}}=\mathit{Sell}) &= (1-\phi) {\Prob}_0(y_{\mathit{Sell}}) + \frac{\phi}{J}\\
+		&=(1-0.816)(0.408) + (0.816)/2\\
+		&= 0.483072\\
+		{\Prob}(\mathit{Extraction}_E) &= {\Prob}(y_{\mathit{Buy}} = \mathit{Buy}) \times {\Prob}(y_{\mathit{Sell}} = \mathit{Sell})\\
+		&\approx 0.233
+	\end{split}
+\end{align}
+
+We have a more complicated result with Emma when we attempt to describe her welfare. 
+The preferences in this model are provided by the aspects that belong to the RP model.
+This means that not only is ${\Prob}_0(y_{\mathit{Buy}})$ the probability that Emma would chose to buy the lottery should she not experience a \enquote{tremble}, but it is also the probability that the choice to buy the lottery is the result of greater utility being accumulated from the lottery ticket than the buying price.
+Similarly for ${\Prob}_0(y_{\mathit{Sell}})$ and the choice to sell the ticket.
+Thus, given ${\Prob}(\mathit{Extraction}_E)$, ${\Prob}_0(y_{\mathit{Buy}})$, and ${\Prob}_0(y_{\mathit{Sell}})$, we have:
+\begin{align}
+	\begin{split}
+		{\Prob}\left(\% W_{(E),\mathit{Extraction}} = 1\right) &= {\Prob}(\mathit{Extraction}_E) \times {\Prob}_0(y_{\mathit{Buy}}) \times {\Prob}_0(y_{\mathit{Sell}})\\
+		&= 0.233 \times 0.408 \times 0.408\\
+		&\approx 0.0388
+	\end{split}
+\end{align}
+
+That is, we characterize Emma as having the 1 unit of money extracted by the SMP, \textit{and} this extraction as having resulted in optimal welfare for Emma $3.88\%$ of the time.
+Similarly, this probability can be interpreted as a lower bound on ${\Prob}(\Delta W_{(E),\mathit{Extraction}} \geq 0)$.
+
+The probability that the welfare surplus metric is positive in the event of an extraction is equivalent to the probability of an extraction occuring times the probability that the welfare change from buying the ticket plus the welfare change from selling the ticket is positive:
+\begin{align*}
+{\Prob}(\mathit{Extraction}_E) &\times {\Prob}(\beta_{\mathit{Buy}},\beta_{\mathit{Sell}} \big| \; {\CE}_{\mathit{Lottery}}^{Buy} - {\CE}_{\mathit{Buy Price}}^{Buy} + {\CE}_{\mathit{Sell Price}}^{Sell} - {\CE}_{\mathit{Lottery}}^{Sell} )\\
+{\Prob}(\mathit{Extraction}_E) &\times {\Prob}(\beta_{\mathit{Buy}},\beta_{\mathit{Sell}} \big| \; {\CE}_{\mathit{Lottery}}^{Buy} - {\CE}_{\mathit{Lottery}}^{Sell} \geq 1 )
+\end{align*}
+If we set $\mathbf{\beta_{\mathit{B,S}}} = \{ \beta_{\mathit{Buy}},\beta_{\mathit{Sell}} \big| \; {\CE}_{\mathit{Lottery}}^{Buy} - {\CE}_{\mathit{Lottery}}^{Sell} \geq 1\}$,{\footnotemark} we have:
+\begin{align}
+	0.233 \times \int_{\beta_{\mathit{Buy}} \in \mathbf{\beta_{\mathit{B,S}}}} \int_{\beta_{\mathit{Sell}} \in \mathbf{\beta_{\mathit{B,S}}}} F(\beta_{\mathit{Buy}} | \alpha) F(\beta_{\mathit{Sell}}|\alpha) d\beta_{\mathit{Buy}} d\beta_{\mathit{Sell}} \geq 0.0388
+\end{align}
+
+This complication arises because Emma's choice function has both TR and RP elements.
+Sometimes Emma will value the prospect of buying the lottery ticket extremely highly, not tremble, and choose to buy, and then value the prospect of selling the ticket back only somewhat negatively, tremble, and then sell it back.
+The welfare gained in the buying choice can therefore sometimes outweigh the welfare lost in the selling choice, resulting in a net positive change of welfare.
+Note that every time Emma values the buying of the ticket \textit{and} the selling of the ticket positively, the net change in welfare will also be positive.
+Thus, $0.0388$ constitutes a lower bound on ${\Prob}(\Delta W_{(E),\mathit{Extraction}} \geq 0)$.
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	Recall that the {\CE} of an certain amount is always that certain amount. 
+	So the {\CE} of the "Buy Price" is $55.5$, and the {\CE} of the sell price is $54.5$ for any utility function.
+	Therefore ${\CE}_{\mathit{Buy Price}} - {\CE}_{\mathit{Sell Price}} = 1$ for all utility functions.
+}
+
+
+\subsection{The Normative Coherence of Stochastic Models}
+
+Having clarified the welfare implications of several representative stochastic models, we will begin the discussion of the normative implications of these models.
+There may be some objection to the interpretation of these stochastic models as normative theories of economic choice because the intent behind the development of these models was descriptive in nature, not normative.
+With this \enquote{descriptive-only} interpretation, there is nothing to say normatively about these models;
+all the normative implications of these models derives from orthodox economic utility theory, in particular, rational preference theory (RPT) guided by the so-called \enquote{consistency}{\footnotemark} axioms: completeness, transitivity, and often{\footnotemark} continuity and monotonicity.
+The stochastic elements of these models are merely econometric necessities bolted onto RPT, so the characterization goes, with all the power and limitations this implies.
+However, any notion of \enquote{consistency} associated with stochastic models must be of a conceptually different nature than RPT because of the inherent probabilistic nature of choice built into such models.
+We argue that this probabilistic nature provides normative defences where RPT is weak for certain stochastic models.
+
+\addtocounter{footnote}{-2}
+\stepcounter{footnote}\footnotetext{
+	Technically, consistency is associated with axioms of revealed preference such as the weak axiom of revealed preference (WARP), strong axiom of revealed preference (SARP), or the generalized axiom of revealed preference (GARP).
+	However, consistency is often ascribed to the \enquote{rational} preference relation.
+	For a preference relation to be rational, it is necessary that choices said to be generated by the relation must also satisfy WARP.
+	Satisfaction of WARP however, is not sufficient for the construction of a rational preference relation \parencite[13]{Mas-Colell1995}.
+	In particular, WARP does not require transitivity, whereas the rational preference relation does.
+	The transitivity axiom, however, is often the target of critics of the normative justification of RPT through consistency.
+}
+\stepcounter{footnote}\footnotetext{
+	Completeness and transitivity are the only axioms required for a \enquote{rational} preference relation.
+	The continuity axiom allows for the derivation of a utility function, while the monotonicity axiom adds structure to utility functions to make broad and powerful inferences.
+	Thus, continuity and monotonicity are broadly assumed.
+}
+
+There are numerous projects that reject RPT as a sufficient descriptive theory of choice by agents and propose alternatives; indeed, the interest in stochastic models has been driven precisely because of the apparent descriptive failings of RPT.
+A project deemed the Heuristics and Biases (HB) project led by work originating from \textcite{Kahneman1979} proposes alternative models of choice that are said to deviate from RPT systematically through mechanisms of \enquote{loss aversion} and probability weighting.
+Another, deemed the Fast and Frugal Heuristics (FFH) or Ecological Rationality project states that agents \textit{may} deviate systematically from RPT in environments where agents have low access to information, and employ satisficing heuristics instead.
+Of these, only the FFH program has explicitly also made the case that it rejects RPT as a normative theory as well as a descriptive theory.
+
+The debate about the descriptive and normative promises and troubles of RPT, HB, and FFH has been going on for a few decades now, and doesn't look to be abating any time soon.
+Rather than attempt to arbitrate the arguments for and against the various projects, we will seek to apply some of the critiques and justifications used in this debate to the examples of stochastic models discussed in this chapter.
+In doing so, we hope to establish that certain stochastic models add normatively coherent structure in addition to their descriptive capacities.
+
+The various criteria used to assess the normative validity of stochastic models will largely be interpreted from the works of \textcite{Grune-Yanoff2014}, \textcite{Berg2014}, and \textcite{Hands2014}.
+\textcite[405]{Hands2014} notes that the FFH and RPT, and by extension HB, projects all rely on the concept of \enquote{instrumental rationality} (IR).
+IR is a rationality that states \enquote{If one's goal is $x$, one ought to do $y$}.
+That is, IR makes the statement that some means are rational ways to read certain ends, but makes no general recommendation as to what those ends must be \parencite*[405]{Hands2014}.
+
+We will be utilizing the framework of IR in the following discussion of the normative justification of stochastic models.
+Normative criteria are relations of particular means and ends that describe what an agent \enquote{ought} do or not do in certain circumstances.
+Economic theories purporting to be normatively justified must provide the mechanisms that satisfy these relationships.
+In this framework, we will primarily be discussing what means stochastic models provide to reach ends that have commonly been employed as normative criteria.
+
+These normative criteria, however, are often framed in the context of choice scenarios, which themselves may not make the specific underlying ends formally clear.
+What is also potentially unclear is whether these normative criteria are chosen on the basis of observed reality or if they are derived some idealistic construction of agency.
+That is, are normative criteria \enquote{naturalized} or are they \enquote{idealized}.
+We will attempt to make clear this distinction when possible.
+
+\subsubsection{Economic Existence and Objective Betterness Criteria}
+
+The concept of continued economic existence as a requirement of an economic theory is likely the most common reason given as to why a theory is normatively justified.
+Broadly speaking, it states that an agent who is purported to make choices in accordance to the theory, ought not make choices systematically in such a way as to drive herself out of economic existence.
+For example, this could mean that an economic theory should not normatively justify an agent's choice to deliberately put themselves into bankruptcy.{\footnotemark}
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	Bankruptcy here is in meant in the abstract sense of the loss of all assets without recourse to recover them.
+	In the United States for instance, given what are called \enquote{Chapter 9} and \enquote{Chapter 11} bankruptcy provisions, it could be quite rational to engage in institutionally controlled bankruptcy under certain circumstances.
+	In the interpretation intended, deliberately bankrupting oneself as is said to have been done by the Buddha or Jesus, should not be normatively justified, while making choices in line with Donald Trump's business practices, strangely, should be.
+}
+
+The popular, often informal, way RPT is justified in light of this criteria is through its invulnerability to money pumps.
+The traditional money pump is defined as a series of trades that will succeed in extracting the entirety of an agent's stock of assets, say some amount of good $A$, if the agent has intransitive preferences, such as $B \succcurlyeq A$, $C \succcurlyeq B$, $A \succcurlyeq C$ with at least one relation being strict.
+This occurs by the extractor offering to trade his $B$ for the agent's $A$, then his $C$ for her $B$, and finally his $A - \epsilon$ for her $C$, where $\epsilon$ is a sufficiently small, but positive amount of good $A$ such that $A - \epsilon \succcurlyeq C$.
+This process is repeated until the agent has no remaining quantity of good $A$, and is thus economically eliminated.
+
+\textcite[402-403]{Hands2014} refers to this argument as \enquote{emperical elimination}:
+\blockquote{
+This is the argument that agents who act in ways that violate RCT will (in fact) cease to exist or at least cease to play an active role among the relevant class of decision-makers.
+The two most common forms of this argument are the money pump (for agents who have intransitive preferences and thus make choice mistakes) and the Dutch book\textelp{}
+}
+
+\noindent while \textcite[336]{Grune-Yanoff2014} refers to it as \enquote{universal loss-avoidance considerations}:
+\blockquote{
+If an agent violates the transitivity condition on preferences, then that individual can be \enquote{money pumped}:
+all wealth can be taken from her, simply by trading goods with her in a way that exploits her preference intransitivity\textelp{}
+Consequently, to the extent that any one wants to avoid such sure losses, one must satisfy the corresponding internal consistency criteria.
+}
+
+\textcite{Cubitt2001} however, methodically decompose the argument that failure to satisfy consistency axioms, in particular transitivity, results necessarily in vulnerability to money pumps.
+They develop a detailed methodology for describing decision problems without the need to specify an underlying theory of value that traditionally denotes rewards at nodes in decision trees.
+Their first and most stark example of a behavioral correspondence that in no way implies transitivity but is nonetheless invulnerable to money pumps, can be defined thusly: \enquote{never trade} \parencite[139]{Cubitt2001}.
+
+Should an agent refuse to engage in any trade, there will necessarily be no opportunity for an extractor to employ a money pump on her, even if her preferences are, in fact, intransitive.
+\textcite{Ross2014,Ross2014a} might disagree with this objection, perhaps by arguing that organizing trade through markets is the whole purpose of economics, and so an agent who doesn't trade no longer participates in economy and has \textit{de facto} economically eliminated herself.
+\textcite[140]{Cubitt2001} recognize a similar critique and respond by noting that the \enquote{never trade} heuristic \enquote{is merely the simplest example of a behavior correspondence that, while invulnerable \textins{to money pumps}, violates the standard assumptions.}
+
+\textcite{Cubitt2001} provide several other examples of how an agent could have preferences that violate consistency axioms and yet remain invulnerable to money pumps, including ones involving trading agents.{\footnotemark}
+However, the existence of one example is sufficient to refute the claim that in order to be invulnerable to money pumps it is necessary that an agent conform to the standard consistency axioms.
+\textcite[154]{Cubitt2001} conclude: \enquote{Thus, in relation to what we take to be their original objectives, money pump arguments are a failure.}
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	The reader is encouraged to consult \textcite{Cubitt2001} for a novel, useful, and incredibly terse methodology on atheoretic representations of decision problems, as well as the remaining examples indicated.
+}
+
+The critiques of \textcite{Cubitt2001} show that adherence to RPT is not a necessary condition for invulnerability to a money pump, only a sufficient one.
+However, the claim that an agent must be invulnerable to money pumps, or something like them, is still largely seen as a necessary condition for a normative theory.
+We can interpret the notion that an agent must be invulnerable to money pumps into several, progressively stronger, normative criteria.
+The first two are as follows:
+
+\newtheorem*{WEE}{Weak Economic Existence (WEE)}
+\newtheorem*{MEE}{Moderate Economic Existence (MEE)}
+\begin{WEE}
+	\label{th:WEE}
+	An agent ought not choose to directly eliminate herself.
+\end{WEE}
+\begin{MEE}
+	\label{th:MEE}
+	An agent ought not make choices that would, if repeated consistently, lead to economic elimination.
+\end{MEE}
+
+The money pump is almost never discussed in terms of the agent having her last stock of assets taken from her, only that consistent vulnerability to a money pump leads to economic elimination.
+In some sense, it is taken as obvious by economists that no agent, when presented with the option of keeping their stock of assets or forfeiting it, would choose to keep their stock.
+Instead, the money pump argument seems to suggest MEE as a normative criterion, though only because it implies that WEE is necessarily true.
+
+Both of these criteria imply the existence of some objective relation of \enquote{betterness}, {\OB}.
+In particular, WEE implies that the all non-empty sets of assets are objectively \enquote{better} than an empty set of assets:
+\begin{equation}
+	\label{eq:WEE}
+	A\ {\OB} \{\emptyset\} \quad \forall A \neq \{\emptyset\}
+\end{equation}
+
+\noindent whereas the {\OB} relation for MEE could be defined as follows:
+\begin{align}
+	\label{eq:MEE}
+	\begin{split}
+		A^\prime\ &{\OB} A \quad\forall A, A^\prime\\
+		\mathit{s.t.}\quad A &= \{x_1,\ldots,x_n\}\\
+		A^\prime &= \{x_1 + \epsilon_1,\ldots,x_n+\epsilon_n\} \ \forall x_n \\
+		\epsilon_n &\geq 0 \ \forall \epsilon_n
+	\end{split}
+\end{align}
+
+\textcite[141]{Cubitt2001} define a relation similar to the one defined in equation (\ref{eq:MEE}).
+This relation, they state, \enquote{coincides with \textit{weak statewise dominance}} and that
+\enquote{Many theories of choice under uncertainty generate choice functions which respect statewise dominance and hence, within this setup, objective betterness.
+	Obviously, this is true of expected utility theory.
+	But it is also true of, for example, \textcite{Quiggin1982} rank-dependent expected utility theory \textins{RDU}.}
+
+Thus, the normative criterion demonstrated by money pump thought experiment requires that the \enquote{objective betternes} relation of equation (\ref{eq:MEE}) not be violated sufficiently many times or with sufficient magnitude that the agent is eliminated.
+Indeed, it is possible for an agent to conform to standard consistency axioms of completeness and transitivity and still be economically eliminated should her preferences be discordant with this $\succcurlyeq^*$ relation.{\footnotemark}
+
+%\stepcounter{footnote}\footnotetext{
+%	The necessity of continued survival is a weak requirement of economic success.
+%	\textcite[143]{Cubitt2001} define a stronger criteria for objective \enquote{betterment} called \enquote{maximal opportunism}, which would require agents to take advantage of obvious, objectively better exchanges.
+%	One might even consider a range of economic sucess betweeen survival and maximal opportunism such that an agent is required to increase her welfare  through at least \textit{some} choices.
+%	These stronger criteria, however, do not seem to be utilized in any popular justifications of normative acceptance.
+%}
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	The poem \enquote{Smart} by Shell \textcite{Silverstein1974} exhibits such an agent.
+	A son receives a dollar from his father and gleefully trades it for two quarters, and those two quarters for three dimes, and those three dimes for four nickles, and those four nickels for five pennies.
+	It is clear that the son's preferences for these objects are both complete and transitive, satisfying the RPT axioms for consistency.
+	Perhaps the son has not been economically eliminated, the five pennies do still have some value, but should there exist infinitely divisible denominations of hard currency, the son would approach elimination.
+	The implied reaction of the father to his son's trades, lost on the son, suggests that such a set of preferences is normatively unacceptable.
+}
+
+It is somewhat odd to consider what set of objects would satisfy $\succcurlyeq^*$ given that the interpretation of utility in economics is as a subjective measure.
+However, the lexicon of economics provides for objects called \enquote{goods}.
+If we consider having more \enquote{goods} to be an objectively good thing, the monotonicity axiom can then be said to satisfy the requirement of sufficient adherence to $\succcurlyeq^*$ when applied to sets of \enquote{goods}.{\footnotemark}
+That is, the requirement that an agent prefer a strictly greater stock of goods to her current allocation of goods is sufficient to ensure that an agent's choice between alternatives not involving uncertainty will not result in economic elimination.
+Similarly, in scenarios where alternative options incorporate an element of risk, adherence to FOSD must be said to make the agent \enquote{better off} and violations of FOSD to make the agent \enquote{worse off}.
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	Such a restriction is not totally alien to economics.
+	Individuals addicted to harmful substances may descriptively be best characterized as preferring more of these substances to less, though in the long run, such preferences often sadly lead to economic elimination.
+	In these cases, it would be normatively unacceptable to label these, potentially transitive and complete, preferences as resulting in an agent's increased \enquote{betterment} or welfare.
+}
+
+However, we do observe empirical cases of violations of MEE.
+Firms on occasion consistently price products below their cost, or sufficiently above the market rates such that they end up failing.
+Without going into the causes of why firms would choose actions which result in economic elimination, a weaker requirement to the economic elimination criterion can be utilized to describe these cases.
+Rather than strictly prohibiting any set of choices, a normative theory must require that a set of choices which lead directly to economic elimination be described as making the agent \enquote{worse off}.
+For example, rather than enforcing that an agent ascribe to FOSD or strict monotonicity, an agent must be described as being worse off by violating FOSD or monotonicity.
+\textcite[112]{Marschak1950} seems to endorse this the notion as a normative critera, describing agents who chose dominated offers as worse off: 
+\enquote{In dealing with his environment (\enquote{nature} which includes \enquote{society}) a man who often makes mistakes in his inferences and his sums is, in the long run, apt to fare less well than if he had been a better logician and arithmetician.}
+
+With this interpretation of \enquote{Economic Elimination} and \enquote{Objective Betterness} as a necessary criteria for a normative theory of choice, we return to the SMP thought experiment presented earlier.
+In the SMP, at no point does an agent face a single choice that incorporates FOSD, thus taken in isolation, a choice to buy or sell the lottery ticket cannot be said to objectively reveal anything about changes in the agent's welfare.
+Taken together, should an agent buy the ticket and then proceed to sell the ticket back for less money, the agent's choices have directly lead to her stock of assets being reduced by 1 unit.
+A normatively acceptable theory of choice must, at a minimum, describe the agent as having become worse off than if she had never engaged with the trades.
+
+This concept of describing objective betterment across aggregated choices is no different to previous uses of the standard money pump argument.
+Utilizing the above example of a standard money pump, it isn't until the extractor seeks to trade back a reduced quantity of the agent's original endowment, $A - \epsilon$, for her current stock of assets, $C$, that an agent is said to be worse off.
+Taken in isolation, a trade of $C$ for $A - \epsilon$ is meaningless.
+Furthermore, all trades up to the final trade cannot be said to objectively make the agent worse off, they are simply transfers of different stocks of goods.
+With all the trades aggregated together however, the final trade is what completes the extraction that leaves the agent objectively worse off.
+
+In the SMP example, RPT can have two responses to the event of an extraction.
+The first is to describe the agent as being indifferent to all trades, including a direct trade between the buy price and the sell price.
+The second seeks to satisfy the condition of characterizing an extraction as leaving the agent as worse off by requiring that an agent never engage in the trade necessary to be money pumped.
+An agent can either buy or not buy the lottery ticket, but in no circumstances should an agent also sell the ticket back.
+However, having observed the buying \textit{and} the selling the ticket, RPT is at a loss in attempting to describe the choices as anything other than indifference or as inconsistent with RPT.
+But as \textcite{Cubitt2001} show, \enquote{inconsistent} correspondences need not lead to economic elimination, and therefore do not necessarily mean that the agent must be worse off.
+It appears that the characterization of observed choices in terms of \enquote{betterment} as dichotomously \enquote{consistent} or \enquote{inconsistent} is precisely the problem the FFH program has with RPT \parencite[380]{Berg2014}.
+
+Some stochastic models, however, can alleviate the normative issues of RPT associated with these kind of problems.
+All the stochastic models examined in the SMP thought experiment allow for the observed choices resulting in an extraction to occur.
+All of the examples except for Emma even predict the extraction will occur with the same probability.
+Additionally, every model allows for a mechanism to describe the agent's welfare at every choice.
+However, it is only the TR and CU models associated with the Beth and Cate examples that satisfy the normative requirement described in this section.
+
+Equations (\ref{eq:Beth}) and (\ref{eq:Cate}) show that the CU and TR models allow for the observed extraction to occur, while equation (\ref{eq:BCwelfare}) shows that these models correctly align the subjective welfare assessment with the objective relation of betterment and state that these agents are worse off than they would have been had they not engaged in the trades.
+The TR and CU models would make similar allowances for the selection of dominated lotteries in FOSD lottery pairs, and also correctly align the subjective welfare assessment with the objective betterment relation.
+Even considering alternative RE models that assign a probability of $0$ to dominated lotteries in FOSD lottery pairs, and thus econometrically collapse with every proposed utility function having equal, $0$, likelihood, all proposed utility functions would \textit{still} coincide with the result of requiring the agent to be subjectively worse off.
+Thus, it is a general result that stand-alone RE and TR models successfully adhere to the normative criteria described in this section.
+
+The pure RP model, the RPPO model, and the TR-RP models of Amy, Dana, and Emma however, all share the property that the extraction of 1 unit of wealth from the agents can be described subjectively as an increase in welfare.
+For the RP and RPPO models, this description of an extraction as welfare improvement is guaranteed, while for the TR-RP model this description is only applicable sometimes.
+Thus, we argue that this property of the RP class of stochastic models violates the normative criteria described in this section.
+
+
+\subsubsection{Willingness to \enquote{Correct} Choices Criterion}
+
+The willingness to correct choices (WCC) criteria is often interpreted in multiple ways.
+A general version of WCC requires that should an agent deviate from the requirements of a theory of choice, should the agent be confronted with the deviation they will willingly \enquote{correct} their choices to conform with the theory.
+Sometimes this argument states that should such a willingness to correct choices be observed empirically the theory is normatively justified, other times the willingness to correct choices need only be hypothetical.
+This criteria seems to require multiple moving pieces. 
+
+First, an agent must make choices that apparently violate the economic theory, such as the kind of choices described in the money pump and SMP examples.
+Secondly, someone, often characterized as an \enquote{expert} in decision problems, must confront the agent with the theory and a prescription of how the agent should make choices in light of this theory.
+Finally, the agent, presumably having been convinced about the validity of the theory, chooses again and selects a set of choices that conform to the theory.
+An alternate version of this criteria only requires that the agent in question be an \enquote{expert} or some kind of exemplary decision maker herself.
+
+Should the confronter in this interaction be another agent, this criteria involves some degree of paternalism.
+Should the choosing agent be considered an exemplary decision maker, then the paternalism of this interaction is two fold:
+first the confronter's suggestion that the choosing agent has made \enquote{incorrect} choices is paternalistic, and secondly, the requirement that only an exemplary decision maker must be convinced of the superiority of the economic theory because non-exemplary agents will mimic the exemplary agents is also paternalistic.
+Some scholars have strong views either for or against appeals to paternalism being used in normative justifications of theories of agency.
+We do not explicitly take a stand on the appropriateness of paternalism in normative arguments one way or the other, rather, we simply note that certain versions of this normative criteria can be interpreted as an appeal to paternalism.
+
+The notion that subjects would change their choices to be in line with some proposed normative theory because the theory itself is convincing seems somewhat dubious as an empirical matter.
+There could be any number of reasons why an agent would change her choices to conform with the suggestions of the \enquote{confronter}, only one of which is that she has been convinced of the validity of the theory.
+Indeed, the version of WCC that suggests the \enquote{confronter} need only convince an exemplary decision maker presents us with the clearest case as to why an agent would change her choices: she is mimicking the behavioral patterns of an expert.
+
+If the \enquote{confronter} suggests that the optimal strategy in a choice problem is $X$ because it will lead to welfare improvement, should the agent consider the \enquote{confronter} to be an expert in welfare assessment, then she needn't understand the mechanisms as to how $X$ leads to a welfare improvement, only that the expert would choose $X$ in this problem and therefore it is likely in her interest to also choose $X$.
+To present the WCC criterion in the reverse of how its often employed, we can imagine an experiment performed where the principal investigator of the study, introduced as an expert in economic theory, suggests to subjects that conform to one theory, say RPT, that they should instead make choices in conformance with some other theory or choice principal that minimally deviates from RPT in some theoretically significant fashion.
+For instance, a theory that allows intransitive preferences such as Regret Theory \parencite{Loomes1987, Bell1982}.
+It is difficult to imagine that \textit{no} subjects would take on the suggestions of the principal investigator and change their choices from RPT because of \enquote{the theory being absolutely convincing.} \parencite[712]{Morgenstern1972}
+
+We can dispense with the problems associated with paternalism in the WCC criterion by eliminating the \enquote{agent-as-confronter} aspect entirely.
+Most often, agents engaging in economically salient choices are not confronted by other agents directly with suggestions about how their choices could better conform to some normative theory.
+Instead, agents are generally only confronted with the way their choices deviate from an economic theory indirectly through market forces.
+We can reformulate the WCC criterion with market forces as the confronter of agents and pose the following question:
+\enquote{When confronted with salient market outcomes resulting from choices that are discordant with some theory, do agents willing change their choices to be in accordance with the theory in similar subsequent market interactions?}
+
+\textcite{Chu1990} deliver strong evidence in favor of EUT responding to exactly this question.
+They conduct an experiment replicating the design of \textcite{Grether1979}, which found frequent deviations from EUT, specifically, apparent violations of transitivity, a result replicated in many other experiments.
+\textcite{Chu1990} differ from the previous replications of \textcite{Grether1979} by actively engaging in the arbitrage of subjects who committed apparent violations of transitivity, thus experimentally simulating the kind of market forces that would operate outside of the laboratory.
+\textcite[910]{Chu1990} find that incidences of apparent violations of transitivity were eliminated from all subjects choices after an average of $1.71$ arbitrage transactions, and that \enquote{subjects displayed substantially fewer reversals \textins{apparently intransitive choices} after they were exposed to a marketlike environment in previous rounds of games.}
+The largest number of arbitrage transactions needed to induce conformity to the transitivity axiom was $3$, and this number of transactions occurred for only one subject across all of their treatments.
+
+If we consider violations of the MEE criterion discussed in the previous section as violations of \textit{any} normative theory, then our revised WCC criterion requires that exposure to market forces must induce a \enquote{correction} to choices that do not consistently violate MEE.
+TR and RE models handle this requirement in 2 ways. 
+First, both classes of models are structured such that the most likely choice in every choice scenario is one that will leave the agent at least as well off as she currently is.
+Thus there is a built in correcting mechanism in these models.
+Secondly, one could model the relevant stochastic parameters, $\phi$ in the case of the TR model and $D(\beta,X)$ or $\lambda$ in the case of RE models, as being determined in part by the number of choice problems experienced with the assumption of a negative coefficient.
+With this specification, increased market interaction would lead to lower probabilities of mistakes, and in the limit would result in choices conforming with RPT, just as was observed in \textcite{Chu1990}.
+
+However, since the RP class of models don't subscribe to MEE, it isn't clear that these models provide any guidance as to what should be corrected.
+In the stand-alone RP and RPPO models, \textit{all} choices result in optimal welfare, even if aggregated choices result in the strict reduction in the agent's stock of assets.
+Even if the parameters of the RP model are themselves determined by the number of choice scenarios experienced in such a way as to make choices more consistent with MEE, for instance, by making the standard deviation of the distribution described for Amy in the SMP example decrease with market experience, there is inherently no \enquote{correction} occurring;
+agents can be characterized as just as well off or potentially better off by \textit{not} approaching consistency with MEE.
+Thus, the RP class of models do not provide normative coherence with respect to the WCC criterion.
+
+\subsubsection{Ought Implies Can (OIC) Criterion}
+
+The two previous criteria for normative theories have involved defining what specific \enquote{oughts} are recommended by the theory and discussing whether they are reasonable.
+A somewhat different take on a requirement for normative acceptance is the notion that the \enquote{oughts} recommended by a theory must, in reality, be possible to be obtained.
+This criteria has been put forward by the FFH project as an argument against RPT because, they claim, \textit{no} agent can posses the information processing capacity to possible take account of all salient signals in \textit{every} possible environment, and also have a powerful enough mind to discover and pursue the optimal response to such stimuli.
+If no agent \textit{can} in fact adhere to the retirements of the theory in question, the argument goes, then the theory cannot be taken as normatively compelling.
+
+For this criteria, it is useful to look at the reasons why the three major stochastic model classes were formulated to begin with.
+To be sure, all of the stochastic models had a descriptive aim when they were formulated.
+Apparent deviations from RPT required at least an econometric method to handle observed data.
+But, in justifying the manner in which each class of stochastic model coped with the apparent deviations, these models incorporate aspects that are generally associated with the psychology of agents, and in some cases, these psychological underpinnings help the models to conform to the OIC criterion.
+
+The TR model attempts to capture noise in data that is attributable to a \enquote{tremble}, meaning that subjects in experiments would have correctly identified the option that made them the best off but, when committing to a choice, they would mistakenly select a different option with some constant probability.
+This motivation for a model doesn't appear to attempt to address the concern from the FFH program about the inability of agents to perform optimization, only the occasional inability of agents to translate this optimization accurately into choice.
+The example of Emma in the SMP thought experiment and the models employed by \textcite{Loomes2002} show that in the TR model there is nothing particularly special about the process that evaluates the value of the options, the model operates only on the choice probabilities.
+In as much the process that evaluates which option makes agents the best off is not the concern of the TR model, and that agents can \enquote{tremble} when they attempt to actualize the evaluation process and select some alternative at random, we can say the TR model satisfies the OIC criterion.
+
+The RE models, however, seem to fare better in this account.
+RE models are often called \enquote{Fechnerian} models after the work of Gustov Fechner \parencite{Fechner1966a}, a German psycho-physicist and experimental psychologist.
+Fechner's work was often concerned with the limits of human perception of physical stimuli, such as the minimally perceptible difference in weight of two hidden objects.
+The RE models directly incorporate this concept of \enquote{measurement error} through the $\lambda$ and $D(\beta,X)$ terms as described in equation (\ref{eq:RE.2}).
+The $\lambda$ term is directly proportional to the standard deviation of a random measurement error of \textit{utility} as opposed to physical stimuli.
+This concept of utility being measured with error seems to directly address the criticism put forth against the RPT by the FFH program.
+Indeed, for certain distributions of the error, $F(\cdot)$, and/or certain adjusting functions, $D(\beta_n,X)$, the RE models imply that an agent cannot precisely measure her utility in an optimal fashion in \textit{any} decision problem.
+The concept that agents measure their utility of an option in a manner analogous to how the same agents would measure the difference in weight of alternative psychical objects seems to entirely satisfy the OIC criterion.
+
+The RP models, far from incorporating elements that seem plausible for an agent to operationalize, add to the optimization problem associated with RPT the necessity of maintaining a set of preferences that are randomly drawn from for every choice problem.
+It must be possible to optimize over each element of this set of preferences.
+The process of randomly drawing a preference relation from a set of such relations is not consistent with the OIC criterion.
+
+\subsection{Concluding Remarks}
+
+In this chapter we have shown that over the last several decades, stochastic models of economic agents have been given an increasing amount of attention and have discussed three classes of models at length: the \enquote{Tremble} (TR) model, the \enquote{Random Error} (RE) model, and the \enquote{Random Preference} (RP) models.
+The primary purpose of introducing these models was to better account for the apparent deviations from rational preference theory (RPT) frequently observed in experimental data.
+To further this descriptive purpose, these models introduced aspects with a great deal of attention paid to necessary implications of these models on the choice probabilities of several distinct types of decision problems.
+The TR model requires that all deviations from RPT were equally likely;
+The SU model requires Strong Stochastic Transitivity;
+The RP model requires that violations of FOSD have a zero probability of occurring.
+
+Additionally, these models were formulated mathematically to be parsimonious and modular, meaning that the stochastic elements of these models effectively never interfered with the elements concerned with utility.
+The TR model and most of the RE models only require the estimation of one parameter in addition to whatever model of utility is employed, whereas the common interpretations of the RP model only required the additional estimation of two parameters.
+The modularity of these models also allowed for researchers such as \textcite{Loomes2002} to occasionally combine them to address potential descriptive shortfalls from the individual models.
+
+However, the main purpose of this chapter is not to illustrate the descriptive capabilities of these models, but to draw attention to the normative implications and potential justifications of these models.
+We propose a simple thought experiment involving a contrived decision problem, the \enquote{Stochastic Money Pump} (SMP), and several hypothetical agents who individually operate differing classes of stochastic models when making choices.
+The SMP is structured in such a way as to demonstrate the possibility of an agent entering into a decision problem and leaving with a strictly lower stock of assets, similar to the result of the traditional \enquote{money pump}.
+With the SMP in hand, we show that at least for this decision problem, each of the major classes of stochastic models can be parameterized in such a way that they produce exactly the same descriptive choice probabilities.
+This descriptive equality, however, does not in any way imply that the welfare implications of these models are equivalent or even coherent.
+
+We show that for the examples of the models given, the TR and RE models make equivalent implications concerning the welfare of agents, in particular, that agents who have had some of their assets extracted from them are modeled as strictly worse off than if this has not happened.
+The same cannot be said about the RP model or any of its derivatives, such as the proposed \enquote{Random Preference Per Option} model or the RP-TR combination model.
+The mathematical descriptions of welfare from these models beg the larger question of how or whether the stochastic models can be normatively justified.
+
+We attend to the discussion of normative coherences by adopting the framework of instrumental rationality that is often used when discussing RPT and the fast and frugal heuristics (FFH) programs.
+We attempt to limit the discussion by focusing on three prominent criteria used historically and presently when constructing normative justifications: the \enquote{Economic Elimination} (EE), \enquote{Willingness to Correct Choices} (WCC), and \enquote{Ought Implies Can} (OIC) criteria.
+
+We argue that the EE criterion requires adherence to a notion that strictly greater stocks of assets are objectively better than smaller stocks of assets, and normative models must require agents to subjectively conform to this valuation.
+We conclude that only the RE and TR models make coherent statements with respect to EE; the SMP thought experiment demonstrates how the RP model allows for the implication that agents who have had assets extracted from them are subjectively better off than not having been extracted from.
+
+We argue that to effectively posit the WCC criterion as a condition for normative coherence, the role of the \enquote{confronter} must be relegated to the market.
+In this interpretation, the WCC builds on the notion of \enquote{objective betterness} described by EE  by stating that having been confronted with the market outcomes of a choice, should the agent face the same decision again, the most likely choice she will make will leave her at least as well off as her previous choice.
+We conclude that again the RE and TR models make coherent statements with respect to this criterion, but the RP models do not.
+
+The final criterion considered, OIC, states that the process implied by the model must be able to be actualized by the agents the model is said to describe.
+This criterion has often been proposed by the FFH program as a critique of RPT, but can be discussed with respect to stochastic models as well.
+We argue that the RE and TR models present mechanisms which can be said to usefully approximate physical and psychological mechanisms that we might suppose to exist in economic agents; the failure to actualize a decision having already decided which option provides the greatest welfare, and that measurement of utility is prone to error in much the same way as measurement is prone to error in other contexts.
+We conclude that the RE and TR models therefore satisfy the OIC criterion, whereas the RP model stipulates further barriers to psychological approximation.
+
+
+We find that the motivations of the RP model as a descriptive model of chocie probabilites are relatively sound.
+There has been some evidence showing the RP model does statistically fit choice data better than many alternative models, particularly when combined with the TR model.
+The RPPO model presents the possibility of even greater statistical fit, particularly since it allows for the violation of FOSD in certain choice scenarios.{\footnotemark}
+Whether the RPPO model does in fact perform statistically better than other stochastic models is an empirical question that hasn't been given much attention.
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	The normalized RPPO model doesn't allow an option with a single certain outcome to be chosen over an option with a larger single certain outcome, but the un-normalized RPPO model might, depending on the particular utility functions being utilized and distributions of parameters.
+}
+
+We argue that the RPPO model shouldn't be given much attention.
+The RP and RPPO models both exist in a territory of economic modeling that concerns itself with statistical fit and predictive quality, which are indeed things economist should be concerned about, but cannot be used to make persuasive arguments about how an agent accumulates economic welfare through choices.
+It is the latter of these two concerns which constitute the economic, as opposed to the technical, content of the inquiry.
+The exercise presented in this chapter helps to inform the econometric question proposed by analysts of \enquote{what is the \enquote{best} stochastic model?} by suggesting that the \enquote{best} model is the one which has the greatest \enquote{fit} among the models \textit{which make normatively coherent statements about the welfare of the modeled agents.}
+
+We conclude from this experiment that the RP model's failure to provide coherent statements on how the choice mechanism relates to welfare should disqualify it as an model for economic agency, regardless of any evidence that suggests it is a better fitting model.
+We recognize that rejecting a model that potentially fits choice data from economic experiments better than its alternative seems counter-empiricist, but if estimates from these models are only useful in describing choice probabilities, and not the welfare implications of the choices made, the model is not useful in economic applications and must be discarded.
+
+\newpage
+
+\printbibliography[segment=2, heading=subbibliography]
+
+\toftagstop{ch2}
+
+\end{document}
