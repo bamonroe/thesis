@@ -1,6 +1,12 @@
+\documentclass[../main.tex]{subfiles}
+
 \begin{document}
-\chapter{The Welfare Implications of Stochastic Models}
 \onehalfspacing
+\setcounter{chapter}{2}
+
+\chapter{The Welfare Implications of Stochastic Models}
+
+\lltoc % Table of contents only when locally compiled
 
 Given the discussion about how the various stochastic models generally deal with the normative notion of welfare, we would like to reintroduce the question asked earlier in Chapter 2, section 2.2: 
 \enquote{What are the likely welfare implications of an economic agent's choices in an incentivized environment given an assumed stochastic model of choice?}
@@ -18,11 +24,11 @@ This, in turn, can lead to a mis-characterization of the welfare effects of cert
 To understand the consequences of an assumed stochastic model, we will look at another numerical example utilizing the popular Multiple Price List (MPL) utilized by Holt \& Laury (2002) (HL).
 First however, we will revisit some notation from Chapter 2, briefly describe some econometric methods for identification, and then propose some further notation to make concepts cleaner.
 
-\subsection{Notation and Estimation} \label{ssec:Notation}
+\section{Notation and Estimation} \label{ssec:Notation}
 
 For any salient lottery $X_j$, and any vector of parameters $\beta_n$, there exists some certain outcome, $\CE_j$, such that subject $n$ is indifferent between the lottery and the certainty equivalent:
 \begin{equation}
-	\label{eq:CE.indiff}
+	\label{eq3:CE.indiff}
 	X_j \sim^n {\CE}_j \;\Leftrightarrow\; G(\beta_n,X_j) = G(\beta_n, {\CE}_j)
 \end{equation}
 
@@ -30,7 +36,7 @@ For any salient lottery $X_j$, and any vector of parameters $\beta_n$, there exi
 
 Combining the Rank Dependent Utility (RDU) structure with a CRRA utility function, we can define the {\CE} as follows:
 \begin{align}
-	\label{eq:CEcalc}
+	\label{eq3:CEcalc}
 	\begin{split}
 		G(\beta_n,X_j) &= \sum_{i=1}^{I} w_i(p) \frac{x_{ij}^{(1-r)}}{(1-r)} = \frac{ {\CE}_j^{(1-r)}}{(1-r)}\\
 		{\CE}_j &=  \left( (1-r) \times \sum_{i=1}^{I} w_i(p) \frac{x_{ij}^{1-r}}{(1-r)} \right)^{ \displaystyle\nicefrac{1}{(1-r)} }
@@ -46,33 +52,33 @@ Thus $X_1^Z \succcurlyeq X_2^Z$ and $X_j^Z \succcurlyeq X_k^Z$, where $k \geq j$
 The probability of any choice $j$ by some subject $n$, given some vector of parameters $\beta$, being observed for a task $t$, is denoted by $\Pr( y_t = j)$, where $y_t = j$ is an indicator function that records option $j$ as being chosen in task $t$.
 To make explicit the dependency of this probability on the option in question, the subject, the task, and the $\beta$ vector, this relationship will be re-framed as follows:
 \begin{equation}
-	\label{eq:Pnjt}
+	\label{eq3:Pnjt}
 	P_{njt}(\beta_n) = \Pr(y_i = j)
 \end{equation}
 
 The likelihood of observing a series of choices is the product of the probability of observing the option chosen for each task across all tasks, $T$ :
 \begin{equation}
-	\label{eq:PnT}
+	\label{eq3:PnT}
 	P_{nT}(\beta_n) =  \prod_{t}^{T} P_{njt}(\beta_n)
 \end{equation}
 
 \noindent This is the standard likelihood function applied to choice data.
-We could take the log of equation (\ref{eq:PnT}) and conduct standard maximum likelihood estimation (MLE) by searching for the vector $\hat{\beta}_n$ which maximizes the log-likelihood function:
+We could take the log of equation (\ref{eq3:PnT}) and conduct standard maximum likelihood estimation (MLE) by searching for the vector $\hat{\beta}_n$ which maximizes the log-likelihood function:
 \begin{equation}
-	\label{eq:LPnT}
+	\label{eq3:LPnT}
 	\mathit{LP}_{nT}(\beta_n) = \sum_{t}^{T} \ln \left( P_{nit}(\beta_n) \right)
 \end{equation}
 
 \noindent Thus, the maximum likelihood estimator $\hat{\beta}_n$ for subject $n$ is:
 \begin{equation}
-	\label{eq:Bn}
+	\label{eq3:Bn}
 	\hat{\beta}_n = \underset{x}{\operatorname{arg\,max}}\sum_t^T \ln \left( P_{nit}(\beta_n) \right)
 \end{equation}
 
 We can utilize this estimator to recover the CE for every option in every task, and then utilize these \CE s to recover our best estimate of the proportion of welfare the subject obtained. 
 While conducting welfare analysis given individually estimated parameter vectors is rare in the economics literature,{\footnotemark} the recovery of parameter vectors through MLE is as common as the welfare analysis is rare.
 \textcite{Hey1994}, \textcite{Wilcox2015}, and \textcite{Hey2001} provide several prominent examples of parameter estimation.
-These particular examples, however, are distinctly different from other uses of MLE in experimental economics, primarily because equation (\ref{eq:Bn}) is estimated for every subject individually, as opposed to pooling all subject data together and estimating a parameter vector for one, representative agent (RA).
+These particular examples, however, are distinctly different from other uses of MLE in experimental economics, primarily because equation (\ref{eq3:Bn}) is estimated for every subject individually, as opposed to pooling all subject data together and estimating a parameter vector for one, representative agent (RA).
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
@@ -84,7 +90,7 @@ For instance, the analyst could be primarily concerned with the economic charact
 As shown in \textcite[142]{Harrison2008a}, it is easy to allow the $\hat{\beta}$ to be determined by a linear combination of observable characteristics of either the subjects or experimental treatments.
 For instance, if the race, gender and age of each of the subjects were known, we could estimate:
 \begin{equation}
-	\label{eq:BB}
+	\label{eq3:BB}
 	\bm{\hat{\beta}} = \hat{\beta}_0 + \hat{\beta}_1 \times \mathit{race} + \hat{\beta}_2 \times \mathit{gender} + \hat{\beta}_3 \times \mathit{age}
 \end{equation}
 \noindent where $\hat{\beta}_1$ through $\hat{\beta}_3$ represent the mean marginal effects of race through age respectively on the vector $\bm{\hat{\beta}}$.
@@ -93,7 +99,7 @@ Another useful technology for RA modeling is the use of finite mixture modeling.
 This is when a finite mixture of stochastic specifications are estimated jointly on the same data along with mixture parameters.
 For instance,
 \begin{align}
-	\label{eq:PT_Mix}
+	\label{eq3:PT_Mix}
 	\begin{split}
 		\bm{\mathit{P_T}} = \prod_t^T \left[ \sum_m^M \pi_m \times L_T^m(\beta^m) \right]\\ 
 		\mathit{st.} \sum_m^M \pi_m = 1
@@ -103,7 +109,7 @@ For instance,
 \noindent where $\pi_m$ is the proportion of model $m$ in the mixture, $\beta$ is the vector of parameters to be estimated in model $m$ and $L_T^m$ is the likelihood of the choice data across the $T$ tasks is explained by model $m$ given the vector $\beta^m$.
 Similarly, the log-likelihood for finite mixture models is defined as:
 \begin{align}
-	\label{eq:LPT_Mix}
+	\label{eq3:LPT_Mix}
 	\begin{split}
 		\bm{\mathit{LP_T}} = \sum_t^T \left[ \ln \left( \sum_m^M \pi_m \times L_T^m(\beta^m) \right) \right]\\ 
 		\mathit{st.} \sum_m^M \pi_m = 1
@@ -111,7 +117,7 @@ Similarly, the log-likelihood for finite mixture models is defined as:
 \end{align}
 
 \noindent Thus, $M$, $\beta^m$ and $M-1$, $\pi_m$ vectors need to be estimated.
-These parameters can additionally be determined by observed characteristics, as in equation (\ref{eq:BB}).
+These parameters can additionally be determined by observed characteristics, as in equation (\ref{eq3:BB}).
 This method can be useful if the analyst wishes to estimate the proportion of a sample which more closely adheres to RDU versus EUT for instance, or if the analyst wants to determine if there is some heterogeneity in the sample that is revealed by choice, but unobservable otherwise.
 \textcite[141]{Harrison2008a} use this method to jointly estimate a specification composed of Prospect Theory (PT) and EUT.
 They employ a Strong Utility (SU) stochastic model to generate the probabilities.
@@ -126,8 +132,8 @@ For instance, an analyst could use a mixture model to determine what proportion 
  
 There are also some methodological problems, or at least limitations, when conducting estimation on pooled data.
 The estimates represent the means of the relevant parameters in the sample, but often the distributions of these parameters and whether these distributions are correlated provide more important information to analysts.{\footnotemark} 
-While the methods described in equations (\ref{eq:BB}) and (\ref{eq:PT_Mix}) provide some insight into the heterogeneity of a pooled sample, this is mostly limited to estimating average deviations from the mean due to observable heterogeneity.
-While it is theoretically possible to have a mixture model with greater than two underlying stochastic specifications, in reality this is computationally demanding and thus the mixture model presented in (\ref{eq:PT_Mix}) is often only utilized with one or two mixtures.
+While the methods described in equations (\ref{eq3:BB}) and (\ref{eq3:PT_Mix}) provide some insight into the heterogeneity of a pooled sample, this is mostly limited to estimating average deviations from the mean due to observable heterogeneity.
+While it is theoretically possible to have a mixture model with greater than two underlying stochastic specifications, in reality this is computationally demanding and thus the mixture model presented in (\ref{eq3:PT_Mix}) is often only utilized with one or two mixtures.
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
@@ -168,11 +174,11 @@ While subjects may be less bored by doing subjects over 5 days rather than all o
 
 An alternative method to recover greater information on entire samples of agents is to estimate the distributions of the parameter vectors describing individual preferences directly from pooled data.
 Instead of estimating preference parameters, the parameters which shape the distributions of preferences are estimated.
-We can call equation (\ref{eq:Pnjt}), which is at the heart of equations (\ref{eq:PnT}) through (\ref{eq:LPT_Mix}), a conditional probability, because the probability is conditional on a particular $\beta$ vector.
+We can call equation (\ref{eq3:Pnjt}), which is at the heart of equations (\ref{eq3:PnT}) through (\ref{eq3:LPT_Mix}), a conditional probability, because the probability is conditional on a particular $\beta$ vector.
 We can however weight this function by the likelihood of observing the $\beta$ vector from a given distribution.{\footnotemark}
 We call this weighted probability the unconditional probability:
 \begin{equation}
-	\label{eq:Pnt}
+	\label{eq3:Pnt}
 	P_{nt}(\theta) = \int P_{nt}(\beta_n) f(\beta | \theta) d\beta	
 \end{equation}
 \noindent where $f(\beta|\theta)$ is the density function of the $\beta$ vector given some vector of hyper-parameters $\theta$ shaping the distribution of the $\beta$.
@@ -189,27 +195,27 @@ We call this weighted probability the unconditional probability:
 
 
 
-This unconditional probability can be substituted for the conditional probability used in equations (\ref{eq:PnT}) and (\ref{eq:LPnT}) to give us the unconditional likelihood equation:
+This unconditional probability can be substituted for the conditional probability used in equations (\ref{eq3:PnT}) and (\ref{eq3:LPnT}) to give us the unconditional likelihood equation:
 \begin{equation}
-	\label{eq:LnT}
+	\label{eq3:LnT}
 	L_{nT}(\theta) = \prod_t^T P_{nt}(\theta)
 \end{equation}
 
 \noindent and its counterpart, the unconditional log-likelihood equation:
 \begin{equation}
-	\label{eq:LLnT}
+	\label{eq3:LLnT}
 	\mathit{LL}_{nT}(\theta) = \sum_t^T \ln \left( P_{nt}(\theta) \right)
 \end{equation}
 
-Equations (\ref{eq:Pnt}) through (\ref{eq:LLnT}) are computationally impossible to estimate directly due to the general \enquote{inability of computers to perform integration} in a closed-form \parencite[2]{Train2002}.
-However, equation (\ref{eq:Pnt}) can be approximated by simulation as follows:
+Equations (\ref{eq3:Pnt}) through (\ref{eq3:LLnT}) are computationally impossible to estimate directly due to the general \enquote{inability of computers to perform integration} in a closed-form \parencite[2]{Train2002}.
+However, equation (\ref{eq3:Pnt}) can be approximated by simulation as follows:
 \begin{equation}
-	\label{eq:SPnt}
+	\label{eq3:SPnt}
 	\mathit{SP}_{nt}(\theta) = \mathlarger{\sum}_h^H \frac{ P_{nt}(\beta^h) }{H}
 \end{equation}
 
-Equation (\ref{eq:SPnt}) needs some explanation.
-The integration involved in equation (\ref{eq:Pnt}) is approximated by taking $H$ random draws of $\beta^h$ from the distribution governed by $\theta$, evaluating equation (\ref{eq:Pnjt}) with these randomly drawn $\beta^h$, and taking a simple average across these evaluations.
+Equation (\ref{eq3:SPnt}) needs some explanation.
+The integration involved in equation (\ref{eq3:Pnt}) is approximated by taking $H$ random draws of $\beta^h$ from the distribution governed by $\theta$, evaluating equation (\ref{eq3:Pnjt}) with these randomly drawn $\beta^h$, and taking a simple average across these evaluations.
 Only a simple average is needed because if the $\beta^h$ vectors are drawn at random from the distribution governed by $\theta$, then the likelihood of their occurrence is already weighted by the distribution's density.
 
 The use of $H$ as the term characterizing draws from a distribution is not arbitrary.
@@ -233,24 +239,24 @@ The Halton sequence of uniformly distributed numbers can be transformed into a s
 That is, if $\mu$ is taken to be a random variable indicating a draw from a uniform distribution, and $F(\epsilon)$ is an invertible, univariate, cumulative distribution, then given $\mu$, draws of $\epsilon$ from this distribution can be obtained by solving $\epsilon = F^{-1}(\mu)$.
 \textcite[236]{Train2002} discusses this method for obtaining random draws from invertible, univariate distributions, as well as using Choleski transformations to obtain draws from multivariate normal distributions.
 
-With this simulated unconditional probability, we can obtain the simulated unconditional likelihood by substituting equation (\ref{eq:SPnt}) for equation (\ref{eq:Pnt}) in equation (\ref{eq:LnT}):
+With this simulated unconditional probability, we can obtain the simulated unconditional likelihood by substituting equation (\ref{eq3:SPnt}) for equation (\ref{eq3:Pnt}) in equation (\ref{eq3:LnT}):
 \begin{equation}
-	\label{eq:SLnT}
+	\label{eq3:SLnT}
 	\mathit{SL}_{nT}(\theta) = \prod_t^T \left[ \mathlarger{\sum}_h^H \frac{ P_{nt}(\beta^h) }{H} \right]
 \end{equation}
 
-Equation (\ref{eq:SLnT}) is limited in terms of identifying $\theta$ because, as indicated by the $n$ subscript, this metric is defined for a single agent.
+Equation (\ref{eq3:SLnT}) is limited in terms of identifying $\theta$ because, as indicated by the $n$ subscript, this metric is defined for a single agent.
 Since the normatively coherent stochastic models discussed in Chapter 2 have non-random elements composing $\beta_n$, there is no distribution of $\beta_n$ to be estimated from a single agent's choices.
 The real power of this method is realized, however, when sample data is pooled together and the distribution of $\beta_n$ vectors is estimated from this pooled data.
-This is an easy extension of equation (\ref{eq:SLnT}), which is logged for numerical stability:
+This is an easy extension of equation (\ref{eq3:SLnT}), which is logged for numerical stability:
 \begin{equation}
-	\label{eq:SLLNT}
+	\label{eq3:SLLNT}
 	\mathit{SLL}_{NT}(\theta) = \sum_{n=1}^N \left( \sum_t^T \left[ \ln\!\left( \sum_h^H \frac{ P_{nt}(\beta^h) }{H} \right) \right] \right)
 \end{equation}
 
-\noindent We call equation (\ref{eq:SLLNT}) the unconditional simulated log-likelihood function, or just the simulated log-likelihood function (SLL).
+\noindent We call equation (\ref{eq3:SLLNT}) the unconditional simulated log-likelihood function, or just the simulated log-likelihood function (SLL).
 Maximum simulated likelihood (MSL) methods can be applied to this equation to return the MSL estimator $\hat{\theta}$ which maximizes this function.
-The characteristics of simulated estimators are reviewed in depth by \textcite[Chapter~10]{Train2002}, and the critical insight is that the estimator $\hat{\theta}$ derived from equation (\ref{eq:SLLNT}) approaches the estimator from equation (\ref{eq:LLnT}) with a sufficiently large, $H$, number of draws from the distribution governed by $\theta$.
+The characteristics of simulated estimators are reviewed in depth by \textcite[Chapter~10]{Train2002}, and the critical insight is that the estimator $\hat{\theta}$ derived from equation (\ref{eq3:SLLNT}) approaches the estimator from equation (\ref{eq3:LLnT}) with a sufficiently large, $H$, number of draws from the distribution governed by $\theta$.
 
 Estimating the distribution of preferences for a sample with MSL improves the analyst's position on multiple accounts.
 First, the limitation of estimating only the mean preference parameter for pooled data with standard MLE is no longer binding.
@@ -271,11 +277,11 @@ In contrast, if MSL is utilized and each element of $\beta_n$ is assumed to be i
 The assumption of independence of the marginal distributions can be relaxed and a covariance matrix of these distribution-shaping parameters could be estimated at the same time.
 This would still only increase the number of parameters to be estimated to 12.
 
-\subsection{The \texorpdfstring{\textcite{Holt2002}}{Holt and Laury (2002)} MPL and the Unconditional Assessment of Expected Welfare}
+\section{The \texorpdfstring{\textcite{Holt2002}}{Holt and Laury (2002)} MPL and the Unconditional Assessment of Expected Welfare}
 
 Issues concerning statistical power and identification will be discussed in more depth in Chapter 4, but first we revisit the primary question of this chapter given the above discussion on the technologies available to econometricians to make inferences about preferences of agents.
 Recall that it was assumed that the experimenter in the SMP thought experiment had complete knowledge of the stochastic specification utilized by each of the imagined subjects.
-This knowledge could have derived from asking each subject a number of questions under experimental conditions that satisfy the precepts for a valid economic experiment laid out by \textcite{Smith1982}{\footnotemark}, and then utilizing MLE and equation (\ref{eq:PnT}) to retrieve highly accurate estimates of each subject's preferences.
+This knowledge could have derived from asking each subject a number of questions under experimental conditions that satisfy the precepts for a valid economic experiment laid out by \textcite{Smith1982}{\footnotemark}, and then utilizing MLE and equation (\ref{eq3:PnT}) to retrieve highly accurate estimates of each subject's preferences.
 Assume that another experimenter asked a sufficiently \enquote{large} sample of subjects a battery of questions and was able to estimate the $\theta$ vector for this sample.
 Can knowledge of the distribution of preferences provide knowledge about welfare that was previously obfuscated by individual estimation? 
 Potentially, yes.
@@ -355,7 +361,7 @@ Utilizing notation from the beginning of Section \ref{ssec:Notation}, an option 
 We can define a \enquote{choice error} as any choice where the option chosen didn't provide the greatest utility.
 Therefore a choice error in task $t$ is when $y_t \neq 1$, and an indicator function for choice errors is as follows:
 \begin{equation}
-	\label{eq:Itb}
+	\label{eq3:Itb}
 	I_{t}(\beta_n) = 
 	\begin{cases}
 		 1 & y_t \neq 1\\
@@ -365,21 +371,21 @@ Therefore a choice error in task $t$ is when $y_t \neq 1$, and an indicator func
 
 \noindent The frequency of choice errors by agent $n$ in the choice pattern $y_t \times T$ is:
 \begin{equation}
-	\label{eq:MTBn}
+	\label{eq3:MTBn}
 	M_T(\beta_n) = \sum_t^T I(\beta_n)
 \end{equation}
 
 Given the distribution parameter vector $\theta$, we can define the expected frequency of choice errors in the choice pattern $y_t \times T$ as:
 \begin{equation}
-	\label{eq:EMt}
+	\label{eq3:EMt}
 	\E(M | \theta) = \int M(\beta_n) f(\beta | \theta) d\beta
 \end{equation}
 
-\noindent where, just as in equation (\ref{eq:Pnt}), $f(\beta|\theta)$ is the density function of the $\beta$ vector given the vector of hyper-parameters $\theta$ shaping the distribution of the $\beta$.
-Equation (\ref{eq:EMt}) is just the mean of the discrete distribution of choice errors in in the choice pattern $y_t \times T$ , given the distribution parameter vector $\theta$.
+\noindent where, just as in equation (\ref{eq3:Pnt}), $f(\beta|\theta)$ is the density function of the $\beta$ vector given the vector of hyper-parameters $\theta$ shaping the distribution of the $\beta$.
+Equation (\ref{eq3:EMt}) is just the mean of the discrete distribution of choice errors in in the choice pattern $y_t \times T$ , given the distribution parameter vector $\theta$.
 Because the distribution of choice errors is discrete, $M(\beta_n) \in [0,T] \subset \mathbb{N}^0$, we can define the probability mass function of choice errors as follows{\footnotemark}:
 \begin{equation}
-	\label{eq:PE}
+	\label{eq3:PE}
 	P_E(e | \theta) = \int N[M(\beta),e] f(\beta|\theta) d \beta
 \end{equation}
 
@@ -390,7 +396,7 @@ Because the distribution of choice errors is discrete, $M(\beta_n) \in [0,T] \su
 
 \noindent where:
 \begin{equation}
-	\label{eq:NMB}
+	\label{eq3:NMB}
 	N[M(\beta), e] = 
 	\begin{cases}
 		1 & M(\beta) = e\\
@@ -399,27 +405,27 @@ Because the distribution of choice errors is discrete, $M(\beta_n) \in [0,T] \su
 \end{equation}
 
 \noindent and $e$ indicates the number of choice errors for the given choice pattern and $\theta$ vector.
-Equation (\ref{eq:PE}) provides useful information about whether an observed pattern deviates from a deterministic choice model, but is limited in the case that it assigns equal weight to errors which are very costly in terms of welfare and errors that are not so costly.
+Equation (\ref{eq3:PE}) provides useful information about whether an observed pattern deviates from a deterministic choice model, but is limited in the case that it assigns equal weight to errors which are very costly in terms of welfare and errors that are not so costly.
 
 We can incorporate two of the metrics developed in Chapter 2 for welfare assessment into this sample framework.
 The first metric, calculated for a choice pattern $y_t \times T$, is equivalent to a standard consumer surplus calculation:
 \begin{equation}
-	\label{eq:WST}
+	\label{eq3:WST}
 	\Delta W_{nT} = \sum_{t=1}^T \left( {\CE}_{nyt} - {\CE}_{n1t}^Z \right)
 \end{equation}
 
 \noindent where ${\CE}_{nyt}$ is the {\CE} of the option chosen, indicated by the subscript $y$, by agent $n$ in task $t$, and ${\CE}_{n1t}^Z$ is the {\CE} of the option that provides the greatest utility among the set of unchosen options, $Z$, in task $t$.
-Throughout this chapter, we will refer to the metric in equation (\ref{eq:WST}) as the \enquote{welfare surplus} metric.
+Throughout this chapter, we will refer to the metric in equation (\ref{eq3:WST}) as the \enquote{welfare surplus} metric.
 The second metric we propose to characterize the welfare implications of choices is similar to the concept of auction \enquote{efficiency} utilized by \textcite{Plott1978}:
 
 \begin{equation}
-	\label{eq:WET}
+	\label{eq3:WET}
 	\%W_{nT} = \frac{\displaystyle\sum_{t=1}^{T} {\CE}_{nyt} }{\displaystyle\sum_{t=1}^{T} {\CE}_{n1t}}
 \end{equation}
 
-\noindent In the metric defined in equation (\ref{eq:WET}), the {\CE}'s of the options chosen by the agent across all tasks $T$ are summed, and then divided by the {\CE}'s of the options that would have provided the greatest utility across all the tasks.
+\noindent In the metric defined in equation (\ref{eq3:WET}), the {\CE}'s of the options chosen by the agent across all tasks $T$ are summed, and then divided by the {\CE}'s of the options that would have provided the greatest utility across all the tasks.
 Therefore, should an agent never make a choice error, this metric would take on the value of $1$, and should the agent make at least one choice error, it would take on a value between $0$ and $1$.{\footnotemark}
-Throughout this chapter, we will refer to the metric in equation (\ref{eq:WET}) as the \enquote{welfare efficiency} metric.
+Throughout this chapter, we will refer to the metric in equation (\ref{eq3:WET}) as the \enquote{welfare efficiency} metric.
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
@@ -430,30 +436,30 @@ Throughout this chapter, we will refer to the metric in equation (\ref{eq:WET}) 
 	These general issues will not be of concern in this chapter as all examples of lotteries have outcomes in the strictly positive domain.
 }
 
-The welfare surplus and welfare efficiency metrics from equations (\ref{eq:WST}) and (\ref{eq:WET}) can be used in place of equation (\ref{eq:MTBn}) in equation (\ref{eq:EMt}) to gather useful information for a given choice pattern and $\theta$ vector:
+The welfare surplus and welfare efficiency metrics from equations (\ref{eq3:WST}) and (\ref{eq3:WET}) can be used in place of equation (\ref{eq3:MTBn}) in equation (\ref{eq3:EMt}) to gather useful information for a given choice pattern and $\theta$ vector:
 \begin{align}
-	E( \Delta W_T | \theta) &= \int \Delta W_T(\beta) f(\beta | \theta) d \beta \label{eq:EWST}\\
-	E( \% W_T | \theta) &= \int \% W_T(\beta) f(\beta | \theta) d \beta \label{eq:EWET}
+	E( \Delta W_T | \theta) &= \int \Delta W_T(\beta) f(\beta | \theta) d \beta \label{eq3:EWST}\\
+	E( \% W_T | \theta) &= \int \% W_T(\beta) f(\beta | \theta) d \beta \label{eq3:EWET}
 \end{align}
 
-Given equation (\ref{eq:NMB}), we can denote the expected welfare surplus and the expected welfare efficiency obtained by agents who have committed $e \in [0,T]$ errors by making choices $y_t \times T$ as follows:
+Given equation (\ref{eq3:NMB}), we can denote the expected welfare surplus and the expected welfare efficiency obtained by agents who have committed $e \in [0,T]$ errors by making choices $y_t \times T$ as follows:
 \begin{align}
-	E( \Delta W_T | \theta, e) &= \int \bigr( \Delta W_T(\beta) \times N[M(\beta),e] \bigr) f(\beta | \theta) d \beta \label{eq:EDWTe}\\
-	E( \% W_T | \theta, e) &= \int \bigl( \% W_T(\beta) \times N[M(\beta),e] \bigr) f(\beta | \theta) d \beta \label{eq:EPWTe}
+	E( \Delta W_T | \theta, e) &= \int \bigr( \Delta W_T(\beta) \times N[M(\beta),e] \bigr) f(\beta | \theta) d \beta \label{eq3:EDWTe}\\
+	E( \% W_T | \theta, e) &= \int \bigl( \% W_T(\beta) \times N[M(\beta),e] \bigr) f(\beta | \theta) d \beta \label{eq3:EPWTe}
 \end{align}
 
-The same limitation mentioned about MSL concerning a computer's inability to perform closed-form integration in general applies to equations (\ref{eq:EMt}), (\ref{eq:PE}), and (\ref{eq:EWST}) through (\ref{eq:EWET}).
-However, these equations can be approximated in the manner described for MSL in equation (\ref{eq:SPnt}): the terms in these equations between the integrand and the density function will be evaluated with $\beta$ vectors randomly drawn $H$ times from the distribution governed by $\theta$, and then averaged.
+The same limitation mentioned about MSL concerning a computer's inability to perform closed-form integration in general applies to equations (\ref{eq3:EMt}), (\ref{eq3:PE}), and (\ref{eq3:EWST}) through (\ref{eq3:EWET}).
+However, these equations can be approximated in the manner described for MSL in equation (\ref{eq3:SPnt}): the terms in these equations between the integrand and the density function will be evaluated with $\beta$ vectors randomly drawn $H$ times from the distribution governed by $\theta$, and then averaged.
 As $H$ gets sufficiently large, the simulated statistics approach the true statistics.
 
-\subsubsection{Sample Level Analysis with an EUT Population}
+\subsection{Sample Level Analysis with an EUT Population}
 
 The simulation methods described here and for the remainder of this chapter characterize an individual agent as having a single $\beta_n$ vector representing her preferences, and making choices in an economic environment that satisfies the \textcite{Smith1982} precepts for valid economic experiments.
 An individual agent $n$ generates a \textit{observed} choice pattern $y_t \times T$ by resolving the stochastic process defined by her preferences.
 In Chapter 2, we described normatively coherent stochastic models as those models that characterize agents as having non-random preferences, thus an agent's preferences do not change from choice to choice.{\footnotemark}
 Individual $\beta_n$ parameter vectors are themselves drawn from a population of $\beta$ vectors. 
 This distribution of $\beta$ vectors in the population is characterized by the parameter vector $\theta$.
-Throughout the following discussion, we will refer to a choice pattern's likelihood of being \textit{observed}, by which we mean the choice pattern's simulated likelihood as calculated in equation (\ref{eq:SLnT}).
+Throughout the following discussion, we will refer to a choice pattern's likelihood of being \textit{observed}, by which we mean the choice pattern's simulated likelihood as calculated in equation (\ref{eq3:SLnT}).
 This is the probability of a randomly drawn agent from the population defined by $\theta$ producing the choice pattern, thus the pattern's likelihood of being observed.
 Likewise, when we discuss the expected welfare implications of a choice pattern for a given population, we are discussing the expected welfare implications for an agent from that population who generated that choice pattern.
 
@@ -470,7 +476,7 @@ Thus, choice probabilities for an individual agent are defined as follows:
 }
 
 \begin{align}
-	\label{eq:RE}
+	\label{eq3:RE}
 	\begin{split}
 	P_{njt}(\beta_n) &= {\Prob}\left(  \epsilon_t \geq \frac{1}{D(\beta_n,X_t) \lambda_n} \left[ G(\beta_n,X_{kt}) - G(\beta_n,X_{jt}) \right] \right)\\
 	&= 1 - F\left( \dfrac{G(\beta_n,X_{kt}) - G(\beta_n,X_{jt})}{D(\beta_n,X_t)\lambda_n }  \right)\\
@@ -481,7 +487,7 @@ Thus, choice probabilities for an individual agent are defined as follows:
 \noindent where $\epsilon_t$ defines the random error associated with the measurement of utility, the functional form the utility function, $G(\cdot)$, is the CRRA function of the form $u(x) = \frac{x^{1-r}}{(1-r)}$, $F(\cdot)$ is the logistic cumulative distribution function (cdf), and the adjusting function $D(\cdot)$ is as follows:
 
 \begin{align}
-	\label{eq:CU}
+	\label{eq3:CU}
 	\begin{split}
 		&D(\beta_n,X_t) = \mathit{max}[u(x_{it})] - \mathit{min}[u(x_{it})]\\
 		&\mathit{st.}\; w_i(x_{it}) \neq 0
@@ -497,9 +503,9 @@ This is equivalent to a gamma distribution with a shape parameter of $k \approx 
 Together these 4 parameters make the joint distribution-shaping parameter $\theta=\{0.65 ,0.3^2, 1.36 , 0.26\}$.
 Because the marginal distributions are uncorrelated, we don't need to define elements of a covariance matrix.
 
-The metrics described in equations (\ref{eq:SLnT}) and (\ref{eq:MTBn}) through (\ref{eq:EPWTe}) rely on a given choice pattern, $y_t \times T$.
+The metrics described in equations (\ref{eq3:SLnT}) and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) rely on a given choice pattern, $y_t \times T$.
 In the HL-MPL there are a total of $2^{10}=1024$ choice patterns that can be described.
-To begin the discussion of the welfare implications of stochastic choice models, we calculate the values for equations (\ref{eq:SLnT}), and (\ref{eq:MTBn}) through (\ref{eq:EPWTe}) for all $\mathit{TT} =1024$ choice patterns and all $e \in[0,T]$ for the given $\theta$, with $H=2.5 \times 10^6$.{\footnotemark} 
+To begin the discussion of the welfare implications of stochastic choice models, we calculate the values for equations (\ref{eq3:SLnT}), and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) for all $\mathit{TT} =1024$ choice patterns and all $e \in[0,T]$ for the given $\theta$, with $H=2.5 \times 10^6$.{\footnotemark} 
 
 \addtocounter{footnote}{-3}
 \stepcounter{footnote}\footnotetext{
@@ -524,9 +530,9 @@ First, we select a choice pattern from one of the $1024$ choice patterns possibl
 Next, a $\beta_n$ vector is drawn from the joint distribution defined by $\theta$.
 As an example, we will assume $\beta_n = \lbrace r = 0.65, \lambda = .35\rbrace$ was drawn; recall that we are also assuming EUT with a CU stochastic model.
 Utilizing this $\beta_n$ and choice pattern, we can evaluate the various metrics proposed.
-First, we evaluate equation (\ref{eq:PnT}), the likelihood that agent $n$ would produce this choice pattern, utilizing equation (\ref{eq:RE}) to calculate choice probabilities for the individual tasks:
+First, we evaluate equation (\ref{eq3:PnT}), the likelihood that agent $n$ would produce this choice pattern, utilizing equation (\ref{eq3:RE}) to calculate choice probabilities for the individual tasks:
 \begin{align}
-	\label{eq:example_PnT}
+	\label{eq3:example_PnT}
 	\begin{split}
 		P_{n,j,1}  = Pr(y_1 = A    \,|\, \beta_n)    &= 0.82 \\
 		P_{n,j,2}  = Pr(y_2 = A    \,|\, \beta_n)    &= 0.78 \\
@@ -546,10 +552,10 @@ First, we evaluate equation (\ref{eq:PnT}), the likelihood that agent $n$ would 
 With the CU stochastic model, the option with the highest utility, expected or otherwise, will always have the highest probability of being chosen.
 Since there are only two alternatives in task $6$, it must be the case that option $B$ in this task had a lower expected utility than option $A$, and therefore the choice of $B$ in task $6$ is a choice error.
 Using the notation defined in Section \ref{ssec:Notation}, $y_6 = 2$, and for $t \in \lbrace T \,\backslash\, 6 \rbrace$, $y_t = 1$.
-This information allows us to evaluate equation (\ref{eq:MTBn}), the frequency of choice errors in a given choice pattern, utilizing equation (\ref{eq:Itb}):
+This information allows us to evaluate equation (\ref{eq3:MTBn}), the frequency of choice errors in a given choice pattern, utilizing equation (\ref{eq3:Itb}):
 
 \begin{align}
-	\label{eq:example_MTBn}
+	\label{eq3:example_MTBn}
 	\begin{split}
 		P_{n,j,1}  = Pr(y_1 = A    \,|\, \beta_n) = 0.82 ~ \Rightarrow ~ I_{1}(\beta_n)  &= 0 \\
 		P_{n,j,2}  = Pr(y_2 = A    \,|\, \beta_n) = 0.78 ~ \Rightarrow ~ I_{2}(\beta_n)  &= 0 \\
@@ -566,10 +572,10 @@ This information allows us to evaluate equation (\ref{eq:MTBn}), the frequency o
 \end{align}
 
 \noindent Thus our subject $n$ has committed one choice error across the $T$ tasks.
-This result allows us to calculate equation (\ref{eq:NMB}) for values of $e \in [ 0, T ]$ which indicates if there have been $e$ number of errors in this choice pattern:
+This result allows us to calculate equation (\ref{eq3:NMB}) for values of $e \in [ 0, T ]$ which indicates if there have been $e$ number of errors in this choice pattern:
 
 \begin{align}
-	\label{eq:example_NMB}
+	\label{eq3:example_NMB}
 	\begin{split}
 		N( M_T(\beta_n) = 1, e = 0 )  &= 0 \\
 		N( M_T(\beta_n) = 1, e = 1 )  &= 1 \\
@@ -585,8 +591,8 @@ This result allows us to calculate equation (\ref{eq:NMB}) for values of $e \in 
 	\end{split}
 \end{align}
 
-\noindent Next we can calculate the two welfare metrics from equations equations (\ref{eq:WST}) and (\ref{eq:WET}), indicating welfare surplus and welfare efficiency respectively.
-First we calculate the {\CE} of option $A$ and option $B$ for all $T = 10$ tasks using equation (\ref{eq:CEcalc}). 
+\noindent Next we can calculate the two welfare metrics from equations equations (\ref{eq3:WST}) and (\ref{eq3:WET}), indicating welfare surplus and welfare efficiency respectively.
+First we calculate the {\CE} of option $A$ and option $B$ for all $T = 10$ tasks using equation (\ref{eq3:CEcalc}). 
 We note the {\CE} of the chosen and unchosen options for the given choice pattern, the difference between the two, and the greatest {\CE} for each task:
 
 \begin{table}[ht]
@@ -642,25 +648,25 @@ We note the {\CE} of the chosen and unchosen options for the given choice patter
 	\end{adjustbox}
 \end{table}
 
-With the {\CE}'s calculated, we can substitute them in to equations (\ref{eq:WST}) and (\ref{eq:WET}).
-For equation equation (\ref{eq:WST}), we take the sum of column $6$ in Table \ref{tb:example_CE}:
+With the {\CE}'s calculated, we can substitute them in to equations (\ref{eq3:WST}) and (\ref{eq3:WET}).
+For equation equation (\ref{eq3:WST}), we take the sum of column $6$ in Table \ref{tb:example_CE}:
 
 \begin{equation}
-	\label{eq:example_WST}
+	\label{eq3:example_WST}
 	\Delta W_{nT} = \sum_{t=1}^T \left( {\CE}_{nyt} - {\CE}_{n1t}^Z \right) = 8.92
 \end{equation}
 
-\noindent and for equation (\ref{eq:WET}), we take the sum of column $4$ and divide it by the sum of column $7$:
+\noindent and for equation (\ref{eq3:WET}), we take the sum of column $4$ and divide it by the sum of column $7$:
 
 \begin{equation}
-	\label{eq:example_WET}
+	\label{eq3:example_WET}
 	\%W_{nT} = \frac{\displaystyle\sum_{t=1}^{T} {\CE}_{nyt} }{\displaystyle\sum_{t=1}^{T} {\CE}_{n1t}} = \frac{21.37}{21.74} = .983
 \end{equation}
 
-\noindent Finally, we multiply the welfare metrics derived in equations (\ref{eq:example_WST}) and (\ref{eq:example_WET}) by the indicator functions derived for $e \in [0,T]$ in equation (\ref{eq:NMB}):
+\noindent Finally, we multiply the welfare metrics derived in equations (\ref{eq3:example_WST}) and (\ref{eq3:example_WET}) by the indicator functions derived for $e \in [0,T]$ in equation (\ref{eq3:NMB}):
 
 \begin{align}
-	\label{eq:example_NMBWST}
+	\label{eq3:example_NMBWST}
 	\begin{split}
 		N( M_T(\beta_n) = 1, e = 1 )  \times \Delta W_{nT} &= 1 \times 8.92 = 8.92\\
 		N( M_T(\beta_n) = 1, e \neq 1 )  \times \Delta W_{nT} &= 0 \times 8.92 = 0
@@ -668,16 +674,16 @@ For equation equation (\ref{eq:WST}), we take the sum of column $6$ in Table \re
 \end{align}
 
 \begin{align}
-	\label{eq:example_NMBWET}
+	\label{eq3:example_NMBWET}
 	\begin{split}
 		N( M_T(\beta_n) = 1, e = 1 )  \times \%W_{nT} &= 1 \times .983 = .983\\
 		N( M_T(\beta_n) = 1, e \neq 1 )  \times \%W_{nT} &= 0 \times .983 = 0
 	\end{split}
 \end{align}
 
-\noindent The indicator functions in equation (\ref{eq:example_NMB}) are mutually exclusive, therefore the product of the indicator functions and the welfare metrics will be $0$ for all but one value of $e$, and equal to the metrics for the remaining $e$, in this example, for $e = 1$. 
+\noindent The indicator functions in equation (\ref{eq3:example_NMB}) are mutually exclusive, therefore the product of the indicator functions and the welfare metrics will be $0$ for all but one value of $e$, and equal to the metrics for the remaining $e$, in this example, for $e = 1$. 
 
-%Thus, the derivation of the results in equations (\ref{eq:example_PnT}) through (\ref{eq:example_WET}) constitutes the core of the computational exercise that results in population level expectations.
+%Thus, the derivation of the results in equations (\ref{eq3:example_PnT}) through (\ref{eq3:example_WET}) constitutes the core of the computational exercise that results in population level expectations.
 Having derived the results of these equations for one given choice pattern, we iterate through the remaining $1023$ choice patterns for this particular agent, repeating the numerical exercise described above for each choice pattern.
 With metrics defined for this particular agent across all $TT = 1024$ possible choice patterns, a new $\beta_n$ vector is drawn from $\theta$, and the entire process repeated.
 For the calculations described below, we repeat the process of drawing a $\beta_n$ from $\theta$ and calculating the results of these metrics for all choice patterns $H = 2.5 \times 10^6$ times.{\footnotemark}
@@ -689,11 +695,11 @@ This process results in a $3$ dimensional array with $(\mathit{\#\ of\ metrics} 
 	The \enquote{ctools} package written for this project makes the calculation of these kinds of problems across multiple CPUs particularly easy.
 }
 
-To arrive at the population level metrics, we take the average of each metric defined in equations (\ref{eq:example_PnT}) through (\ref{eq:example_NMBWET}) across all $H$ simulated agents for each choice pattern.
+To arrive at the population level metrics, we take the average of each metric defined in equations (\ref{eq3:example_PnT}) through (\ref{eq3:example_NMBWET}) across all $H$ simulated agents for each choice pattern.
 Since each $\beta_n$ was drawn randomly from the distribution governed by $\theta$, only a simple average is needed.
 This averaging leaves us with a dataset that has $33 \times 1024 = 33,792$ elements.
 
-This resulting dataset, however, is too large to be displayed in full, so for now we restrict attention to the 10 choice patterns most likely to be observed, and discuss the metrics calculated in equations (\ref{eq:EMt}), (\ref{eq:EWST}), (\ref{eq:EWET}), and (\ref{eq:PE}) with $e = (0,1)$.
+This resulting dataset, however, is too large to be displayed in full, so for now we restrict attention to the 10 choice patterns most likely to be observed, and discuss the metrics calculated in equations (\ref{eq3:EMt}), (\ref{eq3:EWST}), (\ref{eq3:EWET}), and (\ref{eq3:PE}) with $e = (0,1)$.
 The results of these equations for the 10 most likely choice patterns are as follows:
 
 \break
@@ -811,7 +817,7 @@ Note that the choice pattern that is mostly likely to be observed from a sample 
 The next two most likely choice patterns, where \textit{Rank} is $2$ and $3$, correspond to the choice pattern we would observe from agents described by a deterministic choice process with preferences one standard deviation either side of the mean of the distribution of $r$.
 
 Interestingly, for each of the three most likely choice patterns, it is far more likely than not that an agent displaying these choice patterns made at least one choice error, and thus did not obtain maximal welfare from her choices.
-This is shown by the values in column $P_E(e=0)$, which reference equation (\ref{eq:PE}), all being less than $0.50$.
+This is shown by the values in column $P_E(e=0)$, which reference equation (\ref{eq3:PE}), all being less than $0.50$.
 Note that only $32.2\%$ of agents who display the most likely choice pattern in row $1$ are expected to have not made any choice errors and obtain maximal welfare.
 This is despite the fact that any of these choice patterns can be rationalized by some set of preferences for our assumed model.
 These patterns do, however, produce relatively high expected welfare efficiency and surplus.
@@ -884,17 +890,17 @@ But just because there is no extra benefit to be had, it shouldn't be inferred t
 Any agent who selected option A in row 10 still receives a \$2 benefit from having had the choice problem presented to her if that choice is selected for payment.
 It makes a great deal of sense to model choice in this fashion: that there is somewhat of a disconnect between greater realized welfare and greater likelihood of choice helps to illustrate the complex nature of economic agency.
 
-\subsubsection{Sample Level Analysis with a Mixed EUT-RDU Population}
+\subsection{Sample Level Analysis with a Mixed EUT-RDU Population}
 
 The above discussion focuses on a population that is entirely composed of EUT conforming agents.
 Individual level estimates from \textcite{Hey1994} and the mixture model estimates from \textcite{Harrison2008a} show that many populations are likely not composed entirely of EUT agents.
 We can extend the example above, defining the population as being made of some mixture of EUT agents and RDU agents.
 By mixture, we mean that there will be two subpopulations of a grand population, but agents from these subpopulations carry no observable characteristics to distinguish themselves as belonging to one subpopulation or another.
 
-Before beginning the analysis of this mixture population, we can extend the metrics utilized in equations (\ref{eq:SLnT}) and (\ref{eq:MTBn}) through (\ref{eq:EPWTe}) to be defined for mixed populations.
-This is done much the same way as mixture models were defined in equation (\ref{eq:PT_Mix}); each metric, $Q_m$, for subpopulation $m$ is weighted by the proportion of the subpopulation in the grand population, $M$.
+Before beginning the analysis of this mixture population, we can extend the metrics utilized in equations (\ref{eq3:SLnT}) and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) to be defined for mixed populations.
+This is done much the same way as mixture models were defined in equation (\ref{eq3:PT_Mix}); each metric, $Q_m$, for subpopulation $m$ is weighted by the proportion of the subpopulation in the grand population, $M$.
 \begin{align}
-	\label{eq:Metric_Mix}
+	\label{eq3:Metric_Mix}
 	\begin{split}
 		\bm{\mathit{Q^M}} = \sum_m^M \pi_m \times Q^m \\ 
 		\mathit{st.} \sum_m^M \pi_m = 1
@@ -904,20 +910,20 @@ This is done much the same way as mixture models were defined in equation (\ref{
 \noindent where $\pi_m$ is the proportion of subpopulation $m$ in the grand population.
 For example, the probability of observing any given choice pattern $y \times T$ for a grand population made of M subpopulations is:
 \begin{align}
-	\label{eq:LnT_Mix}
+	\label{eq3:LnT_Mix}
 	\begin{split}
 		\bm{L_{nT}^M} = \sum_m^M \pi_m \times L_{nT}^m(\theta^m) \\ 
 		\mathit{st.} \sum_m^M \pi_m = 1
 	\end{split}
 \end{align}
 
-\noindent where $L_{nT}^m$ is as described in equation (\ref{eq:LnT}) for some subpopulation $m$ defined by $\theta^m$.
+\noindent where $L_{nT}^m$ is as described in equation (\ref{eq3:LnT}) for some subpopulation $m$ defined by $\theta^m$.
 
 A final metric before we begin the example of the mixed population is the probability that any given choice pattern was produced by population $m$.
-Utilizing equation (\ref{eq:LnT_Mix}) we define the probability that a pattern was produced by population $m$ as the ratio of the weighted simulated likelihood of observing the pattern from subpopulation $m$ to the likelihood of observing the pattern in the grand population:
+Utilizing equation (\ref{eq3:LnT_Mix}) we define the probability that a pattern was produced by population $m$ as the ratio of the weighted simulated likelihood of observing the pattern from subpopulation $m$ to the likelihood of observing the pattern in the grand population:
 
 \begin{equation}
-	\label{eq:Propm}
+	\label{eq3:Propm}
 	\mathit{Prop^m_{T}} = \frac{\pi_m \times L_{nT}^m(\theta^m) }{\bm{L_{nT}^M}}
 \end{equation}
 
@@ -938,8 +944,8 @@ This results in $\theta^{RDU} = \lbrace  0.65 ,0.3^2,  0.563 , 0.26 , 169 , 7.69
 	With the mass of the $\lambda$ distribution closer to $0$, \textit{a priori} we should expect fewer choice errors among the RDU population than the EUT population.
 }
 
-Once again, we will employ an $H = 2.5 \times 10^6$ and calculate the values for equations (\ref{eq:SLnT}) and (\ref{eq:MTBn}) through (\ref{eq:EPWTe}) for all $\mathit{TT} =1024$ choice patterns and all $e \in[0,T]$ for the RDU subpopulation.
-With the results of the calculations for the EUT subpopulation calculated previously, and the results of the same calculations for the RDU population, we can mix each of these metrics as described in equation (\ref{eq:Metric_Mix}) with $\pi_{EUT} = 0.7$ and $\pi_{RDU} = 0.3$.
+Once again, we will employ an $H = 2.5 \times 10^6$ and calculate the values for equations (\ref{eq3:SLnT}) and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) for all $\mathit{TT} =1024$ choice patterns and all $e \in[0,T]$ for the RDU subpopulation.
+With the results of the calculations for the EUT subpopulation calculated previously, and the results of the same calculations for the RDU population, we can mix each of these metrics as described in equation (\ref{eq3:Metric_Mix}) with $\pi_{EUT} = 0.7$ and $\pi_{RDU} = 0.3$.
 Again, it is impractical to display the results of all metrics for all $1024$ choice patterns, so first, we recreate Table (\ref{tb:TopTenEUT}) with the results of the RDU metrics.
 
 \begin{table}[ht]
@@ -1087,7 +1093,7 @@ They easily could have been generated by a population composed entirely of EUT a
 Many of the same features of the two subpopulations are apparent in the mixed grand population;
 choice patterns displaying any form of MSB have $0$ likelihood of $0$ choice errors, and there are some disconnects between simulated likelihood and welfare as observed in rows $5$-$6$, and $7$-$8$ for the welfare efficiency metric and rows $9$-$10$ for the welfare surplus metric.
 
-Of greater interest is the \enquote{Proportion EUT} metric, defined in equation (\ref{eq:Propm}).
+Of greater interest is the \enquote{Proportion EUT} metric, defined in equation (\ref{eq3:Propm}).
 For every choice pattern in the top ten most likely to be observed choice patterns, we expect that the proportion of the agents belonging to the EUT subpopulation that generated the choice pattern is smaller than the proportion of EUT agents in the grand population.
 For the top 3 choice patterns, the difference between the proportion of EUT agents in the total population and the proportion of EUT agents that generated the choice pattern is greater than $20\%$.
 In fact, it is more likely than not that these choice patterns are generaed by the RDU subpopulation.
@@ -1103,10 +1109,10 @@ This general result is just as applicable to choice patterns described by RDU as
 It should also be clear from Table 2 and Figure \ref{fig:ConFOSD} that not all choice patterns that are consistent with EUT should be judged as superior to choice patterns which are apparently inconsistent with EUT from the perspective of welfare realization.
 Figure \ref{fig:ConFOSD} demonstrates that stochastic models can make normative sense of occurrences of FOSD, while making the descriptively accurate claim that violations of dominance are unlikely to occur, a claim backed by the empirical literature described in the previous chapter.
 
-%\subsection{Individual vs. Sample Level Identification}
+%\section{Individual vs. Sample Level Identification}
 %
 %Having made the case that sample level assessment of welfare provides information that is lacking in individual level assessment, it is important to ask the question \enquote{How much more information?} or \enquote{Why/When should we (economists) care?} 
-%The welfare metric described in equation (\ref{eq:EWET}) provides a useful benchmark to describe the difference between the welfare evaluation done on the individual level versus welfare evaluation done on the sample level.
+%The welfare metric described in equation (\ref{eq3:EWET}) provides a useful benchmark to describe the difference between the welfare evaluation done on the individual level versus welfare evaluation done on the sample level.
 %This distinction can be made clearer by examining \enquote{consistent} choice patterns, that is, patterns which can be described as conforming to deterministic utility theory.
 %These patterns, along with the same associated metrics calculated in Table (\ref{tb:TopTenEUT}) for the EUT population are presented below, ranked in order of their likelihood of being observed:
 %
@@ -1214,32 +1220,32 @@ Figure \ref{fig:ConFOSD} demonstrates that stochastic models can make normative 
 %We believe that this exercise demonstrates some potential pitfalls of conducting individual level estimation.
 
 
-\subsection{Population Level Analysis of Welfare: Preferences, Noise, and the Instrument}
+\section{Population Level Analysis of Welfare: Preferences, Noise, and the Instrument}
 
 The proposed characterizations of the welfare of a sample, including the degree to which certain consistent choice patterns are expected to be more costly than inconsistent choice patterns, are ultimately determined by the distribution of preferences and stochastic parameters in the sample.
 To analyze how the welfare characterizations change as the distribution of preferences change in the sample, we could repeat the computational exercise that led to Table (\ref{tb:TopTenEUT}) for a few different distributions and discuss implications pattern by pattern.
 This exercise, however, will produce data only for the populations chosen, and will be less informative about how expectations of welfare change as the population changes.
 Instead, it will be useful to define a few population-level metrics that look at the data at the aggregate level.
-For instance, for each $y \times T$ choice pattern, we can weigh the expected welfare efficiency resulting from equation (\ref{eq:EWET}) by the simulated likelihood resulting from equation (\ref{eq:SLnT}) and then sum across all TT choice patterns to retrieve the sample expected welfare efficiency:
+For instance, for each $y \times T$ choice pattern, we can weigh the expected welfare efficiency resulting from equation (\ref{eq3:EWET}) by the simulated likelihood resulting from equation (\ref{eq3:SLnT}) and then sum across all TT choice patterns to retrieve the sample expected welfare efficiency:
 
 \begin{equation}
-	\label{eq:EPWTT}
+	\label{eq3:EPWTT}
 	\E(\%W_T(\theta)) = \sum_{tt=1}^{TT} \mathit{SL}_{Ntt}(\theta) \times \E(\%W_{tt} | \theta)
 \end{equation}
 
-Similar expectations can be derived for any of the per-choice pattern statistics defined previously, but we will be paying particular interest to the statistics derived from equations (\ref{eq:EMt}), and (\ref{eq:PE}) where $e=0$.
-We are not limited to looking at expectations however, we can utilize equation (\ref{eq:EPWTT}) to derive higher moments of these statistics, such as the variance:
+Similar expectations can be derived for any of the per-choice pattern statistics defined previously, but we will be paying particular interest to the statistics derived from equations (\ref{eq3:EMt}), and (\ref{eq3:PE}) where $e=0$.
+We are not limited to looking at expectations however, we can utilize equation (\ref{eq3:EPWTT}) to derive higher moments of these statistics, such as the variance:
 
 \begin{equation}
-	\label{eq:VPWTT}
+	\label{eq3:VPWTT}
 	\Var(\%W_T(\theta)) = \sum_{tt=1}^{TT} \mathit{SL}_{Ntt}(\theta) \times \left[ \E(\%W_{tt} | \theta) - \E(\%W_T | \theta) \right]^2
 \end{equation}
 
 Having the means and variances of the statistics described allows us to make high-level inferences about the welfare implications of an instrument like the HL-MPL on different populations for a given stochastic model.
-That is, we can contribute to the answer of our primary question of \enquote{what are the welfare implications of stochastic models} by solving equations (\ref{eq:EPWTT}) and (\ref{eq:VPWTT}) for various values of $\theta$ and relating the elements of $\theta$ to these results.
-We can substitute any  $y \times T$ statistic from derived from equations (\ref{eq:EMt}), (\ref{eq:PE}), (\ref{eq:EWET}), and (\ref{eq:EPWTe}) in place of $\%W_T$ in equations (\ref{eq:EPWTT}) and (\ref{eq:VPWTT}) to describe these statistics on a population by population basis.
+That is, we can contribute to the answer of our primary question of \enquote{what are the welfare implications of stochastic models} by solving equations (\ref{eq3:EPWTT}) and (\ref{eq3:VPWTT}) for various values of $\theta$ and relating the elements of $\theta$ to these results.
+We can substitute any  $y \times T$ statistic from derived from equations (\ref{eq3:EMt}), (\ref{eq3:PE}), (\ref{eq3:EWET}), and (\ref{eq3:EPWTe}) in place of $\%W_T$ in equations (\ref{eq3:EPWTT}) and (\ref{eq3:VPWTT}) to describe these statistics on a population by population basis.
 
-While equations (\ref{eq:EPWTT}) and (\ref{eq:VPWTT}) may in fact have analytical solutions to determine these relationships, meaning we could attempt to solve for the partial derivative of equations (\ref{eq:EPWTT}) and (\ref{eq:VPWTT}) with respect to each element of $\theta$, any analytical solution will be unique with respect to so many idiosyncratic factors that this becomes unfeasible, and potentially uninformative.
+While equations (\ref{eq3:EPWTT}) and (\ref{eq3:VPWTT}) may in fact have analytical solutions to determine these relationships, meaning we could attempt to solve for the partial derivative of equations (\ref{eq3:EPWTT}) and (\ref{eq3:VPWTT}) with respect to each element of $\theta$, any analytical solution will be unique with respect to so many idiosyncratic factors that this becomes unfeasible, and potentially uninformative.
 These factors include:
 \begin{itemize}
  \setlength\itemsep{-.25em}
@@ -1251,12 +1257,12 @@ These factors include:
 	\item The specific tasks faced by the sample population
 \end{itemize}
 
-Given these limitations, instead we will examine the relationship of the parameters making up the stochastic specification, i.e. the elements of $\theta$, with the associated results of equations (\ref{eq:EPWTT}) and (\ref{eq:VPWTT}) visually and with the use of locally weighted polynomial regression (LOESS) as originally developed by Cleveland, Grosse, Shyu, Chambers \& Hastie (1992).
+Given these limitations, instead we will examine the relationship of the parameters making up the stochastic specification, i.e. the elements of $\theta$, with the associated results of equations (\ref{eq3:EPWTT}) and (\ref{eq3:VPWTT}) visually and with the use of locally weighted polynomial regression (LOESS) as originally developed by Cleveland, Grosse, Shyu, Chambers \& Hastie (1992).
 We will examine two types of populations, both entirely composed of EUT agents.
 The first type has preference parameters that are Normally distributed, while the second type will have Logit-Normal distributed preferences.
-For each population type, we generate 500,000 unique population parameter sets, $\theta_i$, the elements of which are assumed to be uncorrelated, and solve equations (\ref{eq:EPWTT}) and (\ref{eq:VPWTT}) for the statistics derived in equations (\ref{eq:EMt}), (\ref{eq:PE}) and (\ref{eq:EWET}) with $e=0$ and with each equation solved with $H=10,000$.
+For each population type, we generate 500,000 unique population parameter sets, $\theta_i$, the elements of which are assumed to be uncorrelated, and solve equations (\ref{eq3:EPWTT}) and (\ref{eq3:VPWTT}) for the statistics derived in equations (\ref{eq3:EMt}), (\ref{eq3:PE}) and (\ref{eq3:EWET}) with $e=0$ and with each equation solved with $H=10,000$.
 
-\subsubsection{EUT Populations with Normally Distributed Preferences}
+\subsection{EUT Populations with Normally Distributed Preferences}
 
 We begin our discussion with an example utilizing normally distributed preferences and gamma distributed stochastic errors.
 Thus, each $\theta_i$ is comprised of 4 elements: the mean of the CRRA parameter and the Lambda term, $\mu_r$ and $\mu_\lambda$, and standard deviation of the CRRA parameter and the Lambda term, $\sigma_r$ and $\sigma_\lambda$. Each of the candidate $\theta_i$ vectors was randomly drawn from a joint uniform distribution of these elements.
@@ -1333,7 +1339,7 @@ The second lowest quartile's lower bound of $\sigma_r$ is $0.26$, which means th
 It should be apparent from observing the lowest quartile line that as the density of the preference distribution increases around these points of indifference, the frequency of errors will increase.
 We can attempt to see this more formally by creating a metric that characterizes how much the distribution of preferences \enquote{sits} on these points of indifference:
 \begin{equation}
-	\label{eq:Dstat}
+	\label{eq3:Dstat}
 	D_j = \sum_r^R \frac{f_j(r)}{\max f_j(x)}
 \end{equation}
 
@@ -1384,11 +1390,11 @@ What is also clear from Figures (\ref{fig:D-Wel-smooth}) and (\ref{fig:D-Err-smo
 Looking at the lowest decile lines in Figures (\ref{fig:D-Wel-smooth}) and (\ref{fig:D-Err-smooth}), we can see that a relatively large increase in $D$ is needed to cause the same effect as moving to the next lowest decile.
 Comparing the lowest decile with the highest decile reveals tremendous changes in expected errors and expected welfare while holding $D$ constant for the populations analyzed.
 
-\subsubsection{EUT Populations with Logit-Normal Distributed Preferences}
+\subsection{EUT Populations with Logit-Normal Distributed Preferences}
 
 In the previous subsection, we discussed the expected welfare outcomes of populations with normally distributed preferences and gamma distributed stochastic errors faced with the HL-MPL.
 We now turn our attention to populations with Logit-Normal distributed preferences.
-However, rather than redo Figures (\ref{fig:S-Wel-rm}) through (\ref{fig:S-Err-us}) with the new populations, we will restrict this analysis to re-examining the D statistic of equation (\ref{eq:Dstat}) and Figures (\ref{fig:D-Wel-smooth}) and (\ref{fig:D-Err-smooth}).
+However, rather than redo Figures (\ref{fig:S-Wel-rm}) through (\ref{fig:S-Err-us}) with the new populations, we will restrict this analysis to re-examining the D statistic of equation (\ref{eq3:Dstat}) and Figures (\ref{fig:D-Wel-smooth}) and (\ref{fig:D-Err-smooth}).
 
 The Logit-Normal distribution is defined as a Logit transformation of a Normal distribution.
 \begin{align}
@@ -1421,7 +1427,7 @@ This result should be important to economists and policy makers concerned with e
 
 
 k
-\subsection{Summary of Analyses}
+\section{Summary of Analyses}
 
 We describe the current econometric toolkit used to estimate parameters of utility models given choice data and, by extension of a normatively coherent stochastic model, the welfare implications of these parameters.
 The only methods considered involved the structural estimation of a utility function through maximum likelihood estimation.
@@ -1464,7 +1470,7 @@ Also, having controlled for the entire marginal distribution of the preference p
 This result was somewhat surprising, though not entirely unintuitive.
 
 
-\subsection{Concluding Remarks}
+\section{Concluding Remarks}
 
 The analyses conducted in this chapter provide several useful results for econometricians, experimenters, and policy makers.
 Firstly, there exist stochastic models of choice which arguably describe choice probabilities well, but which are unable to provide useful statements about the accumulation of economic welfare, and thus should not be considered when conducting analyses of experimental choice data.
@@ -1482,7 +1488,7 @@ Finally, given the strong effect of the stochastic elements of choice on the pro
 
 \newpage
 
-\subsection{Figures}
+\section{Figures}
 
 \begin{figure}[hp!]
 	\center
@@ -1557,7 +1563,5 @@ Finally, given the strong effect of the stochastic elements of choice on the pro
 \newpage
 
 \printbibliography[segment=3, heading=subbibliography]
-
-\toftagstop{ch3}
 
 \end{document}

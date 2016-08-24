@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper]{report}
 
-\usepackage{subfiles}
+\usepackage{subfiles}  % For compiling things into one big document from sub-documents
 
 \usepackage[justification=centering]{caption}
 \usepackage{lmodern}
@@ -45,31 +45,47 @@
 	\setlength{\extrarowheight}{5em}
 }
 
+% Table of contents only when locally compiled
+\newcommand{\lltoc}[1]{
+	\pagenumbering{gobble}
+	\makeatletter
+	\@starttoc{toc}%
+	\makeatother
+	\break
+	\pagenumbering{arabic}
+}
+\newcommand{\llltoc}[1]{
+	\makeatletter
+	\@starttoc{toc}%
+	\makeatother
+}
+
+% A fix for Chapter numbering with above
+\let\oldchapter\chapter
+\renewcommand{\chapter}[1]{
+	\refstepcounter{chapter}% 
+	\oldchapter*{{\huge Chapter \thechapter}\\[1em]#1}
+}
+
+% Commands that display text either in or out of subfile
+\newcommand{\onlyinsubfile}[1]{#1}
+\newcommand{\notinsubfile}[1]{}
+
+
 \title{This is my Thesis}
 \author{Brian Albert Monroe}
 
-%\makeatletter
-%\newcommand*{\toccontents}{\@starttoc{toc}
-%\makeatother
-
-\usepackage{tableof} % For good table of contents
-\AtBeginDocument{\tofOpenTocFileForWrite}% see tableof's doc
-
-%\usepackage{titletoc}
-%\startcontents
-
-
 \begin{document}
+% Set up the commands for when full document is compiled together
+\renewcommand{\onlyinsubfile}[1]{}
+\renewcommand{\notinsubfile}[1]{#1}
+\renewcommand{\lltoc}[1]{}
+\let\chapter\oldchapter
+
 \pagenumbering{arabic}
 \maketitle
 \onehalfspacing
-
-%\printcontents{}{-1}{% parts are add to toc
-%\setcounter{tocdepth}{2}%
-%\chapter*{\contentsname}%  or section ... 
-%}
-\tableof{}
-\newpage
+\tableofcontents
 
 \subfile{ch1/ch1}
 \subfile{ch2/ch2}
