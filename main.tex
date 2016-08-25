@@ -16,8 +16,11 @@
 \usepackage{bm}			% For Bold math Symbols
 \usepackage{nicefrac}	% For nice looking fractions
 \usepackage{graphicx}	% For Graphics
+\usepackage[justification=justified,singlelinecheck=false]{subcaption} % For subcaptions to tables/figures
 
 % Stuff for Tables
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X} % A centered column type that sucks up excess space
 \usepackage{caption}
 \usepackage{adjustbox}
 \usepackage{booktabs}		% For \toprule, \midrule, and \bottomrule
@@ -36,6 +39,7 @@
 \newcommand{\E}{\operatorname{E}}			% Variance Operator
 \newcommand{\Var}{\operatorname{Var}}		% Variance Operator
 \newcommand\OB{\ensuremath{\succ^{\!*}}}   % Certainty Equivalent
+\newcommand{\money}[1]{$\$\!\:#1$}		    % Money command
 
 
 % Make a break a column title into 2 lines
