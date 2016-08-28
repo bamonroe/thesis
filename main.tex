@@ -16,7 +16,9 @@
 \usepackage{bm}			% For Bold math Symbols
 \usepackage{nicefrac}	% For nice looking fractions
 \usepackage{graphicx}	% For Graphics
-\usepackage[justification=justified,singlelinecheck=false]{subcaption} % For subcaptions to tables/figures
+\usepackage[justification=centering]{subcaption} % For subcaptions to tables/figures
+
+\graphicspath{{ch1/figures/}{ch2/figures/}{ch3/figures/}{figures/}}
 
 % Stuff for Tables
 \usepackage{tabularx}
@@ -27,6 +29,7 @@
 \usepackage{pgfplotstable}	% Generates a table from a CSV
 \pgfplotsset{compat=1.12}
 \setlength{\extrarowheight}{.5em}
+\usepackage{multirow}
 
 \usepackage[stretch=15]{microtype}	% Read about this, tested it, and was sold.
 \usepackage[backend=biber, refsegment=chapter, doi=false, isbn=false, url=false, style=authoryear-comp, maxnames=99]{biblatex}	%For bibliography stuff
@@ -40,6 +43,7 @@
 \newcommand{\Var}{\operatorname{Var}}		% Variance Operator
 \newcommand\OB{\ensuremath{\succ^{\!*}}}   % Certainty Equivalent
 \newcommand{\money}[1]{$\$\!\:#1$}		    % Money command
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu} % Command to make a shorter overline/longer bar
 
 
 % Make a break a column title into 2 lines
