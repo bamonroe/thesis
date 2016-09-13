@@ -1,0 +1,103 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\onehalfspacing
+\setcounter{chapter}{3}
+
+\chapter{Welfare From Experimental Instruments}
+
+\lltoc % Table of contents only when locally compiled
+
+In the previous chapter we proposed a method for assessing the welfare implications of choices made by subjects in incentivized environments.
+This method differs from other proposed methods in that rather than requiring an assumed set of utility parameters for the individual in question, it is necessary to assume some distribution of utility parameter sets from which the individual's set is randomly sampled.
+We suggested that failure to incorporate the distributional information of these utility parameter sets into the evaluation of welfare may result in a mischaracterization of welfare for some individuals.
+This is because some individuals may make mistakes or \enquote{choice errors} when faced with a choice problem and select a choice which is not welfare maximal.
+These errors can occur is such a manner that they result in a choice pattern that fits some utility function statistically better than the \enquote{true} utility function that the subject actually operates and would likely reveal over longer observation of choice patterns.
+Should these two alternative functions, the fitted and the \enquote{true} function, differ enough in their utility parameters, the welfare characterizations resulting from the fitted function could be much different than the welfare characterizations that would result from the \enquote{true} function.{\footnotemark}
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	While we will be exclusively concerned with welfare analysis in this chapter, the potential issues caused by misidentification are not limited to traditional welfare analysis.
+	For example, assume that gambling addiction is correlated with risk preferences that demonstrate \enquote{risk seeking}.
+	If we cannot observe other informative traits about gambling addicts, but can observe their choices over gambles, we may seek to estimate utility models for individuals as a potential way to identify potential addicts.
+	Without incorporating distributional information about the utility functions, the results of the individual level models could potentially misidentify addicts as non-addicts or vice versa.
+}
+
+However, the analysis from the previous chapter comes with a few caveats.
+Firstly, distributional information may be significantly more difficult to identify or estimate from pooled choice data.
+While there is a very large literature on individual-level estimation,{\footnotemark} and the difficulties of estimation therein, there has been much less work exploring the difficulties involved in the identification of the distributions of utility parameters.{\footnotemark}
+That is, there may be challenges to sample-level estimation that do not exist for individual-level estimation, and these challenges may not be obvious in the way that many of the challenges facing individual-level identification are.
+Secondly, the previous chapter exclusively utilized one of the multiple price list (MPL) instruments proposed by \textcite{Holt2002}, which results in only 10 choices per subject.
+Just as larger sample sizes may help with identification in other scientific endeavors, requiring subjects to make more choices may potentially lead to lower likelihoods of misidentification.
+Most efforts to estimate individual-level preferences from choices require subjects to make at least 40 choices, often more than this.
+\textcite{Holt2002} themselves had subjects make choices over several MPL instruments, each with different outcomes.
+Thus, the previous chapter's suggestion of potential misidentification is \textit{somewhat} of a straw man.
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	Notable examples include \textcite{Hey1994}, \textcite{Hey2001}, \textcite{Ballinger1997}.
+}
+\stepcounter{footnote}\footnotetext{
+	Notably \textcite{Andersen2012}.
+}
+
+In this chapter, we hope to replace the straw man of the single HL-MPL with a much more robust instrument utilized by \textcite{Harrison2015} and specifically address the possibility of welfare mischaracterization.
+We will proceed as follows:
+First, utilizing the dataset from \textcite{Harrison2015}, we will attempt individual-level estimation on every subject in the dataset for a set of utility and decision weight functions, thus both EUT and RDU models will be employed.
+With the estimates in hand, we will declare a \enquote{winning} model as one with the highest log-likelihood{\footnotemark} and evaluate the welfare characterization implied by the estimates.
+Second, we will attempt sample-level estimation on the pooled dataset, and estimate a joint distribution of the parameters used in the individual-level estimation.
+Again, we will declare a \enquote{winning} model and evaluate the welfare characterizations of each of the subjects utilizing the method described in the previous chapter.
+Finally, the sample-level and individual level welfare characterizations will be compared and the differences and similarities discussed.
+This analysis therefore takes advantage of the some of the best estimation technologies currently available to analysts and applies them to choice data which was generated from an instrument that has been specifically developed to allow for powerful inferences to be drawn it.
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	There are a few steps in this process that need to take in to account that RDU nests EUT as a special case of RDU where decision weights equal objective probabilities.
+	Since RDU models typically employ more parameters that EUT models, we would expect them to \enquote{win} many of these log-likelihood comparisons.
+	We will discuss the way in which we account for this nesting later.
+}
+
+Both individual level and sample level estimation of utility functions, however, involve some amount of estimation error, and it is difficult to judge which of the two methods is superior without knowing the \enquote{true} preferences of the subjects.
+Since preferences cannot be directly measured, we cannot directly compare the \enquote{correctness} of the two estimation strategies using data from real agents.
+Instead, we can use simulations to approximate this judgement. 
+First, we simulate agents that operate various utility functions, have the simulated agents (SA) make choices across the \textcite{Harrison2015} lottery instrument, and record the parameter set of the SA and the \textit{known} welfare consequences of those choices.
+Then, using only the simulated choice data, we will attempt to estimate the utility functions fitted to the real choice data on the simulated choice data at both the individual level and sample level data.
+These estimates will then be used to make welfare characterizations for each SA and these welfare characterizations will be compared to the \textit{known} welfare consequences of the SA's choices.
+With these estimates in hand we can make comparative judgements about the effectiveness of individual vs sample level estimation techniques to characterize welfare.
+
+\section{Estimating a Benchmark using \texorpdfstring{\textcite{Harrison2015}}{Harrison and Ng (2015)}}
+
+In this section, I will be estimating individual and sample level models (with MSL) on the Harrison and Ng (2015) dataset and select \enquote{winners} for both methods.
+I'll utilize both EUT and RDU along with several stochastic model specifications.
+I'll estimate several utility functions, like the CRRA, CARA, and Expo Power functions, along with several probability weighting functions.
+For the MSL estimations, I'll estimate the correlation matrix for the parameters, and depending on if I can get it to work, some mixture models.
+The point of this section is to batter this data with as much estimation as possible and to both demonstrate best practice for conducting estimation and to make clear the assumptions made during estimation - particularly with MSL.
+
+\section{A Comparison of Welfare Estimates}
+
+Given the estimates of the previous section, we can conduct welfare estimation.
+I will utilize the bootstrapping of welfare estimates also demonstrated in Harrison and Ng (2015) for the individual level estimates, and use the Gaussian Copula method to conduct the bootstrapping for the MSL estimates.
+Depending on the results of the previous section the differences may be minor across the board, or large for certain subjects.
+If it turns out that I can fit a mixture model with MSL, we may have very interesting comparisons to make.
+
+\section{Power Sufficiency: Identification from the Instrument}
+
+With the estimates in hand, I now start to investigate the credibility of these estimates.
+Since the estimates were obtained from the best estimation practices and using data from a  properly controlled experiment, these estimates will provide the ballpark around which I'll examine.
+
+\section{The Ability of Individual Level Estimation to Recover Individual Level Parameters}
+
+When estimating on the individual level, there exists the chance that the individual committed several particular choice errors that end up falsely rejecting one theory in favor of another.
+What I mean by falsely rejecting a theory is that should this subject be faced with the same instrument again, in a highly abstract sense, estimates from their \enquote{new} choices are more likely to reveal preferences which more closely resemble their long-run \enquote{preferences}.
+
+\section{The Ability of Sample Level Estimation to Recover Sample Level Parameters}
+
+When estimating on the sample level, there are many things that can potentially go wrong, mainly the underspecification of the distribution.
+For instance, if the true population has 5\% RDU agents, will their RDU choices be prominent enough to be picked up in a mixture model?
+
+\newpage
+
+\printbibliography[segment=4, heading=subbibliography]
+
+\end{document}
