@@ -1,43 +1,12 @@
-\documentclass[11pt,a4paper]{article}
-%\usepackage[a4paper,hmargin=.79 in, vmargin = 1 in]{geometry}
-\usepackage{lmodern}
-\usepackage[T1]{fontenc}
-\usepackage{geometry}
-\usepackage{setspace}	% For line spacing
-\usepackage{csquotes}	% For quoting
-\usepackage[hidelinks]{hyperref} %To make references into links
-\usepackage{amsmath}	% For equation stuff
-\usepackage{amssymb}	% For math symbols
-\usepackage{amsthm}		% For theorem environments
-\usepackage{nicefrac}	% For nice looking fractions
-\usepackage{graphicx}	% For Graphics
-\usepackage[stretch=15]{microtype}	% Read about this, tested it, and was sold.
-\usepackage[backend=biber,doi=false,isbn=false,url=false,style=authoryear-comp]{biblatex}	%For bibliography stuff
-\renewbibmacro{in:}{}
-\addbibresource{~/Dropbox/Papers/library.bib}	% The path to the bibliography file
-
-% Convenience Commands
-\newcommand\CE{\ensuremath{\mathit{CE}}}  % Certainty Equivalent
-\newcommand\Prob{\ensuremath{\mathit{Pr}}}  % Probability
-\newcommand\OB{\ensuremath{\succ^{\!*}}}  % Certainty Equivalent
-
-\setcounter{section}{2}
-
-\title{Stochastic Models and their Normative Justifications}
-\author{Brian Albert Monroe}
+\documentclass[../main.tex]{subfiles}
 
 \begin{document}
-
-\pagenumbering{gobble}	% Don't start numbering pages until we pass the table of contents
-\maketitle
-
 \onehalfspacing
-%\doublespacing
-\tableofcontents
+\setcounter{chapter}{1}
+\chapter{Normative Justification for Stochastic Models}
 
-\pagenumbering{arabic}
-
-\newpage
+\lltoc
+%%\tableofcontents
 
 The recent interest in the ability of stochastic choice models to explain choice behavior that seemingly violates Expected Utility Theory (EUT) has led to a variety of calls for, and attempts to, seek out a \enquote{true} stochastic model or combination of  models which best describe observed choice behavior in experiments.
 The first call for such a research effort was apparently \textcite{Edwards1954}, who accused economics of becoming \enquote{exceedingly elaborate, mathematical, and voluminous} \textcite[380]{Edwards1954} in its attempt to explain the diversity of empirical choice data and criticized economists as \enquote{mak\textins*{ing} assumptions, and from these assumptions they deduce theorems which presumably can be tested, though it seems unlikely that the testing will ever occur.}
@@ -48,7 +17,8 @@ They conclude that \enquote{possibly the overriding feature of our analysis is t
 A wealth of stochastic models has resulted from economists and psychologists taking up the project proposed by \textcite{Hey1994}.
 This chapter seeks to describe the results of this effort to improve the descriptive capabilities of this call to research, and introduce a much needed discussion of the normative promise of some of these models.
 
-\subsection{The Specification of Stochastic Models}
+
+\section{The Specification of Stochastic Models}
 
 The number of models developed by researchers engaged in the stochastic project can largely be categorized into three classes of stochastic models.
 \textcite[1301]{Hey1994} proposed a stochastic choice model which incorporates a random error term into the evaluation of the lotteries by subjects.
@@ -96,7 +66,7 @@ Second we will define the manner in which RP, TR, and RE  models relate this det
 
 RDU is characterized by the following function:
 \begin{equation}
-	\label{eq:RDU}
+	\label{eq2:RDU}
 	RDU = \sum_{i=1}^{I} \left[ w_i(p) \times u(x_i) \right]
 \end{equation}
 \noindent where $i$ indexes the outcomes, $x_i$, from $\{1,\ldots,I\}$ with $i=1$ being the smallest outcome in the lottery and $i=I$ being the greatest outcome in the lottery, $u(\cdot)$ returns the utility of its argument, $w_i(\cdot)$ returns the decision weight applied to outcome $i$ given the distribution of probabilities ranked by outcome, $p$.
@@ -104,7 +74,7 @@ RDU is characterized by the following function:
 The utility function $u(\cdot)$ can take many functional forms due to its property of being unique up to an affine transformation, and can be normalized in various was, as illustrated by \textcite{Hey1994}.
 It will sometimes be useful to use a functional form to make certain concepts clearer and in such cases the constant relative risk aversion (CRRA) function will be employed:
 \begin{equation}
-	\label{eq:CRRA}
+	\label{eq2:CRRA}
 	u(x) = \frac{x^{(1-r)}}{(1-r)}
 \end{equation}
 \noindent where $r$ is the coefficient of relative risk aversion \parencite{Pratt1964}.
@@ -112,7 +82,7 @@ Other popular functions such as the constant absolute risk aversion (CARA) funct
 
 The decision weight function, $w_i(\cdot)$, takes the form:
 \begin{equation}
-	\label{eq:dweight}
+	\label{eq2:dweight}
 	w_i(p) = 
 	\begin{cases} 
 		\omega\left(\displaystyle\sum_{j=i}^I p_j\right) - \omega\left(\displaystyle\sum_{k=i+1}^I p_k\right) & \text{for } i<I \\
@@ -122,19 +92,19 @@ The decision weight function, $w_i(\cdot)$, takes the form:
 \noindent where the probability weighting function, $\omega(\cdot)$, can take a variety of parametric or non-parametric forms.
 Many functions have been proposed for $\omega(\cdot)$; One is the \enquote{Inverse-S} shaped function popularized by \textcite{Tversky1992}:
 \begin{equation}
-	\label{eq:pw:kahneman}
+	\label{eq2:pw:kahneman}
 	\omega(p_i) = \frac{p_i^\gamma}{\biggl(\sum\limits_{k=0}^{I-1} p_k^\gamma\biggr)^{ \frac{1}{\gamma} } }
 \end{equation}
 
 \noindent Another is the power function used by \textcite{Quiggin1982}:
 \begin{equation}
-	\label{eq:pw:quiggin}
+	\label{eq2:pw:quiggin}
 	\omega(p_i)=p_i^\gamma
 \end{equation}
 
 \noindent The flexible function proposed by \textcite{Prelec1998} is also popular:
 \begin{equation}
-	\label{eq:pw:prelec}
+	\label{eq2:pw:prelec}
 	\omega(p_i)=\exp(-\beta(-\ln(p_i))^\alpha)
 \end{equation}
 
@@ -156,35 +126,35 @@ The most common form of such a task is a binary choice problem where subjects ar
 Each element of $t$, $X_j$, is a vector of the option's observable characteristics, such as various outcomes and the associated probability of those outcomes in a lottery.
 When presented with such a task, should the subject have a deterministic choice process and preference structure, the subject is assumed to choose option $j$ over the alternative $k$ if and only if the utility of option $j$ was at least as great the utility of option $k$:
 \begin{equation}
-	\label{eq:ychoice}
+	\label{eq2:ychoice}
 	y_t = j \;\Leftrightarrow\; X_{jt} \succcurlyeq X_{kt} \;\Leftrightarrow\; G(\beta_n , X_j) \geq G(\beta_n , X_k)
 \end{equation}
 
-\noindent where $G(\cdot)$ is some utility structure such as RDU in equation (\ref{eq:RDU}), $\beta_n$ is the unobservable vector of parameters of the utility structure for subject $n$, such as probability weights and utilities of outcomes, $X$ is defined above, and $y_i=j$ is a function that simply records which option $j$ is selected.
+\noindent where $G(\cdot)$ is some utility structure such as RDU in equation (\ref{eq2:RDU}), $\beta_n$ is the unobservable vector of parameters of the utility structure for subject $n$, such as probability weights and utilities of outcomes, $X$ is defined above, and $y_i=j$ is a function that simply records which option $j$ is selected.
 
 In this deterministic case, the preference relation $\succcurlyeq$ provides all the necessary conditions for the creation of a utility function $G(\cdot)$, meaning it is complete, transitive, and continuous.
 Since this is the case, $\succcurlyeq$ necessarily provides a complete ranking of all the available alternatives in task $t$.
 It will be convenient to denote this ranking explicitly throughout this chapter by setting the $j$ subscript of option $X_{jt}$ equal to its ranking in task $t$:
 \begin{equation}
-	\label{eq:outcomerank} 
+	\label{eq2:outcomerank} 
 	X_{1t} \succcurlyeq^n X_{2t} \succcurlyeq^n \ldots \succcurlyeq^n X_{jt} \succcurlyeq^n \ldots \succcurlyeq^n X_{Jt}\\
 \end{equation}
 
 \noindent This allows us to rank the utility of the $J$ options in task $t$ likewise:
 \begin{equation}
-	\label{eq:utilityrank}
+	\label{eq2:utilityrank}
 	G(\beta_n,X_{1t}) \geq G(\beta_n,X_{2t}) \geq \ldots \geq G(\beta_n,X_{jt}) \geq \ldots \geq G(\beta_n,X_{Jt})
 \end{equation}
 
 With $y_t$ defined and the options in task $t$ ranked, we can also define the set of options in task $t$ not selected by subject $n$ as follows:
 \begin{equation}
-	\label{eq:emptyset}
+	\label{eq2:emptyset}
 	Z = t \,\backslash\, y = \{z \in t \;|\; z \notin y \}
 \end{equation}
 
-Similar to equation (\ref{eq:utilityrank}), we can set the $j$ subscript of the $J-1$ unchosen options in $Z$ equal to their respective ranking in $Z$:
+Similar to equation (\ref{eq2:utilityrank}), we can set the $j$ subscript of the $J-1$ unchosen options in $Z$ equal to their respective ranking in $Z$:
 \begin{equation}
-	\label{eq:Zutilityrank}
+	\label{eq2:Zutilityrank}
 	G(\beta_n,X_{1t}^Z) \geq G(\beta_n,X_{2t}^Z) \geq \ldots \geq G(\beta_n,X_{jt}^Z) \geq \ldots \geq G(\beta_n,X_{(J-1)t}^Z)
 \end{equation}
  
@@ -194,13 +164,13 @@ While the set preference relations can have a discrete distribution, the RP mode
 In this definition, $\alpha$ is a vector containing the necessary parameters to define the shape of the distribution.
 Thus the probability of choice in a RP model is simply the probability that a vector $\beta_n^*$ is drawn from the distribution governed by $F_n(\beta | \alpha)$ that would deterministically satisfy that choice:
 \begin{equation}
-	\label{eq:RP0}
+	\label{eq2:RP0}
 	{\Prob}(y_t=j) = {\Prob}(j=1) = {\Prob}\left( \beta_n^* \,|\, G(\beta_n^*,X_{jt}) \geq G(\beta_n^*,X_{1t}^Z)\right)
 \end{equation}
 
 \noindent If we let $ B_t = \left\{ \beta_n^* \,|\, G(\beta_n^*,X_{jt}) \geq G(\beta_n^*,X_{1t}^Z)\right\}$, given the density function $F_n(\beta | \alpha)$:
 \begin{equation}
-	\label{eq:RP.f}
+	\label{eq2:RP.f}
 	{\Prob}(y_t=j) = \int_{\beta \in B_t} dF_n(\beta|\alpha)
 \end{equation}
 
@@ -213,7 +183,7 @@ Thus, if we observe $y_t = k$ in such a scenario, the RP model collapses econome
 	\begin{align*}
 		\forall \, x_i , \; \sum_i^I p_i^j \; \geq \; \sum_i^I p_i^k \quad \textit{and} \quad \exists \, x_i , \; \sum_i^I p_i^j \; > \; \sum_i^I p_i^k 
 	\end{align*}
-	where $i$ ranks the outcomes of lotteries $j$ and $k$ as described in equation (\ref{eq:RDU}).
+	where $i$ ranks the outcomes of lotteries $j$ and $k$ as described in equation (\ref{eq2:RDU}).
 	All deterministic theories of utility require the dominating option to be chosen over the dominated option.
 }
 
@@ -221,16 +191,16 @@ RE models assume that the utility of each option is evaluated with some error te
 A choice is characterized as incorporating this error.
 Assuming a binary choice scenario, the error terms and utility functions must satisfy the following given the choice of option $j$:
 \begin{align}
-	\label{eq:RE0}
+	\label{eq2:RE0}
 	\begin{split}
 		G(\beta_n,X_{jt}) + \epsilon_{jt} \;&\geq\; G(\beta_n,X_{kt}) + \epsilon_{kt}\\
 		\left[G(\beta_n,X_{jt}) + \epsilon_{jt}\right] \;&-\; \left[G(\beta_n,X_{kt}) + \epsilon_{kt}\right] \geq 0
 	\end{split}
 \end{align}
 
-\noindent Setting $\epsilon_{jt} - \epsilon_{kt} = \epsilon_t\lambda_n$, where $\lambda_n$ is proportional to the standard deviation of $\epsilon_t$,{\footnotemark} we can rewrite equation (\ref{eq:RE0}) as:
+\noindent Setting $\epsilon_{jt} - \epsilon_{kt} = \epsilon_t\lambda_n$, where $\lambda_n$ is proportional to the standard deviation of $\epsilon_t$,{\footnotemark} we can rewrite equation (\ref{eq2:RE0}) as:
 \begin{align}
-	\label{eq:RE1}
+	\label{eq2:RE1}
 	\begin{split}
 		G(\beta_n,X_{jt}) &- G(\beta_n,X_{kt}) + \epsilon_t\lambda_n \geq 0\\
 		\epsilon_t \geq \frac{1}{\lambda_n} \left[ G(\beta_n,X_{jt}) \right.  &- \left. G(\beta_n,X_{kt}) \right]
@@ -245,7 +215,7 @@ Assuming a binary choice scenario, the error terms and utility functions must sa
 
 \noindent Thus for RE models, the probability option $j$ is chosen is given by:
 \begin{align}
-	\label{eq:RE.2}
+	\label{eq2:RE.2}
 	\begin{split}
 	{\Prob}(y_t = j) &= {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda_n} \left[ G(\beta_n,X_{kt}) - G(\beta_n,X_{jt}) \right] \right)\\
 	&= 1 - F\left( \dfrac{G(\beta_n,X_{kt}) - G(\beta_n,X_{jt})}{D(\beta_n,X_t)\lambda_n^* }  \right)
@@ -257,26 +227,26 @@ As $\lambda^*$ approaches $0$, choice probabilities approach $0$ or $1$, while a
 The asterisk will be dropped from the remaining formulae to save space.
 $F(\cdot)$ is some cumulative distribution function (cdf) such that $F(0) = 0.5$ and $F(x) = 1 - F(-x)$.
 Usually $F(\cdot)$ is taken to be either the normal or logistic function, but any distribution function satisfying the previous conditions is acceptable.
-When discussing the SU model in throughout this chapter, what is referred to is the model specified in equation (\ref{eq:RE.2}) with $D(\beta_n,X_t) = 1$.
+When discussing the SU model in throughout this chapter, what is referred to is the model specified in equation (\ref{eq2:RE.2}) with $D(\beta_n,X_t) = 1$.
 This results in the SU model being homoscedastic.
 
-If utilizing the logistic function, equation (\ref{eq:RE.2}) resembles a latent index model popularly used in a variety of econometric applications, but with a non-linear latent index.
-While equation (\ref{eq:RE.2}) represents the common 2 option case, using the logistic cdf, the RE model can be rewritten to accomodate $J$ alternatives:
+If utilizing the logistic function, equation (\ref{eq2:RE.2}) resembles a latent index model popularly used in a variety of econometric applications, but with a non-linear latent index.
+While equation (\ref{eq2:RE.2}) represents the common 2 option case, using the logistic cdf, the RE model can be rewritten to accomodate $J$ alternatives:
 \begin{equation}
-	\label{eq:RE.f}
+	\label{eq2:RE.f}
 	{\Prob}(y_t=j) =\dfrac{\exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)}{ \displaystyle\sum_{i=1}^J \left[ \exp\!\left( \dfrac{ G(\beta_n,X_{it}) }{ D(\beta_n,X_{t})\lambda_n }  \right)  \right]  } 
 \end{equation}
 
 With the TR model the \enquote{observed} probability of choice, ${\Prob}(y_n=j)$, needs to be distinguished from the choice probability which would be modeled should the tremble not exist, ${\Prob}_0(y_n=j)$.
 The agent is said to \enquote{tremble} with probability $\phi_n$ and select among the available options with equal probability, and with probability $(1-\phi_n)$ select an option according to the underlying process:
 \begin{equation}
-	\label{eq:TR.f}
+	\label{eq2:TR.f}
 	{\Prob}(y_t=j) = (1-\phi) {\Prob}(y_t=j) + \frac{\phi}{J}
 \end{equation}
 When \textcite{Harless1994} proposed the TR model, the underlying choice process was made deterministic, assuming that ${\Prob}_0(y_t=1) = 1$.
-\textcite{Loomes2002} however, proposed that ${\Prob}_0(y_t=j)$ was generated from the RP model as specified in equation (\ref{eq:RP.f}).
+\textcite{Loomes2002} however, proposed that ${\Prob}_0(y_t=j)$ was generated from the RP model as specified in equation (\ref{eq2:RP.f}).
 
-\subsection{The Empirical Support for Stochastic Models}
+\section{The Empirical Support for Stochastic Models}
 
 The previous section provided for the econometric specification of the classes of stochastic models typically utilized in the literature to estimate parameters from choice data.
 The choice of model to utilize however, has not been ad hoc; 
@@ -311,7 +281,7 @@ Practically, this means estimating additional parameters and making clear the id
 	As will be expanded on later, the RP model fails to satisfy this restriction.
 }
 \stepcounter{footnote}\footnotetext{
-	To illustrate the combination of RP, RE, and TR models derived in equations (\ref{eq:RP.f}), (\ref{eq:RE.f}), and (\ref{eq:TR.f}):
+	To illustrate the combination of RP, RE, and TR models derived in equations (\ref{eq2:RP.f}), (\ref{eq2:RE.f}), and (\ref{eq2:TR.f}):
 	\begin{align*}
 		{\Prob}(y_t=j) = \frac{\phi}{J} + (1-\phi)\int_{\beta \in B_t}  {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda} \left[ G(\beta_n,X_{kt}) - G(\beta_n,X_{jt}) \right] \,\big|\, \beta \right) dF_n(\beta|\alpha)
 	\end{align*}
@@ -357,10 +327,10 @@ The SU model, for instance, requires SST, whereas most of the proposed derivativ
 
 \textcite{Hey1995a} proposed three RE models with heteroscedastic error terms and conducted an experiment with 80 subjects to compare the heteroscedastic models to the homoscedastic SU model, (H.1).
 In all three models, the Normal distribution was utilized for $F(\cdot)$.
-The first heteroscedastic model, (\ref{eq:Hey2}), modeled the variance of the error as an exponential function of the time taken by the subject to give an answer to the question $m$ and a corresponding coefficient:
+The first heteroscedastic model, (\ref{eq2:Hey2}), modeled the variance of the error as an exponential function of the time taken by the subject to give an answer to the question $m$ and a corresponding coefficient:
 \begin{align*}
 	\tag{H.2}
-	\label{eq:Hey2}
+	\label{eq2:Hey2}
 	D(\beta_n,X) &= \exp(\alpha \times m)\\
 	\lambda_n &= 1
 \end{align*}
@@ -369,7 +339,7 @@ Thus if $\alpha > 0$, the longer (shorter) it takes a subject to answer the ques
 The second heteroscedastic model, (H.3), modeled the error as an exponential function of the absolute value of the difference in utility of the alternatives multiplied by a coefficient, $\alpha$:
 \begin{align*}
 	\tag{H.3}
-	\label{eq:Hey3}
+	\label{eq2:Hey3}
 	D(\beta_n,X) &= \exp\left(\alpha \times \lvert G(\beta_n,X_{kt}) - G(\beta_n,X_{jt}) \rvert\right)\\
 	\lambda_n &= 1
 \end{align*}
@@ -379,13 +349,13 @@ The third heteroscedastic model, (H.4), modeled the error as an exponential func
 In this specification, $d$ is the average number of outcomes per option in the set of alternatives.
 \begin{align*}
 	\tag{H.4}
-	\label{eq:Hey4}
+	\label{eq2:Hey4}
 	D(\beta_n,X) &= \exp(\alpha \times d)\\
 	\lambda_n &= 1
 \end{align*}
 Thus, if $\alpha > 0$, the greater (smaller) the average number of outcomes per option, the greater (smaller) the noise.
 All of the heteroscedastic models nest the homoscedastic SU model as a special case (when $\alpha=0$).
-While (\ref{eq:Hey3}) and (\ref{eq:Hey4}) did not perform particularly well, (H.1) was rejected in favor of (\ref{eq:Hey2}) for 27 of 80 subjects at the 1\% level, and 36 subjects at the 5\% level \parencite*[639]{Hey1995a}.
+While (\ref{eq2:Hey3}) and (\ref{eq2:Hey4}) did not perform particularly well, (H.1) was rejected in favor of (\ref{eq2:Hey2}) for 27 of 80 subjects at the 1\% level, and 36 subjects at the 5\% level \parencite*[639]{Hey1995a}.
 
 Another derivative called the \enquote{Wandering Vector} (WV) model was proposed initially by \textcite{Carroll1980} and expanded on by \textcite{Carroll1991}.
 It makes the standard deviation of the error proportional to the Euclidean distance of the probability vectors of the two alternative lotteries, $j$ and $k$.
@@ -399,7 +369,7 @@ This model was proposed in the psychology literature to accommodate noisy percep
 \textcite{Wilcox2011} expands on the \enquote{Contextual Utility} (CU) model initially proposed in \textcite{Wilcox2008}.
 It makes the standard deviation of the error proportional to the difference in utility of the greatest non-zero probability outcome and the utility of the least non-zero probability outcome.
 \begin{align*}
-	\label{eq:W.cu}
+	\label{eq2:W.cu}
 	\begin{split}
 		&D(\beta_n,X_t) = \mathit{max}[u(x_{it})] - \mathit{min}[u(x_{it})]\\
 		&\mathit{st.}\; w_i(x_{it}) \neq 0
@@ -485,18 +455,18 @@ While such a conclusion is undoubtedly true, there is a question relevant to eco
 Answering this question helps to draw the distinction between economics and decision theory or psychology.
 We will argue that answering this question puts reasonable, restricting conditions on the econometric question \enquote{what is the best stochastic model to employ?}
 
-\subsection{Utility and its Relation to Welfare}
+\section{Utility and its Relation to Welfare}
 
 With the RDU structure defined, and the stochastic models specified, we can define the basis of what will become our proposed metrics for individual welfare: the certainty equivalent.
 For any salient lottery $X_j$, and any vector $\beta_n$, there exists some certain outcome, $\CE_j$, such that subject $n$ is indifferent between the lottery and the certainty equivalent:
 \begin{equation}
-	\label{eq:CE.indiff}
+	\label{eq2:CE.indiff}
 	X_j \sim^n {\CE}_j \;\Leftrightarrow\; G(\beta_n,X_j) = G(\beta_n, {\CE}_j)
 \end{equation}
 
-Combining the RDU structure from equation (\ref{eq:RDU}) with the utility function defined in equation (\ref{eq:CRRA}), we can define the {\CE} as follows:
+Combining the RDU structure from equation (\ref{eq2:RDU}) with the utility function defined in equation (\ref{eq2:CRRA}), we can define the {\CE} as follows:
 \begin{align}
-	\label{eq:CEcalc}
+	\label{eq2:CEcalc}
 	\begin{split}
 		&\sum_{i=0}^{I-1} w_i(p) \frac{x_{ij}^{(1-r)}}{(1-r)} = \frac{ {\CE}_j^{(1-r)}}{(1-r)}\\
 		&{\CE}_j =  \left( (1-r) \times \sum_{i=0}^{I-1} w_i(p) \frac{x_{ij}^{1-r}}{(1-r)} \right)^{ \displaystyle\nicefrac{1}{(1-r)} }
@@ -504,23 +474,23 @@ Combining the RDU structure from equation (\ref{eq:RDU}) with the utility functi
 \end{align}
 
 Thus if we assume some vector of $\beta_n$, of which $r$ and the parameters governing $w_i(p)$ are elements, we can easily calculate the {\CE} of lottery $X_j$.{\footnotemark}
-If the utility function employed is monotonically increasing in the domain, as the CRRA function is, then this leads to the  logical corollary of equation (\ref{eq:utilityrank}):
+If the utility function employed is monotonically increasing in the domain, as the CRRA function is, then this leads to the  logical corollary of equation (\ref{eq2:utilityrank}):
 \begin{equation}
-	\label{eq:CErank}
+	\label{eq2:CErank}
 	{\CE}_{n1} \geq {\CE}_{n2} \geq \ldots \geq {\CE}_{nj} \geq \ldots \geq {\CE}_{nJ}
 \end{equation}
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{ In general, the {\CE} of any lottery can easily be calculated with numerical methods even if an analytical solution doesn't exist.
 This is because the {\CE} must lie in the interval between the lowest outcome and the highest outcome.
-Numerically, one can just iterate through this interval until equation (\ref{eq:CEcalc}) is satisfied, or employ an optimization routine to look for the {\CE} directly.}
+Numerically, one can just iterate through this interval until equation (\ref{eq2:CEcalc}) is satisfied, or employ an optimization routine to look for the {\CE} directly.}
 
-With equations (\ref{eq:CEcalc}) and (\ref{eq:CErank}), we can also see that the {\CE} can itself be considered a utility function: it is complete, transitive, and continuous, which is all that is required for a utility function to be well defined.
+With equations (\ref{eq2:CEcalc}) and (\ref{eq2:CErank}), we can also see that the {\CE} can itself be considered a utility function: it is complete, transitive, and continuous, which is all that is required for a utility function to be well defined.
 Utilizing the {\CE}s of options in a task is useful because of its ability to be considered a utility function, but also because it allows utility to be normalized to the units of the outcomes.
 
-We can employ the notation used for the set of unchosen alternatives, $Z$, derived in equation (\ref{eq:emptyset}), to rank the ${\CE}$s of each unchosen alternative just as in equation (\ref{eq:Zutilityrank}):
+We can employ the notation used for the set of unchosen alternatives, $Z$, derived in equation (\ref{eq2:emptyset}), to rank the ${\CE}$s of each unchosen alternative just as in equation (\ref{eq2:Zutilityrank}):
 \begin{equation}
-	\label{eq:CEZ}
+	\label{eq2:CEZ}
 	{\CE}_{n1}^Z \geq {\CE}_{n2}^Z \geq \ldots \geq {\CE}_{nj}^Z \geq \ldots \geq {\CE}_{n(J-1)}^Z 
 \end{equation}
 
@@ -529,37 +499,37 @@ If an agent with deterministic preferences and a deterministic choice process is
 This is the thought behind the first metric.
 With this metric, a change in welfare is measured as the difference between the {\CE} of the option chosen and the {\CE} of the highest ranked alternative option:
 \begin{equation}
-	\label{eq:WCt}
+	\label{eq2:WCt}
 	\Delta W_{nt} = {\CE}_{nyt} - {\CE}_{n1t}^Z = {\CE}_{nt}^R
 \end{equation}
 
 This welfare metric is similar to the notion of compensating equivalence in standard consumer theory.
-If equation (\ref{eq:WCt}) is positive, it calculates the minimum amount of money the agent would need to be compensated in order to change her choice.
+If equation (\ref{eq2:WCt}) is positive, it calculates the minimum amount of money the agent would need to be compensated in order to change her choice.
 If this metric is negative, it calculates the maximum the agent should be willing to pay in order to change her choice.
 
 Another metric, which also utilizes the {\CE}s, characterizes welfare received by choosing an option as a proportion of the {\CE} of the option chosen and the {\CE} that was ranked highest in the task:
 \begin{equation}
-	\label{eq:WPt}
+	\label{eq2:WPt}
 	\%W_{nt} = \frac{ {\CE}_{ny} }{ {\CE}_{n1} }
 \end{equation}
 
-\noindent A variation of (\ref{eq:WCt}) which can be used to make statements about welfare across tasks could be:
+\noindent A variation of (\ref{eq2:WCt}) which can be used to make statements about welfare across tasks could be:
 \begin{equation}
-	\label{eq:WCT}
+	\label{eq2:WCT}
 	\Delta W_{nT} = \sum_{t=1}^T \left( {\CE}_{nyt} - {\CE}_{n1t}^Z \right)
 \end{equation}
 
-\noindent A similar variation of (\ref{eq:WPt}) could be:
+\noindent A similar variation of (\ref{eq2:WPt}) could be:
 \begin{equation}
-	\label{eq:WPT}
+	\label{eq2:WPT}
 	\%W_{nT} = \frac{\displaystyle\sum_{t=1}^{T} {\CE}_{ny} }{\displaystyle\sum_{t=1}^{T} {\CE}_{ny}}
 \end{equation}
 
 All of these metrics have strengths and weaknesses.
-Metric (\ref{eq:WCt}) is more relevant to the case of deterministic choice as it can change from task to task, while metrics (\ref{eq:WPt}) and (\ref{eq:WPT}) will become more relevant when discussing stochastic choice models and modest claims about inter-subject welfare.
+Metric (\ref{eq2:WCt}) is more relevant to the case of deterministic choice as it can change from task to task, while metrics (\ref{eq2:WPt}) and (\ref{eq2:WPT}) will become more relevant when discussing stochastic choice models and modest claims about inter-subject welfare.
 Any agent would be best off by making a choice which maximizes either of these metrics.
 
-\subsubsection{Special Case of Random Preferences: The Random Preference Per Option Model}
+\subsection{Special Case of Random Preferences: The Random Preference Per Option Model}
 
 Before beginning the discussion of welfare, a final model belonging to the RP class will be noted which requires a more involved explanation.
 It could be the case that an agent's choices are best characterized by a version of the RP model where a different $\beta^*_{nj}$ is drawn to evaluate every option in the set of alternatives.
@@ -567,45 +537,45 @@ We will refer to this type of RP model as the \enquote{Random Preference Per Opt
 
 When evaluating option $j$, a standard preference relation is drawn from a distribution of preference relations that ranks all the $J$ alternatives, including option $j$, according to this preference relation:
 \begin{equation}
-	\label{eq:RPPO.jorank}
+	\label{eq2:RPPO.jorank}
 	X_{1t} \succcurlyeq^{nj} X_{2t} \succcurlyeq^{nj} \ldots \succcurlyeq^{nj} X_{jt} \succcurlyeq^{nj} \ldots \succcurlyeq^{nj} X_{Jt}
 \end{equation}
 
 \noindent A utility function exists which represents these preference relations is shaped by $\beta_n^j$:
 \begin{equation}
-	\label{eq:RPPO.jurank}
+	\label{eq2:RPPO.jurank}
 	G(\beta_n^j,X_{1t}) \geq G(\beta_n^j,X_{2t}) \geq \ldots \geq G(\beta_n^j,X_{jt}) \geq \ldots \geq G(\beta_n^j,X_{Jt})
 \end{equation}
 
-As was shown in equation (\ref{eq:CEcalc}), a {\CE} can be calculated for each of these $\beta_n^j$ conditional utility functions such that:
+As was shown in equation (\ref{eq2:CEcalc}), a {\CE} can be calculated for each of these $\beta_n^j$ conditional utility functions such that:
 \begin{equation}
-	\label{eq:RPPO.jCErank}
+	\label{eq2:RPPO.jCErank}
 	{\CE}^j_{n1} \geq {\CE}^j_{n2} \geq \ldots \geq {\CE}^j_{nj} \geq \ldots \geq {\CE}^j_{nJ}
 \end{equation}
 
-In equations (\ref{eq:RPPO.jorank}), (\ref{eq:RPPO.jurank}), and (\ref{eq:RPPO.jCErank}), the ordinal ranking of the set of alternatives is the same.
+In equations (\ref{eq2:RPPO.jorank}), (\ref{eq2:RPPO.jurank}), and (\ref{eq2:RPPO.jCErank}), the ordinal ranking of the set of alternatives is the same.
 As stated previously, the {\CE} of an option has the same utility function properties as $G(\cdot)$, and is additionally normalized by the units of the options themselves.
 If only one $\beta_n$ vector is drawn to derive cardinal values for the set of alternatives, we have the RP model discussed previously.
 
 But, with RPPO models, when evaluating another option $k$, such that $k \neq j$, another, potentially different, preference relation is drawn and all of the $J$ alternatives, including both $j$ and $k$, are ranked according to this preference relation:
 \begin{equation}
-	\label{eq:RPPO.korank}
+	\label{eq2:RPPO.korank}
 	X_{1t} \succcurlyeq^{nk} X_{2t} \succcurlyeq^{nk} \ldots \succcurlyeq^{nk} X_{jt} \succcurlyeq^{nk} \ldots \succcurlyeq^{nk} X_{Jt}
 \end{equation}
 
 \noindent A utility function exists which represents these preference relations shaped by $\beta_n^k$:
 \begin{equation}
-	\label{eq:RPPO.kurank}
+	\label{eq2:RPPO.kurank}
 	G(\beta_n^k,X_{1t}) \geq G(\beta_n^k,X_{2t}) \geq \ldots \geq G(\beta_n^k,X_{jt}) \geq \ldots \geq G(\beta_n^k,X_{Jt})
 \end{equation}
 
 \noindent And again, a {\CE} can be calculated for each of these $\beta_n^k$ conditional utility functions such that:
 \begin{equation}
-	\label{eq:RPPO.kCErank}
+	\label{eq2:RPPO.kCErank}
 	{\CE}^k_{n1} \geq {\CE}^k_{n2} \geq \ldots \geq {\CE}^k_{nj} \geq \ldots \geq {\CE}^k_{nJ}
 \end{equation}
 
-The difference between the realizations of equations (\ref{eq:RPPO.jCErank}) and (\ref{eq:RPPO.kCErank}) is twofold.
+The difference between the realizations of equations (\ref{eq2:RPPO.jCErank}) and (\ref{eq2:RPPO.kCErank}) is twofold.
 First, the different $\beta_n^*$ vectors may lead to different ordinal rankings of the same set of alternatives.
 Second, if $\beta_n^j \neq \beta_n^k$, then there may be two different cardinal evaluations for the same option.
 
@@ -619,7 +589,7 @@ An example will be presented later that will make this clearer.}
 
 Adding the superscripts $\{1,2,\ldots,x,\ldots,X\}$  to the {\CE} to indicate the option that it is associated with, and the subscripts $\{1,2,\ldots,j,\ldots,J\}$ to the {\CE} to represent its rank in the set of alternatives conditional on its individual $\beta_n^x$ vector, we could have the following ordinal ranking:
 \begin{equation}
-	\label{eq:RPPO.CErank.f}
+	\label{eq2:RPPO.CErank.f}
 	{\CE}^1_{n1} \geq {\CE}^2_{n2} \geq \ldots \geq {\CE}^x_{nj} \geq \ldots \geq {\CE}^X_{nJ}
 \end{equation}
 
@@ -627,7 +597,7 @@ Notice that the superscripts match the subscripts in this example, but this need
 The superscripts represent the unranked options, while the subscripts represent the RPPO ranked options.
 The following could also represent an ordinal ranking from the RPPO model:
 \begin{equation}
-	\label{eq:RPPO.CErank.a}
+	\label{eq2:RPPO.CErank.a}
 	{\CE}^3_{n1} \geq {\CE}^1_{n2} \geq \ldots \geq {\CE}^x_{nj} \geq \ldots \geq {\CE}^X_{nJ}
 \end{equation}
 
@@ -635,9 +605,9 @@ The RPPO model, as discussed here, is characterized as having random preference 
 That is, this RPPO model characterizes an agent as choosing the option with the highest individually evaluated {\CE}.
 Just as with the RP model, additional stochasticity can be imposed by including measurement error as with RE models and/or a tremble event as with TR models.
 For now, these additional elements create unnecessary mathematical complexity for the current discussion, but they will be touched on briefly later.
-Just as in equation (\ref{eq:emptyset}), the non-chosen options can be expressed as the set of $J-1$ alternatives in task $t$ that doesn't include the chosen option:
+Just as in equation (\ref{eq2:emptyset}), the non-chosen options can be expressed as the set of $J-1$ alternatives in task $t$ that doesn't include the chosen option:
 \begin{equation}
-	\label{eq:RPPO:emptyset}
+	\label{eq2:RPPO:emptyset}
 	Z = t \,\backslash\, y = \{z \in t \;|\; z \notin y \}
 \end{equation}
 
@@ -651,7 +621,7 @@ Just as in equation (\ref{eq:emptyset}), the non-chosen options can be expressed
 That is, $y_t$ is a function that indicates that option $x$ is chosen in task $t$ if and only if the {\CE} associated with option $x$ is greater than or equal to the {\CE} of any other option $z$.
 The probability of $y_t = x$ is determined by the joint probability of observing the set $\bigl\{\beta_n^x,\{\beta_n^Z\}\bigr\}$, such that:
 \begin{equation}
-	\label{eq:RPPO.y1}
+	\label{eq2:RPPO.y1}
 	{\CE}(\beta_n^x,X_{1t}) \geq {\CE}(\beta_n^z,X_{jt}) \forall z \in Z
 \end{equation}
 
@@ -663,7 +633,7 @@ The probability of $y_t=x$ is therefore:
 
 \noindent where $f_{\mathbf{B^t_n}}(\beta_n^x,\{\beta_n^Z\}|\alpha)$ is the joint density of the elements of $\mathbf{B^t_n}$, the shape of which is governed by the vector $\alpha$.
 
-\subsection[The Stochastic Money Pump: A Tool for Describing Welfare \texorpdfstring{\\}{}Accumulation]{The Stochastic Money Pump: A Tool for Describing Welfare\\Accumulation}
+\section[The Stochastic Money Pump: A Tool for Describing Welfare \texorpdfstring{\\}{}Accumulation]{The Stochastic Money Pump: A Tool for Describing Welfare\\Accumulation}
 
 With the various classes of stochastic models defined, we will begin the discussion of the welfare implications of these models by first introducing a decision problem which resembles the \enquote{Money Pump} argument against intransitive structures which exists with deterministic choice theory, though with several important distinctions that will be made clear later.
 We will refer to this relatively simple thought experiment as a \enquote{Stochastic Money Pump} (SMP).
@@ -677,7 +647,7 @@ The various classes of stochastic models can all have different welfare implicat
 
 To make this example concrete, we can work this problem out numerically assuming 3 different subjects, Amy, Beth, and Cate.
 Amy operates with a random preference model of choice, Beth operates with a contextual utility model of choice, and Cate makes choices deterministically but with a tremble.
-Amy, Beth, and Cate all have the same utility structure of the RDU special case where $w_i(p)=p_i$ for all $p_i$ and incorporate the CRRA utility function from equation (\ref{eq:CRRA}).
+Amy, Beth, and Cate all have the same utility structure of the RDU special case where $w_i(p)=p_i$ for all $p_i$ and incorporate the CRRA utility function from equation (\ref{eq2:CRRA}).
 Amy's distribution function $F_n(\beta|\alpha)$ is $N(\mu,\sigma^2) = N(0,0.01)$, thus normal with $\alpha$ featuring a mean equal to 0 and a standard deviation of 0.1.
 Beth operates a $\beta$ vector that is composed of $r=0$, and a $\lambda_n = 0.015$.
 Cate operates with a $\beta$ vector that is composed of $r=0$ and a probability of trembling of $\phi = 0.816$.
@@ -689,7 +659,7 @@ These values are 0.50 above and below the {\CE} of the lottery for Beth and Cate
 The probability of the experimenter successfully extracting money costlessly is approximately equal for all three subjects:
 
 \begin{equation}
-	\label{eq:pr.extraction}
+	\label{eq2:pr.extraction}
 	{\Prob}(\mathit{Extraction}) = {\Prob}(\mathit{Buy}) \times {\Prob}(\mathit{Sell}) \approx 0.167
 \end{equation}
 
@@ -697,7 +667,7 @@ The probability of the experimenter successfully extracting money costlessly is 
 
 \noindent For Amy,
 \begin{align}
-	\label{eq:Amy}
+	\label{eq2:Amy}
 	\begin{split}
 		B_{\mathit{Buy}} &= \{ \beta_A |\; G(\beta_A,X_{\mathit{Lottery}}) \geq G(\beta_A,X_{\mathit{Buy price}})\}\\
 		&= \{ r_A \big|\; r \leq -0.0232 \} \\
@@ -716,7 +686,7 @@ The probability of the experimenter successfully extracting money costlessly is 
 
 \noindent For Beth,
 \begin{align}
-	\label{eq:Beth}
+	\label{eq2:Beth}
 	\begin{split}
 	D(\beta_B,X) \times \lambda_B &= 0.015[u(100) - u(10)] \times 1\\
 	&= 1.35 \\
@@ -731,7 +701,7 @@ The probability of the experimenter successfully extracting money costlessly is 
 
 \noindent For Cate,
 \begin{align}
-	\label{eq:Cate}
+	\label{eq2:Cate}
 	\begin{split}
 		{\Prob}_0(y_{\mathit{Buy}}) &=
 		\begin{cases} 
@@ -757,9 +727,9 @@ The probability of the experimenter successfully extracting money costlessly is 
 \end{align}
 
 While the observed choice behavior is identical for all three subjects, the welfare implications are not.
-According to the metrics defined by equations (\ref{eq:WCt}) and (\ref{eq:WPt}), this decision problem has the same welfare implications for Beth and Cate:
+According to the metrics defined by equations (\ref{eq2:WCt}) and (\ref{eq2:WPt}), this decision problem has the same welfare implications for Beth and Cate:
 \begin{align}
-	\label{eq:BCwelfare}
+	\label{eq2:BCwelfare}
 	\begin{split}
 		\Delta W_{(B,C),\mathit{Buy}} = {\CE}_{(B,C),\mathit{Lottery}} - {\CE}_{(B,C),\mathit{Buy\ Price}} &= 55 - 55.5 = -0.50\\
 		\Delta W_{(B,C),\mathit{Sell}} = {\CE}_{(B,C),\mathit{Sell\ Price}} - {\CE}_{(B,C),\mathit{Lottery}} &= 54.5 - 55 = -0.50\\
@@ -791,7 +761,7 @@ The RP model characterizing Amy's choices, however, does not result in an intuit
 The RP model discussed here, the stand-alone RP model, requires that every choice by Amy be characterized by a deterministic preference relation according to some vector $\beta_A$ randomly drawn from a distribution.
 Thus:
 \begin{align}
-	\label{eq:RP.welfare}
+	\label{eq2:RP.welfare}
 	\begin{split}
 		\Delta W_{(A),\mathit{Buy}} &= {\CE}_{(A),\mathit{Lottery}} - {\CE}_{(A),\mathit{Buy\ Price}} \geq 0\\
 		\Delta W_{(A),\mathit{Sell}} &= {\CE}_{(A),\mathit{Sell\ Price}} - {\CE}_{(A),\mathit{Lottery}} \geq 0\\
@@ -800,7 +770,7 @@ Thus:
 	\end{split}
 \end{align}
 
-According to the metric definition in (\ref{eq:WCt}) and the decision process for Amy defined in (\ref{eq:Amy}), the $\Delta W$ welfare evaluations in (\ref{eq:RP.welfare}) must be weak inequalities.
+According to the metric definition in (\ref{eq2:WCt}) and the decision process for Amy defined in (\ref{eq2:Amy}), the $\Delta W$ welfare evaluations in (\ref{eq2:RP.welfare}) must be weak inequalities.
 However, the only situation where $\Delta W_{(B,C),\mathit{Buy}} = 0$ is when $r=-0.0232$, which has a probability of $0$ given that $F_A(\beta|\alpha)$ is continuous.
 Similarly for the choice between selling or not selling.
 With a probability approaching $1$, the RP model predicts that should an extraction occur the choices causing the extraction leave the subject with positive welfare.
@@ -860,24 +830,24 @@ Because this is true, the distributions of the $\beta_D$ vectors associated with
 	Take any degenerate lottery $X$ comprised of a single outcome $x$ with a probability of $p_x =1$.
 	The utility of this lottery is $U_X = w_x( p_x )u_x(x )$, where $w_x$ is any probability weighting function and $u_x$ is any utility function.
 	Since $w_x(p_x=1)=1$ for every probability weighting function, $U_X=u_x(x)=u_x({\CE}_x)$.
-	Since $u_x$ is a well-defined utility function, ${\CE}_x=x$ is a solution for equation (\ref{eq:CE.indiff}) for every $u_x$ and every $x$ when $p_x=1$.
+	Since $u_x$ is a well-defined utility function, ${\CE}_x=x$ is a solution for equation (\ref{eq2:CE.indiff}) for every $u_x$ and every $x$ when $p_x=1$.
 	This solution is unique when $u_x$ is monotonic as the CRRA function employed in the example is.
 }
 
 The reason why the utility functions are normalized can also be made clear with this  example.
-The CRRA function described in (\ref{eq:CRRA}) and utilized in the above example has some interesting properties around $r=1$: $u(x|r) = \ln(x)$ at $r=1$, $u(x|r) \to \infty$ as $r \to 1$ from the left, and $u(x|r) \to -\infty$ as $r \to 1$ from the right.{\footnotemark}
+The CRRA function described in (\ref{eq2:CRRA}) and utilized in the above example has some interesting properties around $r=1$: $u(x|r) = \ln(x)$ at $r=1$, $u(x|r) \to \infty$ as $r \to 1$ from the left, and $u(x|r) \to -\infty$ as $r \to 1$ from the right.{\footnotemark}
 If the RPPO model didn't normalize the CRRA function to its {\CE}, the set of $\{\beta_n^x,\{\beta_n^Z\}\}$  would be contradictory in its elements due to the properties of the CRRA function around $1$.
-To demonstrate, assume that the utility of the lottery is evaluated with $r_n^x = -0.0232$: what values of $r_n^Z$ satisfy equation (\ref{eq:CEcalc}) such that Dana would decide to purchase the lottery? We might expect that since $r_n^x = -0.0232$ is the value of $r_n$ that sets the utility of the lottery and the utility of the buy price equal to each other,  should the buy price be evaluated with greater risk aversion than the lottery, equation (\ref{eq:RPPO.y1}) will hold.
+To demonstrate, assume that the utility of the lottery is evaluated with $r_n^x = -0.0232$: what values of $r_n^Z$ satisfy equation (\ref{eq2:CEcalc}) such that Dana would decide to purchase the lottery? We might expect that since $r_n^x = -0.0232$ is the value of $r_n$ that sets the utility of the lottery and the utility of the buy price equal to each other,  should the buy price be evaluated with greater risk aversion than the lottery, equation (\ref{eq2:RPPO.y1}) will hold.
 That is, we might expect that should $r_n^Z > -0.0232$ Dana would prefer the lottery over the buy price.
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{ 
 	The use of $\ln(x)$ for $r =1$ is not as ad hoc as it may seem.
-	\textcite[1333]{Wakker2008} shows that if equation (\ref{eq:CRRA}) is normalized, it can be seen \enquote{that the normalized logarithmic function is the limit of the normalized power functions for $r$ tending to $0$ \textins{1}, both from above $(r >0)$ \textins{$r>1$} and from below $(r<0)$ \textins{$r<1$}:}
+	\textcite[1333]{Wakker2008} shows that if equation (\ref{eq2:CRRA}) is normalized, it can be seen \enquote{that the normalized logarithmic function is the limit of the normalized power functions for $r$ tending to $0$ \textins{1}, both from above $(r >0)$ \textins{$r>1$} and from below $(r<0)$ \textins{$r<1$}:}
 	\begin{align*}
 		\lim_{r \to 0} \frac{x^r - c^r}{d^r - c^r} = \frac{\ln(x) - \ln(c)}{\ln(d) - \ln(c)} \quad \forall \; x>0 , d>c>0
 	\end{align*}
-	While \textcite{Wakker2008} uses the single exponent version of the power function, the same limit applies to the formulation of the CRRA function used in equation (\ref{eq:CRRA}), with the bracketed values of $r$ in the above quote representing the revised limits.
+	While \textcite{Wakker2008} uses the single exponent version of the power function, the same limit applies to the formulation of the CRRA function used in equation (\ref{eq2:CRRA}), with the bracketed values of $r$ in the above quote representing the revised limits.
 }
 
 Intuitively this makes sense: an increase in risk aversion corresponds to an increase in the concavity of the utility function which implies lower utility as risk-aversion increases for a given outcome.
@@ -894,7 +864,7 @@ Emma's choice behavior is defined as follows:
 
 \noindent For Emma,
 \begin{align}
-	\label{eq:Emma}
+	\label{eq2:Emma}
 	\begin{split}
 		B_{\mathit{Buy}} &= \{ \beta_E |\; G(\beta_E,X_{\mathit{Lottery}}) \geq G(\beta_E,X_{\mathit{Buy price}})\}\\
 		&= \{ r_E \big|\; r \leq -0.0232 \} \\
@@ -955,7 +925,7 @@ Thus, $0.0388$ constitutes a lower bound on ${\Prob}(\Delta W_{(E),\mathit{Extra
 }
 
 
-\subsection{The Normative Coherence of Stochastic Models}
+\section{The Normative Coherence of Stochastic Models}
 
 Having clarified the welfare implications of several representative stochastic models, we will begin the discussion of the normative implications of these models.
 There may be some objection to the interpretation of these stochastic models as normative theories of economic choice because the intent behind the development of these models was descriptive in nature, not normative.
@@ -1004,7 +974,7 @@ What is also potentially unclear is whether these normative criteria are chosen 
 That is, are normative criteria \enquote{naturalized} or are they \enquote{idealized}.
 We will attempt to make clear this distinction when possible.
 
-\subsubsection{Economic Existence and Objective Betterness Criteria}
+\subsection{Economic Existence and Objective Betterness Criteria}
 
 The concept of continued economic existence as a requirement of an economic theory is likely the most common reason given as to why a theory is normatively justified.
 Broadly speaking, it states that an agent who is purported to make choices in accordance to the theory, ought not make choices systematically in such a way as to drive herself out of economic existence.
@@ -1075,13 +1045,13 @@ Instead, the money pump argument seems to suggest MEE as a normative criterion, 
 Both of these criteria imply the existence of some objective relation of \enquote{betterness}, {\OB}.
 In particular, WEE implies that the all non-empty sets of assets are objectively \enquote{better} than an empty set of assets:
 \begin{equation}
-	\label{eq:WEE}
+	\label{eq2:WEE}
 	A\ {\OB} \{\emptyset\} \quad \forall A \neq \{\emptyset\}
 \end{equation}
 
 \noindent whereas the {\OB} relation for MEE could be defined as follows:
 \begin{align}
-	\label{eq:MEE}
+	\label{eq2:MEE}
 	\begin{split}
 		A^\prime\ &{\OB} A \quad\forall A, A^\prime\\
 		\mathit{s.t.}\quad A &= \{x_1,\ldots,x_n\}\\
@@ -1090,13 +1060,13 @@ In particular, WEE implies that the all non-empty sets of assets are objectively
 	\end{split}
 \end{align}
 
-\textcite[141]{Cubitt2001} define a relation similar to the one defined in equation (\ref{eq:MEE}).
+\textcite[141]{Cubitt2001} define a relation similar to the one defined in equation (\ref{eq2:MEE}).
 This relation, they state, \enquote{coincides with \textit{weak statewise dominance}} and that
 \enquote{Many theories of choice under uncertainty generate choice functions which respect statewise dominance and hence, within this setup, objective betterness.
 	Obviously, this is true of expected utility theory.
 	But it is also true of, for example, \textcite{Quiggin1982} rank-dependent expected utility theory \textins{RDU}.}
 
-Thus, the normative criterion demonstrated by money pump thought experiment requires that the \enquote{objective betternes} relation of equation (\ref{eq:MEE}) not be violated sufficiently many times or with sufficient magnitude that the agent is eliminated.
+Thus, the normative criterion demonstrated by money pump thought experiment requires that the \enquote{objective betternes} relation of equation (\ref{eq2:MEE}) not be violated sufficiently many times or with sufficient magnitude that the agent is eliminated.
 Indeed, it is possible for an agent to conform to standard consistency axioms of completeness and transitivity and still be economically eliminated should her preferences be discordant with this $\succcurlyeq^*$ relation.{\footnotemark}
 
 %\stepcounter{footnote}\footnotetext{
@@ -1161,7 +1131,7 @@ All of the examples except for Emma even predict the extraction will occur with 
 Additionally, every model allows for a mechanism to describe the agent's welfare at every choice.
 However, it is only the TR and CU models associated with the Beth and Cate examples that satisfy the normative requirement described in this section.
 
-Equations (\ref{eq:Beth}) and (\ref{eq:Cate}) show that the CU and TR models allow for the observed extraction to occur, while equation (\ref{eq:BCwelfare}) shows that these models correctly align the subjective welfare assessment with the objective relation of betterment and state that these agents are worse off than they would have been had they not engaged in the trades.
+Equations (\ref{eq2:Beth}) and (\ref{eq2:Cate}) show that the CU and TR models allow for the observed extraction to occur, while equation (\ref{eq2:BCwelfare}) shows that these models correctly align the subjective welfare assessment with the objective relation of betterment and state that these agents are worse off than they would have been had they not engaged in the trades.
 The TR and CU models would make similar allowances for the selection of dominated lotteries in FOSD lottery pairs, and also correctly align the subjective welfare assessment with the objective betterment relation.
 Even considering alternative RE models that assign a probability of $0$ to dominated lotteries in FOSD lottery pairs, and thus econometrically collapse with every proposed utility function having equal, $0$, likelihood, all proposed utility functions would \textit{still} coincide with the result of requiring the agent to be subjectively worse off.
 Thus, it is a general result that stand-alone RE and TR models successfully adhere to the normative criteria described in this section.
@@ -1171,7 +1141,7 @@ For the RP and RPPO models, this description of an extraction as welfare improve
 Thus, we argue that this property of the RP class of stochastic models violates the normative criteria described in this section.
 
 
-\subsubsection{Willingness to \enquote{Correct} Choices Criterion}
+\subsection{Willingness to \enquote{Correct} Choices Criterion}
 
 The willingness to correct choices (WCC) criteria is often interpreted in multiple ways.
 A general version of WCC requires that should an agent deviate from the requirements of a theory of choice, should the agent be confronted with the deviation they will willingly \enquote{correct} their choices to conform with the theory.
@@ -1223,7 +1193,7 @@ Even if the parameters of the RP model are themselves determined by the number o
 agents can be characterized as just as well off or potentially better off by \textit{not} approaching consistency with MEE.
 Thus, the RP class of models do not provide normative coherence with respect to the WCC criterion.
 
-\subsubsection{Ought Implies Can (OIC) Criterion}
+\subsection{Ought Implies Can (OIC) Criterion}
 
 The two previous criteria for normative theories have involved defining what specific \enquote{oughts} are recommended by the theory and discussing whether they are reasonable.
 A somewhat different take on a requirement for normative acceptance is the notion that the \enquote{oughts} recommended by a theory must, in reality, be possible to be obtained.
@@ -1243,7 +1213,7 @@ In as much the process that evaluates which option makes agents the best off is 
 The RE models, however, seem to fare better in this account.
 RE models are often called \enquote{Fechnerian} models after the work of Gustov Fechner \parencite{Fechner1966a}, a German psycho-physicist and experimental psychologist.
 Fechner's work was often concerned with the limits of human perception of physical stimuli, such as the minimally perceptible difference in weight of two hidden objects.
-The RE models directly incorporate this concept of \enquote{measurement error} through the $\lambda$ and $D(\beta,X)$ terms as described in equation (\ref{eq:RE.2}).
+The RE models directly incorporate this concept of \enquote{measurement error} through the $\lambda$ and $D(\beta,X)$ terms as described in equation (\ref{eq2:RE.2}).
 The $\lambda$ term is directly proportional to the standard deviation of a random measurement error of \textit{utility} as opposed to physical stimuli.
 This concept of utility being measured with error seems to directly address the criticism put forth against the RPT by the FFH program.
 Indeed, for certain distributions of the error, $F(\cdot)$, and/or certain adjusting functions, $D(\beta_n,X)$, the RE models imply that an agent cannot precisely measure her utility in an optimal fashion in \textit{any} decision problem.
@@ -1253,7 +1223,7 @@ The RP models, far from incorporating elements that seem plausible for an agent 
 It must be possible to optimize over each element of this set of preferences.
 The process of randomly drawing a preference relation from a set of such relations is not consistent with the OIC criterion.
 
-\subsection{Concluding Remarks}
+\section{Concluding Remarks}
 
 In this chapter we have shown that over the last several decades, stochastic models of economic agents have been given an increasing amount of attention and have discussed three classes of models at length: the \enquote{Tremble} (TR) model, the \enquote{Random Error} (RE) model, and the \enquote{Random Preference} (RP) models.
 The primary purpose of introducing these models was to better account for the apparent deviations from rational preference theory (RPT) frequently observed in experimental data.
@@ -1312,8 +1282,6 @@ We recognize that rejecting a model that potentially fits choice data from econo
 
 \newpage
 
-\printbibliography
-
-\newpage
+\printbibliography[segment=2, heading=subbibliography]
 
 \end{document}
