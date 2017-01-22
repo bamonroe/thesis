@@ -1,0 +1,47 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\onehalfspacing
+\setcounter{chapter}{3}
+
+\chapter{Recovery of Welfare from Experimental Data with Maximum Likelihood Methods}
+
+\lltoc % Table of contents only when locally compiled
+
+\section{Estimating a Benchmark using \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)}}
+	
+	Recall previous chapter discussing various maximum likelihood methods: RA, Individual, MSL.
+	Very short discussion on how all welfare is individual, even MSL which describes the distribution of individual welfare.
+
+	Describe and discuss \textcite{Harrison2016} experiments, and method of welfare calculation.
+
+	\subsection{Representitive Agent Estimation With Demographics}
+		Run ML Models with parameters determined by demographics, calculate welfare, show plot of individuals
+	\subsection{Mixture Model Estimation With Demographics}
+		Run ML Mixtures of EUT and all RDU models with parameters determined by demographics, calculate welfare, show plot of individuals
+	\subsection{Individual Level Estimation}
+		Run ML Models, calculate welfare, show plot of individuals
+	\subsection{MSL with Demographics}
+		Run MSL Models, calculate welfare, show plot of individuals
+
+\section{Individual Classification and Welfare Estimation Accuracy}
+	Frequentist statistics by actually showing frequencies.
+	Describe the methodology of this section:
+
+	Simulate millions of populations, 10,000 subjects per population, make them respond to HNG lot, HNG insurance, and HO instruments, then estimate EUT and RDU models on the lotteries, use these to make welfare calculations on the insurance instrument.
+	Discuss model classification exercise, and discuss difference from real welfare.
+
+	\subsection{ \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Lottery on \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Insurance Lotteries   }
+		\subsubsection{Classification Accuracy}
+		\subsubsection{Welfare Consequences}
+	\subsection{ \texorpdfstring{\textcite{Hey1994}}{Hey and Orme (1994)} Lottery on \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Insurance Lotteries   }
+		\subsubsection{Classification Accuracy}
+		\subsubsection{Welfare Consequences}
+\section{Conclusions}
+
+\newpage
+
+\printbibliography[segment=4, heading=subbibliography]
+
+\end{document}
