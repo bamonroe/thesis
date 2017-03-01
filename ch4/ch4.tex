@@ -10,94 +10,244 @@
 \lltoc % Table of contents only when locally compiled
 
 In the previous chapter we proposed a method for assessing the welfare implications of choices made by subjects in incentivized environments.
-This method differs from other proposed methods in that rather than requiring an assumed set of utility parameters for the individual in question, it is necessary to assume some distribution of utility parameter sets from which the individual's set is randomly sampled.
+This method differs from other proposed methods of welfare calculation in that rather than requiring an assumed set of utility parameters for the individual in question, it is necessary to assume some distribution of utility parameter sets from which the individual has been randomly sampled.
 We suggested that failure to incorporate the distributional information of these utility parameter sets into the evaluation of welfare may result in a mischaracterization of welfare for some individuals.
-This is because some individuals may make mistakes or \enquote{choice errors} when faced with a choice problem and select a choice which is not welfare maximal.
-These errors can occur is such a manner that they result in a choice pattern that fits some utility function statistically better than the \enquote{true} utility function that the subject actually operates and would likely reveal over longer observation of choice patterns.
-Should these two alternative functions, the fitted and the \enquote{true} function, differ enough in their utility parameters, the welfare characterizations resulting from the fitted function could be much different than the welfare characterizations that would result from the \enquote{true} function.{\footnotemark}
+This is because some individuals may make mistakes, or \enquote{choice errors}, when faced with a choice problem and select a choice which is not welfare maximal.
+These errors may occur often enough and in such a manner that they result in a choice pattern that fits some utility function statistically better than the \enquote{true} utility function that the subject actually operates, and would likely reveal over a longer observation of choice patterns or with larger instruments.
+Should fitted function and the \enquote{true} function differ enough in their utility parameters, the welfare characterizations resulting from the fitted function could be meaningfully different than the welfare characterizations that would result from the \enquote{true} function.{\footnotemark}
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
 	While we will be exclusively concerned with welfare analysis in this chapter, the potential issues caused by misidentification are not limited to traditional welfare analysis.
 	For example, assume that gambling addiction is correlated with risk preferences that demonstrate \enquote{risk seeking}.
 	If we cannot observe other informative traits about gambling addicts, but can observe their choices over gambles, we may seek to estimate utility models for individuals as a potential way to identify potential addicts.
-	Without incorporating distributional information about the utility functions, the results of the individual level models could potentially misidentify addicts as non-addicts or vice versa.
 }
 
-However, the analysis from the previous chapter comes with a few caveats.
-Firstly, distributional information may be significantly more difficult to identify or estimate from pooled choice data.
-While there is a very large literature on individual-level estimation,{\footnotemark} and the difficulties of estimation therein, there has been much less work exploring the difficulties involved in the identification of the distributions of utility parameters.{\footnotemark}
-That is, there may be challenges to sample-level estimation that do not exist for individual-level estimation, and these challenges may not be obvious in the way that many of the challenges facing individual-level identification are.
-Secondly, the previous chapter exclusively utilized one of the multiple price list (MPL) instruments proposed by \textcite{Holt2002}, which results in only 10 choices per subject.
-Just as larger sample sizes may help with identification in other scientific endeavors, requiring subjects to make more choices may potentially lead to lower likelihoods of misidentification.
-Most efforts to estimate individual-level preferences from choices require subjects to make at least 40 choices, often more than this.
-\textcite{Holt2002} themselves had subjects make choices over several MPL instruments, each with different outcomes.
-Thus, the previous chapter's suggestion of potential misidentification is \textit{somewhat} of a straw man.
+In this chapter, we will analyze several experimental instruments' ability to accurately recover the utility functions of agents faced with the instruments.
+The analysis will focus firstly on the ability of the instrument to correctly classify an agent operating one of four different utility models, as is done in \textcite{Harrison2016}, and secondly on the welfare consequences of this characterization.
+To begin this analysis, we will describe and replicate the classification and welfare calculation exercise of \textcite{Harrison2016}.
+Next we will conduct a simulation analysis on the lottery instrument used in \textcite{Harrison2016} to determine the frequency of misclassification for each of the four models in question, and the welfare consequences thereof.
+This analysis will then be repeated using the lottery instrument described in \textcite{Hey1994}.
+For each instrument, a hypothetical population will be used as a prior to derive the conditional likelihood that an agent declared as operating a particular utility function actually operates the declared function.
+
+\section{Estimating a Benchmark using \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2015)}}
+
+\textcite{Harrison2016} report the results of an experiment intended to evaluate the welfare consequences of individuals' decisions to purchase insurance.
+This is in part a response to the large literature cited by \textcite[1]{Harrison2016} which evaluates insurance on the basis of \enquote{take-up}: the rate at which individuals purchase insurance.
+They argue that although a take-up metric can be transparent and easy to measure, it doesn't allow for statements about whether an individual \textit{should} have taken up the insurance product.
+These are, however, precisely the kind of normative welfare statements that economists should be making about the economic choice of agents.
+They are also the kind of normative welfare statements that can be made from estimating the utility functions of individuals and evaluating their choices with respect to these functions.
+
+
+\textcite{Harrison2016} engage the problem of evaluating the welfare consequences of the decision to purchase insurance or not by conducting a 2 part experiment.
+In the first part, each subject is presented with a battery of 80 lottery pairs and asked to select one lottery from each pair that will be played out for payment.
+This part will be referred to as the \enquote{lottery task} throughout.
+The responses of each subject to the lottery task are used to estimate utility functions for that individual.
+In the second part, each subject is endowed with \money{20} and presented with 24 choices where they are asked to choose between a lottery which will result in a loss of \money{15} with some probability $p$ or no loss of the initial endowment with probability $(1-p)$, and a certain amount of money between \money{15.20} and \money{19.80}.
+The choice of the certain amount of money is framed as the purchase of insurance against the risk of loss in the lottery option.
+This part will be referred to as the \enquote{insurance task} throughout.
+Both of these instruments are detailed in full in the Appendix.
+
+For each individual, \textcite{Harrison2016} use the data recovered in the lottery task to estimate four models which can be described in the framework of Rank Dependent Utility (RDU) as first proposed by \textcite{Quiggin1982}:
+\begin{equation}
+	\label{eq4:RDU}
+	RDU = \sum_{i=1}^{I} \left[ w_i(p) \times u(x_i) \right]
+\end{equation}
+\noindent where $i$ indexes the outcomes, $x_i$, from $\{1,\ldots,I\}$ with $i=1$ being the smallest outcome in the lottery and $i=I$ being the greatest outcome in the lottery, $u(\cdot)$ returns the utility of its argument, $w_i(\cdot)$ returns the decision weight applied to outcome $i$ given the distribution of probabilities in the lottery ranked by outcome, $p$.
+
+The decision weight function, $w_i(\cdot)$, takes the form:
+\begin{equation}
+	\label{eq4:dweight}
+	w_i(p) =
+	\begin{cases}
+		\omega\left(\displaystyle\sum_{j=i}^I p_j\right) - \omega\left(\displaystyle\sum_{k=i+1}^I p_k\right) & \text{for } i<I \\
+		\omega(p_i) & \text{for } i = I
+	\end{cases}
+\end{equation}
+\noindent where the probability weighting function, $\omega(\cdot)$, can take a variety of parametric or non-parametric forms.
+\textcite{Harrison2016} chose to estimate the following four probability weighting functions. The linear function:
+\begin{equation}
+	\label{eq4:pw:eut}
+	\omega(p_i) = p_i
+\end{equation}
+
+\noindent The power function ($\mathit{RDU_{Pow}}$) used by \textcite{Quiggin1982}:
+\begin{equation}
+	\label{eq4:pw:quiggin}
+	\omega(p_i)=p_i^\gamma
+\end{equation}
+
+\noindent where $\gamma > 0$. The \enquote{Inverse-S} shaped function ($\mathit{RDU_{Invs}}$) popularized by \textcite{Tversky1992}:
+\begin{equation}
+	\label{eq4:pw:kahneman}
+	\omega(p_i) = \frac{p_i^\gamma}{\biggl(\sum\limits_{k=0}^{I-1} p_k^\gamma\biggr)^{ \frac{1}{\gamma} } }
+\end{equation}
+
+\noindent where $\gamma > 0$. And the flexible function proposed by \textcite{Prelec1998} ($\mathit{RDU_{Prelec}}$):
+\begin{equation}
+	\label{eq4:pw:prelec}
+	\omega(p_i)=\exp(-\beta(-\ln(p_i))^\alpha)
+\end{equation}
+\noindent where $\alpha > 0$ and $\beta > 0$.
+
+Note that the functional form of an RDU model with the probability weighting function in equation (\ref{eq4:pw:eut}) is equivalent to Expected Utility Theory (EUT) in all cases, and will be referred to as EUT throughout the remainder of this text.
+In all the remaining probability weighting functions, there exist values for the shaping parameters which allow $w_i(p) = p_i$, the special case of EUT.
+
+For all four models, \textcite{Harrison2016} use the CRRA utility function defined below:
+\begin{equation}
+	\label{eq4:CRRA}
+	u(x) = \frac{x^{(1-r)}}{(1-r)}
+\end{equation}
+\noindent where $r$ is the coefficient of relative risk aversion \parencite{Pratt1964}.
+
+We will continue the notation used in chapters 2 and 3 to describe a choice scenerio by a subject, but limit it to a binary choice between two options, $j$ and $k$.
+In this framework a choice of option $j$ in task $t$ is indicated by the function $y_t = j$, where $y_t = 1 \geq^n y_t = 2$.
+The values of $j$ and $k$ do not indicate the order or frame the options in task $t$ were presented to the subject, but rather the ordinal rank the subject's utility function assigns to the options, with 1 always being the option with greatest utility.
+This notation is useful when describing the welfare consequences of choices, as will be seen below.
+
+\textcite{Harrison2016} also use Contextual Utility (CU), as defined by \textcite{Wilcox2008}, as the stochastic model.
+Thus for the models utilized, the probability that option $j$ is chosen is given by:
+\begin{align}
+	\label{eq4:RE.2}
+	\begin{split}
+	{\Prob}(y_t = j) &= {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda_n} \left[ G(\beta_n,X_{kt}) - G(\beta_n,X_{jt}) \right] \right)\\
+	&= 1 - F\left( \dfrac{G(\beta_n,X_{kt}) - G(\beta_n,X_{jt})}{D(\beta_n,X_t)\lambda_n }  \right)
+	\end{split}
+\end{align}
+
+\noindent where $F$ is a symmetric cumulative distribution function (cdf), meaning $1 - F(x)  = F(-x)$, $G(\cdot)$ is the RDU utility model that takes the parameters $\beta_n$ to calculate the utility of lottery $j$ or $k$ in task $t$ comprised of outcomes and probabilities $X_{jt}$, and $\lambda_n$ is a precision parameter.
+The function $D(\cdot)$ separates contextual utility from a Strong Utility model:
+\begin{align*}
+	\label{eq4:W.cu}
+	\begin{split}
+		&D(\beta_n,X_t) = \mathit{max}[u(x_{it})] - \mathit{min}[u(x_{it})]\\
+		&\mathit{st.}\; w_i(x_{it}) \neq 0
+	\end{split}
+\end{align*}
+
+Usually, the Normal or Logistic cdf is chosen for $F$, and we will be employing the Logistic cdf for all calculations throughout this chapter.
+Given that each choice considered in this chapter only involves two lottery options, we can define the probability of choosing option $j$ given a particular model, parameter set $\beta_n$, precision parameter $\lambda_n$, and outcomes and probabilities of option $j$, $X_{jt}$, as follows:
+\begin{equation}
+	\label{eq4:RE.f}
+	{\Prob}(y_t=j) =\dfrac{\exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)}{  \exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right) + \exp\!\left( \dfrac{ G(\beta_n,X_{kt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)    }
+\end{equation}
+
+These choice probabilities in turn are logged and summed to produce a log-likelihood function for each of the four different models:
+\begin{equation}
+	\label{eq4:ll}
+	\ensuremath{\mathit{LL_n}} = \sum_{t}^T \ln \left[ {\Prob}(y_t) \right]
+\end{equation}
+
+As a metric of welfare, \textcite{Harrison2016} primarily use the consumer surplus (CS) of each choice.
+The CS of each choice is defined as the difference between the certainty equivalent ({\CE}) of the chosen option and the certainty equivalent of the unchosen option.
+Since the CRRA utility function defined in equation (\ref{eq4:CRRA}) is used for all models discussed, we can define the {\CE} as follows:
+
+\begin{align}
+	\label{eq4:CEcalc}
+	\begin{split}
+		&\sum_{i=0}^{I-1} w_i(p) \frac{x_{ij}^{(1-r)}}{(1-r)} = \frac{ {\CE}_j^{(1-r)}}{(1-r)}\\
+		&{\CE}_j =  \left( (1-r) \times \sum_{i=0}^{I-1} w_i(p) \frac{x_{ij}^{1-r}}{(1-r)} \right)^{ \displaystyle\nicefrac{1}{(1-r)} }
+	\end{split}
+\end{align}
+
+\noindent and the welfare surplus metric derived from this {\CE} for any choice as:
+
+\begin{equation}
+	\label{eq4:wsurplus}
+	\Delta W_{nt} =  {\CE}_{nyt} - {\CE}_{n1t}^Z
+\end{equation}
+
+\noindent and the accumulated welfare surplus as:
+
+\begin{equation}
+	\label{eq4:wsurplusT}
+	\Delta W_{nT} = \sum_{t=1}^T \left( {\CE}_{nyt} - {\CE}_{n1t}^Z \right)
+\end{equation}
+
+\noindent where the $y$ subscript indicates the option chosen (either 1 or 2 in the binary scenario we consider here), and the $Z$ superscript indicates the remaining, unchosen options, of which the {\CE} with the greatest value, designated by the subscript 1, is considered the forgone opportunity.
+
+\textcite[106]{Harrison2016} consider an additional metric of forgone welfare surplus as the difference between the maximal {\CE} for every choice and the {\CE} of the option actually chosen by the subject:
+\begin{equation}
+	\label{eq4:wforgone}
+	\Delta W_{nt} = -1 \times \left( {\CE}_{n1t} - {\CE}_{nyt} \right)
+\end{equation}
+
+\noindent and the accumulated forgone welfare surplus:
+
+\begin{equation}
+	\label{eq4:wforgone}
+	\Delta W_{nT} = \sum_{t=1}^T  -1 \times \left( {\CE}_{n1t} - {\CE}_{nyt} \right)
+\end{equation}
+
+\noindent With these metrics, the best possible value for any subject is 0, which would indicated that all choices made were optimal, whereas any positive value indicates the amount of welfare surplus forgone by the subject due to choice errors.
+These metrics line up easily with the metrics defined in equations (\ref{eq4:wsurplus}) and (\ref{eq4:wsurplusT}), as should $y_t \neq 1$, ${\CE}_{n1t}^Z = {\CE}_{n1t}$.
+
+\textcite{Harrison2016} estimate values of the CRRA utility parameter, $r$, the probability weighting parameters, $\gamma, \alpha, \beta$, and the stochastic parameter $\lambda$, for each of the models presented above via maximum likelihood estimation (MLE) using the choices made by the subjects in the lottery task.
+\textcite[107,110]{Harrison2016} calculate the welfare consequences of the chocies made by each subject by using only the point estimates from the MLE, as well as a bootstrap method which incorporates the covariance matrix of the standard errors.
+
+For the bootstrap method, a multivariate normal distribution of parameter sets is bootstrapped from the estimates using the point estimates of these parameters as the means of the marginal distributions, and the covariance matrix of standard errors used as the covariance matrix of standard deviations.
+For each subject's parameter estimates 500 draws of parameter sets were taken, the welfare metrics calculated for each set of parameters, and then the values of the metrics averaged across the 500 draws.
+Since the covariance matrix used in the bootstrap method draws parameters from the joint distribution with respect to their density in the joint distribution, only a simple average is needed.
+
+The experimental subjects consisted of 111 undergraduate students enrolled in several different colleges at Georgia State University, USA.
+All experimental sessions were conducted in 2014 at the ExCEN experimental lab of Georgia State University. 
+Every subject recieved, and expected to recieve, a guarenteed \money{5} show up fee, but no specific information about the experiment or expected earnings was communicated to the subjects before the experiment \parencite[98]{Harrison2016}.
+The full set of instructions delivered to the subjects is available in Appendix C of \textcite{Harrison2016}
+
+\subsection{Individual Level Estimation}
+
+The authors of \textcite{Harrison2016} have provided the data recovered from the experiment for this analysis. 
+In addition to the raw data recovered in the experiment, the authors provided us with the code used to conduct the analysis and generate the various plots reported by \textcite{Harrison2016}.
+
+\textcite{Harrison2016} use the popular statistical software Stata to conduct their analysis, and Stata's built-in Newton-Rhapson (NR) algorithm to find the maximum likelihood estimates.
+We, however, use the R statistical software, with the NR algorithm provided in the package \enquote{maxLik} to conduct our analysis throughout this chapter. {\footnotemark}
+Both our approach and that of \textcite{Harrison2016} require \enquote{handwritten} likelihood functions due to the particular nature of recovering maximum likelihood estimates from non-linear structural models.
+Additionally, there are small differences in the way optimizers are programmed between Stata and R, even given the same algorithm.
+These difference have lead to a small amount of divergence between our results and the results reported by \textcite{Harrison2016}.
+These differences are important given the nature of the analysis and can be categorized into two groups, model convergence and parameter estimate similarity.
+
+\textcite{Harrison2016} report reaching convergence for at least 1 of the 4 models estimated for 102 of 111 subjects, whereas we achieve only 100 such convergences.
+The 100 subjects we achieve convergence for are not a strict subset of the 102 reported by \textcite{Harrison2016}.
+Additionally, within subjects, there are often cases where we will have achieved convergence for a particular model and \textcite{Harrison2016} will not have, and vice versa.
+
+However, there is a great deal of common ground in the estimates.
+Among the subjects and models where we both achieve convergence, the estimated parameters never differ by more than .001, with an average difference of 0.00001.
+Similarly small differences exist for the standard errors of these estimates.
+\textcite{Gould2006} discusses how real numbers are stored and processed in modern computers and how differences in the order of operations can lead to differences in how a computer stores a value.
+Given the differences in the \enquote{handwritten} programs, along with the small differences in how the optimizers themselves are programed, it is not surprising that there are small differences in the values reported between our results and those of \textcite{Harrison2016}.
+These differences in estimate values are also not meaningful in the analysis reported here.
+There doesn't exist a subject who has been classified as one model with our estimates and as another model with the estimates reported in \textcite{Harrison2016} because of the difference in estimates of commonly converged models.
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
-	Notable examples include \textcite{Hey1994}, \textcite{Hey2001}, \textcite{Ballinger1997}.
-}
-\stepcounter{footnote}\footnotetext{
-	Notably \textcite{Andersen2012}.
-}
+	For an in-depth discussion of how the NR algorithm finds the maximum of a function see \textcite[213-219]{Train2002}.
+	For our purposes, only a few key points about how the NR algorithm are useful to bear in mind.
+	A maximum is declared when the gradient of the likelihood function approaches 0, and the matrix of second derivatives of the likelihood, the Hessian matrix, is negative definite.
+	These two conditions indicate that 
+	Firstly the NR algorithm is not guaranteed to find a maximum if the likelihood function is not globally concave.
 
-In this chapter, we hope to replace the straw man of the single HL-MPL with a much more robust instrument utilized by \textcite{Harrison2015} and specifically address the possibility of welfare mischaracterization.
-We will proceed as follows:
-First, utilizing the dataset from \textcite{Harrison2015}, we will attempt individual-level estimation on every subject in the dataset for a set of utility and decision weight functions, thus both EUT and RDU models will be employed.
-With the estimates in hand, we will declare a \enquote{winning} model as one with the highest log-likelihood{\footnotemark} and evaluate the welfare characterization implied by the estimates.
-Second, we will attempt sample-level estimation on the pooled dataset, and estimate a joint distribution of the parameters used in the individual-level estimation.
-Again, we will declare a \enquote{winning} model and evaluate the welfare characterizations of each of the subjects utilizing the method described in the previous chapter.
-Finally, the sample-level and individual level welfare characterizations will be compared and the differences and similarities discussed.
-This analysis therefore takes advantage of the some of the best estimation technologies currently available to analysts and applies them to choice data which was generated from an instrument that has been specifically developed to allow for powerful inferences to be drawn it.
-
-\addtocounter{footnote}{-1}
-\stepcounter{footnote}\footnotetext{
-	There are a few steps in this process that need to take in to account that RDU nests EUT as a special case of RDU where decision weights equal objective probabilities.
-	Since RDU models typically employ more parameters that EUT models, we would expect them to \enquote{win} many of these log-likelihood comparisons.
-	We will discuss the way in which we account for this nesting later.
 }
 
-Both individual level and sample level estimation of utility functions, however, involve some amount of estimation error, and it is difficult to judge which of the two methods is superior without knowing the \enquote{true} preferences of the subjects.
-Since preferences cannot be directly measured, we cannot directly compare the \enquote{correctness} of the two estimation strategies using data from real agents.
-Instead, we can use simulations to approximate this judgement.
-First, we simulate agents that operate various utility functions, have the simulated agents (SA) make choices across the \textcite{Harrison2015} lottery instrument, and record the parameter set of the SA and the \textit{known} welfare consequences of those choices.
-Then, using only the simulated choice data, we will attempt to estimate the utility functions fitted to the real choice data on the simulated choice data at both the individual level and sample level data.
-These estimates will then be used to make welfare characterizations for each SA and these welfare characterizations will be compared to the \textit{known} welfare consequences of the SA's choices.
-With these estimates in hand we can make comparative judgements about the effectiveness of individual vs sample level estimation techniques to characterize welfare.
 
-\section{Estimating a Benchmark using \texorpdfstring{\textcite{Harrison2015}}{Harrison and Ng (2015)}}
 
-In this section, I will be estimating individual and sample level models (with MSL) on the Harrison and Ng (2015) dataset and select \enquote{winners} for both methods.
-I'll utilize both EUT and RDU along with several stochastic model specifications.
-I'll estimate several utility functions, like the CRRA, CARA, and Expo Power functions, along with several probability weighting functions.
-For the MSL estimations, I'll estimate the correlation matrix for the parameters, and depending on if I can get it to work, some mixture models.
-The point of this section is to batter this data with as much estimation as possible and to both demonstrate best practice for conducting estimation and to make clear the assumptions made during estimation - particularly with MSL.
 
-\section{A Comparison of Welfare Estimates}
+\section{Individual Classification and Welfare Estimation Accuracy}
+	Frequentist statistics by actually showing frequencies.
+	Describe the methodology of this section:
 
-Given the estimates of the previous section, we can conduct welfare estimation.
-I will utilize the bootstrapping of welfare estimates also demonstrated in Harrison and Ng (2015) for the individual level estimates, and use the Gaussian Copula method to conduct the bootstrapping for the MSL estimates.
-Depending on the results of the previous section the differences may be minor across the board, or large for certain subjects.
-If it turns out that I can fit a mixture model with MSL, we may have very interesting comparisons to make.
+	Simulate millions of populations, 10,000 subjects per population, make them respond to HNG lot, HNG insurance, and HO instruments, then estimate EUT and RDU models on the lotteries, use these to make welfare calculations on the insurance instrument.
+	Discuss model classification exercise, and discuss difference from real welfare.
 
-\section{Power Sufficiency: Identification from the Instrument}
-
-With the estimates in hand, I now start to investigate the credibility of these estimates.
-Since the estimates were obtained from the best estimation practices and using data from a  properly controlled experiment, these estimates will provide the ballpark around which I'll examine.
-
-\section{The Ability of Individual Level Estimation to Recover Individual Level Parameters}
-
-When estimating on the individual level, there exists the chance that the individual committed several particular choice errors that end up falsely rejecting one theory in favor of another.
-What I mean by falsely rejecting a theory is that should this subject be faced with the same instrument again, in a highly abstract sense, estimates from their \enquote{new} choices are more likely to reveal preferences which more closely resemble their long-run \enquote{preferences}.
-
-\section{The Ability of Sample Level Estimation to Recover Sample Level Parameters}
-
-When estimating on the sample level, there are many things that can potentially go wrong, mainly the underspecification of the distribution.
-For instance, if the true population has 5\% RDU agents, will their RDU choices be prominent enough to be picked up in a mixture model?
+	\subsection{ \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Lottery on \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Insurance Lotteries   }
+		\subsubsection{Classification Accuracy}
+		\subsubsection{Welfare Consequences}
+	\subsection{ \texorpdfstring{\textcite{Hey1994}}{Hey and Orme (1994)} Lottery on \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Insurance Lotteries   }
+		\subsubsection{Classification Accuracy}
+		\subsubsection{Welfare Consequences}
+\section{Conclusions}
+Draw some conclusions
 
 \newpage
-
-\printbibliography[segment=4, heading=subbibliography]
+\printbibliography[segment=3, heading=subbibliography]
 
 \end{document}
