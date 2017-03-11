@@ -18,7 +18,26 @@
 \usepackage{graphicx}	% For Graphics
 \usepackage[justification=centering]{subcaption} % For subcaptions to tables/figures
 
-\graphicspath{{ch1/figures/}{ch2/figures/}{ch3/figures/}{figures/}}
+\graphicspath{{ch1/figures/}{ch2/figures/}{ch3/figures/}{ch4/figures/}{figures/}}
+
+% Stuff or code
+\usepackage{listings}
+\usepackage{color}
+\lstset{frame=none,
+  language=R,
+  aboveskip=1mm,
+  belowskip=1mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\newsavebox{\LstBoxR}
+\newsavebox{\LstBoxStata}
+
 
 % Stuff for Tables
 \usepackage{tabularx}
