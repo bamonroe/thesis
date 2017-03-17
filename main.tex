@@ -51,17 +51,17 @@
 \usepackage{multirow}
 
 \usepackage[stretch=15]{microtype}	% Read about this, tested it, and was sold.
-\usepackage[backend=biber, refsegment=chapter, doi=false, isbn=false, url=false, style=authoryear-comp, maxnames=99]{biblatex}	%For bibliography stuff
+\usepackage[backend=biber, uniquename=false, refsegment=chapter, doi=false, isbn=false, url=false, style=authoryear-comp, maxnames=99]{biblatex}	%For bibliography stuff
 \renewbibmacro{in:}{}
 \addbibresource{/home/bam/thesis/thesis/library.bib}	% The path to the bibliography file
 
 % Convenience Commands
-\newcommand\CE{\ensuremath{\mathit{CE}}}  % Certainty Equivalent
+\newcommand\CE{\ensuremath{\mathit{CE}}}    % Certainty Equivalent
 \newcommand\Prob{\ensuremath{\mathit{Pr}}}  % Probability
-\newcommand{\E}{\operatorname{E}}			% Variance Operator
-\newcommand{\Var}{\operatorname{Var}}		% Variance Operator
-\newcommand\OB{\ensuremath{\succ^{\!*}}}   % Certainty Equivalent
-\newcommand{\money}[1]{$\$\!\:#1$}		    % Money command
+\newcommand{\E}{\operatorname{E}}           % Variance Operator
+\newcommand{\Var}{\operatorname{Var}}       % Variance Operator
+\newcommand\OB{\ensuremath{\succ^{\!*}}}    % Certainty Equivalent
+\newcommand{\money}[1]{$\$\!\:#1$}          % Money command
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu} % Command to make a shorter overline/longer bar
 
 
@@ -99,7 +99,7 @@
 \newcommand{\notinsubfile}[1]{}
 
 
-\title{This is my Thesis}
+\title{Stochastic Models in Experimental Economics}
 \author{Brian Albert Monroe}
 
 \begin{document}
