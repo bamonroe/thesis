@@ -92,7 +92,7 @@ For all four models, \textcite{Harrison2016} use the CRRA utility function defin
 \end{equation}
 \noindent where $r$ is the coefficient of relative risk aversion \parencite{Pratt1964}.
 
-We will continue the notation used in chapters 2 and 3 to describe a choice scenerio by a subject, but limit it to a binary choice between two options, $j$ and $k$.
+We will continue the notation used in chapters 2 and 3 to describe a choice scenario by a subject, but limit it to a binary choice between two options, $j$ and $k$.
 In this framework a choice of option $j$ in task $t$ is indicated by the function $y_t = j$, where $y_t = 1 \geq^n y_t = 2$.
 The values of $j$ and $k$ do not indicate the order or frame the options in task $t$ were presented to the subject, but rather the ordinal rank the subject's utility function assigns to the options, with 1 always being the option of greatest utility.
 This notation is useful when describing the welfare consequences of choices, as will be seen below.
@@ -213,6 +213,10 @@ If we employed a linear-in-parameters utility function, as opposed to the non-li
 	Stata's \enquote{ml search} command additionally tries to mitigate this problem by initially searching for parameter sets that are near a global maximum, and using these found parameter sets as initial values for the NR algorithm.
 }
 
+% The Craft of Economics
+% Edward E. Leamer
+% p 25 -  Dissucesses the idea that two different statistical packages producing different results being shocking as "Economic Fiction"
+
 Numerical optimization also takes place on a physical machine, and the limits of how computers manipulate and store numbers will also affect the result of an optimization exercise.
 \textcite{Gould2006} discusses how real numbers are stored and processed in modern computers and how differences in the order of operations can lead to differences in how a computer stores a value.
 Again, only a few points here are necessary to bear in mind.
@@ -314,25 +318,35 @@ The \enquote{winning} model for each subject is chosen from among the models whi
 
 The winning model is then used to calculate the welfare consequences of the subject's choices on the insurance task.
 We will call this process of picking a winning model among several alternative models a \enquote{classification} process, and in proceeding sections, describe the empirical limitations of this process.
-Using the same classification processes employed by \textcite{Harrison2016} show a noticeably different distribution of subjects classified to the 4 models:
+Using the same classification processes employed by \textcite{Harrison2016} show a noticeably different distribution of subjects classified to the 4 models in Figure \ref{fig:HNG_pvals}.
 
 \begin{figure}[h!]
 	\center
 	\caption{Classifying Subjects as EUT or RDU}
 	%\caption{Estimates for each individual of EUT and RDU specifications \textcite[108]{Harrison2016} Data}
-	\includegraphics[height=.25\paperheight]{figures/HNG_pvals.pdf}
+	\onlyinsubfile{
+		\includegraphics[height=.25\paperheight]{figures/HNG_pvals.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[height=.25\paperheight]{ch4/figures/HNG_pvals.pdf}
+	}
 	\label{fig:HNG_pvals}
 \end{figure}
 
 The differences in the classification distribution between our results are driven almost entirely by differences in model convergence, not by differences in estimated values or p-values.
 Going from the estimates of \textcite{Harrison2016} to our own, one subject for $\mathit{RDU_{Prelec}}$ changes from insignificantly different from EUT to significantly different at the 1\% level, one subject for $\mathit{RDU_{Invs}}$ changes from insignificant to significant at the 10\% level, and one subject for $\mathit{RDU_{Pow}}$ changes from significant at the 5\% level to the 1\% level.
 Further details on differences are given in Appendix A.
-We do however, replicate almost exactly the distribution of per-choice consumer surplus presented in Figure 10 of \textcite[108]{Harrison2016}:
+We do however, replicate in Figure \ref{fig:HNG_CS} almost exactly the distribution of per-choice consumer surplus presented in Figure 10 of \textcite[108]{Harrison2016}.
 
 \begin{figure}[h!]
 	\center
 	\caption{Distribution of Consumer Surplus, Using Data from \textcite{Harrison2016}}
-	\includegraphics[height=.25\paperheight]{figures/HNG_CS.pdf}
+	\onlyinsubfile{
+		\includegraphics[height=.25\paperheight]{figures/HNG_CS.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[height=.25\paperheight]{ch4/figures/HNG_CS.pdf}
+	}
 	\label{fig:HNG_CS}
 \end{figure}
 
@@ -432,7 +446,6 @@ These marginal distributions make up the population's joint distribution and wer
 For the second case example, we don't draw subjects directly from the 1 million simulated subjects.
 Instead, for each model $M$, we fit 4 generalized additive models (GAM) \parencite{Hastie1986} to the simulated subjects actually conforming to $M$ with the dependent variable equal to 1 if they were classified as model $N$, and the independent variables as the subjects' real parameter values for model $M$.
 Thus, 16 fitted models in total:
-
 \begin{align}
 	\label{eq4:GAM}
 	\begin{split}
@@ -458,7 +471,12 @@ Using the process above, we first examine the \textcite{Harrison2016} lottery ta
 \begin{figure}[hp!]
 	\center
 	\caption{$P(B|A)$ for Given $\lambda$ Values: \textcite{Harrison2016} Lottery Instrument}
-	\includegraphics[width=\textwidth]{figures/mu-winners-HNG_1.pdf}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/mu-winners-HNG_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/mu-winners-HNG_1.pdf}
+	}
 	\label{fig:HNG_mu_PBA}
 \end{figure}
 
@@ -474,6 +492,7 @@ This was done to help ensure that subjects close to the special case of EUT didn
 
 In this case, rather than plot the results across a range of values, we can instead tabulate each element of equation (\ref{eq4:bayes}) assuming a 5\% significance level for the classification process.
 
+\onlyinsubfile{
 \begin{table}[ht!]
 	\centering
 	\captionsetup{justification=centering}
@@ -639,6 +658,174 @@ In this case, rather than plot the results across a range of values, we can inst
 	]{tables/HNG_1-PAB.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
+}
+\notinsubfile{
+\begin{table}[ht!]
+	\centering
+	\captionsetup{justification=centering}
+	\caption{$P(A)$}
+	\label{tb:HNG_PA}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {EUT}
+		},
+		display columns/1/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Power}
+		},
+		display columns/2/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Inverse-S}
+		},
+		display columns/3/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Prelec}
+		},
+	]{ch4/tables/HNG_1-PA.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+
+\begin{table}[ht!]
+	\centering
+	\captionsetup{justification=centering}
+	\caption{$P(B)$}
+	\label{tb:HNG_PB}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {EUT}
+		},
+		display columns/1/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {Power}
+		},
+		display columns/2/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {Inverse-S}
+		},
+		display columns/3/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {Prelec}
+		},
+	]{ch4/tables/HNG_1-PB.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+
+\begin{table}[ht!]
+	\centering
+	\captionsetup{justification=centering}
+	\caption{$P(B | A)$}
+	\label{tb:HNG_PBA}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			assume math mode = true,
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {EUT}
+		},
+		display columns/2/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {Power}
+		},
+		display columns/3/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {Inverse-S}
+		},
+		display columns/4/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {Prelec}
+		},
+	]{ch4/tables/HNG_1-PBA.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+
+\begin{table}[ht!]
+	\centering
+	\captionsetup{justification=centering}
+	\caption{$P(A | B)$}
+	\label{tb:HNG_PAB}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			assume math mode = true,
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {EUT}
+		},
+		display columns/2/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {Power}
+		},
+		display columns/3/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {Inverse-S}
+		},
+		display columns/4/.style={
+			precision = 3,
+			fixed,
+			zerofill,
+			column name = {Prelec}
+		},
+	]{ch4/tables/HNG_1-PAB.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+}
 
 In Table \ref{tb:HNG_PA} we have the probability that any given subject drawn from our hypothetical population will belong to the model given by the columns.
 This is equal to the proportion of each model we specified initially.
@@ -661,17 +848,29 @@ The hypothetical population analyzed in tables \ref{tb:HNG_PB} and \ref{tb:HNG_P
 Table \ref{tb:HNG_PBA} shows that if the population had been made up of 100\% $\mathit{RDU_{Invs}}$ subjects with preferences distributed as defined in our hypothetical population, only 1.3\% of them would have been classified as $\mathit{RDU_{Invs}}$.
 
 
-%\subsection{ \texorpdfstring{\textcite{Hey1994}}{Hey and Orme (1994)} Lottery Task and \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Insurance Task}
-%\begin{figure}[h!]
-%	\center
-%	\caption{$P(B|A)$ for Given $\lambda$ Values: \textcite{Hey1994} Lottery Instrument}
-%	\includegraphics[width=\textwidth]{figures/mu-winners-HO.pdf}
-%	\label{fig:HO_mu_winner}
-%\end{figure}
-%\section{Synthetic Laboratories}
-%\section{Conclusions}
+\subsection{ \texorpdfstring{\textcite{Hey1994}}{Hey and Orme (1994)} Lottery Task and \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Insurance Task}
+\begin{figure}[h!]
+	\center
+	\caption{$P(B|A)$ for Given $\lambda$ Values: \textcite{Hey1994} Lottery Instrument}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/mu-winners-HO.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/mu-winners-HO.pdf}
+	}
+	\label{fig:HO_mu_winner}
+\end{figure}
+\section{Synthetic Laboratories}
 
+Discuss how simulation methods used in this chapter are more akin to a laboratory experiment than to analytical approximation.
+There are Duhem-Quine auxiliary hypotheses associated with this kind of estimation, notably the optimization settings.
+This type of \enquote{synthetic} laboratory is useful in alleviating Duhem-Quine auxiliary hypotheses associated with laboratory environments with real people.
+
+\section{Conclusions}
+
+\onlyinsubfile{
 \newpage
-\printbibliography[segment=3, heading=subbibliography]
+\printbibliography[segment=4, heading=subbibliography]
+}
 
 \end{document}
