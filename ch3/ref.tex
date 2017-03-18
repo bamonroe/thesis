@@ -1,62 +1,12 @@
-\documentclass[11pt,a4paper]{article}
-%\usepackage[a4paper,hmargin=.79 in, vmargin = 1 in]{geometry}
-\usepackage[justification=centering]{caption}
-\usepackage{lmodern}
-\usepackage[T1]{fontenc}
-\usepackage{geometry}
-\usepackage{setspace}	% For line spacing
-\usepackage{csquotes}	% For quoting
-\usepackage[hidelinks]{hyperref} %To make references into links
-\usepackage{amsmath}	% For equation stuff
-\usepackage{amssymb}	% For math symbols
-\usepackage{amsthm}		% For theorem environments
-\usepackage{relsize}	% To resize math symbols
-\usepackage{bm}			% For Bold math Symbols
-\usepackage{nicefrac}	% For nice looking fractions
-\usepackage{graphicx}	% For Graphics
-
-% Stuff for Tables
-\usepackage{caption}
-\usepackage{adjustbox}
-\usepackage{booktabs}		% For \toprule, \midrule, and \bottomrule
-\usepackage{pgfplotstable}	% Generates a table from a CSV
-\pgfplotsset{compat=1.12}
-\setlength{\extrarowheight}{.5em}
-
-\usepackage[stretch=15]{microtype}	% Read about this, tested it, and was sold.
-\usepackage[backend=biber,doi=false,isbn=false,url=false,style=authoryear-comp, maxnames=99]{biblatex}	%For bibliography stuff
-\renewbibmacro{in:}{}
-\addbibresource{~/Dropbox/Papers/library.bib}	% The path to the bibliography file
-
-% Convenience Commands
-\newcommand\CE{\ensuremath{\mathit{CE}}}  % Certainty Equivalent
-\newcommand\Prob{\ensuremath{\mathit{Pr}}}  % Probability
-\newcommand{\E}{\operatorname{E}}			% Variance Operator
-\newcommand{\Var}{\operatorname{Var}}		% Variance Operator
-% Make a break a column title into 2 lines
-\newcommand{\cnline}[2][c]{%
-	\setlength{\extrarowheight}{0em}
-	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}
-	\setlength{\extrarowheight}{5em}
-}
-
-\setcounter{section}{3}
-
-\title{The Welfare Implications of Stochastic Models: An Analysis by Simulation}
-\author{Brian Albert Monroe}
+\documentclass[../main.tex]{subfiles}
 
 \begin{document}
-
-\pagenumbering{gobble}	% Don't start numbering pages until we pass the table of contents
-\maketitle
-
 \onehalfspacing
+\setcounter{chapter}{2}
 
-\tableofcontents
+\chapter{The Welfare Implications of Stochastic Models: An Analysis by Simulation}
 
-\pagenumbering{arabic}
-
-\newpage
+\lltoc % Table of contents only when locally compiled
 
 Given the discussion about how the various stochastic models generally deal with the normative notion of welfare, we would like to reintroduce the question asked earlier: 
 \enquote{What are the likely welfare implications of an economic agent's choices in an incentivized environment given an assumed stochastic model of choice?}
