@@ -389,14 +389,14 @@ This process ensures that subjects' choices are made probabilistically with resp
 }
 \stepcounter{footnote}\footnotetext{
 	Consider a choice probability for option $A$ calculated to be $0.90$, and therefore the choice probability for option $B$ is $0.10$.
-	A random number drawn from a univariate uniform distribution has a 90\% chance of being below or equal to $0.90$, so option A would be chosen 90\% of the time.
+	A random number drawn from a univariate uniform distribution has a 90\% chance of being below or equal to $0.90$, so option A would be chosen 90\% of the time by the simulated subject.
 }
 
 After the subjects have made choices, each of the four models we consider is estimated for each subject on the choices made in the lottery task.
 Any model which didn't converge with a gradient close to 0 and a negative definite Hessian matrix was dropped from consideration.
 Any model which converged on parameters outside of exclusionary rules defined in the previous section was also dropped from consideration.
 Each subject was then classified based on the classification process defined in the previous section.
-With the parameters of the winning model, the welfare surplus of the choices made on the insurance task are calculated.
+The welfare surplus of the choices made on the insurance task are then calculated using the parameters of the winning model.
 
 The accuracy of the classification process on the lottery task will be assessed using Bayes' Theorem, defined as follows:
 
@@ -408,12 +408,12 @@ The accuracy of the classification process on the lottery task will be assessed 
 \noindent where for each subject:
 
 \begin{itemize}
-	\item $A$ - The subject actually conforms to model $M$.
+	\item $A$ - The subject actually operates model $M$.
 	\item $B$ - The subject has been classified as model $N$.
-	\item $P(A)$ - The probability that any subject actually conforms to model $M$.
+	\item $P(A)$ - The probability that any subject actually operates model $M$.
 	\item $P(B)$ - The probability that any subject will be classified a model $N$.
-	\item $P(B|A)$ - The probability that a subject will be classified as model N given the subject actually conforms to model $M$.
-	\item $P(A|B)$ - The probability that a subject actually conforms to model $M$ given the subject has been classified as model $N$.
+	\item $P(B|A)$ - The probability that a subject will be classified as model N given the subject actually operates model $M$.
+	\item $P(A|B)$ - The probability that a subject actually operates model $M$ given the subject has been classified as model $N$.
 \end{itemize}
 
 \noindent where $M$ and $N$ are one of EUT, $\mathit{RDU_{Pow}}$, $\mathit{RDU_{Invs}}$, and $\mathit{RDU_{Prelec}}$, and $M$ and $N$ can be the same model.
@@ -423,29 +423,18 @@ We know $B$ for each subject after each subject has had the four models estimate
 $P(A)$, $P(B)$, $P(B|A)$, and $P(A|B)$ will all depend on the particular parameters the simulated subjects in consideration actually employ, and how these parameters relate to the classification process.
 
 Going forward we will present two interpretable cases of (\ref{eq4:bayes}).
-Firstly, the case where the full set of simulated data is used.
+In Case 1, the full set of simulated data is analyzed as-is.
 With this data we can present $P(B|A)$ for the full set of simulated subjects for all $M$ and $N$ where $P(A) = 1$ for each $M$.
 For this case, we would need to know what the real proportions of the population are that operate one of the four models considered in order to calculate $P(A)$ and $P(B)$ over the full set of simulated subjects.
 We don't believe this is something which is useful unless a researcher expects real (non-simulated) populations to have uniformly distributed uncorrelated parameter sets for each of the four models.
 
-This leads to the second case in which we define a hypothetical population of subjects in terms of the distributions of parameters for each model, and the proportion of each model type present in the population.
+This leads to Case 2, in which we define a hypothetical population of subjects in terms of the distributions of parameters for each model and the proportion of each model type present in the population.
 Knowing the proportion of each model type in this hypothetical population is equivalent to knowing $P(A)$.
-Knowing the distribution of parameter sets for each model type and the state of $A$ for each subject lets us calculate $P(B)$, and $P(B|A)$.
-These in turn allow us to calculate $P(A|B)$, for each model type.
+Knowing the distribution of parameter sets for each model type and the state of $A$ for each subject lets us calculate $P(B)$, and $P(B|A)$, which in turn allows us to calculate $P(A|B)$ for each model type.
 
-We pick arbitrary proportions of each model, and arbitrary distributions for each model in the hypothetical population.
-We select the proportion of EUT subjects in the population to be $0.5$, the proportion of $\mathit{RDU_{Pow}}$ subjects to be $0.1$, the proportion of $\mathit{RDU_{Invs}}$ subjects to be $0.1$ and the proportion of $\mathit{RDU_{Prelec}}$ subjects to be $0.3$.
-These proportions are roughly similar to the proportions reported by \textcite[108]{Harrison2016}, though with more EUT and fewer $\mathit{RDU_{Prelec}}$ subjects, and slightly more $\mathit{RDU_{Pow}}$ and slightly less $\mathit{RDU_{Invs}}$ subjects than they report.
-
-For all models, the marginal distributions of parameters are set to be uncorrelated with each other.
-For all models, the distribution of the CRRA parameter is Normal: $r \sim \mathcal{N}(0.6, 0.1^2)$, and the distribution of the $\lambda$ parameter is log-normal: $\lambda \sim \mathcal{N}(\ln(x);0.10, 0.02^2)$.
-For the $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ models, the $\gamma$ parameter is distributed log-normal: $\gamma \sim \mathcal{N}(\ln(x);0.6, 0.1^2)$.
-For the $\mathit{RDU_{Prelec}}$ model, the $\alpha$ and $\beta$ parameters are distributed log-normal: $\alpha \sim \mathcal{N}(\ln(x);0.6, 0.1^2)$, $\beta \sim \mathcal{N}(\ln(x);1.6, 0.1^2)$.
-These marginal distributions make up the population's joint distribution and were picked to make the EUT subjects moderately risk averse, the RDU subjects to be far away from equivalence to EUT, and for all subjects to make relatively precise choices.
-
-For the second case example, we don't draw subjects directly from the 1 million simulated subjects.
-Instead, for each model $M$, we fit 4 generalized additive models (GAM) \parencite{Hastie1986} to the simulated subjects actually conforming to $M$ with the dependent variable equal to 1 if they were classified as model $N$, and the independent variables as the subjects' real parameter values for model $M$.
-Thus, 16 fitted models in total:
+In Case 2, we fit 16 generalized additive models (GAM) \parencite{Hastie1986} to the data generated in Case 1 in order to make predictions of classification likelihoods.
+First we subset the data based on the models the simulated subjects actually operate, $M$.
+For each pooled group of $M \in \lbrace \textit{EUT}, \mathit{RDU_{Pow}}, \mathit{RDU_{Invs}}, \mathit{RDU_{Prelec}} \rbrace$, we fit a GAM model for each of the four $N$ models:
 \begin{align}
 	\label{eq4:GAM}
 	\begin{split}
@@ -458,11 +447,30 @@ Thus, 16 fitted models in total:
 
 \noindent where $N$ is one of EUT, $\mathit{RDU_{Pow}}$, $\mathit{RDU_{Invs}}$, $\mathit{RDU_{Prelec}}$, and $s(\cdot)$ indicates some smooth, potentially non-linear function of its arguments.
 
+The dependent variable in each of the GAM models in equation (\ref{eq4:GAM}) is either 1 if the subject was classified as model $N$, or 0 if the subject was not.
+The independent variables in each model are smooth functions of the actual parameter values the subjects operates.
+For every model, each parameter gets its own smooth function, and for the $RDU$ models, the probability weighting paramters are additionally interacted with the CRRA parameter and each other.
+Thus, four fitted GAM models for each of the four model types in the population, resulting in 16 fitted models in total.
+Given the fitted models and a parameter set for $M$, we can use a fitted GAM model to predict the probability that a subject with the given parameter set will be classified as any of the $N$ models.
+
+An alternative approach to the above would be to define a sample population, and conduct the choice-estimation-classification exercise explained in Case 1 above, but using the sample population distribution instead of the uniform distributions used in Case 1.
+This process is computationally intensive and would need to be repeated every time a new hypothetical population is examined.
+The method of fitting GAM models to the data and then using the fitted models to predict classification probabilities is useful in that it allows us to calculate the elements of equation (\ref{eq4:bayes}) on a variety of population distributions without having to simulate new choice data, estimate parameters on it, and classify the simulated subjects for each proposed hypothetical population.
+
+To operationalize the method for Case 2, we pick arbitrary proportions of each model, and arbitrary distributions for each model in a hypothetical population.
+We select the proportion of EUT subjects in the population to be $0.5$, the proportion of $\mathit{RDU_{Pow}}$ subjects to be $0.1$, the proportion of $\mathit{RDU_{Invs}}$ subjects to be $0.1$ and the proportion of $\mathit{RDU_{Prelec}}$ subjects to be $0.3$.
+These proportions are roughly similar to the proportions reported by \textcite[108]{Harrison2016}, though with more EUT and fewer $\mathit{RDU_{Prelec}}$ subjects, and slightly more $\mathit{RDU_{Pow}}$ and slightly less $\mathit{RDU_{Invs}}$ subjects than they report.
+
+For all models, the marginal distributions of parameters are set to be uncorrelated with each other.
+For all models, the distribution of the CRRA parameter is Normal: $r \sim \mathcal{N}(0.6, 0.1^2)$, and the distribution of the $\lambda$ parameter is log-normal: $\lambda \sim \mathcal{N}(\ln(x);0.10, 0.02^2)$.
+For the $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ models, the $\gamma$ parameter is distributed log-normal: $\gamma \sim \mathcal{N}(\ln(x);0.6, 0.1^2)$.
+For the $\mathit{RDU_{Prelec}}$ model, the $\alpha$ and $\beta$ parameters are distributed log-normal: $\alpha \sim \mathcal{N}(\ln(x);0.6, 0.1^2)$, $\beta \sim \mathcal{N}(\ln(x);1.6, 0.1^2)$.
+These marginal distributions make up the population's joint distribution and were picked to make the EUT subjects moderately risk averse, the RDU subjects to be far away from equivalence to EUT, and for all subjects to make relatively precise choices.
+
 We then draw a sample of $100,000$ subjects from the joint population distribution above, with $100,000 \times 0.5 = 50,000$ EUT subjects, $100,000 \times 0.1 = 10,000$ $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ subjects, and $100,000 \times 0.3 = 30,000$ $\mathit{RDU_{Prelec}}$ subjects.
 For every $M$ and $N$ we use the fitted models from equation (\ref{eq4:GAM}) to predict values of $P(B = N | A = M)$.
-These predicted values for $P(B = N | A = M)$ will lie between $(0, 1)$ as the dependent variable is either 0 or 1.
 
-\subsection{ \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Lottery Task Classification Success}
+\subsection{ \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Lottery Task Classification}
 
 Using the process above, we first examine the \textcite{Harrison2016} lottery task:
 
@@ -470,22 +478,56 @@ Using the process above, we first examine the \textcite{Harrison2016} lottery ta
 
 \begin{figure}[hp!]
 	\center
-	\caption{$P(B|A)$ for Given $\lambda$ Values: \textcite{Harrison2016} Lottery Instrument}
+	\caption{$P(B|A)$ for Given $\lambda$ Values}
 	\onlyinsubfile{
 		\includegraphics[width=\textwidth]{figures/mu-winners-HNG_1.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG_1.pdf}
 	}
 	\notinsubfile{
 		\includegraphics[width=\textwidth]{ch4/figures/mu-winners-HNG_1.pdf}
 	}
-	\label{fig:HNG_mu_PBA}
+	\label{fig:HNG1_mu_PBA}
 \end{figure}
 
-In Figure \ref{fig:HNG_mu_PBA}, we have $P(B|A)$ where $A$ is given by the 4 rows of the grid and $B$ is given by the columns, for the range of $\lambda$ values we simulated over.
-Thus, the top-left-most plot is the probability that a subject that operates EUT will be classified as EUT.
-Indeed, the diagonal of Figure \ref{fig:HNG_mu_PBA} shows the probability that a subject will be classified correctly as the model they actually operate.
+\begin{figure}[hp!]
+	\center
+	\caption{$P(B|RDU_{Prelec})$ for Given $\alpha$ Values}
+	\onlyinsubfile{
+		%\includegraphics[width=\textwidth, height=.3\paperheight]{figures/pre-a-winners-HNG_1.pdf}
+		\includegraphics[height=.3\paperheight]{figures/pre-a-winners-HNG_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[height=.3\paperheight]{ch4/figures/pre-a-winners-HNG_1.pdf}
+	}
+	\label{fig:HNG_pre_a_win}
+\end{figure}
+
+\begin{figure}[hp!]
+	\center
+	\caption{$P(B|RDU_{Prelec})$ for Given $\beta$ Values}
+	\onlyinsubfile{
+		%\includegraphics[width=\textwidth]{figures/pre-b-winners-HNG_1.pdf}
+		\includegraphics[height=.3\paperheight]{figures/pre-b-winners-HNG_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[height=.3\paperheight]{ch4/figures/pre-b-winners-HNG_1.pdf}
+	}
+	\label{fig:HNG_pre_b_win}
+\end{figure}
+
+In Figure \ref{fig:HNG1_mu_PBA}, we have $P(B|A)$ where $A$ is given by the 4 rows of the grid and $B$ is given by the columns, for the range of $\lambda$ values we simulated over.
+Thus, the top leftmost plot is the probability that a subject that operates EUT will be classified as EUT.
+Indeed, the diagonal of Figure \ref{fig:HNG1_mu_PBA} shows the probability that a subject will be classified correctly as the model they actually operate.
 This probability of classification is given for the three significance levels of 1\%, 5\%, and 10\%.
 
-Additionally, any subject that had a probability weighting parameter less than 1.2 and greater than 0.8 was dropped before the GAM lines in Figure \ref{fig:HNG_mu_PBA} were estimated.
+In Figure \ref{fig:HNG_pre_a_win}, we have $P(B|\mathit{RDU_{Prelec}})$ for values of $\alpha$ from $[0.1, 2]$, and in Figure \ref{fig:HNG_pre_b_win}, we have $P(B|\mathit{RDU_{Prelec}})$ for values of $\beta$ from $[0.1, 2]$.
+The rows of the grids indicate different significance levels of 1\%, 5\%, and 10\% for the test of equivalence to EUT.
+Within each plot, three lines are given that group subjects based on their precision parameter, $\lambda$.
+Thus, the top leftmost plot of Figure \ref{fig:HNG_pre_a_win} shows the probability that a subject who operates a $\mathit{RDU_{Prelec}}$ model will be classified as an EUT subject for various values of $\alpha$ and $\lambda$ at the 1\% significance level.
+The rightmost column of Figure \ref{fig:HNG_pre_a_win} shows the probability that a subject who operates a $\mathit{RDU_{Prelec}}$ model will be correctly classified as operating a $\mathit{RDU_{Prelec}}$ model for various values of $\alpha$ and $\lambda$ at the 1\%, 5\%, and 10\% significance levels.
+Similarly for Figure \ref{fig:HNG_pre_b_win} except the x-axis represents values of $\beta$ instead of $\alpha$.
+
+Additionally, any subject that had a probability weighting parameter less than 1.2 and greater than 0.8 was dropped from Figure \ref{fig:HNG1_mu_PBA}, any subject that had a $\beta$ parameter less than 1.2 and greater than 0.8 was dropped from Figure \ref{fig:HNG_pre_a_win}, and any subject that had a $\alpha$ parameter less than 1.2 and greater than 0.8 was dropped from Figure \ref{fig:HNG_pre_b_win}.
 This was done to help ensure that subjects close to the special case of EUT didn't overly influence the results.
 
 \subsubsection{Case 2}
@@ -531,7 +573,7 @@ In this case, rather than plot the results across a range of values, we can inst
 	]{tables/HNG_1-PA.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+%\bigskip
 \begin{table}[ht!]
 	\centering
 	\captionsetup{justification=centering}
@@ -570,7 +612,7 @@ In this case, rather than plot the results across a range of values, we can inst
 	]{tables/HNG_1-PB.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+%\bigskip
 \begin{table}[ht!]
 	\centering
 	\captionsetup{justification=centering}
@@ -580,6 +622,10 @@ In this case, rather than plot the results across a range of values, we can inst
 	\pgfplotstabletypeset[
 		col sep=comma,
 		every head row/.style={
+			before row={
+				& 
+				\multicolumn{4}{c}{Classified Model (B)}\\
+			},
 			after row=\hline
 		},
 		display columns/0/.style={
@@ -614,7 +660,7 @@ In this case, rather than plot the results across a range of values, we can inst
 	]{tables/HNG_1-PBA.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+%\bigskip
 \begin{table}[ht!]
 	\centering
 	\captionsetup{justification=centering}
@@ -624,6 +670,10 @@ In this case, rather than plot the results across a range of values, we can inst
 	\pgfplotstabletypeset[
 		col sep=comma,
 		every head row/.style={
+			before row={
+				\cnline{} & 
+				\multicolumn{4}{c}{Classified Model (B)}\\
+			},
 			after row=\hline
 		},
 		display columns/0/.style={
@@ -698,7 +748,7 @@ In this case, rather than plot the results across a range of values, we can inst
 	]{ch4/tables/HNG_1-PA.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+%\bigskip
 \begin{table}[ht!]
 	\centering
 	\captionsetup{justification=centering}
@@ -737,7 +787,7 @@ In this case, rather than plot the results across a range of values, we can inst
 	]{ch4/tables/HNG_1-PB.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+%\bigskip
 \begin{table}[ht!]
 	\centering
 	\captionsetup{justification=centering}
@@ -747,6 +797,10 @@ In this case, rather than plot the results across a range of values, we can inst
 	\pgfplotstabletypeset[
 		col sep=comma,
 		every head row/.style={
+			before row={
+				\cnline{} & 
+				\multicolumn{4}{c}{Classified Model (B)}\\
+			},
 			after row=\hline
 		},
 		display columns/0/.style={
@@ -781,7 +835,7 @@ In this case, rather than plot the results across a range of values, we can inst
 	]{ch4/tables/HNG_1-PBA.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+%\bigskip
 \begin{table}[ht!]
 	\centering
 	\captionsetup{justification=centering}
@@ -791,6 +845,10 @@ In this case, rather than plot the results across a range of values, we can inst
 	\pgfplotstabletypeset[
 		col sep=comma,
 		every head row/.style={
+			before row={
+				 & 
+				\multicolumn{4}{c}{Classified Model (B)}\\
+			},
 			after row=\hline
 		},
 		display columns/0/.style={
@@ -827,15 +885,19 @@ In this case, rather than plot the results across a range of values, we can inst
 \end{table}
 }
 
+\break
+
 In Table \ref{tb:HNG_PA} we have the probability that any given subject drawn from our hypothetical population will belong to the model given by the columns.
 This is equal to the proportion of each model we specified initially.
 In Table \ref{tb:HNG_PB} we have the probability that any given subject drawn from our hypothetical population will be classified as the model given by the columns. 
 In Table \ref{tb:HNG_PBA} we have the probability that a subject will be classified as the column model, given that they actually operate the row model.
+The rows of this table therefore sum to 1.
 In Table \ref{tb:HNG_PAB} we have the probability that a subject actually operates the row model, given that they have been classified as the column model.
+The columnsk of this table therefore sum to 1.
 
 \subsubsection{Discussion}
 
-An immediately grabbing result from Figure \ref{fig:HNG_mu_PBA} is the remarkably low probability that subjects operating either $\mathit{RDU_{Pow}}$ or $\mathit{RDU_{Invs}}$ will be correctly classified as the model they operate for a wide range of $\lambda$ values.
+An immediately grabbing result from Figure \ref{fig:HNG1_mu_PBA} is the remarkably low probability that subjects operating either $\mathit{RDU_{Pow}}$ or $\mathit{RDU_{Invs}}$ will be correctly classified as the model they operate for a wide range of $\lambda$ values.
 The probability that $\mathit{RDU_{Pow}}$ subjects will be correctly classified increases above 25\% for any significance level only as $\lambda$ decreases below 0.05.
 The probability that $\mathit{RDU_{Invs}}$ subjects will be correctly classified never increases above 5\% for any value of $\lambda$.
 For both of these models, they are far more likely to be misclassified as either EUT or $\mathit{RDU_{Prelec}}$ than to be classified correctly.
