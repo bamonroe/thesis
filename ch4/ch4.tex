@@ -24,6 +24,7 @@ This analysis will then be repeated using the lottery instrument described in \t
 For each instrument, a hypothetical population will be used to derive the conditional likelihood that an agent declared as operating a particular utility function actually operates the declared function.
 
 \section{Estimating a Benchmark using \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2015)}}
+\label{sec4:Bench}
 
 \textcite{Harrison2016} report the results of an experiment intended to evaluate the welfare consequences of individuals' decisions to purchase insurance.
 This is in part a response to the large literature cited by \textcite[1]{Harrison2016} which evaluates insurance on the basis of \enquote{take-up}: the rate at which individuals purchase insurance.
@@ -187,6 +188,7 @@ Every subject recieved, and expected to recieve, a guarenteed \money{5} show up 
 The full set of instructions delivered to the subjects is available in Appendix C of \textcite{Harrison2016}.
 
 \subsection{Individual Level Estimation}
+\label{sec4:ILE}
 
 The authors of \textcite{Harrison2016} have provided us with the data and the code used to conduct the analysis and generate the various plots reported by \textcite{Harrison2016}.
 \textcite{Harrison2016} use the popular statistical software Stata to conduct their analysis, and Stata's modified Newton-Rhapson (NR) algorithm to find the maximum likelihood estimates.
@@ -351,6 +353,7 @@ We do however, replicate in Figure \ref{fig:HNG_CS} almost exactly the distribut
 \end{figure}
 
 \section{Individual Classification and Welfare Estimation Accuracy}
+\label{sec4:IC}
 
 Whether the results presented in Figure \ref{fig:HNG_pvals} demonstrate an accurate estimation of the proportions of subjects belonging to those models depends on our confidence in the classification process to correctly classify a subject as one of these four models, as well as our confidence that the subjects in the experiments actually belong to one of the four models we test for.
 Our confidence that the classification process can correctly classify a subject in turn depends on the nature of the experimental instrument presented to the subject.
@@ -471,6 +474,7 @@ We then draw a sample of $100,000$ subjects from the joint population distributi
 For every $M$ and $N$ we use the fitted models from equation (\ref{eq4:GAM}) to predict values of $P(B = N | A = M)$.
 
 \subsection{ \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Lottery Task Classification}
+\label{sec4:LTC}
 
 Using the process above, we first examine the \textcite{Harrison2016} lottery task:
 
@@ -947,6 +951,7 @@ The high degree of RDU subjects being misclassified as EUT in our Case 2 example
 Similarly, the high degree of subjects operating $\mathit{RDU_{Pow}}$, $\mathit{RDU_{Invs}}$, and to a lesser extent EUT, models being misclassified as operating $\mathit{RDU_{Prelec}}$, also leads to a relatively low expected probability of 0.486 that subjects classified as operating $\mathit{RDU_{Prelec}}$ actually operate $\mathit{RDU_{Prelec}}$.
 
 \subsection{\texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Insurance Task Welfare Expectations}
+\label{sec4:WT}
 
 The conditional probabilities provided in Figure \ref{fig:HNG1_mu_PBA} and tables \ref{tb:HNG1_PBA} and \ref{tb:HNG1_PAB} are useful in terms of describing the degree of success the classification process has in correctly identifying the model operated by a subject.
 The classification process itself however is only useful to economists in as much as it provides us with a model that allows us to make normative characterizations of subjects' choices.
@@ -1341,27 +1346,35 @@ In the right column of Figure \ref{fig:HNG1_EUT_PRE_welfare}, we see generally t
 
 That subjects actually operating a $\mathit{RDU_{Prelec}}$ model are badly characterized by an EUT model when they have probability weighing parameters that differ greatly from 1 should not be surprising.
 The $\mathit{RDU_{Prelec}}$ model is the most flexible of the three RDU models considered here, which allows it to fit data well, but also means there are more opportunities for misclassification as EUT or $\mathit{RDU_{Pow}}$ to matter in meaningful ways.
-This is apparent in tables \ref{tb:HNG1_wsum}, \ref{tb:HNG1_PBA_wel} and \ref{tb:HNG1_PBA_wel}.
+
+This is apparent in tables \ref{tb:HNG1_wsum}, \ref{tb:HNG1_PBA_wel} and \ref{tb:HNG1_PAB_wel}.
 In the fourth row of table \ref{tb:HNG1_wsum}, representing subjects that actually operate the $\mathit{RDU_{Prelec}}$ model, we see that misclassified subjects, represented in the first, second, and third columns, have much more negative welfare surplus difference estimates than subjects that were correctly classified as operating the $\mathit{RDU_{Prelec}}$ model.
 In table \ref{tb:HNG1_PBA} we see that the probability of a subject operating a $\mathit{RDU_{Prelec}}$ model being misclassified as operating a EUT model is actually .549, which means that the majority of subjects that actually operate the $\mathit{RDU_{Prelec}}$ model will have welfare surplus characterizations that differ greatly from their real welfare surplus.
-We see in table \ref{tb:HNG1_PBA_wel} that subjects actually operating the $\mathit{RDU_{Prelec}}$ model are expected to be the worst characterized by the models they've been classified as, among the four models we consider.
+We see in table \ref{tb:HNG1_PBA_wel} that subjects actually operating the $\mathit{RDU_{Prelec}}$ model are expected to be the worst characterized by the models they've been classified as.
 
-Subjects operating the EUT and $\mathit{RDU_{Pow}}$ models are expected to be the best characterized.
-The models that these subjects are likely to be misclassified as provide estimates of welfare surplus that are relatively close to the real welfare surplus values.
-In the EUT case, subjects also have a relatively high probability of being correctly classified as operating a EUT model, which provides the most accurate welfare surplus estimates across the entire range of CRRA and $\lambda$ parameters.
+Across all four models, table \ref{tb:HNG1_PBA_wel} shows that subjects operating the EUT and $\mathit{RDU_{Pow}}$ models are expected to be the best characterized by the models they've been classified as.
+The models that these subjects are likely to be misclassified as, with probabilities given in table \ref{tb:HNG1_PBA}, provide estimates of welfare surplus that are relatively close to the real welfare surplus values.
+In the EUT case, subjects also have a relatively high probability of being correctly classified as operating an EUT model, which provides the most accurate welfare surplus estimates across the entire range of CRRA and $\lambda$ parameters.
 
-
-
-
-
-
-
+Table \ref{tb:HNG1_PAB_wel} shows the expected welfare surplus difference by classification model.
+We see from this table that subjects that have been classified as operating a $\mathit{RDU_{Prelec}}$ model, regardless of the model the subjects actually operate, have welfare surplus differences closest to 0, and are therefore the best characterized.
+Subjects that have been classified as operating the $\mathit{RDU_{Invs}}$ model have the most negative welfare surplus differences of the four models, meaning that subjects classified as $\mathit{RDU_{Invs}}$ are the worst characterized.
+This is unsurprising given the low probability of any subject being classified as $\mathit{RDU_{Invs}}$.
+Subjects that have been classified as operating either EUT or $\mathit{RDU_{Pow}}$ models are roughly equally well served by the characterization.
 
 \section{Synthetic Laboratories}
 
-%Discuss how simulation methods used in this chapter are more akin to a laboratory experiment than to analytical approximation.
-%There are Duhem-Quine auxiliary hypotheses associated with this kind of estimation, notably the optimization settings.
-%This type of \enquote{synthetic} laboratory is useful in alleviating Duhem-Quine auxiliary hypotheses associated with laboratory environments with real people.
+The first section of this chapter, discussing the details of how the classification process utilized in \textcite{Harrison2016} is operationalized, and the second section of this chapter, discussing how accurate this classification process is in a world where subjects only actually operate one of the four models that are considered in the classification process, should both be considered in a broader discussion of experimental methodology.
+The simulation methods used in this chapter are more akin to a laboratory experiment than to the analytical approximations conducted in chapter 3.
+There are Duhem-Quine auxiliary hypotheses associated with this kind of estimation, notably the optimization settings.
+This type of \enquote{synthetic} laboratory is useful in alleviating Duhem-Quine auxiliary hypotheses associated with laboratory environments with real people.
+
+
+
+
+
+That subjects operating the $\mathit{RDU_{Prelec}}$ model are expected to be the worst characterized by the model they have been classified as, but subjects that have been classified as operating a $\mathit{RDU_{Prelec}}$ are expected to be the best characterized by this model introduces interesting questions about the usefulness of the $\mathit{RDU_{Prelec}}$ model.
+Firstly, it is important to keep in mind that the welfare surplus characterizations given in this section are subject to the classification process; we are only considering the welfare consequences of this classification process, not of another process.
 
 \section{Conclusions}
 
