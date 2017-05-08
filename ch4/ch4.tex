@@ -9,12 +9,23 @@
 
 \lltoc % Table of contents only when locally compiled
 
-In the previous chapter we proposed a method for assessing the welfare implications of choices made by subjects in incentivized environments.
-This method differs from other proposed methods of welfare calculation in that rather than requiring an assumed set of utility parameters for the individual in question, it is necessary to assume some distribution of utility parameter sets from which the individual has been randomly sampled.
-We suggested that failure to incorporate the distributional information of these utility parameter sets into the evaluation of welfare may result in a mischaracterization of welfare for some individuals.
-This is because some individuals may make mistakes, or \enquote{choice errors}, when faced with a choice problem and select a choice which is not welfare maximal.
-These errors may occur often enough and in such a manner that they result in a choice pattern that fits some utility function statistically better than the \enquote{true} utility function that the subject actually operates, and would likely reveal over a longer observation of choice patterns or with larger instruments.
-Should fitted function and the \enquote{true} function differ enough in their utility parameters, the welfare characterizations resulting from the fitted function could be meaningfully different than the welfare characterizations that would result from the \enquote{true} function.
+In Chapter 1 we described the efforts of economists to account for apparent violations of Expected Utility Theory (EUT) in economic experiments.
+Some of these efforts were directed at the development of alternative deterministic theories of utility, such as Prospect Theory by \textcite{Kahneman1979}, Rank Dependent Utility (RDU) by \textcite{Quiggin1982}, and Regret Theory by \textcite{Bell1982;Loomes1982}.
+Other efforts were focused on the redevelopment of stochastic models, such as the constant error or \enquote{tremble} model by \textcite{Harless1994}, the Strong Utility model by \textcite{Hey1994}, the random preference model by \textcite{Loomes1995}, along with many derivatives of the Strong Utility model.
+
+Many experimental studies have been conducted
+
+\textcite{Hey1994} (HO) conduct an experiment to test if a variety of generalizations of EUT explain experimentally collected data significantly better than EUT while utilizing the Strong Utility model.
+HO fit 11 models to the data collected from 80 experimental subjects
+
+
+
+
+
+
+
+
+
 
 In this chapter, we will analyze two experimental instruments' ability to accurately recover the utility functions of agents faced with the instruments.
 The analysis will focus firstly on the ability of the instrument to correctly classify an agent operating one of four different utility models, as is done in \textcite{Harrison2016}, and secondly on the welfare consequences of this characterization.
@@ -93,7 +104,7 @@ For all four models, \textcite{Harrison2016} use the CRRA utility function defin
 \end{equation}
 \noindent where $r$ is the coefficient of relative risk aversion \parencite{Pratt1964}.
 
-We will continue the notation used in chapters 2 and 3 to describe a choice scenario by a subject, but limit it to a binary choice between two options, $j$ and $k$.
+I continue the notation used in chapters 2 and 3 to describe a choice scenario by a subject, but limit it to a binary choice between two options, $j$ and $k$.
 In this framework a choice of option $j$ in task $t$ is indicated by the function $y_t = j$, where $y_t = 1 \geq^n y_t = 2$.
 The values of $j$ and $k$ do not indicate the order or frame the options in task $t$ were presented to the subject, but rather the ordinal rank the subject's utility function assigns to the options, with 1 always being the option of greatest utility.
 This notation is useful when describing the welfare consequences of choices, as will be seen below.
@@ -183,7 +194,7 @@ For each subject's parameter estimates 500 draws of parameter sets were taken, t
 Since the covariance matrix used in the bootstrap method draws parameters from the joint distribution with respect to their density in the joint distribution, only a simple average is needed.
 
 The experimental subjects consisted of 111 undergraduate students enrolled in several different colleges at Georgia State University, USA.
-All experimental sessions were conducted in 2014 at the ExCEN experimental lab of Georgia State University. 
+All experimental sessions were conducted in 2014 at the ExCEN experimental lab of Georgia State University.
 Every subject recieved, and expected to recieve, a guarenteed \money{5} show up fee, but no specific information about the experiment or expected earnings was communicated to the subjects before the experiment \parencite[98]{Harrison2016}.
 The full set of instructions delivered to the subjects is available in Appendix C of \textcite{Harrison2016}.
 
@@ -192,7 +203,7 @@ The full set of instructions delivered to the subjects is available in Appendix 
 
 The authors of \textcite{Harrison2016} have provided us with the data and the code used to conduct the analysis and generate the various plots reported by \textcite{Harrison2016}.
 \textcite{Harrison2016} use the popular statistical software Stata to conduct their analysis, and Stata's modified Newton-Rhapson (NR) algorithm to find the maximum likelihood estimates.
-We, however, use the R statistical software, with the NR algorithm provided in the package \enquote{maxLik} to conduct our analysis throughout this chapter.
+I, however, use the R statistical software, with the NR algorithm provided in the package \enquote{maxLik} to conduct our analysis throughout this chapter.
 Both our approach and that of \textcite{Harrison2016} require \enquote{handwritten} likelihood functions due to the particular nature of recovering maximum likelihood estimates from non-linear structural models.
 The handwritten program of \textcite{Harrison2016} is written in the Stata language, whereas our program is written in C++, and compiled and called by R.
 
@@ -206,7 +217,7 @@ Secondly, the NR and other gradient-based algorithms are not \enquote{global} op
 If the likelihood function is not globally concave, the NR optimizer is not guaranteed to reach a global optimum from any starting point.
 For instance, if the log-likelihood function is highly bimodal and the initial values for the optimizer are near the smaller mode, the NR optimizer may converge on the maximum of the concave portion of the smaller mode.
 The NR algorithm attempts to mitigate situations like this{\footnotemark}, but ultimately the NR algorithm is only guaranteed to find a global maximum if the likelihood function is globally concave \parencite[218]{Train2002}.
-We do not, however, expect the likelihood functions applied to the data we recover from experiments to be globally concave \parencite[227]{Train2002}.
+I do not, however, expect the likelihood functions applied to the data we recover from experiments to be globally concave \parencite[227]{Train2002}.
 If we employed a linear-in-parameters utility function, as opposed to the non-linear functions we actually employ, we would have a globally concave log-likelihood function.
 
 \addtocounter{footnote}{-1}
@@ -276,7 +287,7 @@ Researchers generally recognise these issues and attempt estimation on a variety
 \stepcounter{footnote}\footnotetext{
 	Generally optimizers give \enquote{codes} to signal the degree of confidence in the returned optimum.
 	These may indicate that the gradient is below its tolerance level, that the gradient or likelihood hasn't decreased after many iterations, that the limit of iterations has been reached, or that the optimizer failed to converge on a single maximum.
-	We follow \textcite{Harrison2016} in only considering estimates that have gradients below the given threshold value and a Hessian that is negative definite.
+	I follow \textcite{Harrison2016} in only considering estimates that have gradients below the given threshold value and a Hessian that is negative definite.
 }
 \stepcounter{footnote}\footnotetext{
 	The NR, BFGS, and BHHH, optimizers are all available in Stata and R.
@@ -319,7 +330,7 @@ If the EUT model did not converge \textit{and} no RDU model tested as different 
 The \enquote{winning} model for each subject is chosen from among the models which have met the consideration qualifications on the basis of log-likelihood.
 
 The winning model is then used to calculate the welfare consequences of the subject's choices on the insurance task.
-We will call this process of picking a winning model among several alternative models a \enquote{classification} process, and in proceeding sections, describe the empirical limitations of this process.
+I call this process of picking a winning model among several alternative models a \enquote{classification} process, and in proceeding sections, describe the empirical limitations of this process.
 Using the same classification processes employed by \textcite{Harrison2016} show a noticeably different distribution of subjects classified to the 4 models in Figure \ref{fig:HNG_pvals}.
 
 \begin{figure}[h!]
@@ -338,7 +349,7 @@ Using the same classification processes employed by \textcite{Harrison2016} show
 The differences in the classification distribution between our results are driven almost entirely by differences in model convergence, not by differences in estimated values or p-values.
 Going from the estimates of \textcite{Harrison2016} to our own, one subject for $\mathit{RDU_{Prelec}}$ changes from insignificantly different from EUT to significantly different at the 1\% level, one subject for $\mathit{RDU_{Invs}}$ changes from insignificant to significant at the 10\% level, and one subject for $\mathit{RDU_{Pow}}$ changes from significant at the 5\% level to the 1\% level.
 Further details on differences are given in Appendix A.
-We do however, replicate in Figure \ref{fig:HNG_CS} almost exactly the distribution of per-choice consumer surplus presented in Figure 10 of \textcite[108]{Harrison2016}.
+I do however, replicate in Figure \ref{fig:HNG_CS} almost exactly the distribution of per-choice consumer surplus presented in Figure 10 of \textcite[108]{Harrison2016}.
 
 \begin{figure}[h!]
 	\center
@@ -359,8 +370,8 @@ Whether the results presented in Figure \ref{fig:HNG_pvals} demonstrate an accur
 Our confidence that the classification process can correctly classify a subject in turn depends on the nature of the experimental instrument presented to the subject.
 In this section, we interrogate the ability of the classification process to correctly classify subjects given the instrument presented in \textcite{Harrison2016}, and in turn how accurate the welfare calculations are given a classification.
 
-We conduct this interrogation via a simulation analysis, which we will describe in more depth shortly, and analyze the result with Bayes' Theorem.
-We simulate subjects conforming to the EUT, $\mathit{RDU_{Pow}}$, $\mathit{RDU_{Invs}}$, and $\mathit{RDU_{Prelec}}$ models, have these simulated subjects respond to both the lottery and insurance task, estimate the subjects' responses to the lottery task, classify each subject based on the classification process described in the previous section, and calculate the welfare surplus for each subject based on the winning model.
+I conduct this interrogation via a simulation analysis, which we will describe in more depth shortly, and analyze the result with Bayes' Theorem.
+I simulate subjects conforming to the EUT, $\mathit{RDU_{Pow}}$, $\mathit{RDU_{Invs}}$, and $\mathit{RDU_{Prelec}}$ models, have these simulated subjects respond to both the lottery and insurance task, estimate the subjects' responses to the lottery task, classify each subject based on the classification process described in the previous section, and calculate the welfare surplus for each subject based on the winning model.
 
 A simulated subject is represented by a single parameter set and an assigned operating model.
 For each model, we employ the CRRA utility function defined in (\ref{eq4:CRRA}) and the CU stochastic model defined in equations (\ref{eq4:RE.2}) and (\ref{eq4:W.cu}).
@@ -429,7 +440,7 @@ Going forward we will present two interpretable cases of (\ref{eq4:bayes}).
 In Case 1, the full set of simulated data is analyzed as-is.
 With this data we can present $P(B|A)$ for the full set of simulated subjects for all $M$ and $N$ where $P(A) = 1$ for each $M$.
 For this case, we would need to know what the real proportions of the population are that operate one of the four models considered in order to calculate $P(A)$ and $P(B)$ over the full set of simulated subjects.
-We don't believe this is something which is useful unless a researcher expects real (non-simulated) populations to have uniformly distributed uncorrelated parameter sets for each of the four models.
+I don't believe this is something which is useful unless a researcher expects real (non-simulated) populations to have uniformly distributed uncorrelated parameter sets for each of the four models.
 
 This leads to Case 2, in which we define a hypothetical population of subjects in terms of the distributions of parameters for each model and the proportion of each model type present in the population.
 Knowing the proportion of each model type in this hypothetical population is equivalent to knowing $P(A)$.
@@ -627,7 +638,7 @@ In this case, rather than plot the results across a range of values, we can inst
 		col sep=comma,
 		every head row/.style={
 			before row={
-				& 
+				&
 				\multicolumn{4}{c}{Classified Model (B)}\\
 			},
 			after row=\hline
@@ -675,7 +686,7 @@ In this case, rather than plot the results across a range of values, we can inst
 		col sep=comma,
 		every head row/.style={
 			before row={
-				\cnline{} & 
+				\cnline{} &
 				\multicolumn{4}{c}{Classified Model (B)}\\
 			},
 			after row=\hline
@@ -802,7 +813,7 @@ In this case, rather than plot the results across a range of values, we can inst
 		col sep=comma,
 		every head row/.style={
 			before row={
-				\cnline{} & 
+				\cnline{} &
 				\multicolumn{4}{c}{Classified Model (B)}\\
 			},
 			after row=\hline
@@ -850,7 +861,7 @@ In this case, rather than plot the results across a range of values, we can inst
 		col sep=comma,
 		every head row/.style={
 			before row={
-				 & 
+				 &
 				\multicolumn{4}{c}{Classified Model (B)}\\
 			},
 			after row=\hline
@@ -1074,7 +1085,7 @@ This is defined by first multiplying element-wise the matrix given by table \ref
 		col sep=comma,
 		every head row/.style={
 			before row={
-				& 
+				&
 				\multicolumn{4}{c}{Classified Model (B)}\\
 			},
 			after row=\hline
@@ -1201,7 +1212,7 @@ This is defined by first multiplying element-wise the matrix given by table \ref
 		col sep=comma,
 		every head row/.style={
 			before row={
-				& 
+				&
 				\multicolumn{4}{c}{Classified Model (B)}\\
 			},
 			after row=\hline
@@ -1362,21 +1373,34 @@ Subjects that have been classified as operating the $\mathit{RDU_{Invs}}$ model 
 This is unsurprising given the low probability of any subject being classified as $\mathit{RDU_{Invs}}$.
 Subjects that have been classified as operating either EUT or $\mathit{RDU_{Pow}}$ models are roughly equally well served by the characterization.
 
-\section{Synthetic Laboratories}
+\section{Artificial Laboratories}
 
-The first section of this chapter, discussing the details of how the classification process utilized in \textcite{Harrison2016} is operationalized, and the second section of this chapter, discussing how accurate this classification process is in a world where subjects only actually operate one of the four models that are considered in the classification process, should both be considered in a broader discussion of experimental methodology.
-The simulation methods used in this chapter are more akin to a laboratory experiment than to the analytical approximations conducted in chapter 3.
+The first section of this chapter, discussing the details of how the classification process utilized in \textcite{Harrison2016} is operationalized, and the second section of this chapter, discussing how accurate this classification process is in a world where subjects only actually operate one of the four models that are considered in the classification process, can both be considered in a broader discussion of experimental methodology.
+We believe the simulation methods used in this chapter are more akin to a laboratory experiment than to the analytical approximations conducted in chapter 3, in that their intention is to test hypotheses, not merely calculate an approximated statistic.
+
+Specifically, this chapter concerns itself with conducting an experiment in order to test hypotheses related to the two following questions:
+First, can the classification process proposed by \textcite{Harrison2016}, combined with subjects' responses to the lottery task instrument utilized by \textcite{Harrison2016}, provide accurate information about the models subjects actually operate;
+secondly, can the classification process provide information that usefully characterizes the welfare consequences of subjects' responses to the insurance task instrument.
+The first question suggests a null hypothesis of yes, the classification process provides accurate classification information, within some reasonable degree of confidence, against an alternative hypothesis that it does not.
+The second question also suggest a null hypothesis of yes, the results of the classification process are useful, regardless of their accuracy, in characterizing the welfare consequences of subjects responses in the insurance tasks, against an alternative hypothesis that it do not.
+These two hypothesis are themselves Duhem-Quine \parencite{Duhem1954, Quine1953} auxiliary hypotheses to those proposed by \textcite{Harrison2016}.
+
+There are close corollaries between the aspects of experiments described by \textcite{Harrison2004} and \textcite{Smith1982} and the techniques employed in this chapter.
+In the terminology of \textcite{Smith1982, 924-927}, we have well defined agents and environments, and institutionally defined message spaces and outcome allocation rules.
+
+
 There are Duhem-Quine auxiliary hypotheses associated with this kind of estimation, notably the optimization settings.
 This type of \enquote{synthetic} laboratory is useful in alleviating Duhem-Quine auxiliary hypotheses associated with laboratory environments with real people.
-
-
-
 
 
 That subjects operating the $\mathit{RDU_{Prelec}}$ model are expected to be the worst characterized by the model they have been classified as, but subjects that have been classified as operating a $\mathit{RDU_{Prelec}}$ are expected to be the best characterized by this model introduces interesting questions about the usefulness of the $\mathit{RDU_{Prelec}}$ model.
 Firstly, it is important to keep in mind that the welfare surplus characterizations given in this section are subject to the classification process; we are only considering the welfare consequences of this classification process, not of another process.
 
 \section{Conclusions}
+
+% Wilcox (2008), pg. 264)
+%In fact, this seems to be the case in most such simulated data sets with individual estimation when the fit comparison is confined to the same choice data used for estimation – that is, for in-sample fit comparisons.
+
 
 \onlyinsubfile{
 \newpage
