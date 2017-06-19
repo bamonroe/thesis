@@ -96,7 +96,6 @@ The fourth pwf is the flexible function proposed by \textcite{Prelec1998} ($\mat
 
 The functional form of an RDU model with the linear probability weighting function in equation (\ref{eq4:pw:eut}) is equivalent to Expected Utility Theory (EUT), and will be referred to as EUT throughout.
 In all the remaining probability weighting functions, there exist values for the probability weighting parameters which allow $w_i(p) = p_i$, the special case of EUT.
-
 For all four models, \textcite{Harrison2016} use the CRRA utility function:
 \begin{equation}
 	\label{eq4:CRRA}
@@ -129,7 +128,7 @@ The function $D(\cdot)$ separates contextual utility from a Strong Utility model
 	\end{split}
 \end{align}
 
-Usually, the Normal or Logistic cdf is chosen for $F$, and employ the Logistic cdf for all calculations throughout.
+Usually, the Normal or Logistic cdf is chosen for $F$, and I employ the Logistic cdf for all calculations throughout.
 Given that each choice considered here only involves two lottery options, we can define the probability of choosing option $j$ given a particular model, parameter set $\beta_n$, precision parameter $\lambda_n$, and outcomes and probabilities of option $j$, $X_{jt}$, as
 \begin{equation}
 	\label{eq4:RE.f}
@@ -203,11 +202,11 @@ The full set of instructions delivered to the subjects is available in Appendix 
 
 HNG employ a multi-step process for picking a \enquote{winning} model for each subject.
 First, all four models models cited in equations (\ref{eq4:pw:eut}), (\ref{eq4:pw:pow}), (\ref{eq4:pw:inv}), (\ref{eq4:pw:pre}) are estimated for each subject.
-Next, data are dropped from analysis on the basis of \textit{ex ante} defined set of \enquote{exclusionary rules} applied to every model estimated on the subjects.
+Next, data are dropped from analysis on the basis of an \textit{ex ante} defined set of \enquote{exclusionary rules} applied to every model estimated on the subjects.
 Finally, a \enquote{classification process} is employed to choose a model to categorize the subject as.
 HNG propose 4 exclusionary rules:
 \begin{itemize}
-	\item Any estimate that didn't return a convergence code indicating both a gradient near 0 and a negative definite Hessian.
+	\item Any estimate for which the optimizer did not return a convergence code indicating both a gradient near 0 and a negative definite Hessian.
 	\item Any model with a CRRA coefficient estimated to be greater than 15 or less than -15.
 	\item $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ models where the $\gamma$ parameter was estimated to be greater than 5.
 	\item Any model with a CRRA coefficient estimated to be greater than .99 and less than 1.01.
@@ -216,7 +215,7 @@ HNG propose 4 exclusionary rules:
 \noindent The gradient and Hessian conditions indicate that the estimates are at a local maximum of a concave portion of the likelihood function.
 The next 2 rules indicate parameter values that although mathematically possible for the given functionals, nonetheless are considered to be extreme to the point of not being reliable.
 \textcite{Wakker2008} details how the CRRA utility function has certain asymptotic properties around 1.
-These properties may create numerical issues for the optimizer and so estimated values very near 1 are viewed as less credible and so are excluded from the analysis.
+These properties may create numerical issues for the optimizer and so estimated values very near 1 are viewed as less credible and are excluded from the analysis.
 
 The classification process proposed by HNG applies to all the remaining, non-excluded data.
 The log-likelihood function given in equation (\ref{eq4:ll}) is equally applicable to all four models considered by HNG, and seems a natural metric to declare a \enquote{winning} model among the 4 alternatives proposed.
@@ -235,7 +234,7 @@ When I utilize the same classification processes employed by \textcite{Harrison2
 These differences are relatively minor, showing somewhat more RDU subjects and less EUT subjects than reported by HNG.
 Further details on differences are given in Appendix B (to be added).
 I do however, replicate in Figure \ref{fig:HNG_CS} almost exactly the distribution of per-choice consumer surplus presented in Figure 10 of \textcite[108]{Harrison2016}.
-This suggests a degree of leeway in the classification process in terms of its effect on the characterization of subjects.
+This suggests a degree of leeway in the classification process in terms of its effect on the characterization of subjects' welfare.
 
 \begin{figure}[h!]
 	\center
@@ -279,24 +278,33 @@ In this instance, \textcite{Rutstrom2009} conduct a power analysis in order to i
 \textcite[8]{Wilcox2015} conduct Monte Carlo simulations of agents responding to a lottery battery all of which operate the CRRA utility function, the $\mathit{RDU_{Prelec}}$ probability weighting function, and the CU stochastic model.
 \textcite{Wilcox2015} designates four data generating processes (DGP) by specifying four parametrizations of these models and uses them to generate choice data, with each DGP making choices on the instrument 1000 times.
 They then estimate non-parametric RDU models for each of the 1000 choice realizations per DGP and classify the resulting estimates into one of 5 categories, one for each of the DGP and an additional \enquote{unclassified} category.
-This is an example of using power analysis to lend support to the researchers methods and conclusions, in this case, whether or not subjects actually operate an $\mathit{RDU_{Invs}}$ like probability weighting function.
-Both of these kinds of analysis are useful for understanding the support and limitations of experimental research.
+This is an example of using power analysis to lend support to the researchers methods and conclusions.
+%In this case, whether or not subjects actually operate an $\mathit{RDU_{Invs}}$-like probability weighting function.
+Both of these kinds of analysis are useful for understanding the statistical support for experimental research as well as its limitations.
 
-In this section, we interrogate the ability of the classification process to correctly classify subjects given the instrument presented in \textcite{Harrison2016}, and in turn how accurate the welfare calculations are given a classification.
-I conduct this interrogation via a simulation analysis which resembles an extension of the Monte Carlo analysis performed by \textcite{Wilcox2015}.
+In this section, we interrogate the statistical power of the instrument and classification process to correctly classify subjects given the instrument presented in \textcite{Harrison2016}, and in turn how accurate the welfare calculations are given a classification.
+I conduct this analysis via simulation methods similar to those defined by \textcite{Feiveson2002} and which resemble an extension of the Monte Carlo analysis performed by \textcite{Wilcox2015}.
+\textcite[108]{Feiveson2002} briefly describes a simulation method for determining the power of an experiment:
+
+\blockquote{\textins{W}e contemplate a hypothetical scenario in which the identically sized experiment could be run over and over, each time collecting new data and doing a new hypothesis test. 
+If this scenario can be adequately modeled, we may thus estimate power by simulating data from multiple replications of the experiment and simply calculate the proportion of rejections \textins{of the null hypothesis} as an estimate of the power.}
+
+\textcite[109]{Feiveson2002} outline this method in more detail, and conclude the process by noting \enquote{The estimated power for a \textins{specified significance level} test is simply the proportion of observations (out of \textins{some large number of replications}) for which the p-value is less than \textins{the specified significance level}.}
+In this framework, and given the nature of the classification process defined previously, should an EUT subject be classified as operating an $\mathit{RDU_{Prelec}}$ model, this would constitute a type I error (a \enquote{false positive} of probability weighting), and should an $\mathit{RDU_{Prelec}}$ subject be classified as operating an EUT model this would constitute a type II error (a \enquote{false negative} of no probability weighting).
+The probability of a type II error is called the \enquote{power} of the test and when researchers engage in \textit{ex ante} power analysis, they typically aim for a power of 80\% \parencite{Cohen1988, Gelman2014a}, and significance level (\enquote{p-value}) of either 1, 5, or 10\%.
+
 I simulate subjects conforming to the EUT and $\mathit{RDU_{Prelec}}$ models, have these simulated subjects respond to both the lottery and insurance task, estimate the subjects' parameter sets given their responses to the lottery task, classify each subject based on the classification process employed by HNG described in the previous section, and calculate the welfare surplus for each subject based on the winning model.{\footnotemark}
-
-\addtocounter{footnote}{-1}
-\stepcounter{footnote}\footnotetext{
-	I restrict the analysis to only EUT and $\mathit{RDU_{Prelec}}$ subjects and estimated models to improve the clarity of the discussion.
-	However, choice data exist for $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ subjects and $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ model estimations exist for all subject models.
-}
-
 A simulated subject is represented by a single parameter set and an assigned operating model.
 For each model, we employ the CRRA utility function defined in (\ref{eq4:CRRA}) and the CU stochastic model defined in equations (\ref{eq4:RE.2}) and (\ref{eq4:W.cu}).
 For EUT subjects, the parameter set consists of $\lbrace r, \lambda \rbrace$, and for $\mathit{RDU_{Prelec}}$ subjects $\lbrace r, \alpha, \beta, \lambda \rbrace$.
 The $r$ parameter in every set is the CRRA parameter from equation (\ref{eq4:CRRA}) and $\lambda$ is the precision parameter defined in equation (\ref{eq4:RE.2}).
 The remaining $\alpha$, and $\beta$ parameters relate to the probability weighting parameters of the $\mathit{RDU_{Prelec}}$ model defined in equation (\ref{eq4:pw:pre}).
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	I restrict the analysis and discussion in this chapter to only EUT and $\mathit{RDU_{Prelec}}$ subjects and estimated models to improve the clarity of the discussion.
+	However, choice data exist for $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ subjects and $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ model estimations exist for all subject models.
+}
 
 For each model, we draw parameter sets from a joint uniform distribution over the parameters needed for that model, where the marginal distributions are uncorrelated.{\footnotemark}
 For both models, the marginal distribution for $r$ is where $r \in [-1, 0.95]$ and  for $\lambda$ is $\lambda \in [0.01, 0.30]$.
@@ -346,7 +354,8 @@ For each pooled group we fit a GAM model predicting whether EUT or $\mathit{RDU_
 	\label{eq4:GAM}
 	\begin{split}
 		(winner = N | A = EUT)                   &= s(r) + s(\lambda)\\
-		(winner = N | A = \mathit{RDU_{Prelec}}) &= s(r) + s(\alpha) + s(\beta) +s(\alpha, \beta) + s(r, \alpha, \beta) + s(\lambda)
+		%(winner = N | A = \mathit{RDU_{Prelec}}) &= s(r) + s(\alpha) + s(\beta) +s(\alpha, \beta) + s(r, \alpha, \beta) + s(\lambda)
+		(winner = N | A = \mathit{RDU_{Prelec}}) &= s(r) + s(\alpha) + s(\beta) + s(\lambda)
 	\end{split}
 \end{align}
 
@@ -354,11 +363,11 @@ For each pooled group we fit a GAM model predicting whether EUT or $\mathit{RDU_
 
 The dependent variable in each of the GAM models in equation (\ref{eq4:GAM}) is either 1 if the subject was classified as model $N$, or 0 if the subject was not.
 The independent variables in each model are smooth functions of the actual parameter values the subjects operates.
-For every model, each parameter gets its own smooth function, and for the $\mathit{RDU_{Prelec}}$ model, the probability weighting parameters are additionally interacted with the CRRA parameter and each other.
+For every model, each parameter gets its own smooth function.
 Thus, 3 fitted GAM models for each of the two model types in the population, resulting in 6 fitted models in total.
-I repeat this process but drop subjects that were classified as \enquote{NA} from the data before fitting the models.
+I then repeat this process but drop subjects that were classified as \enquote{NA} from the data before fitting the models.
 This results in 4 additional models.
-Given the fitted models and a parameter set for $M$, we can use a fitted GAM model to predict the probability that a subject with the given parameter set will be classified as any of the $N$ models.
+Given the fitted models and a parameter set for a model type, we can use a fitted GAM model to predict the probability that a subject with the given parameter set will be classified as any of the $N$ models.
 The results of this fitting process are presented in Figures \ref{fig:HNG1_win_mu}, \ref{fig:HNG1_win_eut}, and \ref{fig:HNG1_win_pre}.
 
 \begin{figure}[hp!]
@@ -401,7 +410,7 @@ The results of this fitting process are presented in Figures \ref{fig:HNG1_win_m
 \end{figure}
 
 In Figures \ref{fig:HNG1_win_mu}, \ref{fig:HNG1_win_eut}, and \ref{fig:HNG1_win_pre} the X-axis is the simulated subjects' values of the parameter for that plot, and the Y-axis is the probability that a given model was declared the winner.
-In each Figure the solid, red line indicates the estimates for the EUT model, the dotted, green line indicates the estimates for the $\mathit{RDU_{Prelec}}$ model, and the short dashed, blue line indicates the estimates for non-convergence or excluded.
+In each Figure the solid red line indicates the estimates for the EUT model, the dotted green line indicates the estimates for the $\mathit{RDU_{Prelec}}$ model, and the short dashed blue line indicates the estimates for non-convergence or excluded.
 In all figures, the 95\% confidence interval is given by the long dashed lines surrounding the lines given above.
 In each Figure, the second row contains estimates derived from all the subjects, while the first row only contains estimates derived from subjects that were classified as either EUT or $\mathit{RDU_{Prelec}}$.
 
@@ -415,25 +424,31 @@ In Figure \ref{fig:HNG1_win_pre}, the bottom-right plot shows how the probabilit
 In Figure \ref{fig:HNG1_win_eut} and in the left column of Figure \ref{fig:HNG1_win_mu}, the red solid line shows the probability of EUT subjects being correctly classified as EUT.
 In Figure \ref{fig:HNG1_win_pre} and in the right column of Figure \ref{fig:HNG1_win_mu}, the green dotted line shows the probability of $\mathit{RDU_{Prelec}}$ subjects being correctly classified as $\mathit{RDU_{Prelec}}$.
 
-The results presented in Figures \ref{fig:HNG1_win_mu}, \ref{fig:HNG1_win_eut} and \ref{fig:HNG1_win_pre} offer some surprising and intuitive results.
-In Figure \ref{fig:HNG1_win_mu} we see that the likelihood EUT subjects being misclassified as $\mathit{RDU_{Prelec}}$, $\mathit{RDU_{Prelec}}$ subjects being misclassified as EUT, and either type of subject failing to produce any estimates that pass the exclusionary criteria increases with $\lambda$.
+The results presented in Figures \ref{fig:HNG1_win_mu}, \ref{fig:HNG1_win_eut} and \ref{fig:HNG1_win_pre} offer both surprising and intuitive results.
+In Figure \ref{fig:HNG1_win_mu} we see that the likelihood EUT subjects being misclassified as $\mathit{RDU_{Prelec}}$, $\mathit{RDU_{Prelec}}$ subjects being misclassified as EUT, and either type of subject failing to produce any estimates that pass the exclusionary criteria, increases with $\lambda$.
 This is very intuitive. 
 As the $\lambda$ parameter increases, the likelihood that a subject makes a choice error increases.
 For EUT subjects, these choices errors can present as probability weighting when there is none, and for $\mathit{RDU_{Prelec}}$ subjects these choice errors can present as linear probability weighting.
-Another way to characterize this effect is to say that as $\lambda$ increases the noise in the data increases, indeed, as $\lambda \to \infty$ choice probabilities for every option are equal, resulting in totally random data.
-The more noise there is in the data, the lower the likelihood of the optimizer converging on reasonable, or any, estimates.
+Another way to characterize this effect is to say that as $\lambda$ increases the noise in the data increases, indeed as $\lambda \to \infty$ choice probabilities for every option are equal, resulting in totally random data.
+The more noise there is in the data, the lower the likelihood of the optimizer converging on reasonable, or any, estimates, and the greater the likelihood that any latent process will be identified as another.
 
-Additionally, in in the third and fourth columns of Figure \ref{fig:HNG1_win_pre} we have additionally intuitive results.
-We can see in these columns that the probability of an $\mathit{RDU_{Prelec}}$ subject being misclassified as EUT peaks when the probability weighting parameters approach the value of 1.
+In in the third and fourth columns of Figure \ref{fig:HNG1_win_pre} we have additionally intuitive results.
+We can see in these columns that the probability of an $\mathit{RDU_{Prelec}}$ subject being classified as EUT peaks when the probability weighting parameters approach the value of 1, and diminishes as the parameter values move away from 1.
 Since the $\mathit{RDU_{Prelec}}$ model nests EUT when $\alpha = \beta = 1$, we should expect the likelihood of misclassification to increase around these values.
+It appears the $\alpha$ parameter plays a more decisive role in the classification probability for the range of parameter values we consider; the probability of a $\mathit{RDU_{Prelec}}$ subject being classified as $\mathit{RDU_{Prelec}}$ drops at a greater rate as the $\alpha$ parameter approaches 1 than as the $\beta$ parameter approaches 1 from either the left or the right.
+
+Also somewhat intuitive, in Figure \ref{fig:HNG1_win_eut} we see that the probability of an EUT subject being classified as EUT is greater for values of CRRA $> 0$ than for values of CRRA $< 0$, though only modestly so.
+Values of CRRA $> 0$ indicate risk aversion in an EUT model, and the design of the HNG lottery instrument placed more emphasis on identifying degrees of risk aversion than identifying degrees of risk seeking (CRRA values $ < 0$) in EUT subjects.
+Similarly, in Figure \ref{fig:HNG1_win_pre} we see that the CRRA parameter has very little effect on the probability of a $\mathit{RDU_{Prelec}}$ subject being classified as $\mathit{RDU_{Prelec}}$.
+Since it is the probability weighing function that defines a $\mathit{RDU_{Prelec}}$ as being different from EUT, it should not be surprising that the utility parameter has little effect on on the probability of $\mathit{RDU_{Prelec}}$ subjects being correctly classified.
+
+However, the relatively low probability with which $\mathit{RDU_{Prelec}}$ subjects are classified as $\mathit{RDU_{Prelec}}$ over a wide range of parameters is surprising.
+Looking at Figure \ref{fig:HNG1_win_pre} we see that for most of the parameter values considered, the probability of an $\mathit{RDU_{Prelec}}$ subject being classified as $\mathit{RDU_{Prelec}}$ is below 50\% and that for most of these values, it is more likely that an $\mathit{RDU_{Prelec}}$ subject is classified as EUT than as $\mathit{RDU_{Prelec}}$.
+
 
 %Recall, however, that the parameters for our simulated subjects were distributed uniformly over the parameter space of interest.
 %This means that for the simulated subjects with $\alpha$ values between $(0.95, 1.05)$, 95\% of them will have $\beta$ values outside the range $(0.95, 1.05)$, and for for the simulated subjects with $\alpha$ values between $(0.9, 1.1)$, 90\% of them will have $\beta$ values outside the range $(0.9, 1.1)$,
 %Thus, the vast majority of simulated subjects that are misclassified as EUT when one probability weighting parameter equals 1 still have some degree of probability weighting driven by the other parameter.
-
-
-
-
 
 
 %\subsubsection{Case 2}
@@ -804,14 +819,22 @@ Since the $\mathit{RDU_{Prelec}}$ model nests EUT when $\alpha = \beta = 1$, we 
 \subsection{\texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Insurance Task Welfare Expectations}
 \label{sec4:WT}
 
-The conditional probabilities provided in Figure \ref{fig:HNG1_mu_PBA} and tables \ref{tb:HNG1_PBA} and \ref{tb:HNG1_PAB} are useful in terms of describing the degree of success the classification process has in correctly identifying the model operated by a subject.
+The probabilities provided in Figures \ref{fig:HNG1_win_mu}, \ref{fig:HNG1_win_eut} and \ref{fig:HNG1_win_pre} are useful in terms of describing the degree of success the classification process has in correctly identifying the model operated by a subject.
 The classification process itself however is only useful to economists in as much as it provides us with a model that allows us to make normative characterizations of subjects' choices.
-Given our simulation process, we can measure the success of the classification process in normative terms by calculating the difference in the estimated welfare surplus of the choices made in the \textcite{Harrison2016} insurance task against actual welfare surplus for each subject.
+Given our simulation process, we can measure the success of the classification process in normative terms by calculating the difference in the estimated welfare surplus of the choices made in the HNG insurance task against actual welfare surplus for each subject.
 
-Utilizing the definition of accumulated welfare surplus is given by equation (\ref{eq4:wsurplusT}), we follow \textcite[110-111]{Harrison2016} and bootstrap the estimated welfare surplus of the subjects.
-We generate 500 random draws from a multivariate normal distribution using the point estimates of the parameters of the winning model as the means of the marginal distributions, and the inverse of the estimated Hessian matrix as the covariance matrix.
+Utilizing the definition of accumulated welfare surplus given by equation (\ref{eq4:wsurplusT}), we follow \textcite[110-111]{Harrison2016} and bootstrap the estimated welfare surplus of the subjects.
+We generate 500 random draws from a multivariate normal distribution using the point estimates of the parameters of the winning model as the means of the marginal distributions, and the inverse of the estimated Hessian matrix as the covariance matrix.{\footnotemark}
 With each draw we calculate equation (\ref{eq4:wsurplusT}) and define the estimated welfare surplus as the average of these 500 calculations.
 Therefore the difference between the estimated and real welfare is given by:
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	Note that all the probability weighing parameters and the $\lambda$ parameter are restricted mathematically to be greater than 0.
+	In the estimation process, this was accomplished by exponentiating the raw parameter values passed by the optimizer to the likelihood function.
+	When making the multivariate normal distribution described, we use the raw parameter estimates to generate the distribution and exponentiate the marginal distributions of the parameters that are restricted to be greater than 0.
+	Thus, these resulting marginal distributions are actually log-normal distributions.
+}
 
 \begin{equation}
 	\label{eq4:wsurplusDiff}
@@ -820,427 +843,595 @@ Therefore the difference between the estimated and real welfare is given by:
 
 \noindent where $N$ is the model the subject has been classified as operating, $\Omega$ is the set of parameters that define the utility function actually employed by subject $n$, and $\hat{\Omega}_N$ is the set of estimated parameters for model $N$ for subject $n$.
 If the subject has been misclassified, $\Omega$ and $\hat{\Omega}_N$ will not represent the same set of parameters.
-
-Just as above, we will present 2 cases of equation (\ref{eq4:wsurplusDiff}).
-In Case 1, we group subjects by the model they actually operate, and calculate equation (\ref{eq4:wsurplusDiff}) for each subject using the estimated parameters of the model the subject was classified as operating at the 5\% significance level.
-In Case 2, we will utilize the same hypothetical population as before, fit GAM models to the simulated data, and predict the difference in welfare surplus for the hypothetical population:
-
+Just as we predicted probabilities of classification in equation (\ref{eq4:GAM}), we can predict the difference in estimated welfare surplus and real welfare surplus given by equation (\ref{eq4:wsurplusDiff}).
 \begin{align}
 	\label{eq4:GAM_welfare}
 	\begin{split}
-		(D_{N,M} | M &= EUT)                   = s(r) + s(\lambda)\\
-		(D_{N,M} | M &= \mathit{RDU_{Pow}})    = s(r) + s(\gamma) + s(r, \gamma) + s(\lambda)\\
-		(D_{N,M} | M &= \mathit{RDU_{Invs}})   = s(r) + s(\gamma) + s(r, \gamma) + s(\lambda)\\
-		(D_{N,M} | M &= \mathit{RDU_{Prelec}}) = s(r) + s(\alpha) + s(\beta) +s(\alpha, \beta) + s(r, \alpha, \beta) + s(\lambda)
+		(D_{N,M} | M = EUT)                   &= s(r) + s(\lambda)\\
+%		(D_{N,M} | M = \mathit{RDU_{Pow}})    &= s(r) + s(\gamma) + s(r, \gamma) + s(\lambda)\\
+%		(D_{N,M} | M = \mathit{RDU_{Invs}})   &= s(r) + s(\gamma) + s(r, \gamma) + s(\lambda)\\
+		(D_{N,M} | M = \mathit{RDU_{Prelec}}) &= s(r) + s(\alpha) + s(\beta) + s(\lambda)
 	\end{split}
 \end{align}
 
 \noindent where $N$ indicates the model that the subject was classified as, $M$ indicates the model the subject actually operates, and $s(\cdot)$ indicates some smooth, potentially non-linear function of its arguments.
-Thus 16 fitted models, one for each combination of 4 $M$ models and 4 $N$ models.
-As was done in the previous section, we draw a sample of $100,000$ subjects from the joint population distribution defined in the previous section, with $100,000 \times 0.5 = 50,000$ EUT subjects, $100,000 \times 0.1 = 10,000$ $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ subjects, and $100,000 \times 0.3 = 30,000$ $\mathit{RDU_{Prelec}}$ subjects.
-For each of the sampled subjects, we fit the model from equation (\ref{eq4:GAM_welfare}) corresponding the model $M$ they actually operate for each of the four $N$ models they could potentially be classified as operating.
-This gives us the welfare surplus difference for each possible classification for every subject.
+Values of 0 for equation (\ref{eq4:GAM_welfare}) thus indicate that the subject's estimate welfare surplus equals the subject's real welfare surplus.
+Thus 4 fitted models, one for each combination of 2 $M$ models and 2 $N$ models.
+Additionally, given our estimates of the probability of EUT and $\mathit{RDU_{Prelec}}$ subjects being classified as operating EUT or $\mathit{RDU_{Prelec}}$, we can calculate point estimates the expected welfare surplus difference by multiplying the probabilities presented in the top row of Figures \ref{fig:HNG1_win_eut} and \ref{fig:HNG1_win_pre} with the estimated welfare surplus difference given by equation (\ref{eq4:GAM_welfare}).
+We present the welfare surplus difference estimates for subjects that were classified as either EUT or $\mathit{RDU_{Prelec}}$, as well as the expected welfare surplus estimates, in Figures \ref{fig:HNG1_wel_mu}, \ref{fig:HNG1_wel_eut}, and \ref{fig:HNG1_wel_pre}.
+Since the subjects which didn't converge on either EUT or $\mathit{RDU_{Prelec}}$ (labeled \enquote{NA} previously) didn't produce estimates with which we can make welfare calculations, they are not plotted.
 
-\subsubsection{Case 1}
-
-First we present the welfare surplus difference for the subjects operating $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ models in Figure \ref{fig:HNG1_POW_INV_welfare}, and then for the subjects operating EUT and $\mathit{RDU_{Prelec}}$ models in \ref{fig:HNG1_EUT_PRE_welfare}.
-The left column of Figure \ref{fig:HNG1_POW_INV_welfare} plots the difference in welfare surplus for $\mathit{RDU_{Pow}}$ and the right column plots the difference in welfare surplus for $\mathit{RDU_{Invs}}$.
-Each row represents subjects grouped by their $\lambda$ parameter, with the top row containing subjects with $0.01 < \lambda < 0.10$, the middle row containing $0.1 < \lambda < 0.2$, and the bottom row $0.2 < \lambda < 0.3$.
-Thus, in the top left plot, we have subjects that operate a $\mathit{RDU_{Pow}}$ model with $0.01 < \lambda < 0.10$.
-Likewise, the bottom right plot shows subjects that operate a $\mathit{RDU_{Invs}}$ model with $0.2 < \lambda < 0.3$.
-The four lines in each plot show the calculated welfare surplus difference for subjects who were classified as operating each of the four possible models and how this difference changes with the probability weighting parameter for each model.
-
-Similarly, the left column of \ref{fig:HNG1_EUT_PRE_welfare} shows subjects that operate an EUT model, while the middle and right columns show subjects that operate a $\mathit{RDU_{Prelec}}$ model.
-The left column plots the welfare surplus difference by the CRRA parameter for the EUT subjects, while the middle column plots the welfare surplus difference by the $\alpha$ probability weighting parameter and the right column plots the welfare surplus difference by the $\beta$ probability weighing parameter for $\mathit{RDU_{Prelec}}$ subjects.
-Again, each row represents subjects grouped by their $\lambda$ parameter, with the top row containing subjects with $0.01 < \lambda < 0.10$, the middle row containing $0.1 < \lambda < 0.2$, and the bottom row $0.2 < \lambda < 0.3$.
-Thus, the top leftmost plot shows subjects that operate a EUT model with $0.01 < \lambda < 0.10$, and the bottom right plot shows subjects that operate a $\mathit{RDU_{Pow}}$ model with $0.2 < \lambda < 0.3$.
-
-Unlike Figure \ref{fig:HNG1_POW_INV_welfare}, Figure \ref{fig:HNG1_EUT_PRE_welfare} does not display subjects that were classified as $\mathit{RDU_{Invs}}$ as there were too few subjects to draw meaningful plots.
-For instance, of the subjects that operate a $\mathit{RDU_{Prelec}}$ model with $0.01 < \lambda < 0.10$, thus the top middle and rightmost plots, there were only 12 subjects that were classified as operating a $\mathit{RDU_{Invs}}$ model.
-This is compared to 25,678 subjects that were classified as operating an EUT model, 5,546 as operating an $\mathit{RDU_{Pow}}$ model, and 42,480 as operating a $\mathit{RDU_{Prelec}}$ model.
-
-As was done in Figures \ref{fig:HNG1_pre_a_win} and \ref{fig:HNG1_pre_b_win}, the middle column of Figure \ref{fig:HNG1_EUT_PRE_welfare} does not contain subjects that have $\beta$ parameters greater than 0.8 and less than 1.2, and the right column of Figure \ref{fig:HNG1_EUT_PRE_welfare} does not contain subjects that have $\alpha$ parameters greater than 0.8 and less than 1.
-It is important to note that no plot within either Figure \ref{fig:HNG1_POW_INV_welfare} or \ref{fig:HNG1_EUT_PRE_welfare} share a y-axis scale with any other plot.
-The difference in welfare surplus changes greatly from model to model and from parameter to parameter, keeping all plots on the same y-axis scale would hide some of the nuance of these differences.
-
-\begin{figure}[hp!]
+\begin{figure}[htp!]
 	\center
-	\caption{$P(B|RDU_{Prelec})$ for Given $\beta$ Values}
+	\caption{Welfare Surplus Difference of \enquote{Winning} Models for Given $\lambda$ Values}
 	\onlyinsubfile{
-		\includegraphics[width=\textwidth]{figures/pi-welfare5.pdf}
-		%\includegraphics[width=\textwidth, height=.6\paperheight]{figures/pre-welfare5.pdf}
+		\includegraphics[width=\textwidth]{figures/HNG_1/win_05-mu-wel-HNG_1.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG_1.pdf}
 	}
 	\notinsubfile{
-		\includegraphics[width=\textwidth]{ch4/figures/pi-welfare5.pdf}
-		%\includegraphics[height=.3\paperheight]{ch4/figures/pre-welfare5.pdf}
+		\includegraphics[width=\textwidth]{ch4/figures/HNG_1/win_05-mu-wel-HNG_1.pdf}
 	}
-	\label{fig:HNG1_POW_INV_welfare}
+	\label{fig:HNG1_wel_mu}
 \end{figure}
 
-\begin{figure}[hp!]
+\begin{figure}[hbp!]
 	\center
-	\caption{$P(B|RDU_{Prelec})$ for Given $\beta$ Values}
+	\caption{Welfare Surplus Difference of \enquote{Winning} Models for EUT subjects}
 	\onlyinsubfile{
-		\includegraphics[width=\textwidth]{figures/ep-welfare5.pdf}
-		%\includegraphics[width=\textwidth, height=.6\paperheight]{figures/pre-welfare5.pdf}
+		\includegraphics[width=\textwidth]{figures/HNG_1/win_05-EUT-wel-HNG_1.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG_1.pdf}
 	}
 	\notinsubfile{
-		\includegraphics[width=\textwidth]{ch4/figures/ep-welfare5.pdf}
-		%\includegraphics[height=.3\paperheight]{ch4/figures/pre-welfare5.pdf}
+		\includegraphics[width=\textwidth]{ch4/figures/HNG_1/win_05-EUT-wel-HNG_1.pdf}
 	}
-	\label{fig:HNG1_EUT_PRE_welfare}
+	\label{fig:HNG1_wel_eut}
 \end{figure}
 
-\subsubsection{Case 2}
+\begin{figure}[ht!]
+	\center
+	\caption{Welfare Surplus Difference of \enquote{Winning} Models for $\mathit{RDU_{Prelec}}$ subjects}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/HNG_1/win_05-PRE-wel-HNG_1.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/HNG_1/win_05-PRE-wel-HNG_1.pdf}
+	}
+	\label{fig:HNG1_wel_pre}
+\end{figure}
 
-In Case 2, we present the predicted welfare surplus difference for our hypothetical population given the GAM models defined in equiation (\ref{eq4:GAM_welfare}).
-Table \ref{tb:HNG1_wsum} shows the average welfare surplus difference for subjects operating the models given by the rows, but classified as the models given by the columns.
-This, the top rightmost cell shows the average weflare surplus for subjects who operate an EUT model and were correctly classified as operating an EUT model, while the top rightmost column shows the average welfare surplus of subjects who operate a EUT model by were classified as operating a $\mathit{RDU_{Prelec}}$ model.
+As before, the solid red line represents subjects that were classified as EUT and the dotted green line represents subjects that were classified as $\mathit{RDU_{Prelec}}$.
+In these figures, however, the dashed blue line represents the expected welfare surplus difference.
 
-Table \ref{tb:HNG1_PBA_wel} shows the expected average welfare surplus difference for subjects who actually operate the models given.
-This is defined by first multiplying element-wise the matrix given by table \ref{tb:HNG1_PBA} and the matrix given in table \ref{tb:HNG1_wsum}, and then summing each row of the resulting matrix:
+%As was done in the previous section, we draw a sample of $100,000$ subjects from the joint population distribution defined in the previous section, with $100,000 \times 0.5 = 50,000$ EUT subjects, $100,000 \times 0.1 = 10,000$ $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ subjects, and $100,000 \times 0.3 = 30,000$ $\mathit{RDU_{Prelec}}$ subjects.
+%For each of the sampled subjects, we fit the model from equation (\ref{eq4:GAM_welfare}) corresponding the model $M$ they actually operate for each of the four $N$ models they could potentially be classified as operating.
+%This gives us the welfare surplus difference for each possible classification for every subject.
 
-\begin{equation}
-	\label{eq4:PBA_wel}
-	E [ D_{NM} | M ] = \sum^N P(B = N | A = M) \times D_{NM}
-\end{equation}
-
-Table \ref{tb:HNG1_PAB_wel} shows the expected average welfare surplus difference for subjects who were classified as operating the models given.
-This is defined by first multiplying element-wise the matrix given by table \ref{tb:HNG1_PAB} and the matrix given in table \ref{tb:HNG1_wsum}, and then summing each column of the matrix:
-
-\begin{equation}
-	\label{eq4:PBA_wel2}
-	E [ D_{NM} | N ] = \sum^M P(A = M | B = N) \times D_{NM}
-\end{equation}
-
-
-\onlyinsubfile{
-\begin{table}[ht!]
-	\centering
-	\captionsetup{justification=centering}
-	\caption{Welfare Surplus Difference by Model and Classification}
-	\label{tb:HNG1_wsum}
-	\begin{adjustbox}{}
-	\pgfplotstabletypeset[
-		col sep=comma,
-		every head row/.style={
-			before row={
-				&
-				\multicolumn{4}{c}{Classified Model (B)}\\
-			},
-			after row=\hline
-		},
-		display columns/0/.style={
-			assume math mode = true,
-			string type,
-			column name = {}
-		},
-		display columns/1/.style={
-			precision = 3,
-			fixed,
-			zerofill,
-			column name = {EUT}
-		},
-		display columns/2/.style={
-			precision = 3,
-			fixed,
-			zerofill,
-			column name = {Power}
-		},
-		display columns/3/.style={
-			precision = 3,
-			fixed,
-			zerofill,
-			column name = {Inverse-S}
-		},
-		display columns/4/.style={
-			precision = 3,
-			fixed,
-			zerofill,
-			column name = {Prelec}
-		},
-	]{tables/HNG_1-wsum.csv} % path/to/file
-	\end{adjustbox}
-\end{table}
-%\bigskip
-\begin{table}[ht!]
-	\centering
-	\captionsetup{justification=centering}
-	\caption{Expected Welfare Surplus Difference, Given Operating Model}
-	\label{tb:HNG1_PBA_wel}
-	\begin{adjustbox}{}
-	\pgfplotstabletypeset[
-		col sep=comma,
-		every head row/.style={
-			after row=\hline
-		},
-		display columns/0/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {EUT}
-		},
-		display columns/1/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Power}
-		},
-		display columns/2/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Inverse-S}
-		},
-		display columns/3/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Prelec}
-		},
-	]{tables/HNG_1-PBA-wel.csv} % path/to/file
-	\end{adjustbox}
-\end{table}
-%\bigskip
-\begin{table}[ht!]
-	\centering
-	\captionsetup{justification=centering}
-	\caption{Expected Welfare Surplus Difference, Given Classification Model}
-	\label{tb:HNG1_PAB_wel}
-	\begin{adjustbox}{}
-	\pgfplotstabletypeset[
-		col sep=comma,
-		every head row/.style={
-			after row=\hline
-		},
-		display columns/0/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {EUT}
-		},
-		display columns/1/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Power}
-		},
-		display columns/2/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Inverse-S}
-		},
-		display columns/3/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Prelec}
-		},
-	]{tables/HNG_1-PAB-wel.csv} % path/to/file
-	\end{adjustbox}
-\end{table}
-}
-\notinsubfile{
-\begin{table}[ht!]
-	\centering
-	\captionsetup{justification=centering}
-	\caption{Welfare Surplus Difference by Model and Classification}
-	\label{tb:HNG1_wsum}
-	\begin{adjustbox}{}
-	\pgfplotstabletypeset[
-		col sep=comma,
-		every head row/.style={
-			before row={
-				&
-				\multicolumn{4}{c}{Classified Model (B)}\\
-			},
-			after row=\hline
-		},
-		display columns/0/.style={
-			assume math mode = true,
-			string type,
-			column name = {}
-		},
-		display columns/1/.style={
-			precision = 3,
-			fixed,
-			zerofill,
-			column name = {EUT}
-		},
-		display columns/2/.style={
-			precision = 3,
-			fixed,
-			zerofill,
-			column name = {Power}
-		},
-		display columns/3/.style={
-			precision = 3,
-			fixed,
-			zerofill,
-			column name = {Inverse-S}
-		},
-		display columns/4/.style={
-			precision = 3,
-			fixed,
-			zerofill,
-			column name = {Prelec}
-		},
-	]{ch4/tables/HNG_1-wsum.csv} % path/to/file
-	\end{adjustbox}
-\end{table}
-%\bigskip
-\begin{table}[ht!]
-	\centering
-	\captionsetup{justification=centering}
-	\caption{Expected Welfare Surplus Difference, Given A}
-	\label{tb:HNG1_PBA_wel}
-	\begin{adjustbox}{}
-	\pgfplotstabletypeset[
-		col sep=comma,
-		every head row/.style={
-			after row=\hline
-		},
-		display columns/0/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {EUT}
-		},
-		display columns/1/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Power}
-		},
-		display columns/2/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Inverse-S}
-		},
-		display columns/3/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Prelec}
-		},
-	]{ch4/tables/HNG_1-PBA-wel.csv} % path/to/file
-	\end{adjustbox}
-\end{table}
-%\bigskip
-\begin{table}[ht!]
-	\centering
-	\captionsetup{justification=centering}
-	\caption{Expected Welfare Surplus Difference, Given B}
-	\label{tb:HNG1_PAB_wel}
-	\begin{adjustbox}{}
-	\pgfplotstabletypeset[
-		col sep=comma,
-		every head row/.style={
-			after row=\hline
-		},
-		display columns/0/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {EUT}
-		},
-		display columns/1/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Power}
-		},
-		display columns/2/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Inverse-S}
-		},
-		display columns/3/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Prelec}
-		},
-	]{ch4/tables/HNG_1-PAB-wel.csv} % path/to/file
-	\end{adjustbox}
-\end{table}
-}
-
-\subsubsection{Discussion}
+%\subsubsection{Case 1}
+%First we present the welfare surplus difference for the subjects operating $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ models in Figure \ref{fig:HNG1_POW_INV_welfare}, and then for the subjects operating EUT and $\mathit{RDU_{Prelec}}$ models in \ref{fig:HNG1_EUT_PRE_welfare}.
+%The left column of Figure \ref{fig:HNG1_POW_INV_welfare} plots the difference in welfare surplus for $\mathit{RDU_{Pow}}$ and the right column plots the difference in welfare surplus for $\mathit{RDU_{Invs}}$.
+%Each row represents subjects grouped by their $\lambda$ parameter, with the top row containing subjects with $0.01 < \lambda < 0.10$, the middle row containing $0.1 < \lambda < 0.2$, and the bottom row $0.2 < \lambda < 0.3$.
+%Thus, in the top left plot, we have subjects that operate a $\mathit{RDU_{Pow}}$ model with $0.01 < \lambda < 0.10$.
+%Likewise, the bottom right plot shows subjects that operate a $\mathit{RDU_{Invs}}$ model with $0.2 < \lambda < 0.3$.
+%The four lines in each plot show the calculated welfare surplus difference for subjects who were classified as operating each of the four possible models and how this difference changes with the probability weighting parameter for each model.
+%
+%Similarly, the left column of \ref{fig:HNG1_EUT_PRE_welfare} shows subjects that operate an EUT model, while the middle and right columns show subjects that operate a $\mathit{RDU_{Prelec}}$ model.
+%The left column plots the welfare surplus difference by the CRRA parameter for the EUT subjects, while the middle column plots the welfare surplus difference by the $\alpha$ probability weighting parameter and the right column plots the welfare surplus difference by the $\beta$ probability weighing parameter for $\mathit{RDU_{Prelec}}$ subjects.
+%Again, each row represents subjects grouped by their $\lambda$ parameter, with the top row containing subjects with $0.01 < \lambda < 0.10$, the middle row containing $0.1 < \lambda < 0.2$, and the bottom row $0.2 < \lambda < 0.3$.
+%Thus, the top leftmost plot shows subjects that operate a EUT model with $0.01 < \lambda < 0.10$, and the bottom right plot shows subjects that operate a $\mathit{RDU_{Pow}}$ model with $0.2 < \lambda < 0.3$.
+%
+%Unlike Figure \ref{fig:HNG1_POW_INV_welfare}, Figure \ref{fig:HNG1_EUT_PRE_welfare} does not display subjects that were classified as $\mathit{RDU_{Invs}}$ as there were too few subjects to draw meaningful plots.
+%For instance, of the subjects that operate a $\mathit{RDU_{Prelec}}$ model with $0.01 < \lambda < 0.10$, thus the top middle and rightmost plots, there were only 12 subjects that were classified as operating a $\mathit{RDU_{Invs}}$ model.
+%This is compared to 25,678 subjects that were classified as operating an EUT model, 5,546 as operating an $\mathit{RDU_{Pow}}$ model, and 42,480 as operating a $\mathit{RDU_{Prelec}}$ model.
+%
+%As was done in Figures \ref{fig:HNG1_pre_a_win} and \ref{fig:HNG1_pre_b_win}, the middle column of Figure \ref{fig:HNG1_EUT_PRE_welfare} does not contain subjects that have $\beta$ parameters greater than 0.8 and less than 1.2, and the right column of Figure \ref{fig:HNG1_EUT_PRE_welfare} does not contain subjects that have $\alpha$ parameters greater than 0.8 and less than 1.
+%It is important to note that no plot within either Figure \ref{fig:HNG1_POW_INV_welfare} or \ref{fig:HNG1_EUT_PRE_welfare} share a y-axis scale with any other plot.
+%The difference in welfare surplus changes greatly from model to model and from parameter to parameter, keeping all plots on the same y-axis scale would hide some of the nuance of these differences.
+%
+%\begin{figure}[hp!]
+%	\center
+%	\caption{$P(B|RDU_{Prelec})$ for Given $\beta$ Values}
+%	\onlyinsubfile{
+%		\includegraphics[width=\textwidth]{figures/pi-welfare5.pdf}
+%		%\includegraphics[width=\textwidth, height=.6\paperheight]{figures/pre-welfare5.pdf}
+%	}
+%	\notinsubfile{
+%		\includegraphics[width=\textwidth]{ch4/figures/pi-welfare5.pdf}
+%		%\includegraphics[height=.3\paperheight]{ch4/figures/pre-welfare5.pdf}
+%	}
+%	\label{fig:HNG1_POW_INV_welfare}
+%\end{figure}
+%
+%\begin{figure}[hp!]
+%	\center
+%	\caption{$P(B|RDU_{Prelec})$ for Given $\beta$ Values}
+%	\onlyinsubfile{
+%		\includegraphics[width=\textwidth]{figures/ep-welfare5.pdf}
+%		%\includegraphics[width=\textwidth, height=.6\paperheight]{figures/pre-welfare5.pdf}
+%	}
+%	\notinsubfile{
+%		\includegraphics[width=\textwidth]{ch4/figures/ep-welfare5.pdf}
+%		%\includegraphics[height=.3\paperheight]{ch4/figures/pre-welfare5.pdf}
+%	}
+%	\label{fig:HNG1_EUT_PRE_welfare}
+%\end{figure}
+%
+%\subsubsection{Case 2}
+%
+%In Case 2, we present the predicted welfare surplus difference for our hypothetical population given the GAM models defined in equiation (\ref{eq4:GAM_welfare}).
+%Table \ref{tb:HNG1_wsum} shows the average welfare surplus difference for subjects operating the models given by the rows, but classified as the models given by the columns.
+%This, the top rightmost cell shows the average weflare surplus for subjects who operate an EUT model and were correctly classified as operating an EUT model, while the top rightmost column shows the average welfare surplus of subjects who operate a EUT model by were classified as operating a $\mathit{RDU_{Prelec}}$ model.
+%
+%Table \ref{tb:HNG1_PBA_wel} shows the expected average welfare surplus difference for subjects who actually operate the models given.
+%This is defined by first multiplying element-wise the matrix given by table \ref{tb:HNG1_PBA} and the matrix given in table \ref{tb:HNG1_wsum}, and then summing each row of the resulting matrix:
+%
+%\begin{equation}
+%	\label{eq4:PBA_wel}
+%	E [ D_{NM} | M ] = \sum^N P(B = N | A = M) \times D_{NM}
+%\end{equation}
+%
+%Table \ref{tb:HNG1_PAB_wel} shows the expected average welfare surplus difference for subjects who were classified as operating the models given.
+%This is defined by first multiplying element-wise the matrix given by table \ref{tb:HNG1_PAB} and the matrix given in table \ref{tb:HNG1_wsum}, and then summing each column of the matrix:
+%
+%\begin{equation}
+%	\label{eq4:PBA_wel2}
+%	E [ D_{NM} | N ] = \sum^M P(A = M | B = N) \times D_{NM}
+%\end{equation}
+%
+%
+%\onlyinsubfile{
+%\begin{table}[ht!]
+%	\centering
+%	\captionsetup{justification=centering}
+%	\caption{Welfare Surplus Difference by Model and Classification}
+%	\label{tb:HNG1_wsum}
+%	\begin{adjustbox}{}
+%	\pgfplotstabletypeset[
+%		col sep=comma,
+%		every head row/.style={
+%			before row={
+%				&
+%				\multicolumn{4}{c}{Classified Model (B)}\\
+%			},
+%			after row=\hline
+%		},
+%		display columns/0/.style={
+%			assume math mode = true,
+%			string type,
+%			column name = {}
+%		},
+%		display columns/1/.style={
+%			precision = 3,
+%			fixed,
+%			zerofill,
+%			column name = {EUT}
+%		},
+%		display columns/2/.style={
+%			precision = 3,
+%			fixed,
+%			zerofill,
+%			column name = {Power}
+%		},
+%		display columns/3/.style={
+%			precision = 3,
+%			fixed,
+%			zerofill,
+%			column name = {Inverse-S}
+%		},
+%		display columns/4/.style={
+%			precision = 3,
+%			fixed,
+%			zerofill,
+%			column name = {Prelec}
+%		},
+%	]{tables/HNG_1-wsum.csv} % path/to/file
+%	\end{adjustbox}
+%\end{table}
+%%\bigskip
+%\begin{table}[ht!]
+%	\centering
+%	\captionsetup{justification=centering}
+%	\caption{Expected Welfare Surplus Difference, Given Operating Model}
+%	\label{tb:HNG1_PBA_wel}
+%	\begin{adjustbox}{}
+%	\pgfplotstabletypeset[
+%		col sep=comma,
+%		every head row/.style={
+%			after row=\hline
+%		},
+%		display columns/0/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {EUT}
+%		},
+%		display columns/1/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Power}
+%		},
+%		display columns/2/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Inverse-S}
+%		},
+%		display columns/3/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Prelec}
+%		},
+%	]{tables/HNG_1-PBA-wel.csv} % path/to/file
+%	\end{adjustbox}
+%\end{table}
+%%\bigskip
+%\begin{table}[ht!]
+%	\centering
+%	\captionsetup{justification=centering}
+%	\caption{Expected Welfare Surplus Difference, Given Classification Model}
+%	\label{tb:HNG1_PAB_wel}
+%	\begin{adjustbox}{}
+%	\pgfplotstabletypeset[
+%		col sep=comma,
+%		every head row/.style={
+%			after row=\hline
+%		},
+%		display columns/0/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {EUT}
+%		},
+%		display columns/1/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Power}
+%		},
+%		display columns/2/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Inverse-S}
+%		},
+%		display columns/3/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Prelec}
+%		},
+%	]{tables/HNG_1-PAB-wel.csv} % path/to/file
+%	\end{adjustbox}
+%\end{table}
+%}
+%\notinsubfile{
+%\begin{table}[ht!]
+%	\centering
+%	\captionsetup{justification=centering}
+%	\caption{Welfare Surplus Difference by Model and Classification}
+%	\label{tb:HNG1_wsum}
+%	\begin{adjustbox}{}
+%	\pgfplotstabletypeset[
+%		col sep=comma,
+%		every head row/.style={
+%			before row={
+%				&
+%				\multicolumn{4}{c}{Classified Model (B)}\\
+%			},
+%			after row=\hline
+%		},
+%		display columns/0/.style={
+%			assume math mode = true,
+%			string type,
+%			column name = {}
+%		},
+%		display columns/1/.style={
+%			precision = 3,
+%			fixed,
+%			zerofill,
+%			column name = {EUT}
+%		},
+%		display columns/2/.style={
+%			precision = 3,
+%			fixed,
+%			zerofill,
+%			column name = {Power}
+%		},
+%		display columns/3/.style={
+%			precision = 3,
+%			fixed,
+%			zerofill,
+%			column name = {Inverse-S}
+%		},
+%		display columns/4/.style={
+%			precision = 3,
+%			fixed,
+%			zerofill,
+%			column name = {Prelec}
+%		},
+%	]{ch4/tables/HNG_1-wsum.csv} % path/to/file
+%	\end{adjustbox}
+%\end{table}
+%%\bigskip
+%\begin{table}[ht!]
+%	\centering
+%	\captionsetup{justification=centering}
+%	\caption{Expected Welfare Surplus Difference, Given A}
+%	\label{tb:HNG1_PBA_wel}
+%	\begin{adjustbox}{}
+%	\pgfplotstabletypeset[
+%		col sep=comma,
+%		every head row/.style={
+%			after row=\hline
+%		},
+%		display columns/0/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {EUT}
+%		},
+%		display columns/1/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Power}
+%		},
+%		display columns/2/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Inverse-S}
+%		},
+%		display columns/3/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Prelec}
+%		},
+%	]{ch4/tables/HNG_1-PBA-wel.csv} % path/to/file
+%	\end{adjustbox}
+%\end{table}
+%%\bigskip
+%\begin{table}[ht!]
+%	\centering
+%	\captionsetup{justification=centering}
+%	\caption{Expected Welfare Surplus Difference, Given B}
+%	\label{tb:HNG1_PAB_wel}
+%	\begin{adjustbox}{}
+%	\pgfplotstabletypeset[
+%		col sep=comma,
+%		every head row/.style={
+%			after row=\hline
+%		},
+%		display columns/0/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {EUT}
+%		},
+%		display columns/1/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Power}
+%		},
+%		display columns/2/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Inverse-S}
+%		},
+%		display columns/3/.style={
+%			precision = 2,
+%			fixed,
+%			zerofill,
+%			column name = {Prelec}
+%		},
+%	]{ch4/tables/HNG_1-PAB-wel.csv} % path/to/file
+%	\end{adjustbox}
+%\end{table}
+%}
+%
+%\subsubsection{Discussion}
 
 The discussion about how the classification process relates to the welfare surplus of the subject being classified is in many ways more important than the previous discussion of the accuracy of the process itself.
 This is because economists distinguish themselves from decision theorists by making normative statements about how an individuals economic choices relate to their economic well-being.
-The accuracy of the classification process is valuable in only as much as it can aid in the accuracy of the normative statements we can construct using this process.
+The accuracy of the classification process is valuable only in as much as it can aid in the accuracy of the normative statements we can construct using this process.
 \textcite[25]{Leamer2012} makes a similar statement when discussing the general fallibility of macroeconomic models: \enquote{Fortunately, our goal as economists is not soundness, but usefulness.}
 
-From Figures \ref{fig:HNG1_POW_INV_welfare} and \ref{fig:HNG1_EUT_PRE_welfare}, we can see that there are parameter values for every model where the welfare surplus difference is not noticeably different between correctly and incorrectly classified subjects, and in some cases the welfare surplus difference for misclassified subjects is closer to 0 than for correctly classified subjects.
-In the right column of Figure \ref{fig:HNG1_POW_INV_welfare}, representing subjects that actually operate the $\mathit{RDU_{Invs}}$ model, we see that for values of $\gamma$ greater than roughly 0.75, subjects that have been misclassified as one of the three alternative models generally have welfare surplus estimates that are closer to the real welfare surplus than subjects that have been correctly classified as operating a $\mathit{RDU_{Invs}}$ model.
-In the left column of Figure \ref{fig:HNG1_POW_INV_welfare}, representing subjects that actually operate the $\mathit{RDU_{Pow}}$ model, we see that subjects that have been misclassified as operating an EUT model have welfare surplus estimates that are close to the real welfare surplus of the subjects for most values of $\gamma$, but in particular for values of $\gamma$ greater than 0.75.
-In fact, for the middle and bottom rows of the left column of Figure \ref{fig:HNG1_POW_INV_welfare}, representing subjects with increasingly greater $\lambda$ values, we see that as $\gamma$ increases beyond 1.5, subjects that have been misclassified as EUT have welfare surplus differences closer to 0 than subjects that have been correctly classified as $\mathit{RDU_{Pow}}$.
-Table \ref{tb:HNG1_wsum} shows that subjects that actually operate a $\mathit{RDU_{Invs}}$ model but have been classified as operating a $\mathit{RDU_{Pow}}$ model on average have welfare surplus estimates closer to their real welfare surplus than the subjects that have been correctly classified as operating a $\mathit{RDU_{Invs}}$ model.
-
+From Figures \ref{fig:HNG1_wel_mu}, \ref{fig:HNG1_wel_eut} and \ref{fig:HNG1_wel_pre}, we can see that there are parameter values for every model where the welfare surplus difference is not noticeably different between correctly and incorrectly classified subjects, and in some cases the welfare surplus difference for misclassified subjects is closer to 0 than for correctly classified subjects.
+In Figure \ref{fig:HNG1_wel_pre} we can see that of the $\mathit{RDU_{Prelec}}$ subjects that have $\alpha$ values close to 1, the subjects that have been classified as EUT instead of $\mathit{RDU_{Prelec}}$ have welfare surplus differences that are somewhat closer to 0 than the subjects that had been classified as $\mathit{RDU_{Prelec}}$.
+In Figure \ref{fig:HNG1_wel_eut} we can see that of the EUT subjects that have CRRA values greater than 0.75, the welfare surplus difference estimates are indistinguishable between subjects classified as either $\mathit{RDU_{Prelec}}$ or EUT.
 That misclassified subjects in these cases have welfare surplus estimates relatively close to the subjects' real welfare surplus demonstrates that even though the classification process has not been accurate for these subjects, it nonetheless can be useful when used to characterize the welfare surplus of subjects' choices in the insurance task.
-This is good news with respect to subjects actually operating the $\mathit{RDU_{Pow}}$ model and especially the $\mathit{RDU_{Invs}}$ model given the particularly low probability of correctly identifying subjects as operating either of these models.
+We revisit this concept later.
 
-However, Figures \ref{fig:HNG1_POW_INV_welfare} and \ref{fig:HNG1_EUT_PRE_welfare} also show that for wide ranges of parameter values, misclassified subjects have welfare surplus estimates that are significantly different from the real welfare surplus and are farther from the real welfare surplus estimates than the correctly classified subjects.
-This is evident in the right column of Figure \ref{fig:HNG1_POW_INV_welfare}, representing subjects that actually operate the $\mathit{RDU_{Invs}}$ model, for values of $\gamma$ less than 0.75.
-We see in this column that as $\gamma$ gets closer to 0, and thus representing an increasing amount of probability weighting, subjects that have been misclassified as EUT have particularly poor welfare surplus characterizations.
-This poor characterization of welfare surplus is also true for the subjects that have been misclassified as $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Prelec}}$, but to a lesser extent, with subjects misclassified as $\mathit{RDU_{Prelec}}$ faring the best among the misclassified subjects.
-We see in to a much less dramatic extent in the left column of Figure \ref{fig:HNG1_POW_INV_welfare}, which represents subjects that actually operate the $\mathit{RDU_{Pow}}$ model, that as $\gamma$ decreases, $\mathit{RDU_{Pow}}$ subjects that have been misclassified have welfare surplus estimates that increasingly diverge from the real welfare surplus, and correctly classified subjects start to outperform their incorrectly classified counterparts.
-
-In Figure \ref{fig:HNG1_EUT_PRE_welfare}, we see that for almost all parameter values, subjects that have been correctly classified as operating either the EUT or $\mathit{RDU_{Prelec}}$ models have welfare surplus estimates that are closer to the real estimates than subjects that have been misclassified as operating an alternative model.
-In the middle column of Figure \ref{fig:HNG1_EUT_PRE_welfare}, representing subjects actually operating the $\mathit{RDU_{Prelec}}$ model, we see that for values of $\alpha$ less than 1, subjects that have been misclassified as operating an EUT model, and to a much lesser extent a $\mathit{RDU_{Pow}}$ model, have welfare surplus estimates that rapidly diverge from the real surplus value.
-In the right column of Figure \ref{fig:HNG1_EUT_PRE_welfare}, we see generally that as $\beta$ increases past 1, the subjects that have been incorrectly classified as operating a EUT model also have welfare surplus estimates that increasingly differ from the real welfare surplus, but this divergence is of roughly the same magnitude seen in the middle column of Figure \ref{fig:HNG1_EUT_PRE_welfare} as $\alpha$ increases above 1.
+However, we can also see that for wide ranges of parameter values, misclassified subjects have welfare surplus estimates that are significantly different from the real welfare surplus and are farther from the real welfare surplus estimates than the correctly classified subjects.
+The cost of misclassification is particularly great for $\mathit{RDU_{Prelec}}$ subjects, which is evident in Figures \ref{fig:HNG1_wel_mu} and \ref{fig:HNG1_wel_pre}.
+In Figure \ref{fig:HNG1_wel_mu} we see that for the entire range of $\lambda$ values considered, $\mathit{RDU_{Prelec}}$ subjects that were classified as EUT had less accurate welfare surplus difference estimates than EUT subjects classified as $\mathit{RDU_{Prelec}}$.
+In the third column of Figure \ref{fig:HNG1_wel_pre}, we can see that as the $\alpha$ parameter approaches 0, $\mathit{RDU_{Prelec}}$ subjects that have been classified as EUT have welfare surplus estimates that increasingly diverge from the real welfare surplus estimates.
+In the fouth column of Figure \ref{fig:HNG1_wel_pre}, we see generally that as $\beta$ increases past 1, the subjects that have been incorrectly classified as operating a EUT model also have welfare surplus estimates that increasingly differ from the real welfare surplus, but this divergence is of roughly the same magnitude seen in the third column of Figure \ref{fig:HNG1_wel_pre} as $\alpha$ increases above 1.
 
 That subjects actually operating a $\mathit{RDU_{Prelec}}$ model are badly characterized by an EUT model when they have probability weighing parameters that differ greatly from 1 should not be surprising.
-The $\mathit{RDU_{Prelec}}$ model is the most flexible of the three RDU models considered here, which allows it to fit data well, but also means there are more opportunities for misclassification as EUT or $\mathit{RDU_{Pow}}$ to matter in meaningful ways.
-
-This is apparent in tables \ref{tb:HNG1_wsum}, \ref{tb:HNG1_PBA_wel} and \ref{tb:HNG1_PAB_wel}.
-In the fourth row of table \ref{tb:HNG1_wsum}, representing subjects that actually operate the $\mathit{RDU_{Prelec}}$ model, we see that misclassified subjects, represented in the first, second, and third columns, have much more negative welfare surplus difference estimates than subjects that were correctly classified as operating the $\mathit{RDU_{Prelec}}$ model.
-In table \ref{tb:HNG1_PBA} we see that the probability of a subject operating a $\mathit{RDU_{Prelec}}$ model being misclassified as operating a EUT model is actually .549, which means that the majority of subjects that actually operate the $\mathit{RDU_{Prelec}}$ model will have welfare surplus characterizations that differ greatly from their real welfare surplus.
-We see in table \ref{tb:HNG1_PBA_wel} that subjects actually operating the $\mathit{RDU_{Prelec}}$ model are expected to be the worst characterized by the models they've been classified as.
-
-Across all four models, table \ref{tb:HNG1_PBA_wel} shows that subjects operating the EUT and $\mathit{RDU_{Pow}}$ models are expected to be the best characterized by the models they've been classified as.
-The models that these subjects are likely to be misclassified as, with probabilities given in table \ref{tb:HNG1_PBA}, provide estimates of welfare surplus that are relatively close to the real welfare surplus values.
-In the EUT case, subjects also have a relatively high probability of being correctly classified as operating an EUT model, which provides the most accurate welfare surplus estimates across the entire range of CRRA and $\lambda$ parameters.
-
-Table \ref{tb:HNG1_PAB_wel} shows the expected welfare surplus difference by classification model.
-We see from this table that subjects that have been classified as operating a $\mathit{RDU_{Prelec}}$ model, regardless of the model the subjects actually operate, have welfare surplus differences closest to 0, and are therefore the best characterized.
-Subjects that have been classified as operating the $\mathit{RDU_{Invs}}$ model have the most negative welfare surplus differences of the four models, meaning that subjects classified as $\mathit{RDU_{Invs}}$ are the worst characterized.
-This is unsurprising given the low probability of any subject being classified as $\mathit{RDU_{Invs}}$.
-Subjects that have been classified as operating either EUT or $\mathit{RDU_{Pow}}$ models are roughly equally well served by the characterization.
+The $\mathit{RDU_{Prelec}}$ model is flexible, which allows it to fit data well, but also means there are more opportunities for misclassification as EUT to matter in meaningful ways.
 
 \section{Artificial Laboratories}
 
-The first section of this chapter, discussing the details of how the classification process utilized in \textcite{Harrison2016} is operationalized, and the second section of this chapter, discussing how accurate this classification process is in a world where subjects only actually operate one of the four models that are considered in the classification process, can both be considered in a broader discussion of experimental methodology.
-We believe the simulation methods used in this chapter are more akin to a laboratory experiment than to the analytical approximations conducted in chapter 3, in that their intention is to test hypotheses, not merely calculate an approximated statistic.
+The analyses thus far constitute \textit{ex post} power analyses of the experimental instrument and classification process employed by HNG, and an analysis of the expected welfare characterizations thereof, though it is limited to only 2 of the 4 models employed by HNG.
+The power analysis aspect of this process constitutes a statistical inquiry into an experimental protocol and is similar to other \textit{ex ante} and \textit{ex post} power analyses.
+The welfare characterization aspect of this analysis constitutes the economic inquiry into this experimental protocol.
+Both inquires are important, but making accurate predictions or characterizations about the welfare consequences of choices by economic agents should be of greater value to economists than the descriptive accuracy of the model used to derived these calculations.{\footnotemark}
 
-Specifically, this chapter concerns itself with conducting an experiment in order to test hypotheses related to the two following questions:
-First, can the classification process proposed by \textcite{Harrison2016}, combined with subjects' responses to the lottery task instrument utilized by \textcite{Harrison2016}, provide accurate information about the models subjects actually operate;
-secondly, can the classification process provide information that usefully characterizes the welfare consequences of subjects' responses to the insurance task instrument.
-The first question suggests a null hypothesis of yes, the classification process provides accurate classification information, within some reasonable degree of confidence, against an alternative hypothesis that it does not.
-The second question also suggest a null hypothesis of yes, the results of the classification process are useful, regardless of their accuracy, in characterizing the welfare consequences of subjects responses in the insurance tasks, against an alternative hypothesis that it do not.
-These two hypothesis are themselves Duhem-Quine \parencite{Duhem1954, Quine1953} auxiliary hypotheses to those proposed by \textcite{Harrison2016}.
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	Indeed, I make this argument against the Random Preferences stochastic model in Chapter 2.
+}
 
-There are close corollaries between the aspects of experiments described by \textcite{Harrison2004} and \textcite{Smith1982} and the techniques employed in this chapter.
-In the terminology of \textcite[924-927]{Smith1982}, we have well defined agents and environments, and institutionally defined message spaces and outcome allocation rules.
+The two inquiries are related (as noted by \textcite[105]{Harrison2016}), a model is needed in order to make calculations of consumer surplus and thus we need a reasonable method for selecting a model to make these calculations.
+However, if our objective is to generate accurate welfare characterizations, and not necessarily accurate model classifications, then we should explore how different experimental designs, model specifications, and model selection processes influence the accuracy of welfare characterizations.
+For instance, the selection of the number and type of lottery pairs should be influenced by how they result in more accurate welfare predictions in the choice domain that is welfare relevant to the experimenter; the insurance task in the case of HNG.
+Indeed, the argument of \textcite{Harrison2016} in favor of developing a structural model of risk preferences and estimating the parameters of these models to make welfare characterizations is that this process provides a better assessment of the welfare consequences of purchasing insurance than the \enquote{take-up} metric. {\footnotemark}
 
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	The \enquote{take-up} metric \textit{does} make a normative statement about insurance purchase decisions, \enquote{take-up is good, failure to take-up is bad}.
+}
 
-There are Duhem-Quine auxiliary hypotheses associated with this kind of estimation, notably the optimization settings.
-This type of \enquote{synthetic} laboratory is useful in alleviating Duhem-Quine auxiliary hypotheses associated with laboratory environments with real people.
+These kind of enquires into how differing experimental methods affect the accuracy of welfare characterizations are themselves experiments of a kind.
+In this section we propose two modifications to the experimental protocol employed by HNG and investigate how they differ from the expected welfare surplus predictions.
+The first of these proposals is a recommendation that would be familiar to any statistician: increase the sample size per subject by increasing the number of lottery pairs in the lottery instrument used in estimation.
+The second proposal is to forego any attempt to accurately classify subjects as EUT or RDU and instead use the fitted $\mathit{RDU_{Prelec}}$ models when they have passed the exclusionary rules set by HNG, and use non-excluded EUT models otherwise.
 
+For the second proposal, we utilize the choice data and model estimations from the simulation process described previously and simply change the critical value for the non-linear Wald test of linear probability from $0.05$ to $1$ so that the null hypothesis of linear probability weighting is rejected in every case.
+For the first proposal, however, we use the same simulated subjects used in all the analyses thus far, but have them each respond to the HNG lottery instrument 13 times instead of once for a total of $1040$ choices per subject.
+I refer to this 1040 choice lottery battery as the $\text{HNG}_{1040}$ instrument.
+The estimation procedure, application of exclusionary rules, and classification process is then applied to this new choice data to select a winning model for each subject.
+The parameter estimates of the winning model in each proposal are used to calculate the welfare surplus of the subject in the insurance task as before.
+Thus, the first proposal changes the experimental instrument used to estimate models leaving the exclusionary rules and classification process unchanged, while the second proposal leaves the experimental instrument and exclusionary rules unchanged and alters the classification process.
+The results of the classification process for the first proposal are presented in Figures \ref{fig:HNG_win_eut}, \ref{fig:HNG_win_pre}, and the estimated welfare surplus difference results are presented in Figures \ref{fig:HNG_wel_eut} and \ref{fig:HNG_wel_pre} for proposal 1, and in Figures \ref{fig:HNG1_def_wel_eut} and \ref{fig:HNG1_def_wel_pre} for proposal 2.
+The plots of the expected welfare surplus difference for the original HNG method, and the two new proposals are given in Figures \ref{fig:exwel-eut} and \ref{fig:exwel-pre}.
 
-That subjects operating the $\mathit{RDU_{Prelec}}$ model are expected to be the worst characterized by the model they have been classified as, but subjects that have been classified as operating a $\mathit{RDU_{Prelec}}$ are expected to be the best characterized by this model introduces interesting questions about the usefulness of the $\mathit{RDU_{Prelec}}$ model.
-Firstly, it is important to keep in mind that the welfare surplus characterizations given in this section are subject to the classification process; we are only considering the welfare consequences of this classification process, not of another process.
+ % WINNING
+\begin{figure}[hp!]
+	\center
+	\caption{Probability of \enquote{Winning} for EUT subjects - 1040 choices}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/HNG/win_05-EUT-win-HNG.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/HNG/win_05-EUT-win-HNG.pdf}
+	}
+	\label{fig:HNG_win_eut}
+\end{figure}
+
+\begin{figure}[hp!]
+	\center
+	\caption{Probability of \enquote{Winning} for $\mathit{RDU_{Prelec}}$ subjects - 1040 choices}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/HNG/win_05-PRE-win-HNG.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/HNG/win_05-PRE-win-HNG.pdf}
+	}
+	\label{fig:HNG_win_pre}
+\end{figure}
+
+Looking first at the classification power of the $\text{HNG}_{1040}$ instrument in Figures \ref{fig:HNG_win_eut} and \ref{fig:HNG_win_pre}, we see that the new instrument has significantly improved power overall, and that the variation of power over the range of parameter values follows much the same pattern as the original HNG instrument.
+In Figure \ref{fig:HNG_win_eut} we see that classification power is largely uniform across the entire range of parameters considered, with some small increase in the probability of EUT subjects classified as $\mathit{RDU_{Prelec}}$ as $\lambda$ values increase, and small increase in the probability of EUT subjects being classified as EUT as the CRRA value increases.
+The probability of correctly classifying EUT subjects as EUT is greater under the $\text{HNG}_{1040}$ instrument than the HNG instrument across the entire range of parameters considered.
+The rate of non-convergence in the $\text{HNG}_{1040}$ instrument however is also noticeably different in the $\text{HNG}_{1040}$ instrument.
+It is not perceptibly different from 0 across the entire range of parameters considered.
+
+In Figure \ref{fig:HNG_win_pre} we see that classification power of the $\text{HNG}_{1040}$ instrument follows the patterns of the HNG instrument, but more rapid changes in the slopes of the lines for each parameter except the CRRA parameter.
+The probability of an $\mathit{RDU_{Prelec}}$ subject being misclassified as EUT increases rapidly as the $\lambda$ parameter increases, and as either of the probability weighting parameters approach 1 from either side.
+The probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects as $\mathit{RDU_{Prelec}}$ however is again universally higher under the $\text{HNG}_{1040}$ instrument, and the probability of non-convergence is nearly 0 for almost the entire range of parameters considered.
+The probability of misclassification increases somewhat as $\lambda$ increases, as $\alpha$ and the CRRA parameters decrease, and increases rapidly as the $\beta$ parameter goes below 0.5.
+
+That we should generally see the same patterns as before, but with significantly greater probabilities of correctly classifying subjects across the whole ranges of parameter values considered should not be a surprise.
+The probabilities of type I and type II errors generally decrease with sample size in any econometric test, and so we should expect this result when we increase the per-subject sample size 13-fold.
+That the patterns of how the probabilities change with parameters values are much the same as before is due to the lottery pairs, considered models, and classification process being identical.
+With a different composition of the type of lottery pairs we would expect to see somewhat different probability patterns, perhaps increasing power in the parameter ranges we would expect to see from real subjects.
+
+The value of this increase classification power, as was stated before, lies in its ability to make better welfare characterizations.
+We can see the estimates of welfare surplus given the classification based on the $\text{HNG}_{1040}$ instrument in Figures \ref{fig:HNG_wel_eut} and \ref{fig:HNG_wel_pre}.
+In Figure \ref{fig:HNG_wel_eut} we see for EUT subjects that were classified correctly as EUT, that the expected welfare surplus difference is imperceptibly different from 0 across much of the range of parameters considered.
+In addition, even though EUT subjects classified as $\mathit{RDU_{Prelec}}$ have generally worse welfare surplus difference estimates, given the high likelihood of EUT subjects being correctly classified as EUT the expected welfare surplus difference is also very close to 0 for much of the parameter ranges considered.
+This indicates that not only is the classification process much more accurate, but the parameter estimates for the models are likely to more accurate as well.
+We see that as the CRRA value goes below $-0.5$ and the $\lambda$ value increase, welfare surplus difference becomes more negative for both classified models.
+
+% HNG WEL
+\begin{figure}[htp!]
+	\center
+	\caption{Welfare Surplus Difference of \enquote{Winning} Models for EUT subjects - 1040 choices}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/HNG/win_05-EUT-wel-HNG.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/HNG/win_05-EUT-wel-HNG.pdf}
+	}
+	\label{fig:HNG_wel_eut}
+\end{figure}
+
+In Figure \ref{fig:HNG_wel_pre} we see for $\mathit{RDU_{Prelec}}$ subjects that were classified correctly as $\mathit{RDU_{Prelec}}$, that the expected welfare surplus difference is also very close to 0 across much of the range of parameters considered, though not as close 
+
+\begin{figure}[hb!]
+	\center
+	\caption{Welfare Surplus Difference $\mathit{RDU_{Prelec}}$ subjects - 1040 choices}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/HNG/win_05-PRE-wel-HNG.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/HNG/win_05-PRE-wel-HNG.pdf}
+	}
+	\label{fig:HNG_wel_pre}
+\end{figure}
+
+% HNG_1 default WEL
+
+\begin{figure}[htp!]
+	\center
+	\caption{Welfare Surplus Difference for EUT subjects - 80 choices}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/HNG_1/default-EUT-wel-HNG_1.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/HNG_1/default-EUT-wel-HNG_1.pdf}
+	}
+	\label{fig:HNG1_def_wel_eut}
+\end{figure}
+
+\begin{figure}[hbp!]
+	\center
+	\caption{Welfare Surplus Difference for $\mathit{RDU_{Prelec}}$ subjects - 80 choices}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/HNG_1/default-PRE-wel-HNG_1.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/HNG_1/default-PRE-wel-HNG_1.pdf}
+	}
+	\label{fig:HNG1_def_wel_pre}
+\end{figure}
+
+\begin{figure}[htp!]
+	\center
+	\caption{Welfare Surplus Difference for EUT subjects}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/EUT-exwel-full.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/EUT-exwel-full.pdf}
+	}
+	\label{fig:exwel-eut}
+\end{figure}
+
+\begin{figure}[hbp!]
+	\center
+	\caption{Welfare Surplus Difference for $\mathit{RDU_{Prelec}}$ subjects - 80 choices}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/PRE-exwel-full.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HNG_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/PRE-exwel-full.pdf}
+	}
+	\label{fig:exwel-pre}
+\end{figure}
+
 
 \section{Conclusions}
 
 % Wilcox (2008), pg. 264)
 %In fact, this seems to be the case in most such simulated data sets with individual estimation when the fit comparison is confined to the same choice data used for estimation – that is, for in-sample fit comparisons.
 
+\break
 \section{Appendix - Numerical Optimizations}
 
 \textcite{Harrison2016} use the popular statistical software Stata to conduct their analysis, and Stata's modified Newton-Rhapson (NR) algorithm to find the maximum likelihood estimates.
