@@ -49,8 +49,6 @@
 \tableofcontents
 \end{frame}
 
-\section{Early Evidence of Anomalies}
-
 \begin{frame}
 \frametitle{The Grether and Plott Experiments}
 \begin{itemize}
@@ -115,6 +113,11 @@
 
 \begin{frame}
 \frametitle{Hey and Orme's Concerns}
+
+\enquote{\textelp{}our study indicates that behavior can be reasonably well modelled (to what might be termed a \enquote{reasonable approximation}) as \enquote{EU plus noise.}}
+
+\hfill \break
+
 \enquote{The inferences that can be drawn \textelp{} about the adequacy or otherwise of EU are not, however, clear cut - mainly because of the large number of generalizations of EU under consideration.
 As this research has evolved, and the number of generalizations under consideration has increased, the number of subjects for whom EU emerges as \enquote{the winners} has declined. 
 This is inevitable, though it is not clear how one should judge the rate of decline.
@@ -136,6 +139,8 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 		\end{itemize}
 \end{itemize}
 \end{frame}
+
+\section{Simulation Approach}
 
 \begin{frame}
 \frametitle{Addressing these Concerns - A Simulation Approach}
@@ -263,20 +268,6 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 
 \begin{frame}
 \frametitle{Choice Probabilities}
-\begin{align}
-	\label{eq4:RE.2}
-	\begin{split}
-		{\Prob}(y_t = j) &= {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda_n} \left[ G(\beta_n,X_{kt}) - G(\beta_n,X_{jt}) \right] \right)\\
-		&= 1 - F\left( \dfrac{G(\beta_n,X_{kt}) - G(\beta_n,X_{jt})}{D(\beta_n,X_t)\lambda_n }  \right)
-	\end{split}
-\end{align}
-\begin{align}
-	\label{eq4:W.cu}
-	\begin{split}
-		&D(\beta_n,X_t) = \mathit{max}[u(x_{it})] - \mathit{min}[u(x_{it})]\\
-		&\mathit{st.}\; w_i(x_{it}) \neq 0
-	\end{split}
-\end{align}
 \begin{equation}
 	\label{eq4:RE.f}
 	{\Prob}(y_t=j) =\dfrac{\exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)}{  \exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right) + \exp\!\left( \dfrac{ G(\beta_n,X_{kt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)    }
@@ -299,27 +290,28 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 	\item Pick the winner based on \textcite{Harrison2016} method
 \end{itemize}
 \end{frame}
-
-\begin{frame}
-\frametitle{Simulation Process}
-\begin{itemize}
-	\item Fit 6 General Additive Models (GAM) \parencite{Hastie1986} across all the simulated data
-	\begin{align}
-		\label{eq4:GAM}
-		\begin{split}
-			{\Prob}(win = EUT ~&|~ S = EUT) = s(r) + s(\lambda)\\
-			{\Prob}(win = RDU ~&|~ S = EUT) = s(r) + s(\lambda)\\
-			{\Prob}(win = NA  ~&|~ S = EUT) = s(r) + s(\lambda)\\
-			{\Prob}(win = EUT ~&|~ S = RDU) = s(r) + s(\alpha) + s(\beta) + s(\lambda)\\
-			{\Prob}(win = RDU ~&|~ S = RDU) = s(r) + s(\alpha) + s(\beta) + s(\lambda)\\
-			{\Prob}(win = NA  ~&|~ S = RDU) = s(r) + s(\alpha) + s(\beta) + s(\lambda)
-		\end{split}
-	\end{align}
-	\item Use logit linking function.
-	\item Allows us to predict probability of a model being the winner, given model employed by subject and parameters
-\end{itemize}
-\end{frame}
-
+%
+%\begin{frame}
+%\frametitle{Simulation Process}
+%\begin{itemize}
+%	\item Fit 6 General Additive Models (GAM) \parencite{Hastie1986} across all the simulated data
+%	\begin{align}
+%		\label{eq4:GAM}
+%		\begin{split}
+%			{\Prob}(win = EUT ~&|~ S = EUT) = s(r) + s(\lambda)\\
+%			{\Prob}(win = RDU ~&|~ S = EUT) = s(r) + s(\lambda)\\
+%			{\Prob}(win = NA  ~&|~ S = EUT) = s(r) + s(\lambda)\\
+%			{\Prob}(win = EUT ~&|~ S = RDU) = s(r) + s(\alpha) + s(\beta) + s(\lambda)\\
+%			{\Prob}(win = RDU ~&|~ S = RDU) = s(r) + s(\alpha) + s(\beta) + s(\lambda)\\
+%			{\Prob}(win = NA  ~&|~ S = RDU) = s(r) + s(\alpha) + s(\beta) + s(\lambda)
+%		\end{split}
+%	\end{align}
+%	\item Use logit linking function.
+%	\item Allows us to predict probability of a model being the winner, given model employed by subject and parameters
+%\end{itemize}
+%\end{frame}
+%
+\section{Power Results}
 \begin{frame}
 \frametitle{EUT Subjects}
 \begin{figure}[h!]
@@ -340,6 +332,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 \end{figure}
 \end{frame}
 
+\section{Welfare Estimation}
 \begin{frame}
 \frametitle{Welfare Estimation}
 \begin{itemize}
@@ -384,24 +377,24 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 	\item Also provides a metric of how much we should care about classification
 \end{itemize}
 \end{frame}
-
-\begin{frame}
-\frametitle{Welfare Estimation}
-\begin{itemize}
-	\item Fit 4 more GAM models
-	\begin{align}
-		\label{eq4:GAM}
-		\begin{split}
-			WSD ~|~ (win = EUT , S = EUT) &= s(r) + s(\lambda)\\
-			WSD ~|~ (win = RDU , S = EUT) &= s(r) + s(\lambda)\\
-			WSD ~|~ (win = EUT , S = RDU) &= s(r) + s(\alpha) + s(\beta) + s(\lambda)\\
-			WSD ~|~ (win = RDU , S = RDU) &= s(r) + s(\alpha) + s(\beta) + s(\lambda)
-		\end{split}
-	\end{align}
-	\item Allows us to predict WSD of winning model, given model employed by subject and parameters
-\end{itemize}
-\end{frame}
-
+%
+%\begin{frame}
+%\frametitle{Welfare Estimation}
+%\begin{itemize}
+%	\item Fit 4 more GAM models
+%	\begin{align}
+%		\label{eq4:GAM}
+%		\begin{split}
+%			WSD ~|~ (win = EUT , S = EUT) &= s(r) + s(\lambda)\\
+%			WSD ~|~ (win = RDU , S = EUT) &= s(r) + s(\lambda)\\
+%			WSD ~|~ (win = EUT , S = RDU) &= s(r) + s(\alpha) + s(\beta) + s(\lambda)\\
+%			WSD ~|~ (win = RDU , S = RDU) &= s(r) + s(\alpha) + s(\beta) + s(\lambda)
+%		\end{split}
+%	\end{align}
+%	\item Allows us to predict WSD of winning model, given model employed by subject and parameters
+%\end{itemize}
+%\end{frame}
+%
 \begin{frame}
 \frametitle{ $\mathit{RDU_{Prelec}}$ Subjects}
 \begin{figure}[hb!]
@@ -422,6 +415,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 \end{figure}
 \end{frame}
 
+\section{Alternative Approaches}
 \begin{frame}
 \frametitle{Alternative Approaches}
 \begin{itemize}
@@ -455,7 +449,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 			\item Whenever a $\mathit{RDU_{Prelec}}$ model has converged for a subject, use it, otherwise use the EUT model. ($\mathit{RDU_{Prelec}}$ is the \enquote{default} model)
 			\item Motivated by the lower costs to EUT subjects being classified as $\mathit{RDU_{Prelec}}$ compared to $\mathit{RDU_{Prelec}}$ subjects being classified as EUT.
 		\end{itemize}
-	\item Same simulated subjects from before, newly fitted GAM models
+	\item Same simulated subjects from before
 \end{itemize}
 \end{frame}
 
@@ -491,6 +485,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 \end{itemize}
 \end{frame}
 
+\section{Hypothetical Case}
 \begin{frame}
 \frametitle{Hypothetical Case}
 \begin{itemize}
@@ -501,7 +496,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 			\item $\alpha  \sim \mathit{Lognormal}(0.65, 0.1)$
 			\item $\lambda \sim \mathit{Lognormal}(1.65, 0.1)$
 		\end{itemize}
-	\item Predict average WSD for each of these populations using GAM estimates
+	\item Predict average WSD for each of these populations
 \end{itemize}
 \end{frame}
 
@@ -615,11 +610,11 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 	\item This population would need to be greater than 89.6\% EUT subjects for HN approach to result in more accurate welfare estimates on average.
 		\begin{itemize}
 			\item Current evidence and power calculations done here don't support that level of EUT subjects.
-			\item Assumes we care equally about EUT and $\mathit{RDU_{Prelec}}$ subjects from a policy perspective.
 		\end{itemize}
 \end{itemize}
 \end{frame}
 
+\section{Caution and Wild Speculation}
 \begin{frame}
 \frametitle{Caution and Wild Speculation}
 \begin{itemize}
@@ -640,6 +635,10 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 \begin{frame}
 \frametitle{Caution and Wild Speculation}
 \begin{itemize}
+	\item Assumes we care equally about EUT and $\mathit{RDU_{Prelec}}$ subjects from a policy perspective.
+		\begin{itemize}
+			\item Subgroups correlated with probability weighting?
+		\end{itemize}
 	\item EUT is flexible, so where are the power calculations on semi-parametric EUT models?
 		\begin{itemize}
 			\item Can RDU actually be misidentified \enquote{weird} EUT?
