@@ -53,16 +53,16 @@ Both of these instruments are detailed in full in Appendix C of \textcite{Harris
 For each individual, HN use the data recovered in the lottery task to estimate four models which can be described in the framework of Rank Dependent Utility (RDU) as first proposed by \textcite{Quiggin1982}:
 \begin{equation}
 	\label{eq4:RDU}
-	RDU = \sum_{i=1}^{I} \left[ w_i(p) \times u(x_i) \right]
+	RDU = \sum_{c=1}^{C} \left[ w_c(p) \times u(x_c) \right]
 \end{equation}
-\noindent where $i$ indexes the outcomes, $x_i$, from $\{1,\ldots,I\}$ with $i=1$ being the smallest outcome in the lottery and $i=I$ being the greatest outcome in the lottery, $u(\cdot)$ is a standard utility function, $w_i(\cdot)$ decision weight function applied to outcome $i$ given the distribution of probabilities in the lottery ranked by outcome, $p$.
-The decision weight function, $w_i(\cdot)$, takes the form:
+\noindent where $c$ indexes the outcomes, $x_c$, from $\{1,\ldots,C\}$ with $c=1$ being the smallest outcome in the lottery and $c=C$ being the greatest outcome in the lottery, $u(\cdot)$ is a standard utility function, $w_c(\cdot)$ decision weight function applied to outcome $c$ given the distribution of probabilities in the lottery ranked by outcome, $p$.
+The decision weight function, $w_c(\cdot)$, takes the form:
 \begin{equation}
 	\label{eq4:dweight}
-	w_i(p) =
+	w_c(p) =
 	\begin{cases}
-		\omega\left(\displaystyle\sum_{j=i}^I p_j\right) - \omega\left(\displaystyle\sum_{k=i+1}^I p_k\right) & \text{for } i<I \\
-		\omega(p_i) & \text{for } i = I
+		\omega\left(\displaystyle\sum_{k=c}^C p_k\right) - \omega\left(\displaystyle\sum_{k=c+1}^C p_k\right) & \text{for } c<C \\
+		\omega(p_c) & \text{for } c = C
 	\end{cases}
 \end{equation}
 \noindent where the probability weighting function, $\omega(\cdot)$, can take a variety of parametric or non-parametric forms.
@@ -70,32 +70,32 @@ HN estimate four probability weighting functions (pwf).
 The first pwf is the linear function:
 \begin{equation}
 	\label{eq4:pw:eut}
-	\omega(p_i) = p_i
+	\omega(p_c) = p_c
 \end{equation}
 
 \noindent The second pwf is the power function ($\mathit{RDU_{Pow}}$) used by \textcite{Quiggin1982}:
 \begin{equation}
 	\label{eq4:pw:pow}
-	\omega(p_i)=p_i^\gamma
+	\omega(p_c)=p_c^\gamma
 \end{equation}
 
 \noindent where $\gamma > 0$. 
 The third pwf is the \enquote{Inverse-S} shaped function ($\mathit{RDU_{Invs}}$) popularized by \textcite{Tversky1992}:
 \begin{equation}
 	\label{eq4:pw:inv}
-	\omega(p_i) = \frac{p_i^\gamma}{\biggl(p_i^\gamma + {(1-p_i)}^\gamma\biggr)^{ \frac{1}{\gamma} } }
+	\omega(p_c) = \frac{p_c^\gamma}{\biggl(p_c^\gamma + {(1-p_c)}^\gamma\biggr)^{ \frac{1}{\gamma} } }
 \end{equation}
 
 \noindent where $\gamma > 0$. 
 The fourth pwf is the flexible function proposed by \textcite{Prelec1998} ($\mathit{RDU_{Prelec}}$):
 \begin{equation}
 	\label{eq4:pw:pre}
-	\omega(p_i)=\exp(-\beta(-\ln(p_i))^\alpha)
+	\omega(p_c)=\exp(-\beta(-\ln(p_c))^\alpha)
 \end{equation}
 \noindent where $\alpha > 0$ and $\beta > 0$.
 
 The functional form of an RDU model with the linear probability weighting function in equation (\ref{eq4:pw:eut}) is equivalent to Expected Utility Theory (EUT), and will be referred to as EUT throughout.
-In all the remaining probability weighting functions, there exist values for the probability weighting parameters which allow $w_i(p) = p_i$, the special case of EUT.
+In all the remaining probability weighting functions, there exist values for the probability weighting parameters which allow $w_c(p) = p_c$, the special case of EUT.
 For all four models, \textcite{Harrison2016} use the CRRA utility function:
 \begin{equation}
 	\label{eq4:CRRA}
@@ -103,42 +103,42 @@ For all four models, \textcite{Harrison2016} use the CRRA utility function:
 \end{equation}
 \noindent where $r$ is the coefficient of relative risk aversion proposed by \textcite{Pratt1964}.
 
-I continue to use the notation used in chapters 2 and 3 to describe a choice scenario by a subject, but limit it to a binary choice between two options, $j$ and $k$.
-In this framework a choice of option $j$ in task $t$ is indicated by the function $y_t = j$, where $y_t = 1 \geq^n y_t = 2$.
-The values of $j$ and $k$ do not indicate the order or frame with which the options in task $t$ were presented to the subject, but rather the ordinal rank the subject's utility function assigns to the options, with 1 always being the option of greatest utility.
+I continue to use the notation used in chapters 2 and 3 to describe a choice scenario by a subject, but limit it to a binary choice between two options, $a$ and $b$.
+In this framework a choice of option $a$ in task $t$ is indicated by the function $y_t = a$, where $y_t = 1 \geq^i y_t = 2$.
+The values of $a$ and $b$ do not indicate the order or frame with which the options in task $t$ were presented to the subject, but rather the ordinal rank the subject's utility function assigns to the options, with 1 always being the option of greatest utility.
 This notation is useful when describing the welfare consequences of choices below.
 
 \textcite{Harrison2016} also use Contextual Utility (CU), as defined by \textcite{Wilcox2008}, as the stochastic model.
-Thus for the models utilized, the probability that option $j$ is chosen is given by:
+Thus for the models utilized, the probability that option $a$ is chosen is given by:
 \begin{align}
 	\label{eq4:RE.2}
 	\begin{split}
-		{\Prob}(y_t = j) &= {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda_n} \left[ G(\beta_n,X_{kt}) - G(\beta_n,X_{jt}) \right] \right)\\
-		&= 1 - F\left( \dfrac{G(\beta_n,X_{kt}) - G(\beta_n,X_{jt})}{D(\beta_n,X_t)\lambda_n }  \right)
+		{\Prob}(y_t = a) &= {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda_i} \left[ G(\beta_i,X_{bt}) - G(\beta_i,X_{at}) \right] \right)\\
+		&= 1 - F\left( \dfrac{G(\beta_i,X_{bt}) - G(\beta_i,X_{at})}{D(\beta_i,X_t)\lambda_i }  \right)
 	\end{split}
 \end{align}
 
-\noindent where $\epsilon_t$ is a mean 0 error term, $F$ is a symmetric cumulative distribution function (cdf), meaning $1 - F(x)  = F(-x)$, $G(\cdot)$ is the RDU utility model that takes the parameters $\beta_n$ to calculate the utility of lottery $j$ or $k$ in task $t$ comprised of outcomes and probabilities $X_{jt}$, and $\lambda_n$ is a precision parameter.
+\noindent where $\epsilon_t$ is a mean 0 error term, $F$ is a symmetric cumulative distribution function (cdf), meaning $1 - F(x)  = F(-x)$, $G(\cdot)$ is the RDU utility model that takes the parameters $\beta_i$ to calculate the utility of lottery $a$ or $b$ in task $t$ comprised of outcomes and probabilities $X_{at}$, and $\lambda_i$ is a precision parameter.
 The function $D(\cdot)$ separates contextual utility from a Strong Utility model:
 \begin{align}
 	\label{eq4:W.cu}
 	\begin{split}
-		&D(\beta_n,X_t) = \mathit{max}[u(x_{it})] - \mathit{min}[u(x_{it})]\\
-		&\mathit{st.}\; w_i(x_{it}) \neq 0
+		&D(\beta_i,X_t) = \mathit{max}[u(x_{ct})] - \mathit{min}[u(x_{ct})]\\
+		&\mathit{st.}\; w_c(x_{ct}) \neq 0
 	\end{split}
 \end{align}
 
 Usually, the Normal or Logistic cdf is chosen for $F$, and I employ the Logistic cdf for all calculations throughout.
-Given that each choice considered here only involves two lottery options, we can define the probability of choosing option $j$ given a particular model, parameter set $\beta_n$, precision parameter $\lambda_n$, and outcomes and probabilities of option $j$, $X_{jt}$, as
+Given that each choice considered here only involves two lottery options, we can define the probability of choosing option $a$ given a particular model, parameter set $\beta_i$, precision parameter $\lambda_i$, and outcomes and probabilities of option $a$, $X_{at}$, as
 \begin{equation}
 	\label{eq4:RE.f}
-	{\Prob}(y_t=j) =\dfrac{\exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)}{  \exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right) + \exp\!\left( \dfrac{ G(\beta_n,X_{kt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)    }
+	{\Prob}(y_t=j) =\dfrac{\exp\!\left( \dfrac{ G(\beta_i,X_{at}) }{ D(\beta_i,X_{t})\lambda_i }  \right)}{  \exp\!\left( \dfrac{ G(\beta_i,X_{at}) }{ D(\beta_i,X_{t})\lambda_i }  \right) + \exp\!\left( \dfrac{ G(\beta_i,X_{bt}) }{ D(\beta_i,X_{t})\lambda_i }  \right)    }
 \end{equation}
 
 \noindent These choice probabilities in turn are logged and summed to produce a log-likelihood function for each of the four different models:
 \begin{equation}
 	\label{eq4:ll}
-	\ensuremath{\mathit{LL_n}} = \sum_{t}^T \ln \left[ {\Prob}(y_t) \right]
+	\ensuremath{\mathit{LL_i}} = \sum_{t}^T \ln \left[ {\Prob}(y_t) \right]
 \end{equation}
 
 As a metric of welfare, \textcite{Harrison2016} primarily use the consumer surplus (CS) of each choice.
@@ -148,8 +148,8 @@ Since the CRRA utility function defined in equation (\ref{eq4:CRRA}) is used for
 \begin{align}
 	\label{eq4:CEcalc}
 	\begin{split}
-		&\sum_{i=1}^{I} w_i(p) \frac{x_{ij}^{(1-r)}}{(1-r)} = \frac{ {\CE}_j^{(1-r)}}{(1-r)}\\
-		&{\CE}_j =  \left( (1-r) \times \sum_{i=1}^{I} w_i(p) \frac{x_{ij}^{1-r}}{(1-r)} \right)^{ \displaystyle\nicefrac{1}{(1-r)} } ,
+		&\sum_{c=1}^{C} w_c(p) \frac{x_{ca}^{(1-r)}}{(1-r)} = \frac{ {\CE}_a^{(1-r)}}{(1-r)}\\
+		&{\CE}_a =  \left( (1-r) \times \sum_{c=1}^{C} w_c(p) \frac{x_{ca}^{1-r}}{(1-r)} \right)^{ \displaystyle\nicefrac{1}{(1-r)} } ,
 	\end{split}
 \end{align}
 
@@ -157,14 +157,14 @@ Since the CRRA utility function defined in equation (\ref{eq4:CRRA}) is used for
 
 \begin{equation}
 	\label{eq4:wsurplus}
-	\Delta W_{nt} =  {\CE}_{nyt} - {\CE}_{n1t}^Z ,
+	\Delta W_{it} =  {\CE}_{iyt} - {\CE}_{i1t}^Z ,
 \end{equation}
 
 \noindent and the accumulated welfare surplus as:
 
 \begin{equation}
 	\label{eq4:wsurplusT}
-	\Delta W_{nT} = \sum_{t=1}^T \left( {\CE}_{nyt} - {\CE}_{n1t}^Z \right)
+	\Delta W_{iT} = \sum_{t=1}^T \left( {\CE}_{iyt} - {\CE}_{i1t}^Z \right)
 \end{equation}
 
 \noindent where the $y$ subscript indicates the option chosen (either 1 or 2 in the binary scenario we consider here), and the $Z$ superscript indicates the remaining, unchosen options, of which the {\CE} with the greatest value, designated by the subscript 1, is considered the foregone opportunity.
@@ -172,18 +172,18 @@ Since the CRRA utility function defined in equation (\ref{eq4:CRRA}) is used for
 \textcite[106]{Harrison2016} consider an additional metric of forgone welfare surplus as the difference between the maximal {\CE} for every choice and the {\CE} of the option actually chosen by the subject
 \begin{equation}
 	\label{eq4:wforgone}
-	\Delta F_{nt} = -1 \times \left( {\CE}_{n1t} - {\CE}_{nyt} \right) , 
+	\Delta F_{it} = -1 \times \left( {\CE}_{i1t} - {\CE}_{iyt} \right) , 
 \end{equation}
 
 \noindent and the accumulated forgone welfare surplus
 
 \begin{equation}
 	\label{eq4:wforgoneT}
-	\Delta F_{nT} = \sum_{t=1}^T  -1 \times \left( {\CE}_{n1t} - {\CE}_{nyt} \right)
+	\Delta F_{iT} = \sum_{t=1}^T  -1 \times \left( {\CE}_{i1t} - {\CE}_{iyt} \right)
 \end{equation}
 
 \noindent With these metrics, the best possible value for any subject is 0, which would indicate that all choices made were optimal, whereas any positive value indicates the amount of welfare surplus forgone by the subject due to choice errors.
-These metrics line up easily with the metrics defined in equations (\ref{eq4:wsurplus}) and (\ref{eq4:wsurplusT}), as should $y_t \neq 1$, ${\CE}_{n1t}^Z = {\CE}_{n1t}$.
+These metrics line up easily with the metrics defined in equations (\ref{eq4:wsurplus}) and (\ref{eq4:wsurplusT}), as should $y_t \neq 1$, ${\CE}_{i1t}^Z = {\CE}_{i1t}$.
 
 \textcite{Harrison2016} estimate values of the CRRA utility parameter, $r$, the probability weighting parameters, $\gamma, \alpha, \beta$, and the stochastic parameter $\lambda$, for each of the models presented above via maximum likelihood estimation (MLE) using the choices made by the subjects in the lottery task.
 \textcite[107,110]{Harrison2016} initially calculate the welfare consequences of the choices made by each subject by using only the point estimates from the MLE, and then employ a bootstrap method which incorporates the covariance matrix of the standard errors.
@@ -466,10 +466,10 @@ Therefore the difference between the estimated and real welfare is given by:
 
 \begin{equation}
 	\label{eq4:wsurplusDiff}
-	\text{WSD}_N = \Delta W_{nT}(\hat{\Omega}_N) - \Delta W_{nT}(\Omega)
+	\text{WSD}_N = \Delta W_{iT}(\hat{\Omega}_N) - \Delta W_{iT}(\Omega)
 \end{equation}
 
-\noindent where $N$ is the model the subject has been classified as employing, $\Omega$ is the set of parameters that define the utility function actually employed by subject $n$, and $\hat{\Omega}_N$ is the set of estimated parameters for model $N$ for subject $n$.
+\noindent where $N$ is the model the subject has been classified as employing, $\Omega$ is the set of parameters that define the utility function actually employed by subject $i$, and $\hat{\Omega}_N$ is the set of estimated parameters for model $N$ for subject $i$.
 If the subject has been misclassified, $\Omega$ and $\hat{\Omega}_N$ will not represent the same set of parameters.
 Just as we predicted probabilities of classification in equation (\ref{eq4:GAM}), we can predict the difference in estimated welfare surplus and real welfare surplus given by equation (\ref{eq4:wsurplusDiff}).
 \begin{align}

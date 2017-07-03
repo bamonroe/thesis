@@ -21,6 +21,9 @@
 
 \usepackage{afterpage}
 
+%% FOR ABstract only%
+%\usepackage{titling}
+
 
 % Need to specfy path to figures for the graphicx package
 \graphicspath{{ch1/figures/}{ch2/figures/}{ch3/figures/}{ch4/figures/}{figures/}}
@@ -61,7 +64,7 @@
 \usepackage[stretch=15]{microtype}	% Read about this, tested it, and was sold.
 \usepackage[backend=biber, uniquename=false, refsegment=chapter, doi=false, isbn=false, url=false, style=authoryear-comp, maxnames=99]{biblatex}	%For bibliography stuff
 \renewbibmacro{in:}{}
-\addbibresource{/home/bam/thesis/thesis/library.bib}	% The path to the bibliography file
+\addbibresource{/home/bam/thesis/library.bib}	% The path to the bibliography file
 
 % Convenience Commands
 \newcommand\CE{\ensuremath{\mathit{CE}}}    % Certainty Equivalent
