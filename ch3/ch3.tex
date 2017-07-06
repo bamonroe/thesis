@@ -8,28 +8,24 @@
 
 \lltoc % Table of contents only when locally compiled
 
-Given the discussion about how the various stochastic models generally support incorporation of the normative notion of welfare, I like to reintroduce the question asked earlier in Chapter 2, section 2.2:
+Given the discussion about how the various stochastic models generally support incorporation of the normative notion of welfare, I reintroduce the question asked earlier in Chapter 2, section 2.2:
 \enquote{What are the likely welfare implications of an economic agent's choices in an incentivized risky environment given an assumed stochastic model of risky choice?}
 The conclusion for the Random Preference (RP) model and its derivative, the Random Preference Per Option (RPPO) model, is \enquote{no perfectly coherent statements can be made.}
-As stated in the conclusion of Chapter 2, the Random Error (RE) and Tremble (TR) models do not suffer from this inadequacy, and will be referred to as \enquote{coherent models}. 
-In this chapter, I continue to answer the primary question by utilizing coherent stochastic models, a popular experimental preference elicitation instrument, and simulation methods to derive numerical characterizations of welfare.
+As stated in the conclusion of Chapter 2, the Random Error (RE) and Tremble (TR) models do not suffer from this inadequacy, and will be referred to as \enquote{coherent models}.
+%In this chapter, I continue to answer the primary question by utilizing coherent stochastic models, a popular experimental preference elicitation instrument, and simulation methods to derive numerical characterizations of welfare.
 
-In the Stochastic Money Pump (SMP) thought experiment discussed in Chapter 2, section 2.4, the welfare implications of Beth and Cate's choices could be assessed because I assumed an experimenter had already identified the stochastic specification which completely characterized their choices.
-Identifying a stochastic specification typically requires that one present an experimental subject with a series of incentivized choice problems in which the subjects are asked to select an option from a set of alternatives.
-Additionally, these incentives are generally required to satisfy the precepts for microeconomic environments described by \textcite{Smith1982}.
-With these conditions holding, the subject's choices in such an experiment are assumed to reveal their preferences.
-But, as we have seen with the SMP example, even coherent stochastic models imply that most choices by an economic agent can be characterized as welfare suboptimal with a probability less than or equal to the probability of the choice being optimal.
-This applies to choices which are apparently incompatible with optimality, as well as choices which can be rationalized as optimal.
-This property of stochastic models can lead to misidentification of the parameter set $\beta$ which shapes the stochastic specification.
-This, in turn, can lead to a mis-characterization of the welfare effects of certain choices.
-To understand the consequences of an assumed stochastic model, I look at another numerical example utilizing the popular Multiple Price List (MPL) proposed by \textcite{Holt2002} (HL).
+Many stochastic models make specific restrictions on the probabilities associated with certain special choice scenarios.
+For instance, options in a choice scenario which are first order stochastically dominated (FOSD) by another option are prohibited under the RP model and severely restricted under many heteroscedastic RE models.
+For any choice scenario, an option which is FOSD by another option can also be said to provide the subject with less utility, and thus less welfare.
+Thus, at the individual choice level there is a perfect relationship between likelihood and welfare realization.
+In this chapter, I make clear that this relationship between likelihood and welfare realization does not hold for aggregated choice patterns.
+I also show that choice patterns which display behavior that cannot be rationalized by a utility function can often provide greater welfare realization than choice patterns which can be.
+
+How often this divergence between welfare realization and likelihood occurs and the extent to which this divergence in welfare terms is meaningful for an individual agent depends on the nature of the choice scenarios presented to the agent and the agent's preferences.
+Additionally, the likelihood of an agent holding preferences in a population of interest will determine how likely we are to observe choice patterns that are able to be rationalized, but are in fact suboptimal.
+To help understand the relationship between the likelihood of observing a choice pattern and its potential welfare consequences, I conduct a numerical exercise with methods related to Maximum Simulated Likelihood (MSL) and Utilizing the popular Multiple Price List (MPL) proposed by \textcite{Holt2002} (HL) for a given hypothetical population of agents.
+To understand how the distribution of preferences in a population influence the expected welfare realization of a population, I repeat this analysis for many different populations.
 First however, I revisit some notation from Chapter 2, briefly describe some econometric methods for identification, and then propose some further notation to make concepts cleaner.
-
-%We consider knowledge of the welfare of individual agents of great importance to economists.
-%It is often the case, however, in the application of economic principals knowledge of the welfare consequences to any given individual matters less than the welfare consequences to groups of individuals.
-%For example, when a government policy compels citizens to make an economic choice, such as the purchase of health insurance or the payment of a penalty, the government or those analyzing the policy may be concerned with the welfare effects of this policy across the entire citizenry, not just the effect of a given citizen.
-%With a policy such as this, many citizens with differing preferences may make exactly the same choice to purchase or not purchase the insurance product, with some citizens mistakenly purchasing or not purchasing the insurance product.
-%A government or policy analyst may want to know the distribution of welfare consequences among those who have or have not purchased the insurance in order to make better policy or policy recommendations with respect to welfare.
 
 \section{Notation and Estimation} \label{ssec:Notation}
 
@@ -109,8 +105,8 @@ We could take the log of equation (\ref{eq3:PiT}) and conduct standard maximum l
 	\hat{\beta}_i = \underset{x}{\operatorname{arg\,max}}\sum_t^T \ln \left( P_{it}(\beta_i) \right)
 \end{equation}
 
-We can utilize this estimator to recover the {\CE} for every option in every task, and then utilize these \CE s to recover our best estimate of the proportion of welfare the subject obtained. 
-While conducting welfare analysis given individually estimated parameter vectors is rare in the economics literature,{\footnotemark} the recovery of parameter vectors through MLE is as common as the welfare analysis is rare.
+We can utilize this estimator to recover the {\CE} for every option in every task, and then utilize these \CE s to recover our best estimate of the proportion of welfare the subject obtained.
+While conducting welfare analysis given individually estimated parameter vectors is rare in the economics literature,{\footnotemark} the recovery of parameter vectors through MLE is relatively common.
 \textcite{Hey1994}, \textcite{Wilcox2015} and \textcite{Hey2001} provide several prominent examples of parameter estimation.
 These particular examples, however, are distinctly different from other uses of MLE in experimental economics, primarily because equation (\ref{eq3:Bn}) is estimated for every subject individually, as opposed to pooling all subject data together and estimating a parameter vector for one, representative agent (RA), as proposed in the pioneering \textcite{Camerer1994}.
 
@@ -119,10 +115,8 @@ These particular examples, however, are distinctly different from other uses of 
 	An example of this kind of analysis is \textcite{Harrison2016}
 }
 
-
 %% EDIT
 % Make sure the below Harrison and Rutstrom quote is correct, and the citation is for the correct paper
-
 
 There are legitimate methodological (and practical) reasons for modeling choices across subjects as the choices of a single RA.
 For instance, the analyst could be primarily concerned with the economic characteristics of the whole sample, rather than with the individuals composing the sample.
@@ -148,7 +142,7 @@ For instance,
 \begin{align}
 	\label{eq3:PT_Mix}
 	\begin{split}
-		\bm{\mathit{P_T}} = \prod_t^T \left[ \sum_m^M \pi_m \times L_T^m(\beta^m) \right]\\ 
+		\bm{\mathit{P_T}} = \prod_t^T \left[ \sum_m^M \pi_m \times L_T^m(\beta^m) \right]\\
 		\mathit{st.} \sum_m^M \pi_m = 1
 	\end{split}
 \end{align}
@@ -158,7 +152,7 @@ Similarly, the log-likelihood for finite mixture models is defined as:
 \begin{align}
 	\label{eq3:LPT_Mix}
 	\begin{split}
-		\bm{\mathit{LP_T}} = \sum_t^T \left[ \ln \left( \sum_m^M \pi_m \times L_T^m(\beta^m) \right) \right]\\ 
+		\bm{\mathit{LP_T}} = \sum_t^T \left[ \ln \left( \sum_m^M \pi_m \times L_T^m(\beta^m) \right) \right]\\
 		\mathit{st.} \sum_m^M \pi_m = 1
 	\end{split}
 \end{align}
@@ -173,40 +167,39 @@ For instance, an analyst could use a mixture model to determine what proportion 
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
-	This process could be used to help with the econometric limitations of the pure RP model, since those subjects who violate FOSD can be picked up by an alternative model which permitted such violations. 
+	This process could be used to help with the econometric limitations of the pure RP model, since those subjects who violate FOSD can be picked up by an alternative model which permitted such violations.
 	This process, of course, doesn't resolve the RP model's normative failures discussed in chapter 2.
 }
- 
+
 There are also some methodological problems, or at least limitations, when conducting estimation on pooled data.
-The estimates represent the means of the relevant parameters in the sample, but often the distributions of these parameters and whether these distributions are correlated provide more important information to analysts.{\footnotemark} 
+The estimates represent the means of the relevant parameters in the sample, but the distributions of these parameters and whether these distributions are correlated can potentially provide more important information to analysts.{\footnotemark}
 While the methods described in equations (\ref{eq3:BB}) and (\ref{eq3:PT_Mix}) provide some insight into the heterogeneity of a pooled sample, this is mostly limited to estimating average deviations from the mean due to observable heterogeneity.
 While it is theoretically possible to have a mixture model with greater than two underlying stochastic specifications, in reality this is computationally demanding and thus the mixture model presented in (\ref{eq3:PT_Mix}) is often only utilized with two mixtures.
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
-	For an example of why it could be problematic to make inferences about a population from an estimate which represents the mean of a distribution of preferences consider a population that has preferences distributed as $\textit{Logit-Normal} \sim \mathcal{N}(0,5)$. 
+	For an example of why it could be problematic to make inferences about a population from an estimate which represents the mean of a distribution of preferences consider a population that has preferences distributed as $\textit{Logit-Normal} \sim \mathcal{N}(0,5)$.
 	Logit-Normal, which is a distribution in which the logistic function, $\Omega$, is applied to the realization of a Normal distribution $N(\mu, \sigma^2)$.
 	See Figure 2 of \textcite[83]{Andersen2012}.
-	This distribution is highly bi-modal, and the area around the mean of the distribution has very low density. 
-	Thus, if a single stochastic specification is estimated on a sample from this population, the estimated parameters representing their distributional means give highly misleading information about the choice behavior we would expect from individual agents sampled from this population. 
+	This distribution is highly bi-modal, and the area around the mean of the distribution has very low density.
+	Thus, if a single stochastic specification is estimated on a sample from this population, the estimated parameters representing their distributional means give highly misleading information about the choice behavior we would expect from individual agents sampled from this population.
 	In this case a mixture model of two models could potentially identify the modes, thus providing more, but still limited, information about the population.
 	A similar approach is utilized by \textcite{Conte2011}.
 }
 
 Estimating parameter vectors for every subject in a sample helps to improve on this limitation, as can \enquote{random coefficients} discussed below.
 If every subject has an individually estimated parameter vector, then an analyst can use the distribution of these estimates to approximate the distribution of parameter vectors of the population from which this sample was drawn.
-This is not perfect.
-However, since the individually estimated parameters are still estimates, and thus they all have associated standard errors and positive probabilities of misidentification.
+However, the individually estimated parameters are still estimates, and thus they all have associated standard errors and positive probabilities of misidentification.
 The likelihood of misidentification typically decreases with the number of choice tasks presented to subjects, just as standard errors are negatively correlated with sample size.
 \textcite{Hey1994} estimate parameters for individual subjects utilizing 100 choice tasks per subject in order minimize the potential for misidentification.
 \textcite{Hey2001} utilized 500 choice problems per subject.
 
-\addtocounter{footnote}{-1}
-\stepcounter{footnote}\footnotetext{
-	As discussed in Chapter 2, one primary concern of economic analysis is to provide useful information about the welfare implications of policy or institutional rules.
-	By and large, policy is written in a broad way so that it targets populations of individuals.
-	In this respect, knowledge of the distribution of preferences in a population provides useful information about the distribution of welfare effects of policy.
-}
+%\addtocounter{footnote}{-1}
+%\stepcounter{footnote}\footnotetext{
+%	As discussed in Chapter 2, one primary concern of economic analysis is to provide useful information about the welfare implications of policy or institutional rules.
+%	By and large, policy is written in a broad way so that it targets populations of individuals.
+%	In this respect, knowledge of the distribution of preferences in a population provides useful information about the distribution of welfare effects of policy.
+%}
 
 However, conducting experiments where subjects are required to give responses to a large number of tasks has practical problems, which then spill over and generate theoretical problems.
 Subjects can become bored or tired, which may make the tasks less salient or cause them to fail to satisfy the dominance criteria described by \textcite{Smith1982} and \textcite{Harrison1992}.
@@ -229,7 +222,7 @@ We can however weight this function by the likelihood of observing the $\beta$ v
 We call this weighted probability the unconditional probability:
 \begin{equation}
 	\label{eq3:Pit}
-	P_{it}(\theta) = \int P_{it}(\beta_i) f(\beta | \theta) d\beta	
+	P_{it}(\theta) = \int P_{it}(\beta_i) f(\beta | \theta) d\beta
 \end{equation}
 \noindent where $f(\beta|\theta)$ is the density function of the $\beta$ vector given some vector of hyper-parameters $\theta$ shaping the distribution of the $\beta$.
 
@@ -243,7 +236,7 @@ We call this weighted probability the unconditional probability:
 	This prior could then be incorporated to condition individual level estates and produce an individual level choice probability.
 	This Bayesian technique is different from the two approaches discussed here.
 	The individual level approach discussed here does not incorporate a distributional prior in its estimation process, while the unconditional approach generates choice probabilities directly from pooled data, not individual data.
-	If the unconditional approach discussed here was applied at an individual level, it would be equivalent to the Random Preference stochastic model.
+	%If the unconditional approach discussed here was applied at an individual level, it would be equivalent to the Random Preference stochastic model.
 }
 
 This unconditional probability can be substituted for the conditional probability used in equations (\ref{eq3:PiT}) and (\ref{eq3:LPiT}) to give us the unconditional likelihood equation:
@@ -275,11 +268,11 @@ The Halton routine is a numerical method to produce a sequence of numbers which 
 
 \addtocounter{footnote}{-2}
 \stepcounter{footnote}\footnotetext{
-	All \enquote{random} numbers generated by computers are in fact \enquote{pseudo-random} numbers produced algorithmically. 
-	\textcite[234]{Train2002} describes these numerical routines as follows: 
-	\enquote{The intent in \textins{the} design \textins{of pseudo-random routines} is to produce numbers that exhibit the properties of random draws. 
+	All \enquote{random} numbers generated by computers are in fact \enquote{pseudo-random} numbers produced algorithmically.
+	\textcite[234]{Train2002} describes these numerical routines as follows:
+	\enquote{The intent in \textins{the} design \textins{of pseudo-random routines} is to produce numbers that exhibit the properties of random draws.
 		The extent to which this intent is realized depends, of course, on how one defines the properties of \enquote{random} draws.
-		These properties are difficult to define precisely since randomness is a theoretical concept that has no operational counterpart in the real world.} 
+		These properties are difficult to define precisely since randomness is a theoretical concept that has no operational counterpart in the real world.}
 	Because of the non-existence of truly \enquote{random} number generators, the term \enquote{random} will be used in place of \enquote{pseudo-random} throughout this text.
 }
 \stepcounter{footnote}\footnotetext{
@@ -309,14 +302,16 @@ This is an easy extension of equation (\ref{eq3:SLiT}), which is logged for nume
 Maximum simulated likelihood (MSL) methods can be applied to this equation to return the MSL estimator $\hat{\theta}$ which maximizes this function.
 The characteristics of simulated estimators are reviewed in depth by \textcite[Chapter~10]{Train2002}, and the critical insight is that the estimator $\hat{\theta}$ derived from equation (\ref{eq3:SLLNT}) approaches the estimator from equation (\ref{eq3:LLiT}) with a sufficiently large, $H$, number of draws from the distribution governed by $\theta$.
 
-Estimating the distribution of preferences for a sample with MSL improves the analyst's position on multiple accounts.
-First, the limitation of estimating only the conditional mean preference parameter for pooled data with standard MLE is no longer binding.
+Estimating the distribution of preferences for a sample with may MSL improve the analyst's position over RA models with pooled data.
+The limitation of estimating only the conditional mean preference parameter for pooled data with standard MLE is no longer binding.
 Flexible distributions such as the Logit-Normal{\footnotemark} can be employed to estimate higher moments of the distribution such as the variance, skewness and kurtosis.
-Second, the necessity of asking every subject dozens of questions to estimate preference parameters subject-by-subject is eased by being able to pool data across subjects.
+This added flexiblity allows the analyst to have greater information about preferences at the sample level, and can also be used to make characterizations of welfare at the individual level.
+On the other hand, MSL routines are computationally intensive, and become even more so should MSL mixture models be attempted.
+Nonetheless, in the proceeding sections the usefulness of knowlege of the distributions of preferences in a population will be discussed.
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
-	\textcite[82]{Andersen2012} utilize the Logit-Normal distribution because of its high degree of flexibility and because \enquote{MSL algorithms developed for univariate or multivariate Normal distributions can be applied directly.} 
+	\textcite[82]{Andersen2012} utilize the Logit-Normal distribution because of its high degree of flexibility and because \enquote{MSL algorithms developed for univariate or multivariate Normal distributions can be applied directly.}
 	The figures they present \parencite*[83]{Andersen2012} display some of the flexible forms this distribution can take.
 }
 
@@ -326,11 +321,12 @@ Issues concerning statistical power and identification will be discussed in more
 Recall that it was assumed that the experimenter in the SMP thought experiment of Chapter 2 had complete knowledge of the stochastic specification utilized by each of the imagined subjects.
 This knowledge could have derived from asking each subject a sufficiently large number of questions under experimental conditions that satisfy the precepts for a valid economic experiment laid out by \textcite{Smith1982}{\footnotemark}, and then utilizing MLE and equation (\ref{eq3:PiT}) to retrieve accurate estimates of each subject's preferences.
 Assume that another experimenter asked a sufficiently large sample of subjects a battery of questions and was able to estimate the $\theta$ vector for this sample.
-In this section we will demonstrate that knowledge of the distribution of preferences in a population can provide estimates of individual agents' welfare that differ meaningfully from estimates of individual agents' welfare that would arise from individual level maximum estimation of preferences.
+In this section we will demonstrate that knowledge of the distribution of preferences in a population can provide useful information about the expected welfare of individual agents from this population for any given pattern of choices.
+%In this section we will demonstrate that knowledge of the distribution of preferences in a population can provide estimates of individual agents' welfare that differ meaningfully from estimates of individual agents' welfare that would arise from individual level maximum estimation of preferences.
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
-	\textcite{Smith1982} proposes several precepts as potentially necessary for drawing valid inferences from experimental data. 
+	\textcite{Smith1982} proposes several precepts as potentially necessary for drawing valid inferences from experimental data.
 	These are \enquote{Nonsatiation} \enquote{Saliency}\parencite[72]{Smith1982}, \enquote{Dominance} and \enquote{Privacy}\parencite[934]{Smith1982}.
 	\enquote{Nonsatiation} requires that an agent would prefer to have more of an outcome that she values to less.
 	\enquote{Saliency} requires that the rules and mechanisms that map an agent's actions to outcomes be understood and actionable by the agent, even if that mapping is stochastic.
@@ -390,7 +386,7 @@ The first of these observed choice behaviors is often referred to as multiple sw
 \textcite[1647]{Holt2002} observe that 28 of their 212 subjects exhibited MSB.
 Rather than discussing all of the potential reasons why a subject would exhibit MSB, we will assume a normatively coherent stochastic model and discuss the implications of MSB within it.
 
-The HL-MPL is a useful instrument to discuss the welfare implications of stochastic models not only because it is popular, but because the observed MSB is an apparent violation of EUT that is easy to notice visually without estimation.
+The HL-MPL instrument is a useful instrument to discuss the welfare implications of stochastic models not only because it is popular, but because the observed MSB is an apparent violation of EUT that is easy to notice visually without estimation.
 There is no deterministic EUT utility function which allows either the switching back and forth from option A to option B or the selection of a guaranteed, lower outcome over a guaranteed, higher outcome.
 Thus, any observance of MSB by an agent suggests that, at least under an EUT framework, maximal welfare has not been obtained.
 
@@ -405,7 +401,7 @@ We can define a \enquote{choice error} as any choice where the option chosen did
 Therefore a choice error in task $t$ is when $y_t \neq 1$, and an indicator function for choice errors given some vector of assumed utility parameters $\beta_i$ is given by:
 \begin{equation}
 	\label{eq3:Itb}
-	K_{t}(\beta_i) = 
+	K_{t}(\beta_i) =
 	\begin{cases}
 		 1 & y_t \neq 1\\
 		 0 & y_t = 1
@@ -418,7 +414,7 @@ Therefore a choice error in task $t$ is when $y_t \neq 1$, and an indicator func
 	M_T(\beta_i) = \sum_t^T K(\beta_i)
 \end{equation}
 
-Given the distribution parameter vector $\theta$, we can define the expected frequency of choice errors in the choice pattern $y_t \times T$ as:
+\noindent Given the distribution parameter vector $\theta$, we can define the expected frequency of choice errors in the choice pattern $y_t \times T$ as:
 \begin{equation}
 	\label{eq3:EMt}
 	\E(M | \theta) = \int M(\beta_i) f(\beta | \theta) d\beta
@@ -440,7 +436,7 @@ Because the distribution of choice errors is discrete, $M(\beta_i) \in [0,T] \su
 \noindent where
 \begin{equation}
 	\label{eq3:NMB}
-	N[M(\beta), e] = 
+	N[M(\beta), e] =
 	\begin{cases}
 		1 & M(\beta) = e\\
 		0 & M(\beta) \neq e
@@ -503,7 +499,8 @@ In Chapter 2 we described normatively coherent stochastic models as those models
 Individual $\beta_i$ parameter vectors are themselves drawn from a population of $\beta$ vectors.
 This distribution of $\beta$ vectors in the population is characterized by the parameter vector $\theta$.
 Throughout the following discussion, we will refer to a choice pattern's likelihood of being \textit{observed}, by which we mean the choice pattern's simulated likelihood as calculated in equation (\ref{eq3:SLiT}).
-This is the probability of a randomly drawn agent from the population defined by $\theta$ producing the choice pattern, thus the pattern's likelihood of being observed.
+This is the probability of observing a choice pattern given that it has been generated by an agent randomly drawn from the population defined by $\theta$.
+%This is the probability of a randomly drawn agent from the population defined by $\theta$ producing the choice pattern, thus the pattern's likelihood of being observed.
 Likewise, when we discuss the expected welfare implications of a choice pattern for a given population, we are discussing the expected welfare implications for an agent from that population who generated that choice pattern.
 
 To construct an explicit numerical example, we first define the models characterizing an individual agent's choice probabilities, and then the marginal distributions of the elements of $\beta$ which together define the population characterized by $\theta$.
@@ -547,25 +544,36 @@ Together these 4 parameters make the joint distribution-shaping parameter $\thet
 
 The metrics described in equations (\ref{eq3:SLiT}) and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) rely on a given choice pattern, $y_t \times T$.
 In the HL-MPL instrument there are a total of $2^{10}=1024$ choice patterns that can be observed.
-To begin the discussion of the welfare implications of stochastic choice models, we calculate the values for equations (\ref{eq3:SLiT}), and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) for all $\mathit{TT} =1024$ choice patterns and all $e \in[0,T]$ for the given $\theta$, with $H=2.5 \times 10^6$.{\footnotemark} 
+To begin the discussion of the welfare implications of stochastic choice models, we calculate the values for equations (\ref{eq3:SLiT}), and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) for all $\mathit{TT} =1024$ choice patterns and all $e \in[0,T]$ for the given $\theta$, with $H=2.5 \times 10^6$.{\footnotemark}
 
-\addtocounter{footnote}{-3}
+
+%%%%%
+%%%%%
+%%%%%
+%NEED TO CHANGE THE ABOVE
+%%%%%
+%%%%%
+%%%%%
+
+
+
+\addtocounter{footnote}{-2}
 \stepcounter{footnote}\footnotetext{
 	This is done for convenience; adding correlation among the marginal distributions would require the specification of a covariance matrix.
 	In samples of real populations, we might expect there to be correlation among these marginal distributions, and this analysis can be easily extended to accommodate it.
 	This additional step is not difficult, but introduces more parameters to keep track of and doesn't significantly add to the narrative.
 }
 \stepcounter{footnote}\footnotetext{
-	The calculations were performed using the R statistical software. 
+	The calculations were performed using the R statistical software.
 	The large number of calculations was facilitated by authoring a new package, \enquote{ctools,} which primarily acts as a wrapper for the \enquote{parallel} and \enquote{Rhpc} packages.
 	The use of parallel computing is common in various statistical software, but R does parallel computation in a particularly useful and efficient way.
 	All code used is available on request.
 }
-\stepcounter{footnote}\footnotetext{
-	As noted earlier, instead of a built-in random number generator, we transform Halton sequences into the required distributions. 
-	The normal distribution was created by inverting a Halton sequence constructed with a prime base of $3$, and the gamma distribution was created by inverting a Halton sequence constructed with a prime base of $7$.
-	The first 30 elements of each sequence were dropped and the next 2.5 million elements were used. 
-}
+%\stepcounter{footnote}\footnotetext{
+%	As noted earlier, instead of a built-in random number generator, we transform Halton sequences into the required distributions.
+%	The normal distribution was created by inverting a Halton sequence constructed with a prime base of $3$, and the gamma distribution was created by inverting a Halton sequence constructed with a prime base of $7$.
+%	The first 30 elements of each sequence were dropped and the next 2.5 million elements were used.
+%}
 
 To make clear how the result of these equations are arrived at, we can work through the calculations step by step.
 First, we select a choice pattern from one of the $1024$ choice patterns possible with the HL-MPL instrument, for example, the choice of option A for the first five rows and option B for rows $6$ through $10$.
@@ -634,7 +642,7 @@ This result allows us to calculate equation (\ref{eq3:NMB}) for values of $e \in
 \end{align}
 
 \noindent Next we can calculate the two welfare metrics from equations equations (\ref{eq3:WST}) and (\ref{eq3:WET}), indicating welfare surplus and welfare efficiency respectively.
-First we calculate the {\CE} of option $A$ and option $B$ for all $T = 10$ tasks using equation (\ref{eq3:CEcalc}). 
+First we calculate the {\CE} of option $A$ and option $B$ for all $T = 10$ tasks using equation (\ref{eq3:CEcalc}).
 We note the {\CE} of the chosen and unchosen options for the given choice pattern, the difference between the two, and the greatest {\CE} for each task:
 
 \begin{table}[ht]
@@ -723,7 +731,7 @@ For equation equation (\ref{eq3:WST}), we take the sum of column $6$ in Table \r
 	\end{split}
 \end{align}
 
-\noindent The indicator functions in equation (\ref{eq3:example_NMB}) are mutually exclusive, therefore the product of the indicator functions and the welfare metrics will be $0$ for all but one value of $e$, and equal to the metrics for the remaining $e$, in this example, for $e = 1$. 
+\noindent The indicator functions in equation (\ref{eq3:example_NMB}) are mutually exclusive, therefore the product of the indicator functions and the welfare metrics will be $0$ for all but one value of $e$, and equal to the welfare metrics for the remaining $e$, in this example, for $e = 1$.
 
 %Thus, the derivation of the results in equations (\ref{eq3:example_PiT}) through (\ref{eq3:example_WET}) constitutes the core of the computational exercise that results in population level expectations.
 Having derived the results of these equations for one given choice pattern, we iterate through the remaining $1023$ choice patterns for this particular agent, repeating the numerical exercise described above for each choice pattern.
@@ -742,11 +750,9 @@ Since each $\beta_i$ was drawn randomly from the distribution governed by $\thet
 This averaging leaves us with a dataset that has $33 \times 1024 = 33,792$ elements.
 
 This resulting dataset, however, is too large to be usefully displayed in full, so for now we restrict attention to the 10 choice patterns most likely to be observed, and discuss the metrics calculated in equations (\ref{eq3:EMt}), (\ref{eq3:EWST}), (\ref{eq3:EWET}), and (\ref{eq3:PE}) with $e = (0,1)$.
-The results of these equations for the 10 most likely choice patterns are as follows:
+The results of these equations for the 10 most likely choice patterns are given in Table \ref{tb:TopTenEUT}.
 
-\break
-
-\begin{table}[ht]
+\begin{table}[h]
 	\setlength{\tabcolsep}{2pt}
 	\centering
 	\caption{HL-MPL Welfare and Error Expectations for Choice Patterns with Top Ten Simulated Likelihoods, EUT}
@@ -859,14 +865,14 @@ Note that the choice pattern that is mostly likely to be observed from a sample 
 The next two most likely choice patterns, where \textit{Rank} is $2$ and $3$, correspond to the choice pattern we would observe from agents described by a deterministic choice process with preferences one standard deviation either side of the mean of the distribution of $r$.
 
 Interestingly, for each of the three most likely choice patterns, it is far more likely than not that an agent displaying these choice patterns made at least one choice error, and thus did not obtain maximal welfare from her choices.
-This is shown by the values in column $P_E(e=0)$, which reference equation (\ref{eq3:PE}), all being less than $0.50$.
+This is shown by the values in column $P_E(e=0)$, which reference equation (\ref{eq3:PE}), all being less than $0.50$, indicating less than 50\% of subjects will commit 0 choice errors for these choice patterns.
 Note that only $32.2\%$ of agents who display the most likely choice pattern in row $1$ are expected to have \textit{not} made any choice errors and obtain maximal welfare.
 This is despite the fact that any of these choice patterns can be rationalized by some set of preferences for our assumed model.
 These patterns do, however, produce relatively high expected welfare efficiency and surplus.
 The welfare surplus metric is less informative in this comparison: it is more useful in making absolute rather than relative statements about welfare.
 
 The relatively large values of $ 1 - P_E(e = 0)$, which imply that most choice patterns contain at least $1$ choice error, is mainly due to the shape and location of the distribution of $r$.
-The mean of $0.65$ lies just next to the indifference boundary between rows 6 and 7 of the HL-MPL instrument, as indicated in the column \enquote{CRRA for Indifference} of Table (\ref{tb:HL-MPL}).
+The mean of $r$, at $0.65$, lies just next to the indifference boundary between rows 6 and 7 of the HL-MPL instrument, as indicated in the column \enquote{CRRA for Indifference} of Table (\ref{tb:HL-MPL}).
 That means that the bulk of the $r$ values drawn from this distribution define utility values that indicate near indifference between the A and B lotteries in row 7 of the HL-MPL instrument.
 All RE models increase the probability of a choice error the closer an agent is to being indifferent between 2 options, so it should not be a surprise that with this particular choice of distribution for $r$ we have a large proportion of choice errors.
 
@@ -896,14 +902,14 @@ This is apparent in rows 8 and 9 of Table \ref{tb:TopTenEUT}.
 The choice pattern described in row 8 is more likely to be observed than the pattern in row 9, but the pattern in row 9 has a higher expected welfare efficiency than row 8.
 The very large number of draws employed in these calculations rules out the possibility that this is a statistical fluke caused by the random way these statistics were calculated.
 
-This example illustrates how stochastic models are not \enquote{welfare ranking} models but instead incorporate aspects of the choice process that are robust to the incentivized environment in which the agents exist.
+This example illustrates how stochastic models are not \enquote{welfare ranking} models but instead incorporate aspects of the choice process that are considered to be normatively desirable, while maintaining descriptive power.
 The example of row 8 and 9 only depicts the most common occurrence where the expected welfare efficiency of a pattern and its likelihood diverge in this hypothetical population.
 The most drastic divergence occurs between the patterns which have violated FOSD by selecting option A in row 10, and those that have not.
 
 To make this distinction clear, Figure \ref{fig:ConFOSD} plots the log of the SL (SLL) against the expected welfare efficiency of the choice patterns that:
 \begin{itemize}
  \setlength\itemsep{-.5em}
-	\item are Consistent with determinisitic EUT,
+	\item are Consistent with deterministic EUT,
 	\item are Consistent other than the choice of A in row 10 (FOSD Only),
 	\item display Light MSB, the agent has \enquote{switched} between choosing A and B three times, with a choice of B in row 10,
 	\item display Light MSB with a choice of A in row 10 (Light MSB + FOSD).
@@ -911,20 +917,25 @@ To make this distinction clear, Figure \ref{fig:ConFOSD} plots the log of the SL
 
 \begin{figure}[h!]
 	\caption{Consistent and Light MSB, With and Without Row 10 Error}
-	\includegraphics[width=\linewidth]{figures/SamPlots/EUT-ConFOSD.jpg}
+	\includegraphics[width=\linewidth]{figures/SamPlots/EUT-ConFOSD.pdf}
 	\label{fig:ConFOSD}
 \end{figure}
 
 In Figure \ref{fig:ConFOSD} each point represents a unique choice pattern.
-For any given point plotted, any other point to the Southeast of that point indicates a pattern that \enquote{is both more likely to be produced by an agent drawn randomly from this population and provides lower expected welfare efficiency.}
+For any given point plotted, any other point to the Southeast of that point indicates a pattern that \textit{is both more likely to be produced by an agent drawn randomly from this population and provides lower expected welfare efficiency.}
 For instance, any point in the shaded region of Figure \ref{fig:ConFOSD} represents a choice pattern that is both more likely to be observed and has a lower expected welfare efficiency than pattern Y.
 
 Figure \ref{fig:ConFOSD} shows that the choice of A in row 10 greatly decreases the SLL of the pattern, but barely decreases the expected ratio of obtained welfare to maximal welfare, all else being equal.
 For example, the most likely consistent choice pattern is the top right-most red dot in Figure \ref{fig:ConFOSD}, labeled \enquote{X}, which corresponds to row 1 of Table 2 and has a welfare efficiency of 0.986 and a SL of 0.036.
 The most likely choice pattern with a choice of A in row 10 is the top right-most green dot, labeled \enquote{Y}.
 This pattern is identical to the \enquote{X} pattern other than the selection of A in row 10 and has a welfare efficiency of 0.938 and a SL of 0.00246.
-The ratio of welfare obtained to maximum welfare differs only by 0.0483, but pattern X is about 14.65 times more likely to be observed than pattern Y.
-The seventh most likely consistent pattern, not displayed in Table 1, but visible as the red dot in Figure \ref{fig:ConFOSD} labeled \enquote{Z}, is about 1.55 times more likely to be observed than pattern Y, and has an expected welfare efficiency that is about 0.065 \textit{lower} than pattern Y.
+The ratio of welfare obtained to maximum welfare differs only by 0.0483, but pattern X is about 14.63 times more likely to be observed than pattern Y.{\footnotemark}
+The seventh most likely consistent pattern, not displayed in Table 1, can be seen as the red dot in Figure \ref{fig:ConFOSD} labeled \enquote{Z} and is about 1.55 times more likely to be observed than pattern Y and has an expected welfare efficiency that is about 0.065 \textit{lower} than pattern Y.
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	Probability of X / Probability of Y = 0.036 / 0.00246 = 14.63
+}
 
 The general implication of this exercise is to make it clear that stochastic models do not reliably link the likelihood of a choice pattern with its realized welfare as consumer surplus or efficiency.
 This is due to the way in which heteroscedastic RE models disproportionately \enquote{punish} FOSD by assigning occurrences of it a very low likelihood.
@@ -934,10 +945,10 @@ Empirically, experimental economists rarely observe behavior such as the choice 
 There is, by definition, no extra benefit to actively choosing a dominated offer.
 But just because there is no extra benefit to be had, it shouldn't be inferred that the agent doesn't value the dominated option positively.
 Any agent who selected option A in row 10 still receives a \$2 benefit from having had the choice problem presented to her if that choice is selected for payment.
-It makes a great deal of sense to model choice in this fashion: that there is imperfect correspondance between greater realized welfare and greater likelihood of choice helps illustrate the complex nature of economic agency.
 
-%% EDIT
-% Rephrase the above
+There is a disconnect between how stochastic models map welfare and probability when considering individual choices versus patterns of choice.
+When considering an individual choice, RE models create a perfect mapping of welfare and probability; an option that is more likely to be chosen from a set of alternatives than another option always also provides greater welfare.
+However, as we can see from Figure \ref{fig:ConFOSD} and table \ref{tb:TopTenEUT}, when considering patterns of choice, this mapping breaks down, and it is no longer the case that a more likely pattern of choices also provides greater welfare.
 
 \subsection{Sample Level Analysis with a Mixed EUT-RDU Population}
 
@@ -946,12 +957,15 @@ Individual level estimates from \textcite{Hey1994} and the mixture model estimat
 We can extend the example above, defining the population as being composed of some mixture of EUT agents and RDU agents.
 By \enquote{mixture}, we mean that there will be two subpopulations of a grand population, but agents from these subpopulations carry no observable characteristics to distinguish them as belonging to one subpopulation or another.
 
+%% EDIT
+% Rephrase the above
+
 Before beginning the analysis of this mixture population, we can extend the metrics utilized in equations (\ref{eq3:SLiT}) and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) to be defined for mixed populations.
 This is implemented in much the same way as mixture models were defined in equation (\ref{eq3:PT_Mix}); each metric, $Q_m$, for subpopulation $m$ is weighted by the proportion of the subpopulation in the grand population, $M$.
 \begin{align}
 	\label{eq3:Metric_Mix}
 	\begin{split}
-		\bm{\mathit{Q^M}} = \sum_m^M \pi_m \times Q^m \\ 
+		\bm{\mathit{Q^M}} = \sum_m^M \pi_m \times Q^m \\
 		\mathit{st.} \sum_m^M \pi_m = 1
 	\end{split}
 \end{align}
@@ -961,7 +975,7 @@ For example, the probability of observing any given choice pattern $y \times T$ 
 \begin{align}
 	\label{eq3:LnT_Mix}
 	\begin{split}
-		\bm{L_{iT}^M} = \sum_m^M \pi_m \times L_{iT}^m(\theta^m) \\ 
+		\bm{L_{iT}^M} = \sum_m^M \pi_m \times L_{iT}^m(\theta^m) \\
 		\mathit{st.} \sum_m^M \pi_m = 1
 	\end{split}
 \end{align}
@@ -985,7 +999,7 @@ This results in $\theta^{EUT} = \lbrace 0.65 ,0.3^2, 1.36 , 0.26\rbrace$.
 For the RDU subpopulation, we employ the flexible 2 parameter decision weighting function defined by \textcite{Prelec1998} as the probability weighting function to be substituted into equation (\ref{eq3:dweight}):
 \begin{equation}
 	\label{eq3:pw:pre}
-	\omega(p_a)=\exp(-\beta(-\ln(p_a))^\alpha)
+	\omega(p)=\exp(-\beta(-\ln(p))^\alpha)
 \end{equation}
 \noindent where $\alpha > 0$ and $\beta > 0$.
 We continue to use the CRRA utility function and CU stochastic model for the RDU subpopulation.
@@ -1000,7 +1014,7 @@ This results in $\theta^{RDU} = \lbrace  0.65 ,0.3^2,  0.563 , 0.26 , 169 , 7.69
 	With the mass of the $\lambda$ distribution closer to $0$, \textit{a priori} we should expect fewer choice errors among the RDU population than the EUT population.
 }
 
-Once again, we employ an $H = 2.5 \times 10^6$ and calculate the values for equations (\ref{eq3:SLiT}) and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) for all $\mathit{TT} =1024$ choice patterns and all $e \in[0,T]$ for the RDU subpopulation.
+Once again, we employ $2.5 \times 10^6$ draws from this joint distribution times and calculate the values for equations (\ref{eq3:SLiT}) and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) for all $\mathit{TT} =1024$ choice patterns and all $e \in[0,T]$ for the RDU subpopulation.
 With the results of the calculations for the EUT subpopulation calculated previously, and the results of the same calculations for the RDU population, we can mix each of these metrics as described in equation (\ref{eq3:Metric_Mix}) with $\pi_{EUT} = 0.7$ and $\pi_{RDU} = 0.3$.
 Again, it is impractical to display the results of all metrics for all $1024$ choice patterns, so first, we recreate Table (\ref{tb:TopTenEUT}) with the results of the RDU metrics.
 
@@ -1013,6 +1027,7 @@ Again, it is impractical to display the results of all metrics for all $1024$ ch
 		col sep=comma,
 		every head row/.style={
 			before row={
+				\multicolumn{1}{c}{} &
 				\multicolumn{10}{c}{Choice in Row} &
 				\cnline{Simulated\\Likelihood} &
 				\cnline{Expected\\Errors} &
@@ -1027,25 +1042,24 @@ Again, it is impractical to display the results of all metrics for all $1024$ ch
 			after row=\hline
 		},
 		display columns/0/.style={
-			column name = {1},
-			column type={p{.2cm}}
+			column name = {Rank},
+			column type={c}
 		},
-		display columns/9/.style={
+		display columns/1/.style={
+			column name = {1},
+			column type={|p{.3cm}}
+		},
+		display columns/10/.style={
 			column name = {10},
 			column type={p{.3cm}|}
 		},
-		display columns/10/.style={
-			precision = 4,
-			sci precision = 3,
-			column name = {}
-		},
 		display columns/11/.style={
-			precision = 3,
+			precision = 4,
 			sci precision = 3,
 			column name = {}
 		},
 		display columns/12/.style={
-			precision = 4,
+			precision = 3,
 			sci precision = 3,
 			column name = {}
 		},
@@ -1063,6 +1077,11 @@ Again, it is impractical to display the results of all metrics for all $1024$ ch
 			precision = 4,
 			sci precision = 3,
 			column name = {}
+		},
+		display columns/16/.style={
+			precision = 4,
+			sci precision = 3,
+			column name = {}
 		}
 	]{tables/TopTenRDU.csv} % path/to/file
 	\end{adjustbox}
@@ -1070,10 +1089,10 @@ Again, it is impractical to display the results of all metrics for all $1024$ ch
 
 There is a great deal of similarity between Table \ref{tb:TopTenRDU} and Table \ref{tb:TopTenEUT}.
 In particular, the two subpopulations share the same $3$ most likely choice patterns, though with different simulated likelihood, welfare, and error metrics.
-Again we note that the choice patterns which display Light MSB have $0$ probability of containing $0$ choice errors, and that several Light MSB choice patterns are expected to contain fewer choice errors and be less costly in terms of welfare than some Consistent choice patterns.
-There appears to be less of a disconnect between welfare and likelihood in the RDU subpopulation than in the EUT subpopulation. 
-In Table \ref{tb:TopTenRDU} we observe that going from row 6 to 7 the Simulated Likelihood decreases, but the Welfare Proportion metric increases.
-However, the Welfare Surplus metric decreases with the Simulated Likelihood of the choice pattern for all patterns in Table \ref{tb:TopTenRDU}.
+Again we note that the choice patterns which display Light MSB, rows 4, 5, 6, 8, 9, and 10, have $0$ probability of containing $0$ choice errors, and that there are a few examples of the disconnect between likelihood and welfare.
+The Light MSB choice pattern in row 8 is expected to contain fewer choice errors than the Consistent pattern in row 7.
+The Light MSB choice pattern in row 9 is expected to provide greater welfare surplus than the Consistent pattern in row 7.
+Additionally, we observe that going from row 6 to 7 the Simulated Likelihood decreases, but the Welfare Proportion metric increases.
 
 A major difference between the two subpopulations is that the RDU subpopulation's most likely choice pattern has a much greater likelihood (0.1617) than the EUT subpopulation's most likely choice pattern (0.0360).
 Much of this is due to the greater mass of the $\lambda$ distribution close to $0$ in the RDU subpopulation compared to the EUT subpopulation, but it is also because the distributions chosen for the decision weighting parameters imply greater risk aversion.
@@ -1089,6 +1108,7 @@ These differences are important when we look at the grand population metrics.
 		col sep=comma,
 		every head row/.style={
 			before row={
+				\multicolumn{1}{c}{} &
 				\multicolumn{10}{c}{Choice in Row}&
 				\cnline{Proportion\\EUT}&
 				\cnline{Simulated\\Likelihood}&
@@ -1103,30 +1123,29 @@ These differences are important when we look at the grand population metrics.
 			after row=\hline
 		},
 		display columns/0/.style={
-			column name = {1},
-			column type={p{.2cm}}
+			column name = {Rank},
+			column type={c}
 		},
-		display columns/9/.style={
+		display columns/1/.style={
+			column name = {1},
+			column type={|p{.3cm}}
+		},
+		display columns/10/.style={
 			column name = {10},
 			column type={p{.3cm}|}
 		},
-		display columns/10/.style={
+		display columns/11/.style={
 			precision = 2,
 			sci precision = 3,
 			column name = {}
 		},
-		display columns/11/.style={
-			precision = 4,
-			sci precision = 3,
-			column name = {}
-		},
 		display columns/12/.style={
-			precision = 3,
+			precision = 4,
 			sci precision = 3,
 			column name = {}
 		},
 		display columns/13/.style={
-			precision = 4,
+			precision = 3,
 			sci precision = 3,
 			column name = {}
 		},
@@ -1136,6 +1155,11 @@ These differences are important when we look at the grand population metrics.
 			column name = {}
 		},
 		display columns/15/.style={
+			precision = 4,
+			sci precision = 3,
+			column name = {}
+		},
+		display columns/16/.style={
 			precision = 4,
 			sci precision = 3,
 			column name = {}
@@ -1151,7 +1175,7 @@ choice patterns displaying any form of MSB have $0$ likelihood of $0$ choice err
 
 Of greater interest is the \enquote{Proportion EUT} metric, defined in equation (\ref{eq3:Propm}).
 This metric calculates the unconditional likelihood that a subject displaying a particular choice pattern belongs to the EUT subpopulation we defined.
-For every choice pattern in the top ten most likely to be observed choice patterns, we expect that the proportion of the agents belonging to the EUT subpopulation that generated the choice pattern is smaller than the proportion of EUT agents in the grand population.
+For every choice pattern in the top ten most likely to be observed choice patterns, we observe that the proportion of the agents belonging to the EUT subpopulation that generated the choice pattern is smaller than the proportion of EUT agents in the grand population.
 For the top 3 choice patterns, the difference between the proportion of EUT agents \textit{in the total population} and the proportion of EUT agents \textit{that generated the choice pattern} is greater than 20 percentage points.
 In fact, it is more likely than not that these choice patterns are generated by the RDU subpopulation.
 This is despite the fact that the EUT subpopulation makes up $70\%$ of the grand population, and that the top three most likely to be observed choice patterns in the grand population all correspond to the same top three choice patterns in the EUT subpopulation.
@@ -1159,19 +1183,19 @@ This is despite the fact that the EUT subpopulation makes up $70\%$ of the grand
 %% EDIT
 % The below needs to be tamed
 
-The above discussion of the three populations helps to illuminate the idea that knowledge of the distribution of preferences in a sample allows an analyst to achieve a better interpretation of observed patterns of choice.
-Table 2 demonstrates that for many choice patterns which can be described as \enquote{consistent} with EUT, the EUT function which rationalizes an individual agent's data actually misrepresents the agent's \enquote{true} preferences.
-Similar conclusions can be drawn for a population comprised entirely of RDU agents.
-The consequence of this misrepresentation is that an agent is assumed to have made choices that maximize her subjective welfare when this is not the case.
-In our particular choice of exemplary EUT and RDU population parameters, for every agent who displays a \enquote{consistent} choice pattern it is more likely than not that their \enquote{true} underlying preferences are best characterized by a utility function which does not rationalize their observed choice behavior.
-This general result is just as applicable to choice patterns described by RDU as it is to patterns described by EUT as well as for other coherent stochastic models.
+%The above discussion of the three populations helps to illuminate the idea that knowledge of the distribution of preferences in a sample allows an analyst to achieve a better interpretation of observed patterns of choice.
+%Table 2 demonstrates that for many choice patterns which can be described as \enquote{consistent} with EUT, the EUT function which rationalizes an individual agent's data actually misrepresents the agent's \enquote{true} preferences.
+%Similar conclusions can be drawn for a population comprised entirely of RDU agents.
+%The consequence of this misrepresentation is that an agent is assumed to have made choices that maximize her subjective welfare when this is not the case.
+%In our particular choice of exemplary EUT and RDU population parameters, for every agent who displays a \enquote{consistent} choice pattern it is more likely than not that their \enquote{true} underlying preferences are best characterized by a utility function which does not rationalize their observed choice behavior.
+%This general result is just as applicable to choice patterns described by RDU as it is to patterns described by EUT as well as for other coherent stochastic models.
 
 It should also be clear from Table 2 and Figure \ref{fig:ConFOSD} that not all choice patterns that are consistent with EUT should be judged as superior to choice patterns which are apparently inconsistent with EUT from the perspective of welfare realization as consumer surplus or welfare efficiency.
 Figure \ref{fig:ConFOSD} demonstrates that stochastic models can make normative sense of occurrences of FOSD, while making the descriptively accurate claim that violations of dominance are unlikely to occur, a claim backed by the empirical literature described in the previous chapter.
 
 %\section{Individual vs. Sample Level Identification}
 %
-%Having made the case that sample level assessment of welfare provides information that is lacking in individual level assessment, it is important to ask the question \enquote{How much more information?} or \enquote{Why/When should we (economists) care?} 
+%Having made the case that sample level assessment of welfare provides information that is lacking in individual level assessment, it is important to ask the question \enquote{How much more information?} or \enquote{Why/When should we (economists) care?}
 %The welfare metric described in equation (\ref{eq3:EWET}) provides a useful benchmark to describe the difference between the welfare evaluation done on the individual level versus welfare evaluation done on the sample level.
 %This distinction can be made clearer by examining \enquote{consistent} choice patterns, that is, patterns which can be described as conforming to deterministic utility theory.
 %These patterns, along with the same associated metrics calculated in Table (\ref{tb:TopTenEUT}) for the EUT population are presented below, ranked in order of their likelihood of being observed:
@@ -1187,11 +1211,11 @@ Figure \ref{fig:ConFOSD} demonstrates that stochastic models can make normative 
 %		% as in the previous example, this patches the first row:
 %			before row={
 %				\multicolumn{10}{c}{Choice in Row} &
-%				\cnline{Simulated\\Likelihood} & 
-%				\cnline{Expected\\Errors} & 
-%				\cnline{Welfare\\Proportion} & 
+%				\cnline{Simulated\\Likelihood} &
+%				\cnline{Expected\\Errors} &
+%				\cnline{Welfare\\Proportion} &
 %				\cnline{Welfare\\Surplus} &
-%				$P_E(e=0)$ & 
+%				$P_E(e=0)$ &
 %				\cnline{CRRA\\Boundary}\\
 %			},
 %			after row=\hline,
@@ -1240,14 +1264,14 @@ Figure \ref{fig:ConFOSD} demonstrates that stochastic models can make normative 
 %\end{table}
 %
 %
-%We begin this discussion by noting that because each of the patterns listed in Table (\ref{tb:ConPat}) are \enquote{consistent}, should an estimation routine be applied to any of them individually, the preference parameter returned will lie somewhere in the indifference band described under the \enquote{CRRA Boundary} column.{\footnotemark} 
+%We begin this discussion by noting that because each of the patterns listed in Table (\ref{tb:ConPat}) are \enquote{consistent}, should an estimation routine be applied to any of them individually, the preference parameter returned will lie somewhere in the indifference band described under the \enquote{CRRA Boundary} column.{\footnotemark}
 %Also, because each of these patterns is \enquote{consistent}, the welfare efficiency will be 1 for each of these estimates.
 %That is to say, because these patterns can be perfectly explained by a CRRA utility function with a parameter value within the interval described in the \enquote{CRRA Boundary} column, agents who have generated these choice patterns have made 0 apparent choice errors, thus, they have not apparently forgone any welfare.
 %
 %\addtocounter{footnote}{-1}
 %\stepcounter{footnote}\footnotetext{
-%	Note that for the choice pattern in row 10 of Table (\ref{tb:ConPat}) estimation is impossible because of the lack of variation in the data. 
-%	For the remaining 9 choice patterns, there is little room to estimate both the CRRA parameter and a stochastic error parameter. 
+%	Note that for the choice pattern in row 10 of Table (\ref{tb:ConPat}) estimation is impossible because of the lack of variation in the data.
+%	For the remaining 9 choice patterns, there is little room to estimate both the CRRA parameter and a stochastic error parameter.
 %	The CRRA boundary, however, still describes the range of parameter values that explain this choice pattern given a deterministic EUT choice process.
 %}
 %
@@ -1257,7 +1281,7 @@ Figure \ref{fig:ConFOSD} demonstrates that stochastic models can make normative 
 %
 %While Table (\ref{tb:ConPat}) is constructed based on an EUT-only population, a similar table could be constructed for the EUT/RDU Mixture population described in Table (\ref{tb:TopTenMIX}).
 %As before, there would not be much difference in the presented metrics, but the presence of an RDU subpopulation presents further potential problems for individual level estimation.
-%The top three choice patterns described in Tables (\ref{tb:ConPat}) and (\ref{tb:TopTenMIX}) can all be perfectly explained by an EUT model. 
+%The top three choice patterns described in Tables (\ref{tb:ConPat}) and (\ref{tb:TopTenMIX}) can all be perfectly explained by an EUT model.
 %But, as is seen by the \enquote{EUT Proportion} metric in Table (\ref{tb:TopTenMIX}), the majority of agents displaying these patterns in our example mixed population actually conform to RDU, not EUT.
 %Thus, unlike the potential for misidentification of a population composed entirely of EUT agents as displayed in Table (\ref{tb:ConPat}), the most likely choice patterns to be observed are also among the most likely to lead to misidentification.
 %
@@ -1311,7 +1335,7 @@ These factors include:
 	\item the stochastic model;
 	\item the utility model;
 	\item the location, dispersion and shape of the joint distribution governing the complete stochastic specification;
-	\item the number of draws used to simulate the probabilities;
+	\item the number of Halton draws used to simulate the probabilities;
 	\item the base prime number used for the Halton sequences; and
 	\item the specific tasks faced by the sample population.
 \end{itemize}
@@ -1327,7 +1351,7 @@ These bounds are almost arbitrary; the bounds for $\mu_r$ were chosen to be just
 This exercise results in 8 statistics for each $\theta_i$: the means and variances of the expected proportion of welfare to the maximum attainable welfare, the expected welfare surplus, the expected number of choice errors, and the expected proportion of agents who make no errors.
 Each statistic can be plotted against the 4 elements of $\theta_i$.
 The result is 32 plots of the raw data and 32 charts of the LOESS lines associated with the raw data plots.
-All LOESS lines are plotted along with 95\% confidence intervals in shaded gray.
+All LOESS lines are plotted along with 95\% confidence intervals.
 
 Each plot and chart also attempts to give information about another parameter not plotted on the $x$ or $y$ axes by color coding the plotted data with respect to different values of this \enquote{z} parameter.
 For $\mu_r$ this \enquote{z} parameter is $\sigma_r$, for $\sigma_r$ it is $\mu_r$, for $\mu_\lambda$ it is $\sigma_\lambda$ and for $\sigma_\lambda$ it is $\mu_\lambda$.
@@ -1335,9 +1359,9 @@ For each of the charts, the \enquote{z} parameter is split into quartiles and fo
 Additionally, in the raw data plots, each point has been given a large degree of transparency.
 This means that the density of points in the plot is represented by the density of color in the plot.
 
-I examine the LOESS line charts of these data with the raw data plots included in Appendix A.
+I examine the LOESS line charts of these data.
 First I discuss the effect on welfare expectations of the parameters governing the stochastic model, and then discuss the parameters governing the utility model.
-Thus, I first look at Figures \ref{fig:S-Wel-um}, \ref{fig:S-Err-um}, \ref{fig:S-Wel-us} and \ref{fig:S-Err-us}.
+Thus, we first look at Figures \ref{fig:S-Wel-um}, \ref{fig:S-Err-um}, \ref{fig:S-Wel-us} and \ref{fig:S-Err-us}.
 Figures \ref{fig:S-Wel-um} and \ref{fig:S-Err-um} demonstrate the effect of the mean of the distribution of the $\lambda$ term on welfare and the error frequencies, while Figures \ref{fig:S-Wel-us} and \ref{fig:S-Err-us} demonstrate the effect of the standard deviation of the $\lambda$ term on the same statistics.
 
 The results of the plots of stochastic model parameters are mostly intuitive and unsurprising.
@@ -1357,16 +1381,21 @@ In the (A) and (C) charts of Figure \ref{fig:S-Wel-us}, the slopes of the LOESS 
 In the (A) and (C) charts of Figure \ref{fig:S-Err-us}, we see much the same mostly flat lines indicating very little variation across the parameter space.
 Again the exception is the line for the lowest quartile of $\mu_\lambda$.
 This should not be surprising given that the populations were generated with a CU stochastic model.
-The third quartile of $\mu_\lambda$ begins at $1.15$, which means that majority of the mass of the distribution of lambda in any population will lie above 1 for any value of $\sigma_\lambda$ in the range explored.
+The third quartile of $\mu_\lambda$ begins at $1.15$, which means that the majority of the mass of the distribution of lambda in any population will lie above 1 for any value of $\sigma_\lambda$ in the range explored.
 At these high levels of lambda, most choice probabilities will converge to something close to $\Pr( y_t = a) \to 0.5$.
-This leaves little room for variation in expected welfare or expected choice errors.
+%This leaves little room for variation in expected welfare or expected choice errors.
 
-In contrast to the monotonic relations of the lambda distribution, the effect of the CRRA parameters on the expected welfare and expected error statistics displays influences of the idiosyncratic aspects of the HL instrument.
+%%%%%
+% This above sentence needs more consideration
+%%%%%
+
+
+In contrast to the monotonic relations of the lambda distribution, the effect of the CRRA parameters on the expected welfare and expected error statistics displays influences of the idiosyncratic aspects of the HL-MPL instrument.
 This is most apparent in the plots of $\mu_r$.
 In interpreting these plots, it is important to keep in mind that the CRRA parameters used in each population are normally distributed.
 Thus, the mean of the distribution always represents the point of the distribution with the greatest density, with smaller standard deviations leading to greater concentration of the mass of the distribution around the mean and larger standard deviations leading to the reverse.
 
-In Figures \ref{fig:S-Wel-rm} and \ref{fig:S-Err-rm}, each tick mark on the x-axis represent the values of the CRRA parameter at which an agent would be indifferent between lotteries for some row of the HL instrument.
+In Figures \ref{fig:S-Wel-rm} and \ref{fig:S-Err-rm}, each tick mark on the x-axis represent the values of the CRRA parameter at which an agent would be indifferent between lotteries for some row of the HL-MPL instrument.
 From left to right, the first tick mark corresponds to the value of the CRRA parameter that would make an agent indifferent between the lotteries in the first row of the instrument, the second tick mark corresponds the second row of the instrument, and so on.
 There are only 9 ticks because the there does not exist any CRRA parameter which would set an agent to be indifferent between the lotteries in row 10 of the instrument.
 
@@ -1380,7 +1409,7 @@ That is, the increase in the average number of expected errors at these points i
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
-	Because $\Pr(y_t=a) = \Pr(y_t=b) \forall a,b$ as $\lambda \to \infty$, the maximum expected number of errors that can ever be observed in a population is $\sum_{t=1}^T \frac{A_t -1}{A_t}$. 
+	Because $\Pr(y_t=a) = \Pr(y_t=b) \forall a,b$ as $\lambda \to \infty$, the maximum expected number of errors that can ever be observed is $\sum_{t=1}^T \frac{A_t -1}{A_t}$.
 	That is, since every option is given equal probability in the limit, and only one option is not an error, the sum of ratio of choice errors to options across all tasks is the maximum expected number of choice errors in the limit.
 	The maximum in the case of the HL-MPL instrument where $A_t = 2 \ \forall t$ and $T=10$ is therefore 5.
 }
@@ -1407,7 +1436,7 @@ The set of $R$ in for the HL-MPL instrument is:
 \end{equation}
 
 We evaluate the metric from equation (\ref{eq3:Dstat}) against the 8 statistics utilized in Figures \ref{fig:S-Wel-rm} through \ref{fig:S-Err-us}.
-The raw plots of this data are provided in the Appendix, and the LOESS Figures will be discussed presently.
+%The raw plots of this data are provided in the Appendix, and the LOESS Figures will be discussed presently.
 Since it can be seen in Figures \ref{fig:S-Wel-um} and \ref{fig:S-Err-um} that the effect of the $\mu_\lambda$ term asymptotes rapidly as $\mu_\lambda > 1$, we restrict our plots to populations for which $\mu_\lambda < 1$.
 This leaves us with about 150k observations.
 These 150k observations are first split into deciles of $\mu_\lambda$ and then the LOESS lines are calculated for each decile.
@@ -1418,7 +1447,7 @@ Looking at Figure \ref{fig:D-Wel-smooth}, plots (A) and (C), we can confirm what
 As $D$ increases, and more of the density of the CRRA distribution is shifted onto the points describing indifference, the greater the expected number of errors we should observe.
 
 This effect is remarkably monotonic across every decile of $\mu_\lambda$, though the effect is strongest for lower deciles.
-What should be no surprise is that for the highest 3 deciles of $\mu_\lambda$ we effectively expect close to $0\%$ of the populations considered to produce choice patterns with no choice errors, as can be seen in plot (C).
+What should be no surprise is that for the highest 3 deciles of $\mu_\lambda$ we observe close to $0\%$ of the populations considered to produce choice patterns with no choice errors, as can be seen in plot (C).
 The variance statistics in plots (B) and (D) are generally monotonic, but not universally so.
 In general, the variance in the number of expected errors across populations tends to decrease as $D$ increases.
 This is in line with the populations becoming increasingly error prone.
@@ -1437,7 +1466,7 @@ But, this is also precisely why the welfare metrics are close to equivalent: if 
 }
 
 Other than the particular case where $D=0$ and $D=1$, in Figure \ref{fig:D-Err-smooth} we see the general trend that we might expect from looking at Figure \ref{fig:D-Wel-smooth}: as the $D$ metric increases and the relative density of the CRRA distribution increases around points of indifference, expected welfare decreases monotonically.
-This is because, other than the case of $D=1$, where errors should be relatively frequent but not costly in welfare terms, an increasing $D$ not only means that a greater proportion of agents lie on the indifference points, but also lie around it.
+This is because, other than the case of $D=1$ where errors should be relatively frequent but not costly in welfare terms, an increasing $D$ not only means that a greater proportion of agents lie on the indifference points, but also lie around it.
 It is this greater proportion of agents lying sufficiently near an indifference point to make an error relatively likely, but sufficiently far to make it relatively costly which drives down expected welfare.
 Similarly to what was seen in Figure \ref{fig:D-Wel-smooth}, in Figure \ref{fig:D-Err-smooth} we see that the effect of $D$ is stronger with populations with $\mu_\lambda$ in the lower deciles and weakest with populations with $\mu_\lambda$ in the higher deciles.
 
@@ -1464,7 +1493,7 @@ Comparing the lowest decile with the highest decile reveals tremendous changes i
 %A minor drawback of this distribution is that it is bounded between $[0,1]$, but this is easily rectified by \enquote{scaling} and \enquote{shifting} the distribution.
 %For our analysis, we will scale every distribution by a fixed constant of $3.45$ and every the distribution by a fixed constant of $-1.9$.
 %This will result in every distribution being bounded between $[-1.9,1.55]$, just outside of the lower and upper indifference boundaries of the HL-MPL.
-%A somewhat 
+%A somewhat
 
 The general analysis of the population level data reveals several somewhat expected results, and several somewhat unexpected results.
 Firstly it is clear, and unsurprising, that the means of both the CRRA and $\lambda$ distributions individually drive a great deal of the variation in the number of expected choice errors and the expected welfare of a population.
@@ -1479,58 +1508,36 @@ This result should be important to economists and policy makers concerned with e
 
 \section{Summary of Analyses}
 
-I described the current econometric toolkit used to estimate parameters of utility models given choice data and, by extension of a normatively coherent stochastic model, the welfare implications of these parameters.
-The only methods considered involved the structural estimation of a utility function through maximum likelihood estimation.
-This toolkit progressed from utilizing pooled data across an entire sample to estimate parameters for a single representative agent, to controlling for observable heterogeneity within the sample, and, with the use of mixture models, a limited amount of unobservable heterogeneity.
-These methods, however, still pool data and produce estimates that are effectively estimates of means of the distributions of parameters that characterize a sample of agents, and provide little to no information about the shapes of these distributions.
-By extension, little could be said about the welfare of any given agent from within the sample.
+In this chapter I analyze the relationship between an experimental instrument and the preferences of populations of agents.
+I demonstrate a method for calculating the unconditional welfare surplus and efficiency for a given pattern of choices from an experimental instrument and for a given population of agents.
 
-To improve the potential for making accurate individual level welfare assessments, economists estimated the same stochastic models on \enquote{large} amounts of data collected from individual agents.
-As was shown in the SMP thought experiment in chapter 2, there is nothing normatively incorrect about estimating models at the individual level, and with a sufficient number of observations per subject, such estimation can be statistically very powerful.
-\textcite{Harrison2016} uses individual-level estimation to estimate the welfare surplus of a decision to purchase an insurance product.
+When considering a single hypothetical population of EUT agents several surprising results emerge.
+Firstly, it becomes clear that many choice patterns which are able to be rationalized by either EUT or RDU can be more likely to contain a choice error than not.
+Given the hypothetical population chosen for analysis however, most of the choice errors for the choice patterns most likely to be observed can be considered not costly in welfare terms.
+Secondly, there are several choice patterns that contain obvious violations of EUT that nonetheless are more likely to be observed and are expected to produce greater welfare surplus than many choice patterns that do not contain any such apparent violations.
+Thirdly, and most interestingly, there is a less than perfect correlation between the likelihood of a choice pattern to be observed and the expected welfare surplus of that choice pattern.
+That is, there are many choice patterns that are less likely to be observed than other choice patterns, but nonetheless provide greater expected welfare.
+Of particular note, shown in Figure \ref{fig:ConFOSD}, are choice patterns which include a choice of an option that is dominated by another option.
+Patterns of choice which contain FOSD choices are many times less likely to be observed than the equivalent choice pattern without the dominated choice, but only provide somewhat less expected welfare.
+Additionally, choice patterns with FOSD choices can provide greater expected welfare than many consistent choice patterns that are much more likely to be observed.
 
-%This method is not without drawbacks.
-%Often, economists who estimate individual level parameters compile the individual estimates to describe the sample distribution of parameters.
-%Each of these individual estimates, however, has a standard error associated with it which makes it difficult to aggregate these estimates into distributional data.
-%A more practical concern is that occasionally estimation of a utility model on individual level data is made impossible by the particular choices made by the subjects.
-%Choice patterns that deviate significantly from deterministic theories of utility become cause maximum likelihood routines to fail to converge on parameter sets.
+The extent to which the distribution of preferences in a population influences the expected unconditional welfare is also assessed.
+I simulate populations of agents and map their distributional parameters to expected unconditional welfare, and to the frequency of choice errors.
+Additionally I construct a metric which relates the marginal distribution of risk preferences to the \enquote{indifference points} of an instrument called the \enquote{D} statistic.
+The indifference points are the values of the parameters that would cause an individual agent to be indifferent between the options in the lottery pair.
+From this exercise two interesting results arise.
 
-A concern about this method is the drawback of discarding sample level information.
-This concern is heightened by the stochastic component of choice.
-I showed that certain choices made by subjects are better characterized as \enquote{choice errors} which describe the subject as failing to accumulate a certain amount of welfare.
-Every stochastic model puts a positive probability on such choice errors.
-The risk this poses to individual level estimation is that one or more choice errors will be made by an individual in such a way as to cause a misidentification of the utility model.
-This poses a potential problem for economists and policy makers hoping to understand the welfare implications of institutional instruments.
+Firstly, as the density of the distribution of preferences increases around any value that would indicate indifference for a lottery pair in the instrument, the expected welfare surplus decreases and the rate of choice errors increases.
+As a density of the distribution of preferences increases around multiple such indifference points, and thus the D statistic increases, this increase is even more apparent.
+This can be seen in Figures \ref{fig:S-Wel-rm}, \ref{fig:S-Err-rm}, \ref{fig:D-Wel-smooth}, and \ref{fig:D-Err-smooth}.
+Secondly, the value of the parameters governing the stochastic aspects of the model seem to play a larger than expected role in the expected welfare surplus for any given population.
+This can be seen in Figure \ref{fig:S-Wel-um}, and in how the slope of the D statistic compares to moving from one gradient of $\lambda$ means to another in Figures \ref{fig:D-Wel-smooth}, and \ref{fig:D-Err-smooth}.
 
-%To address this concern, we propose estimation of utility functions through maximum simulated likelihood methods (MSL) to recover estimates of the distribution of preferences across the whole sample, as opposed to recovering just the mean with other pooled estimation techniques and discarding sample level information with individual estimation.
-To address this concern, I proposed that estimates of the distribution of preferences across the whole sample should be recovered, potentially with maximum simulated likelihood (MSL), and utilized in welfare surplus calculations.
-With the distributional characteristics of the utility model in hand, unconditional welfare implications of any given choice pattern can be analyzed.
-
-I test this methodology through simulation methods by first specifying a hypothetical population of agents characterized by a joint distribution of utility and stochastic parameters, and then simulating choice data for this population utilizing the instrument used in the popular Holt \& Laury (2002) (HL) experiment.
-This methodology allows to calculate the unconditional likelihood of any given choice pattern, how many choice errors we expect to exist in the pattern, and the welfare consequences thereof.
-We see in Table \ref{tb:TopTenEUT} and Figure \ref{fig:ConFOSD} that many choices that are consistent with EUT provide less welfare surplus than apparently inconsistent choice patterns.
-In these cases, knowledge of the distribution of preferences in a population from which a subject is sampled provides us with insight about the subject's possible welfare surplus that may have been lost if the subject's choices were viewed in isolation.
-
-%For the particular population explored, the results of this analysis confirmed concerns about individual level estimation.
-%For particular populations, there is a great risk of misidentifying individual subject's utility functions, and thus mis-characterizing the welfare implications of those subject's choices.
-%The choice patterns with lower expected likelihood of being observed are the most likely to misidentify the preferences of the subjects that produced them, and this misidentification leads to a large mischaracterization of the welfare implications of these subject's choices.
-%The most common misidentification however will occur from choice patterns that are most likely to be observed, but the welfare implications of this misidentification are relatively small.
-
-The analysis of the individual population I chose left open the question of how much do population level characteristics matter when it comes to describing the welfare of the population, given an instrument.
-To explore this question 350k populations were simulated and several metrics describing welfare and choice errors were calculated for each population.
-Each parameter that defined the populations was then plotted against these metrics and a visual analyses of the data was conducted.
-We discovered, unsurprisingly, that the means of the marginal distributions that made up each population's joint distribution were of greatest importance in describing the welfare of populations.
-Also, having controlled for the entire marginal distribution of the preference parameter and the idiosyncratic aspects of the instrument, we discovered that the stochastic aspect of the utility model is the dominant driver of expected welfare.
-This result was somewhat surprising, though not entirely unintuitive.
-
-%\section{Concluding Remarks}
-
-%The analyses conducted in this chapter provide several useful results for econometricians, experimenters, and policy makers.
-%We demonstrate a method for calculating the unconditional welfare consequences of discrete economic choices made by individual agents.
-%We show that these unconditional metrics lead to the somewhat unintuitive conclusion that choice patterns that are apparently inconsistent with either EUT or RDU can in fact result in greater welfare surplus for an individual than apparently inconsistent choice patterns.
-
-%Finally, given the strong effect of the stochastic elements of choice on the probability and magnitude of misidentifying utility structures and by extension welfare characterizations, this chapter reinforces the statement made more than 20 years ago by Hey \& Orme (1994 p.1322):
-%\enquote{Perhaps we should now spend some time on thinking about the noise, rather than about even more alternatives to EU?}
+Theses results should inform economists and policy makers concerned creating a policy or experimental instrument.
+Counter-intuitively, these results suggest that a potential way of increasing welfare from an instrument or policy would be to reduce the number of choices made in the welfare relevant domain.
+Spacing the indifference points farther apart may result in lower error behavior and greater expected welfare.
+Additionally, in warning to those who would wish to \enquote{nudge} the behavior of agents to particular patterns of choice, this exercise has shown that policy makers should take care about the choice patterns to nudge a agent into.
+For many agents, it would be to their detriment to nudge them from a pattern of choices which contain obvious errors to one which, on appearance, would contain none.
 
 \newpage
 
