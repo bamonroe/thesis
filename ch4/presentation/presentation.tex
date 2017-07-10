@@ -12,7 +12,7 @@
 \usepackage{graphicx}	% For Graphics
 \usepackage[backend=biber, uniquename=false, doi=false, isbn=false, url=false, style=authoryear-comp, maxnames=99]{biblatex}	%For bibliography stuff
 \renewbibmacro{in:}{}
-\addbibresource{/home/bam/thesis/library.bib}	% The path to the bibliography file
+\addbibresource{/home/bam/thesis/thesis/library.bib}	% The path to the bibliography file
 %For Tables
 \usepackage{tabularx}
 \newcolumntype{Y}{>{\centering\arraybackslash}X} % A centered column type that sucks up excess space
@@ -54,14 +54,8 @@
 \begin{itemize}
 	\item \textcite[624]{Grether1979}
 	\item \enquote{The inconsistency is deeper than the mere lack of transitivity or even stochastic transitivity. It suggests that no optimization principles of any sort lie behind even the simplest of human choices and that the uniformity in human choice behavior which lie behind market behavior may result from principles which are a completely different sort from those generally accepted}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{The Grether and Plott Experiments}
-\begin{itemize}
 	\item \textcite[634]{Grether1979}
-	\item \enquote{The fact that preference theory and related theories of optimization are subject to exception does not mean that they should be discarded. No alternative theory currently available appears to be capable of covering the same extremely broad range of phenomena. In a sense the exception is an important discovery, as it stands as an answer to those who would chard that preference theory is circular and/or without empirical content. It also stands as a challenge to theorists who may attempt to modify the theory to account for this exception without simultaneously making the theory vacuous.}
+	\item \enquote{No alternative theory currently available appears to be capable of covering the same extremely broad range of phenomena.}
 \end{itemize}
 \end{frame}
 
@@ -134,8 +128,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 	\item No analyses on how costly picking wrong winner is.
 		\begin{itemize}
 			\item How economists should judge how much this matters
-			\item \textcite[25]{Leamer2012}: \enquote{Fortunately, our goal as economists is not soundness, but usefulness.}
-			\item A lot of work done to aid in accuracy of model selection, is it wasted?
+			\item \textcite[25]{Leamer2012}: \enquote{\textins{O}ur goal as economists is not soundness, but usefulness.}
 		\end{itemize}
 \end{itemize}
 \end{frame}
@@ -202,9 +195,9 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 \end{frame}
 
 \begin{frame}
-\frametitle{Expected Utility Theory and Rank Dependent Utility Theory}
+\frametitle{\textcite{Harrison2016} models under consideration}
 \begin{itemize}
-	\item Both theories can be expressed as:
+	\item Both EUT and RDU can be expressed as:
 	\begin{equation}
 		\label{eq4:RDU}
 		RDU = \sum_{i=1}^{I} \left[ w_i(p) \times u(x_i) \right]
@@ -272,13 +265,20 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 	\label{eq4:RE.f}
 	{\Prob}(y_t=j) =\dfrac{\exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)}{  \exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right) + \exp\!\left( \dfrac{ G(\beta_n,X_{kt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)    }
 \end{equation}
+\begin{itemize}
+	\item $D(\cdot)$ is an adjustment function.
+	\item $\lambda$ is a \enquote{precision} parameter.
+	\item $\lambda \rightarrow \infty$, choice probabilities become equal.
+	\item $\lambda \rightarrow 0$, choice probabilities become either 0 or 1.
+	
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}
 \frametitle{Simulation Process}
 \begin{itemize}
-	\item Consider 2 alternative lotteries A or B, and a subject employing either EUT or $\mathit{RDU_{Prelec}}$
+	\item Every lottery pair has 2 alternative lotteries A or B, and every subject employs either EUT or $\mathit{RDU_{Prelec}}$
 	\item For each lottery pair, calculate choice probability for A
 	\item For each lottery pair, draw a number from uniform distribution over unit interval, [0,1]
 	\item If the choice probability of A is greater than the random number, mark the choice as A, otherwise mark it as B
