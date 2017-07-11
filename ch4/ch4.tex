@@ -23,7 +23,8 @@ As this research has evolved, and the number of generalizations under considerat
 This is inevitable, though it is not clear how one should judge the rate of decline.
 \textelp{} Monte Carlo work would be needed to shed more accurate light on such issues}
 
-The concerns raised by HO can be considered as referring to statistical power, and to the weight economists should place on type I versus type II identification errors.
+The concerns raised by HO can largely be considered as referring to statistical power, and to the weight economists should place on type I versus type II identification errors.
+That there are asymmetries in the probability of type I and type II errors should be of little surprise to most econometricians, but the degree of asymmetry in the \textit{cost} of these errors, I argue, is more important.
 In this chapter, we will analyze the experimental instruments utilized by \textcite{Harrison2016} (HN) for recovering the utility functions of agents.
 The analysis will focus firstly on the capacity of the HN procedure to correctly classify an agent as employing one of four different utility models, and secondly on the welfare consequences of this characterization.
 Thus we attempt to remove some uncertainty about the power of the instrument, and propose metrics to address the question of how much economists should care about statistical power issues by linking them directly with welfare evaluations.
@@ -1112,17 +1113,25 @@ I show that this approach leads to significantly lower type I and type II errors
 The second is to abandon the effort to first statistically distinguish between EUT and $\mathit{RDU_{Prelec}}$ subjects and instead utilize the $\mathit{RDU_{Prelec}}$ model when it was available, and the EUT model otherwise.
 This second approach was motivated by the low cost to EUT subjects of misclassification, the high cost to $\mathit{RDU_{Prelec}}$ subjects of misclassification and the relatively high frequency of these subjects being misclassified.
 I demonstrate for a hypothetical population of EUT and $\mathit{RDU_{Prelec}}$ subjects employing parameters that experimenters might reasonably expect subjects to employ, that in order for the average accuracy of the welfare surplus estimates to be \textit{lower} under this second approach, the population would have to consist of greater than 89.6\% EUT subjects.
-Both of these approaches put at the forefront the accuracy of the welfare surplus estimates, not the accuracy of the classification process in itself.
-Choosing between approaches should involve weighing one's priors about the population under investigation, the accuracy of the various potential approaches in producing welfare estimates in a domain that is relevant, and how much tolerance should be given for inaccuracy.
+While the Default approach puts the accuracy of the welfare surplus estimates at the forefront, the $\text{HN}_{1040}$ approach still relies on the accuracy of the classification process in itself. 
+In proposing the Default approach, the high cost of a type II error was weighed against both the cost of a type I error, and the additional scientific gain of demonstrating the existence of subjects that engage in probability weighting.
+
+That there is an asymmetry between subjects employing either the EUT or $\mathit{RDU_{Prelec}}$ model in both the probability of misclassification and the welfare consequences of misclassification is important when choosing an experimental design and econometric procedure.
+Since adherence to EUT is posited as the null hypothesis of the classification process, we should expect there to be fewer misclassified EUT subjects than $\mathit{RDU_{Prelec}}$ subjects.
+We can imagine that if we posited a degree of probability weighing as the null hypothesis, we would expect there to be fewer misclassified $\mathit{RDU_{Prelec}}$ subjects and more misclassified EUT subjects.
+However, the more meaningful difference in welfare surplus estimates between the two models is due to the $\mathit{RDU_{Prelec}}$ model nesting EUT.
+As was stated before, EUT subjects can be represented by the $\mathit{RDU_{Prelec}}$ by setting $\alpha = \beta = 1$, whereas $\mathit{RDU_{Prelec}}$ subjects can only be accurately described by EUT if they employ the special case of RDU Prelec that is equivalent to EUT.
+
+In choosing EUT as the null hypothesis in the classification process, we implicitly adopt a Popperian stance that deviation from EUT, as the orthodox theory of utility for choice under risk, is a bold prediction requiring a severe test. 
+However, should we accept the accumulated evidence that some subjects do in fact deviate from EUT, the costliness of type II errors should be weighed against the benefit of accumulating additional evidence about the existence of these phenomena.
+The HN and $\text{HN}_{1040}$ approaches seek to sure up the evidence of probability weighting, whereas the Default takes the existing evidence as sufficiently convincing and seeks only to make accurate welfare predictions. 
+Choosing between approaches should involve weighing one’s priors about the population under investigation, the accuracy of the various potential approaches in producing welfare estimates in a domain that is relevant, and how much tolerance should be given for inaccuracy. 
 
 I conclude by agreeing with \textcite[14]{Gelman2013}: \enquote{Criticism is easy, doing research is hard.}
 The simulation analysis performed in this chapter provides valuable insight into the power of a given instrument, but does not make recommendations on how to design an instrument to achieve a particular level of statistical power beyond the unsurprising result that power increases with sample size.
 It is incredibly difficult to develop an experimental design that allows for the identification of a model that subjects actually employ, or even to identify if the subject engages in probability weighting at all.
 The lottery instrument utilized by \textcite[98-99]{Harrison2016} is designed to incorporate the experimental findings of \textcite{Camerer1989}, \textcite{Harless1992} and \textcite{Loomes1998}, among others, that offer design elements specifically introduced to help identify probability weighting.
 That the probability of correctly identifying probability weighting using this instrument is relatively low speaks to the difficulty of conducting research in this domain.
-Going forward it may 
-
-
 
 \break
 \section{Appendix - Numerical Optimizations}
