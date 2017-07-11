@@ -2,27 +2,74 @@
 
 \begin{document}
 
-\onehalfspacing
+\doublespacing
 \setcounter{chapter}{4}
 
 \chapter{Conclusions}
 
 \lltoc % Table of contents only when locally compiled
 
+\section{Review of Chapters}
+
 This thesis focuses broadly on the interpretation of choice behavior that seemingly violates Expected Utility Theory (EUT).
 Shortly after the introduction of Expected Utility Theory, economists and psychologists began publishing results of experiments that showed choices made by experimental subjects which apparently violate one or more of the axioms of Expected Utility Theory.
 That agents often exhibit choice behavior that violates a deterministic interpretation of EUT is now uncontested.
 How often choice patterns which violate EUT occur, whether they are more likely to occur for given choice scenarios than others, or whether agents \enquote{systematically}
 
-I begin Chapter 1 by discussing economists' responses to the experimental evidence presented by \textcite{Grether1979}.
-These responses vary from developing new theoretical models, typically ones that nest Expected Utility Theory as a special case such as Rank Dependent Utility \parencite{Quiggin1982} and Regret Theory \parencite{Bell1982, Loomes1982}, to critiques of experimental method and scope, such as the necessary precepts for valid inference of experimental data \parencite{Smith1982} and the \enquote{Flat Maximum} critique \parencite{Harrison1989, Harrison1992}, to the reemergence of stochastic models of choice.
+Chapter 1 discusses economists' responses to the experimental evidence presented by \textcite{Grether1979}.
+These responses vary from developing new theoretical models, to critiques of experimental method and scope, to the reemergence of stochastic models of choice.
+The remainder of this thesis focused on how stochastic elements of choice models influence normative statements of welfare.
+
+Chapter 2 discusses the normative implications of three classes of stochastic models, the \enquote{Tremble} (TR) model popularized by \textcite{Harless1994}, the \enquote{Random Error} (RE) model popularized by \textcite{Hey1994} and the \enquote{Random Preferences} (RP) model popularized by \textcite{Loomes1998}.
+These three classes of models individually make \enquote{identifying restrictions} \parencite{Ballinger1997} on choice behavior.
+TR models require that with some probability, a choice is made as if it was selected entirely at random from the set of alternatives.
+RP models require that subjects choose as if they had randomly picked a preference relation from some distribution of preference relations and made a choice deterministically with respect to that preference relation.
+RE models generally require that as the difference in the expected utility between options grow, the choice probability of the option with the greatest expected utility will approach 1, while the choice probabilities of the other options will approach 0.
+
+These models can be combined or extended in potentially fruitful ways.
+All three classes of models can be combined into one model, in which a subject is model as if she chooses a preference parameter at random (RP model), evaluates the difference in utility of the options with some error (RE models), and then potentially chooses an option at random (TR model).
+The combination of the TR and RP models has been used by \textcite{Loomes2002} to overcome the inability of the standard RP model to  account for violations of First Order Stochastic Dominance (FOSD).
+I propose an additional extension of the RP model, called the Random Preference Per Option (RPPO) model, which requires an agent to choose a preference parameter from a distribution of preferences for each option in the set of alternatives instead of a single preference relation for the entire set of alternatives.
+The RE model as proposed by \textcite{Hey1994} is similar to a homoscedastic latent index model, and can be modified in useful ways by making the latent index heteroscedastic.
+Chapter 2 details several examples of modifications to the RE model which allow and the motivations for these modifications.
+The remainder of the thesis focuses on one of these modifications, the Contextual Utility (CU) model of \textcite{Wilcox2008}.
+
+A thought experiment is proposed that allows for a choice pattern that would leave agents with a strictly smaller stock of assets, deemed an \enquote{extraction}.
+I argue that should an agent be left with strictly fewer assets after a resource allocation, than that agent must be said to be worse off than had she had her previous stock of assets.
+The probability off an extraction and the welfare consequences of the extraction are calculated for each of the TR, CU, and RPPO models, and a combination of RP and TR (RP+TR) models.
+Chapter 2 details how the various models can be parameterized in such a way to produce identical probabilities of extraction.
+However, the RP model, and the related RPPO and RP+TR models, allow with some probability for an extraction event to result in \textit{greater} consumer surplus.
+This is despite the fact that the RP models strictly prohibit the choice of a lower stock of assets over a greater stock of assets at the individual choice level.
+I conclude that the RP model and its derivatives don't allow for perfectly coherent normative statements to be made and caution against its use in domains where individual level welfare is being assessed.
+
+Chapter 3 adopts and unconditional probability and welfare framework to continue to discuss the relationship of choice probabilities and welfare.
 
 
 
+Chapter 4 conducts a power analysis on individual level estimation utilizing the experimental design and protocol of \textcite{Harrison2016} (HN).
+HN critique the \enquote{take-up} metric commonly used in the insurance literature to judge the \enquote{success} of an insurance product.
+They conduct an experiment to demonstrate how the structural estimation of a utility function at the individual level can be used to calculate the consumer surplus of decisions to purchase, or not to purchase, insurance products.
+They presented the subjects with two instruments, a lottery task used to estimate the structural utility model, and an insurance task used to measure the consumer surplus of the subjects' choices.
+This process requires that a model be selected in order to calculate the consumer surplus.
+I call this process the \enquote{classification} process, and assess the power of this process, paired with the lottery task, to correctly identify agents employing either the EUT model or an RDU model with the flexible probability weighting function given by \textcite{Prelec1998}.
 
-\onlyinsubfile{
-\newpage
-\printbibliography[segment=5, heading=subbibliography]
-}
 
+\section{Contributions to the Literature}
+
+This thesis provide several contribution to the literature.
+First, Chapter 2 cautions heavily against the use of RP models to create characterizations of subjective welfare for individual subjects.
+RP models fail to make perfectly coherent statements about the welfare of subjects by restricting consumer surplus to be positive for every choice, and therefore for every pattern of choices, even if that pattern of choices results in the
+
+
+\section{Limitations}
+This thesis also suffers from a number of limitations.
+In Chapter 2, the criticism of the inability of RP models to make perfectly coherent statements about the welfare of individual agents relies on 
+
+
+
+%\onlyinsubfile{
+%\newpage
+%\printbibliography[segment=5, heading=subbibliography]
+%}
+%
 \end{document}
