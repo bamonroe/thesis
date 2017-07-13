@@ -7,7 +7,7 @@
 
 \chapter{Conclusions}
 
-\lltoc % Table of contents only when locally compiled
+%\lltoc % Table of contents only when locally compiled
 
 \section{Review of Chapters}
 
@@ -44,15 +44,19 @@ I conclude that the RP model and its derivatives don't allow for perfectly coher
 
 Chapter 3 adopts and unconditional probability and welfare framework to continue to discuss the relationship of choice probabilities and welfare.
 
-
-
 Chapter 4 conducts a power analysis on individual level estimation utilizing the experimental design and protocol of \textcite{Harrison2016} (HN).
 HN critique the \enquote{take-up} metric commonly used in the insurance literature to judge the \enquote{success} of an insurance product.
 They conduct an experiment to demonstrate how the structural estimation of a utility function at the individual level can be used to calculate the consumer surplus of decisions to purchase, or not to purchase, insurance products.
 They presented the subjects with two instruments, a lottery task used to estimate the structural utility model, and an insurance task used to measure the consumer surplus of the subjects' choices.
 This process requires that a model be selected in order to calculate the consumer surplus.
-I call this process the \enquote{classification} process, and assess the power of this process, paired with the lottery task, to correctly identify agents employing either the EUT model or an RDU model with the flexible probability weighting function given by \textcite{Prelec1998}.
+I call this process the \enquote{classification} process, and assess the power of this process, paired with the lottery task, to correctly identify agents employing either the EUT model or an RDU model with the flexible probability weighting function given by \textcite{Prelec1998} ($\mathit{RDU_{Prelec}}$).
 
+I find that the accuracy of the classification process depends on both the model employed by the simulated subject and the values of the parameters of that model.
+The probability of correctly classifying subjects that employed the $\mathit{RDU_{Prelec}}$ model was found to generally be lower than 50\% across the parameter space explored, and was noticeably lower than for EUT subjects, who were generally correctly classified between 80\% and 90\% of the time.
+The cost of misclassification in terms of the difference between estimated and actual welfare surplus was much larger for subjects that employed the $\mathit{RDU_{Prelec}}$ model than for EUT subjects.
+Given the asymmetry of the accuracy of estimates of welfare surplus between EUT and $\mathit{RDU_{Prelec}}$ subjects, I propose an approach which classifies every subject as employing an $\mathit{RDU_{Prelec}}$ model if it has converged for the subject, and EUT otherwise.
+This approach results in greater accuracy of welfare surplus estimates for $\mathit{RDU_{Prelec}}$ subjects and slightly worse accuracy for EUT subjects.
+For a hypothetical population, I find that the proportion of subjects employing the EUT model would have to be greater than 89.6\% for the improvement in welfare accuracy for $\mathit{RDU_{Prelec}}$ subjects to outweigh the loss of accuracy for EUT subjects.
 
 \section{Contributions to the Literature}
 
@@ -63,7 +67,14 @@ RP models fail to make perfectly coherent statements about the welfare of subjec
 
 \section{Limitations}
 This thesis also suffers from a number of limitations.
-In Chapter 2, the criticism of the inability of RP models to make perfectly coherent statements about the welfare of individual agents relies on 
+In Chapter 2, the example used to make the argument that RP models do not make perfectly coherent statements about welfare relies on a parameterization of the RP model that makes the \enquote{extraction} event relatively rare, and relatively uncostly in expected value terms compared to the expected value of the lotteries concerned.
+
+In Chapter 4 the power analysis is constrained to only two different types of utility models, the EUT and $\mathit{RDU_{Prelec}}$ model.
+Additionally, both models utilized the same utility function, the CRRA function, and the same stochastic model, the CU model.
+However, EUT and RDU both allow for greater flexibility with respect to the utility function, the probability weighting function than allowed by the particular functions employed in the analysis.
+One should be cautious when relating the power analysis conducted here to estimates on real subjects.
+Real subjects may employ utility functions that are far more flexible than the CRRA function, while still making choices 
+
 
 
 
