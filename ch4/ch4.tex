@@ -2,43 +2,53 @@
 
 \begin{document}
 
-\onehalfspacing
+\doublespacing
 \setcounter{chapter}{3}
 
-\chapter{Welfare From Experimental Instruments}
+\chapter{Welfare Inferences From Experimental Instruments}
 
 \lltoc % Table of contents only when locally compiled
 
 In Chapter 1 we described the efforts of economists to account for apparent violations of Expected Utility Theory (EUT) in economic experiments.
 Some of these efforts were directed at the development of alternative deterministic theories of utility, such as Prospect Theory by \textcite{Kahneman1979}, Rank Dependent Utility (RDU) by \textcite{Quiggin1982}, and Regret Theory by \textcite{Bell1982}, \textcite{Loomes1982}.
 Other efforts were focused on the redevelopment of stochastic models, such as the constant error or \enquote{tremble} model by \textcite{Harless1994}, the Strong Utility model by \textcite{Hey1994}, the random preference model by \textcite{Loomes1995}, along with many derivatives of the Strong Utility model.
+
 Many of the newly proposed theoretical explanations of the apparent violations of EUT were tested experimentally.
 A well known example is that of \textcite{Hey1994} (HO), who conduct an experiment to test if any of a variety of generalizations (and one restriction) of EUT can explain experimentally collected data significantly better than EUT while utilizing the Strong Utility model.
-HO pick "winning" models for each subject on the basis of their estimates for each model and whether each model can be operationally distinguished different from EUT.
+HO pick \enquote{winning} models for each subject on the basis of their estimates for each model and whether each model can be operationally distinguished different from EUT.
 They conclude that \enquote{our study indicates that behavior can be reasonably well modelled (to what might be termed a \enquote{reasonable approximation}) as \enquote{EU plus noise.}}
-
 However, HO note:
-\enquote{The inferences that can be drawn \textelp{} about the adequacy or otherwise of EU are not, however, clear cut - mainly because of the large number of generalizations of EU under consideration.
+
+\singlespacing
+\begin{displayquote}
+The inferences that can be drawn \textelp{} about the adequacy or otherwise of EU are not, however, clear cut - mainly because of the large number of generalizations of EU under consideration.
 As this research has evolved, and the number of generalizations under consideration has increased, the number of subjects for whom EU emerges as \enquote{the winners} has declined.
 This is inevitable, though it is not clear how one should judge the rate of decline.
-\textelp{} Monte Carlo work would be needed to shed more accurate light on such issues}
+\textelp{} Monte Carlo work would be needed to shed more accurate light on such issues
+\end{displayquote}
+\doublespacing
 
 The concerns raised by HO can largely be considered as referring to statistical power, and to the weight economists should place on type I versus type II identification errors.
 That there are asymmetries in the probability of type I and type II errors should be of little surprise to most econometricians, but the degree of asymmetry in the \textit{cost} of these errors, I argue, is more important.
-In this chapter, we will analyze the experimental instruments utilized by \textcite{Harrison2016} (HN) for recovering the utility functions of agents.
-The analysis will focus firstly on the capacity of the HN procedure to correctly classify an agent as employing one of four different utility models, and secondly on the welfare consequences of this characterization.
-Thus we attempt to remove some uncertainty about the power of the instrument, and propose metrics to address the question of how much economists should care about statistical power issues by linking them directly with welfare evaluations.
+In this chapter, I analyze the experimental instruments utilized by \textcite{Harrison2016} (HN) for recovering the utility functions of agents.
+The HN experiment, detailed in more depth below, is utilized for this analysis because it links the econometric classification of individual subjects directly with welfare evaluation for the decision maker.
+Estimation of the welfare consequences of a subject's choices allows economists to make a judgement about how much the individual cares about any given choice.
+In the case of the HN experiment, how much the subject cares about purchasing, or not purchasing, an insurance policy.
+\textcite{Harrison1989, Harrison1992}, in what has become known as the \enquote{Flat Maximum} or \enquote{Payoff Dominance} critique, argue that as the difference in utility between two options approaches 0, the subject cares less and less about choosing one option over the other and so economists should care less and less about the choices over options where the utility difference approaches 0.
+In a similar vein, I argue that we should care less about classification accuracy if the implied difference in welfare consequences between alternative models is minimal.
 
-To begin this analysis, we will describe and replicate the classification and welfare calculation exercises of HN.
-Next we will conduct a simulation analysis of the lottery instrument used in HN to determine the frequency of misclassification for two of the four models utilized by HN, and the welfare consequences thereof.
-We next propose two ways to potentially alleviate the welfare concerns of misidentification.
+The following analysis will focus firstly on the capacity of the HN procedure to correctly classify an agent as employing one of two different utility models, and secondly on the welfare consequences of this characterization.
+Thus I attempt to remove some uncertainty about the power of the instrument, and propose metrics to address the question of how much economists should care about statistical power issues by linking them directly with welfare evaluations.
+To begin this analysis, I describe and replicate the classification and welfare calculation exercises of HN.
+Next I conduct a simulation analysis of the lottery instrument used in HN to determine the frequency of misclassification for two of the four models utilized by HN, and the welfare consequences of this misclassification.
+I next propose two ways to potentially alleviate the welfare concerns of misidentification.
 
 \section{Estimating a Benchmark using \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2015)}}
 \label{sec4:Bench}
 
 HN report the results of an experiment intended to evaluate the welfare consequences of individuals' decisions to purchase insurance.
 This is in part a response to the large literature cited by \textcite[92]{Harrison2016} which evaluates insurance on the basis of \enquote{take-up}: the rate at which individuals purchase insurance.
-They argue that although a take-up metric is transparent and easy to measure, it doesn't allow for statements about whether an individual \textit{should} have taken up the insurance product, and it does not quantify the consumer surplus from making the correct insurance purchase decision.
+They argue that although a take-up metric is transparent and easy to measure, it doesn't allow for behaviorally general statements about whether an individual \textit{should} have taken up the insurance product, and it does not quantify the consumer surplus from making the correct insurance purchase decision.
 These are, however, precisely the kind of normative welfare statements that economists should be making about the economic choices of agents.
 They are also the kind of normative welfare statements that can be made from estimating the utility functions of individuals and evaluating their choices with respect to these functions.
 
@@ -51,7 +61,8 @@ The choice of the certain amount of money is framed as the purchase of insurance
 This part will be referred to as the \enquote{insurance task} throughout.
 Both of these instruments are detailed in full in Appendix C of \textcite{Harrison2016}.
 
-For each individual, HN use the data recovered in the lottery task to estimate four models which can be described in the framework of Rank Dependent Utility (RDU) as first proposed by \textcite{Quiggin1982}:
+For each individual, HN use the data recovered in the lottery task to estimate four models, 1 Expected Utility Theory (EUT) model and 3 models in the Rank Dependent Utility framework first proposed by \textcite{Quiggin1982}.
+Since EUT is a special case of RDU, we can describe all 4 models in the framework of RDU:
 \begin{equation}
 	\label{eq4:RDU}
 	RDU = \sum_{c=1}^{C} \left[ w_c(p) \times u(x_c) \right]
@@ -67,37 +78,36 @@ The decision weight function, $w_c(\cdot)$, takes the form:
 	\end{cases}
 \end{equation}
 \noindent where the probability weighting function, $\omega(\cdot)$, can take a variety of parametric or non-parametric forms.
-HN estimate four probability weighting functions (pwf).
-The first pwf is the linear function:
+In the special case of EUT, the probability weighting function is just the identity of the objective probabilities:
 \begin{equation}
 	\label{eq4:pw:eut}
 	\omega(p_c) = p_c
 \end{equation}
 
-\noindent The second pwf is the power function ($\mathit{RDU_{Pow}}$) used by \textcite{Quiggin1982}:
+\noindent HN estimate 3 probability weighting functions for the RDU models.
+The first pwf is the power function ($\mathit{RDU_{Pow}}$) used by \textcite{Quiggin1982}:
 \begin{equation}
 	\label{eq4:pw:pow}
 	\omega(p_c)=p_c^\gamma
 \end{equation}
 
 \noindent where $\gamma > 0$. 
-The third pwf is the \enquote{Inverse-S} shaped function ($\mathit{RDU_{Invs}}$) popularized by \textcite{Tversky1992}:
+The second pwf is the \enquote{Inverse-S} shaped function ($\mathit{RDU_{Invs}}$) popularized by \textcite{Tversky1992}:
 \begin{equation}
 	\label{eq4:pw:inv}
 	\omega(p_c) = \frac{p_c^\gamma}{\biggl(p_c^\gamma + {(1-p_c)}^\gamma\biggr)^{ \frac{1}{\gamma} } }
 \end{equation}
 
 \noindent where $\gamma > 0$. 
-The fourth pwf is the flexible function proposed by \textcite{Prelec1998} ($\mathit{RDU_{Prelec}}$):
+The third pwf is the flexible function proposed by \textcite{Prelec1998} ($\mathit{RDU_{Prelec}}$):
 \begin{equation}
 	\label{eq4:pw:pre}
 	\omega(p_c)=\exp(-\beta(-\ln(p_c))^\alpha)
 \end{equation}
 \noindent where $\alpha > 0$ and $\beta > 0$.
 
-The functional form of an RDU model with the linear probability weighting function in equation (\ref{eq4:pw:eut}) is equivalent to Expected Utility Theory (EUT), and will be referred to as EUT throughout.
-In all the remaining probability weighting functions, there exist values for the probability weighting parameters which allow $w_c(p) = p_c$, the special case of EUT.
-For all four models, \textcite{Harrison2016} use the CRRA utility function:
+For all three RDU probability weighting functions there exist values for the probability weighting parameters which allow $w_c(p) = p_c$, the special case of EUT.
+For all four models \textcite{Harrison2016} use the CRRA utility function:
 \begin{equation}
 	\label{eq4:CRRA}
 	u(x) = \frac{x^{(1-r)}}{(1-r)}
@@ -129,7 +139,8 @@ The function $D(\cdot)$ separates contextual utility from a Strong Utility model
 	\end{split}
 \end{align}
 
-Usually, the Normal or Logistic cdf is chosen for $F$, and I employ the Logistic cdf for all calculations throughout.
+Usually, the Normal or Logistic cdf is chosen for $F$.
+HN utilized the Logistic cdf and I employ the Logistic cdf for all calculations throughout.
 Given that each choice considered here only involves two lottery options, we can define the probability of choosing option $a$ given a particular model, parameter set $\beta_i$, precision parameter $\lambda_i$, and outcomes and probabilities of option $a$, $X_{at}$, as
 \begin{equation}
 	\label{eq4:RE.f}
@@ -186,7 +197,7 @@ Since the CRRA utility function defined in equation (\ref{eq4:CRRA}) is used for
 \noindent With these metrics, the best possible value for any subject is 0, which would indicate that all choices made were optimal, whereas any positive value indicates the amount of welfare surplus forgone by the subject due to choice errors.
 These metrics line up easily with the metrics defined in equations (\ref{eq4:wsurplus}) and (\ref{eq4:wsurplusT}), as should $y_t \neq 1$, ${\CE}_{i1t}^Z = {\CE}_{i1t}$.
 
-\textcite{Harrison2016} estimate values of the CRRA utility parameter, $r$, the probability weighting parameters, $\gamma, \alpha, \beta$, and the stochastic parameter $\lambda$, for each of the models presented above via maximum likelihood estimation (MLE) using the choices made by the subjects in the lottery task.
+HN estimate values of the CRRA utility parameter, $r$, the probability weighting parameters, $\gamma, \alpha, \beta$, and the stochastic parameter $\lambda$, for each of the models presented above via maximum likelihood estimation (MLE) using the choices made by the subjects in the lottery task.
 \textcite[107,110]{Harrison2016} initially calculate the welfare consequences of the choices made by each subject by using only the point estimates from the MLE, and then employ a bootstrap method which incorporates the covariance matrix of the standard errors.
 
 For the bootstrap method, a multivariate normal distribution of parameter sets is bootstrapped from the estimates using the point estimates of these parameters as the means of the marginal distributions, and the covariance matrix of standard errors used as the covariance matrix of standard deviations.
@@ -203,7 +214,8 @@ The full set of instructions delivered to the subjects is available in Appendix 
 HN employ a multi-step process for picking a \enquote{winning} model for each subject.
 First, all four models models cited in equations (\ref{eq4:pw:eut}), (\ref{eq4:pw:pow}), (\ref{eq4:pw:inv}), (\ref{eq4:pw:pre}) are estimated for each subject.
 Next, data are dropped from analysis on the basis of an \textit{ex ante} defined set of \enquote{exclusionary rules} applied to every model estimated on the subjects.
-Finally, a \enquote{classification process} is employed map a best-fitting model to each subject.
+Finally, a \enquote{classification process} is employed to choose a model with which to categorize the subject.
+
 HN propose 4 exclusionary rules:
 \begin{itemize}
 	\item Any estimate for which the optimizer did not return a convergence code indicating both a gradient near 0 and a negative definite Hessian.
@@ -213,16 +225,23 @@ HN propose 4 exclusionary rules:
 \end{itemize}
 
 \noindent The gradient and Hessian conditions indicate that the estimates are at a local maximum of a concave portion of the likelihood function.
-The next 2 rules indicate parameter values that although mathematically possible for the given functionals, nonetheless are considered to be extreme to the point of not being reliable.
-\textcite{Wakker2008} details how the CRRA utility function has certain asymptotic properties around 1.
-These properties may create numerical issues for the optimizer and so estimated values very near 1 are viewed as less credible and are excluded from the analysis.
+The next two rules indicate parameter values that, although mathematically possible for the given functionals, are nonetheless considered to be extreme to the point of not being reliable.
+\textcite{Wakker2008} details how the CRRA utility function has certain asymptotic unattractive properties around 1.
+These properties may create numerical issues for the optimizer, and so estimated values very near 1 are viewed as less credible and are excluded from the analysis.
+
+
+
+%%%%%
+%% EDIT : immediately below, look in the data to see how much of the data is actually dropped from the analysis
+%%%%%
+
 
 The classification process proposed by HN applies to all the remaining, non-excluded data.
 The log-likelihood function given in equation (\ref{eq4:ll}) is equally applicable to all four models considered by HN, and seems a natural metric to declare a \enquote{winning} model among the 4 alternatives proposed.
-However, since RDU models nest EUT as a special case (noted in equation \ref{eq4:pw:eut}), \textit{a priori} we would expect RDU models to produce greater log-likelihoods than an EUT model on any given dataset.
-\textcite[102]{Harrison2016} note this issue and propose the additional qualification on RDU models that the probability weighting function implied by the estimated model must be statistically significantly different from a linear function, the special case of EUT, at the 10, 5, or 1 percent significance levels.
+However, since the RDU models nest EUT as a special case (noted in equation \ref{eq4:pw:eut}), \textit{a priori} we would expect RDU models to produce greater log-likelihoods than an EUT model on any given dataset, numerical issues aside.
+HN \parencite*[102]{Harrison2016} note this issue and propose the additional qualification on RDU models that the probability weighting function implied by the estimated model must be statistically significantly different from a linear function, the special case of EUT, at the 10, 5, or 1 percent significance levels.
 
-The null hypothesis for the $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ models is $H_0: \gamma = 1$, and the null hypothesis for the $\mathit{RDU_{Prelec}}$ model is $H_0: \alpha = \beta = 1$.
+The EUT null hypothesis for the $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ models is $H_0: \gamma = 1$, and the null hypothesis for the $\mathit{RDU_{Prelec}}$ model is $H_0: \alpha = \beta = 1$.
 Non-linear Wald tests are used to test these hypotheses.
 Any RDU model that fails to reject the null hypothesis is removed from consideration as a \enquote{winning} model.
 If the EUT model did not converge for the subject in question, the models considered will only consist of the RDU models which tested as different to EUT.
@@ -230,10 +249,10 @@ If the EUT model did not converge \textit{and} no RDU model tested as different 
 The \enquote{winning} model for each subject is chosen from among the models which have met criteria derived from the Wald test.
 The winning model is then used to calculate the welfare consequences of the subject's choices on the insurance task.
 
-When I utilize the same classification processes employed by \textcite{Harrison2016} on their data, we see a somewhat different distribution of subjects classified to the 4 models in Figure \ref{fig:HN_pvals}.
+When I utilize the same classification processes employed by \textcite{Harrison2016} on their data, we see a somewhat different distribution of subjects classified to the four models in Figure \ref{fig:HN_pvals}.
 These differences are relatively minor, showing somewhat more RDU subjects and fewer EUT subjects than reported by HN.
-Further details on differences are given in Appendix B (to be added).
-I do however, replicate in Figure \ref{fig:HN_CS} the distribution of per-choice consumer surplus presented in Figure 10 of \textcite[108]{Harrison2016}.
+%Further details on differences are given in Appendix B.
+I do however, replicate in Figure \ref{fig:HN_CS} the distribution of per-choice consumer surplus presented in Figure 10 of HN \parencite[108]{Harrison2016}.
 Figure 10 of \textcite{Harrison2016} and Figure \ref{fig:HN_CS} are not visually distinguishable, and the mean welfare surplus metric is the same.
 
 \begin{figure}[h!]
@@ -264,33 +283,52 @@ Figure 10 of \textcite{Harrison2016} and Figure \ref{fig:HN_CS} are not visually
 \section{Individual Classification and Welfare Estimation Accuracy}
 \label{sec4:IC}
 
-Whether the results presented in Figure \ref{fig:HN_pvals} demonstrate an accurate estimation of the proportions of subjects belonging to those models depends on our confidence in the classification process to correctly classify a subject as one of these four models, as well as our confidence that the subjects in the experiments actually belong to one of the four models we test for.
+Whether the results presented in Figure \ref{fig:HN_pvals} provide an accurate estimation of the proportions of subjects belonging to those models depends on our confidence in the classification process to correctly classify a subject as one of these four models, as well as our confidence that the subjects in the experiments actually belong to one of the four models we test for.
 Our confidence that the classification process can correctly classify a subject in turn depends on the nature of the experimental instrument presented to the subject.
 
-The degree of confidence of the classification process, and indeed most statistical tests in the economics literature, can be assessed through power analysis.
+The degree of confidence in the classification process, and indeed most statistical tests in the economics literature, can be assessed through power analysis.{\footnotemark}
 However, power analyses are rarely conducted in parallel with econometric estimations.
-\textcite{McCloskey1996} find that only 4.4\% of the 181 papers published in \textit{The American Economic Review} considered the power of the test they were performing.
+\textcite{McCloskey1996} find that only 4.4\% of the 181 papers published in \textit{The American Economic Review} reported the power of the test they were performing.
 \textcite[6]{Zhang2013} review all papers published in the journal \textit{Experimental Economics} for the years 2010-2012, and find that no paper stated the optimal sample size for their analyses, and only one paper mentions power as an issue.
 
+%%%%%
+%% EDIT: Need to work on the below
+%%%%%
+
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	A \enquote{power analysis} is a process for assessing the probability of type I and type II errors for a given econometric test on data.
+	This usually involves simulating independent variables, specifying an effect size, simulating a dependent variable given the independent variables and the effect size, and then testing if the effect size can 
+}
+
+
 There are some examples of experimental economists utilizing power calculations to inform their analysis or experimental designs.
-\textcite{Rutstrom2009} conduct a power analysis by simulating agent behavior in a matching pennies games and choosing payoffs that would result in the best chance of identifying the effect they sought to identify if it were there.
+\textcite{Rutstrom2009} conduct a power analysis by simulating agent behavior in a Matching Pennies games and choosing payoffs that would result in the best chance of identifying the effect they sought to identify if it were there.
+\textcite[2]{Brown2016} conduct a power analysis to inform the choice of sample size for their experiments.
 In this instance, \textcite{Rutstrom2009} conduct a power analysis in order to influence the design of their experiment.
 \textcite[8]{Wilcox2015} conducts Monte Carlo simulations of agents responding to a lottery battery, all of which operate the CRRA utility function, the $\mathit{RDU_{Prelec}}$ probability weighting function, and the CU stochastic model.
 \textcite{Wilcox2015} designates four data generating processes (DGP) by specifying four parametrizations of these models and uses them to generate choice data, with each DGP making choices on the instrument 1000 times.
-They then estimate non-parametric RDU models for each of the 1000 choice realizations per DGP and classify the resulting estimates into one of 5 categories, one for each of the DGPs and an additional \enquote{unclassified} category.
-This is an example of using power analysis to lend support to a researcher's methods and conclusions.
-Both of these kinds of analysis are useful for understanding the statistical support for experimental research as well as its limitations.
+He then estimates non-parametric RDU models for each of the 1000 choice realizations per DGP and classifies the resulting estimates into one of 5 categories, one for each of the DGPs and an additional \enquote{unclassified} category.
+This is an example of using power analysis to lend support to a methods and conclusions of the research.
+Both \textit{a priori} power analysis, as done by \textcite{Rutstrom2009} and \textcite{Brown2016}, and \textit{ex post} power analysis, as done by \textcite{Wilcox2015}, are useful for understanding the statistical support for experimental research as well as its limitations.
 
-We interrogate the statistical power of the instrument and classification process to correctly classify subjects given the instrument presented in \textcite{Harrison2016}, and to investigate the accuracy of the welfare calculations given classifications.
+I interrogate the statistical power of the instrument and classification process to correctly classify subjects in HN, and the accuracy of the welfare calculations given classifications.
 I conduct this analysis via simulation methods similar to those defined by \textcite{Feiveson2002}, which resemble an extension of the Monte Carlo analysis performed by \textcite{Wilcox2015}.
 \textcite[108]{Feiveson2002} briefly describes a simulation method for determining the power of an experiment:
 
-\blockquote{\textins{W}e contemplate a hypothetical scenario in which the identically sized experiment could be run over and over, each time collecting new data and doing a new hypothesis test. 
-If this scenario can be adequately modeled, we may thus estimate power by simulating data from multiple replications of the experiment and simply calculate the proportion of rejections \textins{of the null hypothesis} as an estimate of the power.}
+\blockquote{
+\textins{W}e contemplate a hypothetical scenario in which the identically sized experiment could be run over and over, each time collecting new data and doing a new hypothesis test. 
+If this scenario can be adequately modeled, we may thus estimate power by simulating data from multiple replications of the experiment and simply calculate the proportion of rejections \textins{of the null hypothesis} as an estimate of the power.
+}
 
-\textcite[109]{Feiveson2002} outlines this method in more detail, and concludes by noting \enquote{The estimated power for a \textins{specified significance level} test is simply the proportion of observations (out of \textins{some large number of replications}) for which the p-value is less than \textins{the specified significance level}.}
+\textcite[109]{Feiveson2002} outlines this method in more detail, and concludes by noting 
+\blockquote{
+	The estimated power for a \textins{specified significance level} test is simply the proportion of observations (out of \textins{some large number of replications}) for which the \textit{p}-value is less than \textins{the specified significance level}.
+}
+
 In this framework, and given the nature of the classification process defined previously, should an EUT subject be classified as employing an $\mathit{RDU_{Prelec}}$ model, this would constitute a type I error (a \enquote{false positive} of probability weighting), and should an $\mathit{RDU_{Prelec}}$ subject be classified as employing an EUT model this would constitute a type II error (a \enquote{false negative} of no probability weighting).
 The probability of a type II error is called the \enquote{power} of the test and when researchers engage in \textit{ex ante} power analysis, they typically aim for a power of 80\% \parencite{Cohen1988, Gelman2014}, and significance level (\enquote{p-value}) of either 1, 5, or 10\%.
+These values are based on convention, though Ronald Fisher and others disagreed with picking the same level significance for every analysis: \enquote{\textelp{} no scientific worker has a fixed level of significance at which from year to year, and in all circumstances, he rejects hypotheses; he rather gives his mind to each particular case in the light of his evidence and his ideas.} \parencite{Fisher1956}
 
 I simulate subjects conforming to the EUT and $\mathit{RDU_{Prelec}}$ models, have these simulated subjects respond to both the lottery and insurance task, estimate the subjects' parameter sets given their responses to the lottery task, classify each subject based on the classification process employed by HN as described in the previous section, and calculate the welfare surplus for each subject based on the winning model.{\footnotemark}
 A simulated subject is represented by a single parameter set and an assigned model.
@@ -302,14 +340,14 @@ The remaining $\alpha$, and $\beta$ parameters relate to the probability weighti
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
 	I restrict the analysis and discussion in this chapter to only EUT and $\mathit{RDU_{Prelec}}$ subjects and estimated models to improve the clarity of the discussion.
-	However, choice data exist for $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ subjects and $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ model estimations exist for all subject models.
+	However, the analysis can easily be extended to all four models considered by HN.
 }
 
 For each model, we draw parameter sets from a joint uniform distribution over the parameters needed for that model, where the marginal distributions are uncorrelated.{\footnotemark}
 For both models, the marginal distribution for $r$ is where $r \in [-1, 0.95]$ and  for $\lambda$ is $\lambda \in [0.01, 0.30]$.
 For the $\mathit{RDU_{Prelec}}$ model the marginal distribution for $\alpha$ and $\beta$ is where $\alpha \in [0.10, 2]$ and $\beta \in [0.10, 2]$.
 
-We draw 250k parameter sets for each model for a total of 500k simulated subjects.
+I draw 250,000 parameter sets for each model for a total of 500,000 simulated subjects.
 The number of draws from these joint distributions was chosen in an attempt to fill as much of the relevant parameter space as possible.{\footnotemark}
 Each simulated subject uses the parameter set and model assigned to it to calculate the choice probabilities for each option in each lottery pair of the lottery task and the insurance task.
 A random number is drawn from a univariate uniform distribution, and if the choice probability calculated for the $A$ option was greater than the random number, the subject chooses A, otherwise they choose B.
@@ -337,18 +375,28 @@ Each subject was then classified based on the classification process defined in 
 If no model met the consideration criteria, the subject was classified \enquote{NA}.
 The welfare surplus of the choices made on the insurance task are then calculated using the parameters of the winning model.
 
-This process of classification simulation differs from that employed by \textcite{Wilcox2015} in that I simulate a total of 500,000 DGP, each producing a single set of choice data, whereas \textcite{Wilcox2015} simulate 4 GDP, each producing 1000 sets of choice data.
-The approach of \textcite{Wilcox2015} allows for individual DGP to not be characterized by a single set of choices, while the approach I employ allows us to see how the power of the instrument changes with resect to a wide range of DGP.
-The limitation of the approach I employ of only generating one choice data set per DGP is mitigated by the large number of simulated subjects.
-Consider an EUT subject with a CRRA parameter of 0.5 and a $\lambda$ value of 0.1.
-There is only one choice dataset for this particular subject, but there are approximately 430 subjects, and thus 430 more choice datasets, in the range CRRA $\in (0.475,0.525)$, and $\lambda \in (0.09, 0.11)$.
-If we can consider the choice probabilities for subjects in this range of parameters to be similar, we can have relatively accurate power estimations for subjects in this range.
+This process of classification simulation differs from that employed by \textcite{Wilcox2015} in that I simulate a total of 500,000 DGP, each producing a single set of choice data, whereas \textcite{Wilcox2015} simulates 4 DGP, each producing 1000 sets of choice data.
+The approach of \textcite{Wilcox2015} allows for individual DGP to be characterized by multiple sets of choices, while the approach I employ allows us to see how the power of the instrument changes with resect to a wide range of DGP.
+The limitation of the approach I employ of only generating one choice data set per DGP is mitigated by the large number of simulated subjects and the statistical methods employed to predict classification probabilities described below.
 
 \subsection{\texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Classification Power}
 
-With this assumption of similarity, we fit generalized additive models (GAM) \parencite{Hastie1986} to the classification data to make predictions of classification likelihoods.
-First we separate the data into subsets based on the models the simulated subjects actually operate, either EUT or $\mathit{RDU_{Prelec}}$.
-For each pooled group we fit a GAM model predicting whether EUT or $\mathit{RDU_{Prelec}}$ was the winning model, or if no model was declared a winner (all considered models failed the exclusionary rules).
+Consider a simulated subject X which employs the EUT model with a CRRA parameter of 0.5 and a $\lambda$ value of 0.1.
+Additionally consider the 2-dimensional parameter space Z, where CRRA $\in (0.475,0.525)$, $\lambda \in (0.09, 0.11)$ and the parameters are uncorrelated in the space.
+There is only one choice dataset for subject X, but there are 430 datasets in the space Z given the number of simulations conducted.
+We could calculate the average number of subjects in space Z that are classified as employing the EUT model, and use this statistic as an approximation of the probability of correctly classifying subject X.
+This approach to approximating the classification probabilities for a single set of parameter values based on an average of some number of \enquote{nearest neighbor} parameter values is useful if the range of parameter values chosen to average over is small and there are many data points in the range.
+We could potentially improve this approach by fitting a probit or logit model to the data in Z with the classification as EUT being the dependent variable, and the parameter values as the independent variables, and predict a classification probability for subject X.
+We could then consider a different subject Y with a new Z space distributed around its parameters and repeat the process.
+
+These approaches are na{\"\i}ve versions of more rigorous and technical approaches like local regressions (LOESS) due to \textcite{Cleveland1979} and \textcite{Cleveland1992}, and generalized additive models (GAM) due to \textcite{Hastie1986}.
+These more developed approaches utilize the full dataset for every point of prediction instead of a narrow band of data.
+Since we expect the classification probabilities to be determined by the parameters of the two models, but in not in a linear fashion, these approaches are more appropriate than fitting a probit or logit model across the entire dataset.
+
+Both the LOESS and GAM approaches would allow for predictions of classification probabilities for any set of parameters covered by the range of parameters simulated, but the GAM approach is utilized here as it is less computationally intensive.
+The GAM approach allows us to predict the probability that a subject employing a particular model is classified as EUT, $\mathit{RDU_{Prelec}}$, or unable to be classified.{\footnotemark}
+First we separate the data into subsets based on the models the simulated subjects actually employ, either EUT or $\mathit{RDU_{Prelec}}$.
+For each pooled group we fit a GAM model predicting whether the subjects were classified as EUT, $\mathit{RDU_{Prelec}}$, or unclassified.
 \begin{align}
 	\label{eq4:GAM}
 	\begin{split}
@@ -358,13 +406,18 @@ For each pooled group we fit a GAM model predicting whether EUT or $\mathit{RDU_
 	\end{split}
 \end{align}
 
+\addtocounter{footnote}{-1}
+\stepcounter{footnote}\footnotetext{
+	If neither the EUT nor the $\mathit{RDU_{Prelec}}$ model passed the exclusionary rules defined in the previous section, no model would be declared the winner and the subject would be classified as \enquote{NA}.
+}
+
 \noindent where $N$ is one of EUT, $\mathit{RDU_{Prelec}}$, or \enquote{NA} and $s(\cdot)$ indicates some smooth, potentially non-linear function of its arguments.
 
 The dependent variable in each of the GAM models in equation (\ref{eq4:GAM}) is either 1 if the subject was classified as model $N$, or 0 if the subject was not.
 The independent variables in each model are smooth functions of the actual parameter values the subject operates.
 For every model, each parameter gets its own smooth function.
 Thus, 3 GAM models are fitted for each of the two model types in the population, resulting in 6 fitted models in total.
-I then repeat this process but drop subjects that were classified as \enquote{NA} from the data before fitting the models.
+I then repeat this process but drop subjects that were unclassified from the data before fitting the models.
 This results in 4 additional models.
 Given the fitted models and a parameter set for a model type, we can use a fitted GAM model to predict the probability that a subject with the given parameter set will be classified as any of the $N$ models.
 The results of this fitting process are presented in Figures \ref{fig:HN1_win_mu}, \ref{fig:HN1_win_eut}, and \ref{fig:HN1_win_pre}.
@@ -415,8 +468,8 @@ In each Figure, the second row contains estimates derived from all the subjects,
 
 In Figure \ref{fig:HN1_win_mu}, the first column contains estimates for EUT subjects, while the second column contains estimates for $\mathit{RDU_{Prelec}}$ subjects.
 The X-axis of this figure is the value of the $\lambda$ parameter.
-Thus, the top-left plot shows how the probability of an EUT subject with a converged model is classified as either EUT or $\mathit{RDU_{Prelec}}$ for a range of $\lambda$ values.
-In Figures \ref{fig:HN1_win_eut} and \ref{fig:HN1_win_pre}, the columns indicate the parameter given on the X-axis.
+Thus, the top-left plot shows the probability of an EUT subject with a converged model being classified as either EUT or $\mathit{RDU_{Prelec}}$ for a range of $\lambda$ values.
+In Figures \ref{fig:HN1_win_eut} and \ref{fig:HN1_win_pre}, the column titles indicate the parameter given on the X-axis.
 Thus, in Figure \ref{fig:HN1_win_eut}, the top-left plot shows how the probability of an EUT subject with a converged model is classified as either EUT or $\mathit{RDU_{Prelec}}$ for a range of CRRA values.
 In Figure \ref{fig:HN1_win_pre}, the bottom-right plot shows how the probability of an $\mathit{RDU_{Prelec}}$ subject is classified as either EUT, $\mathit{RDU_{Prelec}}$, or \enquote{NA} for a range of $\beta$ values.
 
@@ -424,16 +477,16 @@ In Figure \ref{fig:HN1_win_eut} and in the left column of Figure \ref{fig:HN1_wi
 In Figure \ref{fig:HN1_win_pre} and in the right column of Figure \ref{fig:HN1_win_mu}, the green dotted line shows the probability of $\mathit{RDU_{Prelec}}$ subjects being correctly classified as $\mathit{RDU_{Prelec}}$.
 
 The results presented in Figures \ref{fig:HN1_win_mu}, \ref{fig:HN1_win_eut} and \ref{fig:HN1_win_pre} offer both surprising and intuitive results.
-In Figure \ref{fig:HN1_win_mu} we see that the likelihood EUT subjects being misclassified as $\mathit{RDU_{Prelec}}$, $\mathit{RDU_{Prelec}}$ subjects being misclassified as EUT, and either type of subject failing to produce any estimates that pass the exclusionary criteria, increases with $\lambda$.
+In Figure \ref{fig:HN1_win_mu} we see that the probability of EUT subjects being misclassified as $\mathit{RDU_{Prelec}}$, $\mathit{RDU_{Prelec}}$ subjects being misclassified as EUT, and either type of subject being unclassified, increases with $\lambda$.
 This is intuitively reasonable.
 As the $\lambda$ parameter increases, the likelihood that a subject makes a choice error increases.
 For EUT subjects, these choices errors can present as probability weighting when there is none, and for $\mathit{RDU_{Prelec}}$ subjects these choice errors can present as linear probability weighting.
-Another way to characterize this effect is to say that as $\lambda$ increases the noise in the data increases.
+Another way to characterize this effect is to say that as $\lambda$ increases, the noise in the data increases.
 Indeed, as $\lambda \to \infty$ choice probabilities for every option are equal, resulting in totally random data.
 The more noise there is in the data, the lower the likelihood of the optimizer converging on reasonable, or any, estimates, and the greater the likelihood that any latent process will be identified as another.
 
-In in the third and fourth columns of Figure \ref{fig:HN1_win_pre} we have additional intuitive results.
-We can see in these columns that the probability of an $\mathit{RDU_{Prelec}}$ subject being classified as EUT peaks when the probability weighting parameters approach the value of 1, and diminishes as the parameter values move away from 1.
+In the third and fourth columns of Figure \ref{fig:HN1_win_pre} we have additional intuitive results.
+We can see in these columns that the probability of an $\mathit{RDU_{Prelec}}$ subject being classified as EUT peaks when the probability weighting parameters approach the value of 1, and diminishes as these parameter values move away from 1.
 Since the $\mathit{RDU_{Prelec}}$ model nests EUT when $\alpha = \beta = 1$, we should expect the likelihood of misclassification to increase around these values.
 It appears the $\alpha$ parameter plays a more decisive role in the classification probability for the range of parameter values we consider; the probability of a $\mathit{RDU_{Prelec}}$ subject being classified as $\mathit{RDU_{Prelec}}$ drops at a greater rate as the $\alpha$ parameter approaches 1 than as the $\beta$ parameter approaches 1 from either the left or the right.
 
@@ -1132,97 +1185,6 @@ The simulation analysis performed in this chapter provides valuable insight into
 It is incredibly difficult to develop an experimental design that allows for the identification of a model that subjects actually employ, or even to identify if the subject engages in probability weighting at all.
 The lottery instrument utilized by \textcite[98-99]{Harrison2016} is designed to incorporate the experimental findings of \textcite{Camerer1989}, \textcite{Harless1992} and \textcite{Loomes1998}, among others, that offer design elements specifically introduced to help identify probability weighting.
 That the probability of correctly identifying probability weighting using this instrument is relatively low speaks to the difficulty of conducting research in this domain.
-
-\break
-\section{Appendix - Numerical Optimizations}
-
-\textcite{Harrison2016} use the popular statistical software Stata to conduct their analysis, and Stata's modified Newton-Rhapson (NR) algorithm to find the maximum likelihood estimates.
-I, however, use the R statistical software, with the NR algorithm provided in the package \enquote{maxLik} to conduct our analysis throughout this chapter.
-Both our approach and that of \textcite{Harrison2016} require \enquote{handwritten} likelihood functions due to the particular nature of recovering maximum likelihood estimates from non-linear structural models.
-The handwritten program of \textcite{Harrison2016} is written in the Stata language, whereas our program is written in C++, and compiled and called by R.
-
-For an in-depth discussion of how the NR algorithm finds the maximum of a function see \textcite[213-219]{Train2002}.
-For our purposes, only a few key points about how the NR algorithm operates are useful to bear in mind.
-Firstly, a maximum is declared when the gradient of the likelihood function approaches 0, and the matrix of second derivatives of the likelihood, the Hessian matrix, is negative definite.
-These two conditions indicate that the likelihood function is locally concave at the point where these conditions hold (the Hessian condition), and that the point exists at a maximum of this local concavity (the gradient condition).
-These conditions are shared by other \enquote{gradient-based} optimizers subject as the Boyden-Fletcher-Goldfarb-Shanno (BFGS) or Berndt-Hall-Hall-Hausman (BHHH) algorithms.
-
-Secondly, the NR and other gradient-based algorithms are not \enquote{global} optimizers.
-If the likelihood function is not globally concave, the NR optimizer is not guaranteed to reach a global optimum from any starting point.
-For instance, if the log-likelihood function is highly bimodal and the initial values for the optimizer are near the smaller mode, the NR optimizer may converge on the maximum of the concave portion of the smaller mode.
-The NR algorithm attempts to mitigate situations like this{\footnotemark}, but ultimately the NR algorithm is only guaranteed to find a global maximum if the likelihood function is globally concave \parencite[218]{Train2002}.
-I do not, however, expect the likelihood functions applied to the data we recover from experiments to be globally concave \parencite[227]{Train2002}.
-If we employed a linear-in-parameters utility function, as opposed to the non-linear functions we actually employ, we would have a globally concave log-likelihood function.
-
-\addtocounter{footnote}{-1}
-\stepcounter{footnote}\footnotetext{
-	See \textcite[216]{Train2002}, for specifics about how NR attempts to mitigate this problem.
-	Stata's \enquote{ml search} command additionally tries to mitigate this problem by initially searching for parameter sets that are near a global maximum, and using these found parameter sets as initial values for the NR algorithm.
-}
-
-Numerical optimization also takes place on a physical machine, and the limits of how computers manipulate and store numbers will also affect the result of an optimization exercise.
-\textcite{Gould2006} discusses how real numbers are stored and processed in modern computers and how differences in the order of operations can lead to differences in how a computer stores a value.
-Again, only a few points here are necessary to bear in mind.
-Firstly, there is a limit at which a computer can effectively distinguish between two different real numbers.
-Of particular interest to us is the limit at which a computer can distinguish between a small number and 0, as one of the conditions of finding an optimum was that the gradient must be equal to 0.{\footnotemark}
-Indeed, even for peaked likelihood functions, there can be (and must be for continuous parameter sets), ranges of parameters at which the gradient is indistinguishable from 0.
-Because of this, in the actual operation of an optimizer, a threshold is stipulated below which the gradient is considered equivalent to 0, and a (potentially different) threshold is stipulated below which the Hessian is considered negative definite.
-These thresholds are very small numbers, but usually not the smallest numbers that a computer can distinguish from 0.
-The issue with how computers store and manipulate numerical values is of course a very general issue and not unique to the NR algorithm, or the R or Stata statistical software.
-Similar issues would arise for different optimization algorithms, such as BFGS or BHHH algorithms, though the differences between these algorithms and NR imply different issues as well.{\footnotemark}
-
-\begin{lrbox}{\LstBoxR}
-\begin{lstlisting}
-.Machine$double.xmin == 0
-FALSE
-z <- .Machine$double.xmin + 0.1
-z - 0.01 == 0
-TRUE
-\end{lstlisting}
-\end{lrbox}
-
-\begin{lrbox}{\LstBoxStata}
-\begin{lstlisting}[language=bash]
-di smallestdouble() == 0
-0
-scalar z = smallestdouble() + 0.1
-di z - 0.1 == 0
-1
-\end{lstlisting}
-\end{lrbox}
-
-\addtocounter{footnote}{-2}
-\stepcounter{footnote}\footnotetext{
-For instance, in R, the smallest positive number recognized as different from 0 is given by the value of \texttt{.Machine\$double.xmin}, and in Stata is given by the value of \texttt{smallestdouble()}.
-After having stored these values in either R or Stata, and then operating on them, these smallest values are then lost:
-
-\noindent For R:
-
-\usebox{\LstBoxR}
-
-\noindent For Stata:
-
-\usebox{\LstBoxStata}
-
-The numerical precision is lost after the initial addition operation, and now the computer cannot distinguish between 0 and the operated on value, even though it is mathematically different from 0.
-}
-\stepcounter{footnote}\footnotetext{
-	Again, \textcite[220-225]{Train2002} is a useful reference to understand how these algorithms operate.
-}
-
-What is important to note about these issues is that different optimization algorithms, initial values given to the optimizer, tolerances for convergence, or potentially even the order of operations in the \enquote{handwritten} programs used in optimizers can lead to different estimates of parameter values, or to different convergence codes.{\footnotemark}
-Researchers generally recognise these issues and attempt estimation on a variety of optimizers within at least one statistical package, but seldom change the tolerances for convergence from those deemed \enquote{sane} defaults by the software's authors, or run estimations across different statistical software.{\footnotemark}
-
-\addtocounter{footnote}{-2}
-\stepcounter{footnote}\footnotetext{
-	Generally optimizers give \enquote{codes} to signal the degree of confidence in the returned optimum.
-	These may indicate that the gradient is below its tolerance level, that the gradient or likelihood hasn't decreased after many iterations, that the limit of iterations has been reached, or that the optimizer failed to converge on a single maximum.
-	I follow \textcite{Harrison2016} in only considering estimates that have gradients below the given threshold value and a Hessian that is negative definite.
-}
-\stepcounter{footnote}\footnotetext{
-	The NR, BFGS, and BHHH, optimizers are all available in Stata and R.
-	Concerning tolerance levels, Stata's help file for its \texttt{ml\_maxopts} command states concerning the options for changing tolerance levels: \enquote{These options are seldom used.}
-}
 
 \onlyinsubfile{
 \newpage

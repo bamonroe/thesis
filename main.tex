@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{report}
+\documentclass[12pt,a4paper]{report}
 
 \usepackage{subfiles}  % For compiling things into one big document from sub-documents
 
@@ -7,7 +7,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{geometry}
 \usepackage{setspace}	% For line spacing
-\usepackage{csquotes}	% For quoting
+\usepackage[style = american]{csquotes}	% For quoting
 \usepackage[hidelinks]{hyperref} %To make references into links
 \usepackage{amsmath}	% For equation stuff
 \usepackage{amssymb}	% For math symbols
@@ -62,9 +62,15 @@
 \usepackage{multirow}
 
 \usepackage[stretch=15]{microtype}	% Read about this, tested it, and was sold.
+\usepackage[american]{babel}
 \usepackage[backend=biber, uniquename=false, refsegment=chapter, doi=false, isbn=false, url=false, style=authoryear-comp, maxnames=99]{biblatex}	%For bibliography stuff
 \renewbibmacro{in:}{}
 \addbibresource{/home/bam/thesis/library.bib}	% The path to the bibliography file
+
+
+
+
+
 
 % Convenience Commands
 \newcommand\CE{\ensuremath{\mathit{CE}}}    % Certainty Equivalent
@@ -122,13 +128,14 @@
 
 \pagenumbering{arabic}
 \maketitle
-\onehalfspacing
+\doublespacing
 \tableofcontents
 
 \subfile{ch1/ch1}
 \subfile{ch2/ch2}
 \subfile{ch3/ch3}
 \subfile{ch4/ch4}
+\subfile{ch5/ch5}
 
 \printbibliography
 
