@@ -644,17 +644,20 @@ In this section we propose two modifications to the experimental protocol employ
 The first of these proposals is a recommendation that would be familiar to any statistician: increase the sample size per subject by increasing the number of lottery pairs in the lottery instrument used in estimation.
 The second proposal is to forego any attempt to accurately classify subjects as EUT or RDU and instead use the fitted $\mathit{RDU_{Prelec}}$ models when they have passed the exclusionary rules set by HN, and use non-excluded EUT models otherwise.
 
-For the second proposal, we utilize the choice data and model estimations from the simulation process described previously and simply change the critical value for the non-linear Wald test of linear probability from $0.05$ to $1$ so that the null hypothesis of linear probability weighting is rejected in every case.
+For the second proposal, we utilize the choice data and model estimations from the simulation process described previously and simply change the critical value for the non-linear Wald test of linear probability from $0.05$ to $1$ so that the null hypothesis of equivalence with EUT is rejected in every case.
 This proposal will be referred to as the \enquote{Default} approach.
-For the first proposal, however, we use the same simulated subjects used in all the analyses thus far, but have them each respond to the HN lottery instrument 13 times instead of once for a total of $1040$ choices per subject.
-The estimation procedure, application of exclusionary rules, and classification process is then applied to this new choice data to select a winning model for each subject.
-This proposal will be referred to as the $\text{HN}_{1040}$ approach and the 1040 choice lottery battery as the $\text{HN}_{1040}$ instrument.
+For the first proposal, however, we use the same simulated subjects used in all the analyses thus far, but have them each respond to the HN lottery instrument 3, 5, 7, 9, 11, and 13 times instead of once.
+This results in 240, 400, 560, 720, 880, and 1040 choices per subject, respectively.
+The estimation procedure, application of exclusionary rules, and classification process is then applied to these new choice data to select a winning model for each subject.
+This proposal will be referred to as the $\text{HN}_\text{C}$ approach, and when referring to individual repetitions the \enquote{C} will be replaced by the number of lottery pairs for the given repetition, thus $\text{HN}_{240}$ refers to the instrument where the subject made 240 choices, $\text{HN}_{400}$ to the instrument where the subject made 400 choices, and so on.
+I additionally refer to the original lottery instrument proposed by HN as the $\text{HN}_{80}$ instrument, as it has 80 choices per subject.
 
 The parameter estimates of the winning model from each approach are used to calculate the welfare surplus of the subject in the insurance task as before.
-Thus, the $\text{HN}_{1040}$ approach changes the experimental instrument used to estimate models, leaving the exclusionary rules and classification process unchanged, while the Default approach leaves the experimental instrument and exclusionary rules unchanged and alters the classification process.
-The results of the classification process for the $\text{HN}_{1040}$ approach are presented in Figures \ref{fig:HN_win_eut}, \ref{fig:HN_win_pre}, and the estimated WSD results are presented in Figures \ref{fig:HN_wel_eut} and \ref{fig:HN_wel_pre}.
+Thus, the $\text{HN}_\text{C}$ approach changes the experimental instrument used to estimate models, leaving the exclusionary rules and classification process unchanged, while the Default approach leaves the experimental instrument and exclusionary rules unchanged and alters the classification process.
+The results of the classification process for the $\text{HN}_{1040}$ instrument are presented in Figures \ref{fig:HN_win_eut}, \ref{fig:HN_win_pre}, and the estimated WSD results are presented in Figures \ref{fig:HN_wel_eut} and \ref{fig:HN_wel_pre}.
+The probability of correctly classifying subjects for each of the $\text{HN}_\text{C}$ instruments is presented in Figures \ref{fig:HNC_correct_eut} for EUT subjects and \ref{fig:HNC_correct_eut} for $\mathit{RDU_{Prelec}}$ subjects.
 The estimated WSD for the Default approach are given in Figures \ref{fig:HN1_def_wel_eut} and \ref{fig:HN1_def_wel_pre}.
-The plots of the expected WSD for the original HN method, and the two new approaches are given in Figures \ref{fig:exwel-eut} and \ref{fig:exwel-pre}.
+The plots of the expected WSD for the Default approach, and the $\text{HN}_\text{C}$ for all C are given in Figures \ref{fig:exwel-eut} and \ref{fig:exwel-pre}.
 
  % WINNING
 \begin{figure}[h!]
@@ -683,24 +686,63 @@ The plots of the expected WSD for the original HN method, and the two new approa
 	\label{fig:HN_win_pre}
 \end{figure}
 
-Looking first at the classification power of the $\text{HN}_{1040}$ instrument in Figures \ref{fig:HN_win_eut} and \ref{fig:HN_win_pre}, we see that the new instrument has significantly improved power overall, and that the variation of power over the range of parameter values follows much the same pattern as the original HN instrument.
-In Figure \ref{fig:HN_win_eut} we see that classification power is largely uniform across the entire range of parameters considered, with some small increase in the probability of EUT subjects classified as $\mathit{RDU_{Prelec}}$ as $\lambda$ values increase, and small increase in the probability of EUT subjects being classified as EUT as the CRRA value increases.
-The probability of correctly classifying EUT subjects as EUT is greater under the $\text{HN}_{1040}$ instrument than the HN instrument across the entire range of parameters considered.
+I initially present the $\text{HN}_{1040}$ instrument as a potential limiting case of a sample size increase.
+1040 choices per subject likely lies beyond the feasible number of lottery pairs to present subjects with, but this large number of lottery pairs has attractive statistical properties.
+Looking first at the classification power of the $\text{HN}_{1040}$ instrument in Figures \ref{fig:HN_win_eut} and \ref{fig:HN_win_pre}, we see that this instrument has significantly improved power overall, and that the variation of power over the range of parameter values follows much the same pattern as the original $\text{HN}_{80}$ instrument.
+In Figure \ref{fig:HN_win_eut} we see that classification power is largely uniform across the entire range of parameters considered, with some small increase in the probability of EUT subjects classified as $\mathit{RDU_{Prelec}}$ as $\lambda$ values increase, as seen in the right tail of the lines in the right column plots, and small increase in the probability of EUT subjects being classified as EUT as the CRRA value increases, as seen in the right tail of the left column plots.
+The probability of correctly classifying EUT subjects as EUT is greater under the $\text{HN}_{1040}$ instrument than the $\text{HN}_{80}$ instrument across the entire range of parameters considered.
 The rate of non-convergence in the $\text{HN}_{1040}$ instrument, however, is also noticeably different in the $\text{HN}_{1040}$ instrument; it is not perceptibly different from 0 across the entire range of parameters considered.
 
 In Figure \ref{fig:HN_win_pre} we see that classification power of the $\text{HN}_{1040}$ instrument follows the patterns of the original HN instrument, but more rapid changes in the slopes of the lines for each parameter except the CRRA parameter.
-The probability of an $\mathit{RDU_{Prelec}}$ subject being misclassified as EUT increases rapidly as the $\lambda$ parameter increases, and as either of the probability weighting parameters approach 1 from either side.
+The probability of an $\mathit{RDU_{Prelec}}$ subject being misclassified as EUT increases rapidly as the $\lambda$ parameter increases, as seen in the second column, and as either of the probability weighting parameters approach 1 from either side, as seen in the third and fourth columns.
 The probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects however is again universally higher under the $\text{HN}_{1040}$ instrument, and the probability of non-convergence is nearly 0 for almost the entire range of parameters considered.
-The probability of misclassification increases somewhat as $\lambda$ increases, as $\alpha$ and the CRRA parameters decrease, and increases rapidly as the $\beta$ parameter goes below 0.5.
+The probability of non-convergence increases somewhat as $\lambda$ increases, as $\alpha$ and the CRRA parameters decrease, and increases rapidly as the $\beta$ parameter goes below 0.5.
 
 It should not be a surprise that we should generally see the same patterns as before, but with significantly greater probabilities of correctly classifying subjects across the whole ranges of parameter values considered.
-The probabilities of type I and type II errors generally decrease with sample size in any econometric test, and so we should expect this result when we increase the per-subject sample size 13-fold.
+The probabilities of type I and type II errors generally decrease with sample size in econometric tests with consistent estimators, and so we should expect this result when we increase the per-subject sample size 13-fold.
 The patterns of how the probabilities change with parameters values are much the same as before is due to the lottery pairs, considered models, and classification process being identical.
-With a different composition of the type of lottery pairs we would expect to see different probability patterns, perhaps even seeing increasing power in the parameter ranges we would expect to see from real subjects.
+With a different composition of the type of lottery pairs, we would expect to see different probability patterns, perhaps even seeing increasing power in the parameter ranges we would expect to see from real subjects.
 
 \begin{figure}[h!]
 	\center
-	\caption{Welfare Surplus Difference of \enquote{Winning} Models for EUT subjects\\$\text{HN}_{1040}$ Approach}
+	\caption{Probability of Correct Classification for EUT subjects\\$\text{HN}_\text{C}$ Approaches}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/EUT-cprob-full-CON.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HN_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/EUT-cprob-full-CON.pdf}
+	}
+	\label{fig:HNC_correct_eut}
+\end{figure}
+
+\begin{figure}[h!]
+	\center
+	\caption{Probability of Correct Classification for $\mathit{RDU_{Prelec}}$ subjects\\$\text{HN}_\text{C}$ Approaches}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/PRE-cprob-full-CON.pdf}
+		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HN_1.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/PRE-cprob-full-CON.pdf}
+	}
+	\label{fig:HNC_correct_pre}
+\end{figure}
+
+In Figures \ref{fig:HNC_correct_eut} and \ref{fig:HNC_correct_pre} we see the point estimates of the predicted probability of correctly classifying EUT subjects and $\mathit{RDU_{Prelec}}$ subjects, respectively, for each of $C \in \lbrace 80, 240, 400, 560, 720, 880, 1040 \rbrace$.
+Figures \ref{fig:HNC_correct_eut} and \ref{fig:HNC_correct_pre} show correct classification probabilities (CCP) among converged subjects only.
+In Figure \ref{fig:HNC_correct_eut} we can see that as the number of lottery pairs in the instrument increases, given by the difference colored lines in the plots, the CCP for EUT subjects increases across the entire range of parameters considered.
+Just as we saw for the $\text{HN}_{1040}$ instrument in Figure \ref{fig:HN_win_eut}, and the $\text{HN}_{80}$ instrument in \ref{fig:HN1_win_eut}, for all $C$ instruments, the CCP decreases with the $\lambda$ parameter, shown in the right plot, and increases with the CRRA parameter, shown in the left plot.
+Interestingly, for instruments with $C \geq 240$, given by the lines that are not solid and red, there does not appear to be much difference in the CCP for values of $\lambda$ less than $0.1$, as seen in the right plot, and values of CRRA greater than $0.75$, in the left plot.
+
+In Figure \ref{fig:HNC_correct_pre} we again see that as the number of lottery pairs in the instrument increases, given by the difference colored lines in the plots, the probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects increases across the entire range of parameters considered.
+However, the differences across the $C$ instruments in the CCP for $\mathit{RDU_{Prelec}}$ subjects is far more exaggerated than for EUT subjects.
+The difference in CCP across the $C$ instruments is particularly pronounced for values of $\lambda < 0.15$, given in the top right plot, and increasingly pronounced as values of $\alpha$ and $\beta$ diverge from 1, as shown in the bottom left and right plots, respectively.
+Though as the $\alpha$ and $\beta$ parameters approach the value of 0, the limit of the $\mathit{RDU_{Prelec}}$ function, the CCP begins to converge for $C \geq 240$.
+
+\begin{figure}[h!]
+	\center
+	\caption{Welfare Surplus Difference of \enquote{Winning} Models for EUT subjects\\$\text{HN}_{1040}$ Instrument}
 	\onlyinsubfile{
 		\includegraphics[width=\textwidth]{figures/HNG/win_05-EUT-wel-HNG.pdf}
 		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HN.pdf}
@@ -713,7 +755,7 @@ With a different composition of the type of lottery pairs we would expect to see
 
 \begin{figure}[h!]
 	\center
-	\caption{Welfare Surplus Difference $\mathit{RDU_{Prelec}}$ subjects\\$\text{HN}_{1040}$ Approach}
+	\caption{Welfare Surplus Difference $\mathit{RDU_{Prelec}}$ subjects\\$\text{HN}_{1040}$ Instrument}
 	\onlyinsubfile{
 		\includegraphics[width=\textwidth]{figures/HNG/win_05-PRE-wel-HNG.pdf}
 		%\includegraphics[height=.5\paperheight, width=\textwidth]{figures/mu-winners-HN.pdf}
@@ -727,17 +769,11 @@ With a different composition of the type of lottery pairs we would expect to see
 The value of this increase in classification power, as stated earlier, lies in the superior leverage we gain for making better welfare characterizations.
 We can see the estimates of welfare surplus given the classification based on the $\text{HN}_{1040}$ instrument in Figures \ref{fig:HN_wel_eut} and \ref{fig:HN_wel_pre}.
 In Figure \ref{fig:HN_wel_eut} we see that for EUT subjects classified correctly as EUT, given by the solid red line, the expected WSD is imperceptibly different from 0 across much of the range of parameters considered.
-In addition, even though EUT subjects classified as $\mathit{RDU_{Prelec}}$ have generally worse WSD estimates, given the high likelihood of EUT subjects being correctly classified as EUT the expected WSD is also very close to 0 for much of the parameter ranges considered.
+In addition, even though EUT subjects classified as $\mathit{RDU_{Prelec}}$ have generally worse WSD estimates, given the high likelihood of EUT subjects being correctly classified, the expected WSD is also very close to 0 for much of the parameter ranges considered.
 This indicates that not only is the classification process much more accurate, but the parameter estimates for the models are likely to be more accurate as well.
-We see that as the CRRA value goes below $-0.5$ and the $\lambda$ value increases, WSD becomes more negative for subjects classified as either model.
+We see that as the CRRA value goes below $-0.5$ and the $\lambda$ value increases, the WSD becomes more negative for subjects classified as either model.
 In Figure \ref{fig:HN_wel_pre} we see that for $\mathit{RDU_{Prelec}}$ subjects classified correctly the expected WSD is also very close to 0 across much of the range of parameters considered.
-As probability weighting parameters get close to 0 we see the WSD deviate more from 0 than for the rest of the range. 
-
-In Figures \ref{fig:HN1_def_wel_eut} and \ref{fig:HN1_def_wel_pre} we can see the WSD estimates for the Default approach, where subjects are classified as employing an $\mathit{RDU_{Prelec}}$ model if it hasn't been excluded, and EUT otherwise.
-In \ref{fig:HN1_def_wel_eut} we see that the WSD for EUT subjects classified as either model approaches 0 as the CRRA parameter increases, and the WSD generally becomes more negative as $\lambda$ increases.
-For both the CRRA and $\lambda$ parameters, there is little difference in the welfare estimates of subjects classified as either EUT or $\mathit{RDU_{Prelec}}$.
-In \ref{fig:HN1_def_wel_pre}, on the other hand, we see there is generally a large gap between $\mathit{RDU_{Prelec}}$ subjects classified as either model, with subjects classified as $\mathit{RDU_{Prelec}}$ being significantly better characterized than those classified as EUT.
-However, since the probability of an $\mathit{RDU_{Prelec}}$ subject being correctly classified is so great under this approach, the expected WSD does not deviate very much from the WSD given by the $\mathit{RDU_{Prelec}}$ model.
+As $\alpha$ parameter gets close to 0, seen in the bottom left plot, we see the WSD deviates more from 0 than for the rest of the range. 
 
 \begin{figure}[h!]
 	\center
@@ -765,15 +801,21 @@ However, since the probability of an $\mathit{RDU_{Prelec}}$ subject being corre
 	\label{fig:HN1_def_wel_pre}
 \end{figure}
 
+In Figures \ref{fig:HN1_def_wel_eut} and \ref{fig:HN1_def_wel_pre} we can see the WSD estimates for the Default approach, where subjects are classified as employing an $\mathit{RDU_{Prelec}}$ model if it hasn't been excluded, and EUT otherwise.
+In \ref{fig:HN1_def_wel_eut} we see that the WSD for EUT subjects classified as either model approaches 0 as the CRRA parameter increases, and the WSD generally becomes more negative as $\lambda$ increases.
+For both the CRRA and $\lambda$ parameters, there is little difference in the welfare estimates of subjects classified as either EUT or $\mathit{RDU_{Prelec}}$.
+In \ref{fig:HN1_def_wel_pre}, on the other hand, we see there is generally a large gap between $\mathit{RDU_{Prelec}}$ subjects classified as either model, with subjects classified as $\mathit{RDU_{Prelec}}$, given by the green line, being significantly better characterized than those classified as EUT, given by the red line.
+However, since the probability of an $\mathit{RDU_{Prelec}}$ subject being correctly classified is so great under this approach, the expected WSD does not deviate very much from the WSD given by the $\mathit{RDU_{Prelec}}$ model.
+
 The results presented in Figures \ref{fig:HN1_def_wel_eut} and \ref{fig:HN1_def_wel_pre} should not be surprising.
 The $\mathit{RDU_{Prelec}}$ model nests the EUT model, thus EUT subjects can be accurately represented by an $\mathit{RDU_{Prelec}}$ model by setting $\alpha = \beta = 1$.
 However, the EUT model does not allow for probability weighting, and thus $\mathit{RDU_{Prelec}}$ subjects that undertake significant probability weighting and are classified as EUT will have their welfare surplus significantly mischaracterized.
 
-In Figures \ref{fig:exwel-eut} and \ref{fig:exwel-pre} we can see the expected WSD of all three methods.
-The original HN instrument is given by the solid red line, the $\text{HN}_{1040}$ approach is given by the dashed blue line, and the Default approach is given by the dotted green line.
-In the left plot of Figure \ref{fig:exwel-eut}, we see that there is very little difference in the expected WSD between any of the three approaches when the CRRA parameter is greater than 0.4.
+In Figures \ref{fig:exwel-eut} and \ref{fig:exwel-pre} we can see the expected WSD for the Default approach and for the HN approach for all $C \in \lbrace 80, 240, 400, 560, 720, 880, 1040 \rbrace$.
+The Default approach is given by the solid green line, the original HN instrument is given by dotted yellow line, and remaining lines indicate the remaining $C$ replications of the HN instrument.
+In the left plot of Figure \ref{fig:exwel-eut}, we see that there is very little difference in the expected WSD between any of the approaches or instruments when the CRRA parameter is greater than 0.4.
 In particular, there is almost no difference at all between using the classification process employed by HN vs a classification process that never rejects the $\mathit{RDU_{Prelec}}$ model in this parameter range.
-In the right plot of Figure \ref{fig:exwel-eut}, depicting $\lambda$ values, the WSD for the $\text{HN}_{1040}$ approach, the blue dashed line, is noticeably closer to 0 than either the HN approach, the solid red line, or the Default approach, the dotted green line.
+In the right plot of Figure \ref{fig:exwel-eut}, depicting $\lambda$ values, the WSD for the for the $\text{HN}_\text{C}$ approaches with $C \geq 240$ are noticeably closer to 0 than for either the original $\text{HN}_{80}$ or the Default approach, though the magnitude of this difference is still relatively small.
 
 \begin{figure}[ht!]
 	\center
@@ -788,12 +830,13 @@ In the right plot of Figure \ref{fig:exwel-eut}, depicting $\lambda$ values, the
 	\label{fig:exwel-eut}
 \end{figure}
 
-In Figure \ref{fig:exwel-pre} on the other hand, we see a noticeable difference between the three approaches for $\mathit{RDU_{Prelec}}$ subjects.
-For every parameter given in the subplots, the expected WSD for the $\text{HN}_{1040}$ approach, given by the dashed blue line, is closer to 0 than either the HN approach, given by the solid red line, or the Default approach, given by the dotted green line.
-The WSD for the Default approach, however, is closer to 0 than for the HN approach for the entire range of CRRA parameters considered, top left plot, the entire range of $\lambda$ parameters considered, top right plot, and for most of the ranges of the $\alpha$ and $\beta$ parameters considered, bottom left and right plots respectively.
+In Figure \ref{fig:exwel-pre} on the other hand, we see a noticeable difference between the different approaches for $\mathit{RDU_{Prelec}}$ subjects.
+The WSD for the Default approach, given by the solid red line, is closer to 0 than for the $\text{HN}_{80}$ approach, given by the dotted yellow line, for the entire range of CRRA parameters considered, top left plot, the entire range of $\lambda$ parameters considered, top right plot, and for most of the ranges of the $\alpha$ and $\beta$ parameters considered, bottom left and right plots respectively.
 In particular the Default approach generally performs better when the $\alpha$ parameter is far from 1, and the $\beta$ parameter is greater than 0.7.
-At the tails of the ranges of probability weighting parameter values considered here, shown in the bottom two plots, the difference between the HN approach and the $\text{HN}_{1040}$ and Default approaches are at their greatest.
 These differences are also much greater than the differences for the EUT subjects over any parameter values shown in Figure  \ref{fig:exwel-eut}.
+Interestingly, the Default approach performs as good as the $\text{HN}_\text{240}$ approach for values of $\beta$ near 1.25, shown in the bottom right plot, and better than the $\text{HN}_{240}$ approach for $\alpha$ greater than 0.5 and less than 0.75.
+Its clear, however, though that over a wide range of parameters the $\text{HN}_\text{C}$ approaches for $C \geq 240$ provide more accurate WSD estimates.
+This suggests that the increased number of lottery pairs not only provides a greater likelihood of correctly classifying a subject, but also provides more accurate parameter estimates, which lead to more accurate estimates of the subjects' welfare surplus.
 
 \begin{figure}[h!]
 	\center
@@ -817,68 +860,26 @@ If most of the EUT agents in the population employ a CRRA parameter greater than
 But if a significant proportion of them are risk seeking (CRRA $< 0$), we may care.
 Likewise, if the $\mathit{RDU_{Prelec}}$ agents in the population don't undertake significant probability weighting, choosing between the various approaches presented may not matter a great deal in terms of welfare characterizations.
 
-Looking at the estimation results presented in Appendix C of the working paper version of \textcite{Harrison2016}, we see that the median CRRA parameter for the fitted EUT models across is 0.41, and almost 70\% of fitted $\mathit{RDU_{Prelec}}$ models have a probability weighting parameter greater than 1.5 or less than 0.5, indicating significant probability weighting.
-Though these are estimates, and not the real values of parameters which we have been discussing, they suggest that the amount of risk aversion for EUT subjects and the amount of probability weighting for RDU subjects falls in a range that makes the selection of the classification process welfare relevant.
-We can observe this more cleanly by considering a hypothetical population of EUT and $\mathit{RDU_{Prelec}}$ agents, and predicting the expected WSD for these agents.
+We can observe this more cleanly by considering a hypothetical population of EUT and $\mathit{RDU_{Prelec}}$ agents, and predicting the expected WSD for these populations.
+As a basis for the hypothetical population, we first classify the real subjects from the HN experiments as either EUT or $\mathit{RDU_{Prelec}}$, fit a pooled EUT model to the subjects classified as EUT, 52 subjects, and a pooled $\mathit{RDU_{Prelec}}$ model to the subjects classified as $\mathit{RDU_{Prelec}}$, 44 subjects, 15 subjects remain unclassified.
+The point estimate of the CRRA parameter for the EUT subjects is 0.49, and the point estimate of the $\lambda$ value is 0.10.
+For the $\mathit{RDU_{Prelec}}$ subjects, the point estimates of the CRRA parameter is 0.52, the $\alpha$ parameter is 1.48, the $\beta$ parameter is 0.74, and the $\lambda$ parameter is 0.12.
+Though these are estimates, and not the real values of parameters which we have been discussing, they allow us to construct a useful hypothetical scenario.
 
 Consider a population comprised of EUT and $\mathit{RDU_{Prelec}}$ agents that operate the EUT and $\mathit{RDU_{Prelec}}$ models that have been specified.
-In this population, suppose that for both EUT and $\mathit{RDU_{Prelec}}$ agents, the CRRA parameter is distributed normally with a mean of 0.4 and a standard deviation of 0.1, and the $\lambda$ parameter is distributed log-normal with a mean of 0.1 and a standard deviation of 0.02.
-For the $\mathit{RDU_{Prelec}}$ agents the $\alpha$ parameter is distributed log-normal with a mean of 0.65 and a standard deviation of 0.1, and the $\beta$ parameter is also distributed log-normal with a mean of 1.65 and a standard deviation of 0.1.
+In this population, suppose that for both EUT and $\mathit{RDU_{Prelec}}$ agents, the CRRA parameter is distributed normally with a mean of 0.5 and a standard deviation of 0.11, and the $\lambda$ parameter is distributed log-normal with a mean of 0.1 and a standard deviation of 0.02.
+For the $\mathit{RDU_{Prelec}}$ agents the $\alpha$ parameter is distributed log-normal with a mean of 1.50 and a standard deviation of 0.1, and the $\beta$ parameter is also distributed log-normal with a mean of .7 and a standard deviation of 0.1.
+%The CRRA and $\lambda$ values are are roughly the same for both the EUT and $\mathit{RDU_{Prelec}}$ pooled estimates conducted above, and the $\alpha$ and $\beta$ parameters are the .
 Assume that for each model, none of the marginal distributions are correlated.
 Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_welfare}), for each of the two model populations specified above, we draw 10,000 agents from the hypothetical population and predict classification probabilities and WSD.
 
+\break
+
 \onlyinsubfile{
-\begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
-	\centering
-	\caption{Expected Welfare Surplus Difference (WSD), HN Approach}
-	\label{tb:HN1_win05_pop}
-	\begin{adjustbox}{}
-	\pgfplotstabletypeset[
-		col sep=comma,
-		every head row/.style={
-			after row=\hline
-		},
-		display columns/0/.style={
-			string type,
-			column name = {}
-		},
-		display columns/1/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {p(EUT)}
-		},
-		display columns/2/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {p(Prelec)}
-		},
-		display columns/3/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {$\text{WSD}_{\text{EUT}}$}
-		},
-		display columns/4/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {$\text{WSD}_{\text{Prelec}}$}
-		},
-		display columns/5/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Expected WSD}
-		},
-		]{tables/HNG_1-win_05_full-table.csv} % path/to/file
-	\end{adjustbox}
-\end{table}
 
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
-	\caption{Expected Welfare Surplus Difference (WSD), Default Approach}
+	\caption{Expected Welfare Surplus Difference, Default Approach}
 	\label{tb:HN1_default_pop}
 	\begin{adjustbox}{}
 	\pgfplotstabletypeset[
@@ -924,10 +925,202 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 	\end{adjustbox}
 \end{table}
 
+\begin{table}[ht!] %	\centering %	\captionsetup{justification=centering}
+	\centering
+	\caption{Expected Welfare Surplus Difference, $\text{HN}_{80}$ Approach}
+	\label{tb:HN1_win05_pop}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(EUT)}
+		},
+		display columns/2/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(Prelec)}
+		},
+		display columns/3/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{EUT}}$}
+		},
+		display columns/4/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{Prelec}}$}
+		},
+		display columns/5/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Expected WSD}
+		},
+		]{tables/HNG_1-win_05_full-table.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+
+\begin{table}[ht!] %	\centering %	\captionsetup{justification=centering}
+	\centering
+	\caption{Expected Welfare Surplus Difference, $\text{HN}_{240}$ Approach}
+	\label{tb:HN3_win05_pop}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(EUT)}
+		},
+		display columns/2/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(Prelec)}
+		},
+		display columns/3/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{EUT}}$}
+		},
+		display columns/4/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{Prelec}}$}
+		},
+		display columns/5/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Expected WSD}
+		},
+		]{tables/HNG_3-win_05_full-table.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
-	\caption{Expected Welfare Surplus Difference (WSD), $\text{HN}_{1040}$ Approach}
-	\label{tb:HN_win05_pop}
+	\caption{Expected Welfare Surplus Difference, $\text{HN}_{400}$ Approach}
+	\label{tb:HN5_win05_pop}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(EUT)}
+		},
+		display columns/2/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(Prelec)}
+		},
+		display columns/3/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{EUT}}$}
+		},
+		display columns/4/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{Prelec}}$}
+		},
+		display columns/5/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Expected WSD}
+		},
+		]{tables/HNG_5-win_05_full-table.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+
+\begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
+	\centering
+	\caption{Expected Welfare Surplus Difference, $\text{HN}_{560}$ Approach}
+	\label{tb:HN7_win05_pop}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(EUT)}
+		},
+		display columns/2/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(Prelec)}
+		},
+		display columns/3/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{EUT}}$}
+		},
+		display columns/4/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{Prelec}}$}
+		},
+		display columns/5/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Expected WSD}
+		},
+		]{tables/HNG_7-win_05_full-table.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+
+\begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
+	\centering
+	\caption{Expected Welfare Surplus Difference, $\text{HN}_{1040}$ Approach}
+	\label{tb:HN13_win05_pop}
 	\begin{adjustbox}{}
 	\pgfplotstabletypeset[
 		col sep=comma,
@@ -975,55 +1168,7 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 \notinsubfile{
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
-	\caption{Expected Welfare Surplus Difference (WSD), HN Approach}
-	\label{tb:HN1_win05_pop}
-	\begin{adjustbox}{}
-	\pgfplotstabletypeset[
-		col sep=comma,
-		every head row/.style={
-			after row=\hline
-		},
-		display columns/0/.style={
-			string type,
-			column name = {}
-		},
-		display columns/1/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {p(EUT)}
-		},
-		display columns/2/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {p(Prelec)}
-		},
-		display columns/3/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {$\text{WSD}_{\text{EUT}}$}
-		},
-		display columns/4/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {$\text{WSD}_{\text{Prelec}}$}
-		},
-		display columns/5/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Expected WSD}
-		},
-		]{ch4/tables/HNG_1-win_05_full-table.csv} % path/to/file
-	\end{adjustbox}
-\end{table}
-
-\begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
-	\centering
-	\caption{Expected Welfare Surplus Difference (WSD), Default Approach}
+	\caption{Expected Welfare Surplus Difference, Default Approach}
 	\label{tb:HN1_default_pop}
 	\begin{adjustbox}{}
 	\pgfplotstabletypeset[
@@ -1071,8 +1216,200 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
-	\caption{Expected Welfare Surplus Difference (WSD), $\text{HN}_{1040}$ Approach}
-	\label{tb:HN_win05_pop}
+	\caption{Expected Welfare Surplus Difference, $\text{HN}_{80}$ Approach}
+	\label{tb:HN1_win05_pop}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(EUT)}
+		},
+		display columns/2/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(Prelec)}
+		},
+		display columns/3/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{EUT}}$}
+		},
+		display columns/4/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{Prelec}}$}
+		},
+		display columns/5/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Expected WSD}
+		},
+		]{ch4/tables/HNG_1-win_05_full-table.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+
+\begin{table}[ht!] %	\centering %	\captionsetup{justification=centering}
+	\centering
+	\caption{Expected Welfare Surplus Difference, $\text{HN}_{240}$ Approach}
+	\label{tb:HN3_win05_pop}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(EUT)}
+		},
+		display columns/2/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(Prelec)}
+		},
+		display columns/3/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{EUT}}$}
+		},
+		display columns/4/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{Prelec}}$}
+		},
+		display columns/5/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Expected WSD}
+		},
+		]{ch4/tables/HNG_3-win_05_full-table.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+
+\begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
+	\centering
+	\caption{Expected Welfare Surplus Difference, $\text{HN}_{400}$ Approach}
+	\label{tb:HN5_win05_pop}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(EUT)}
+		},
+		display columns/2/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(Prelec)}
+		},
+		display columns/3/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{EUT}}$}
+		},
+		display columns/4/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{Prelec}}$}
+		},
+		display columns/5/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Expected WSD}
+		},
+		]{ch4/tables/HNG_5-win_05_full-table.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+
+\begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
+	\centering
+	\caption{Expected Welfare Surplus Difference, $\text{HN}_{560}$ Approach}
+	\label{tb:HN7_win05_pop}
+	\begin{adjustbox}{}
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(EUT)}
+		},
+		display columns/2/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(Prelec)}
+		},
+		display columns/3/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{EUT}}$}
+		},
+		display columns/4/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{Prelec}}$}
+		},
+		display columns/5/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Expected WSD}
+		},
+		]{ch4/tables/HNG_7-win_05_full-table.csv} % path/to/file
+	\end{adjustbox}
+\end{table}
+
+\begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
+	\centering
+	\caption{Expected Welfare Surplus Difference, $\text{HN}_{1040}$ Approach}
+	\label{tb:HN13_win05_pop}
 	\begin{adjustbox}{}
 	\pgfplotstabletypeset[
 		col sep=comma,
@@ -1118,32 +1455,41 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 \end{table}
 }
 
-In Tables \ref{tb:HN1_win05_pop}, \ref{tb:HN1_default_pop}, and \ref{tb:HN_win05_pop} we see the average of the predictions for the hypothetical population.
+\break
+
+In Tables \ref{tb:HN1_default_pop} through \ref{tb:HN13_win05_pop} we see the average of the predictions for the hypothetical population for the Default approach and the $\text{HN}_\text{C}$ approach for $C \in \lbrace 80, 240, 400, 560, 1040\rbrace$.
 The names of the rows in these tables give the model that the agents actually employ.
 In the first two columns of each table, we see the average probability of an agent employing a model given by the name of the row being classified as the model given in the column.
 In the third and fourth columns of each table, we see the average WSD should the agent be classified as the model given in the column name.
 In the fifth column of each table, we see the average expected WSD for the row population.
 
-In Tables \ref{tb:HN1_win05_pop}, \ref{tb:HN1_default_pop}, and \ref{tb:HN_win05_pop} we see a snapshot of the patterns depicted in the Figures presented throughout this chapter.
-As was seen in the previous Figures, correctly classified EUT subjects are better characterized under the HN approach than under the Default Approach, correctly classified $\mathit{RDU_{Prelec}}$ subjects are better characterized under the Default approach than under the HN approach, and all subjects are better characterized under the $\text{HN}_{1040}$ approach.
-What these tables show more clearly, however, is the cost in terms of welfare surplus of choosing between these three approaches given populations of agents we might readily encounter in experiments with real subjects.
+In Tables \ref{tb:HN1_default_pop} through \ref{tb:HN13_win05_pop} we see a snapshot of the patterns depicted in the Figures presented throughout this chapter.
+Correctly classified EUT subjects are better characterized under any of the $\text{HN}_\text{C}$ approaches than under the Default Approach, as can be seen by comparing the first row, third column of each table.
+Correctly classified $\mathit{RDU_{Prelec}}$ subjects are better characterized under the Default approach than under the $\text{HN}_{80}$ approach, though just barely so, as can been seen by comparing the second row, fourth columns of Tables \ref{tb:HN1_default_pop} and \ref{tb:HN1_win05_pop}.
+All subjects are more likely to be correctly classified, and have better a expected WSD for $\text{HN}_\text{C}$ approaches with $C \in \lbrace 240, 400, 560, 1040\rbrace$.
+What these tables show more clearly, however, is the cost in terms of welfare surplus of choosing between these approaches given populations of agents we might readily encounter in experiments with real subjects.
 
-Looking at the fifth column of Tables \ref{tb:HN1_win05_pop} and \ref{tb:HN1_default_pop}, we see that going from the HN approach to the Default approach, $\mathit{RDU_{Prelec}}$ subjects have an improvement in the accuracy of their expected WSD of 6.55, while EUT subjects only have a decrease of 0.76.
-That is, the average $\mathit{RDU_{Prelec}}$ subject will have a welfare surplus estimate that is \$6.55 closer to their real welfare surplus under the Default approach, while the average EUT subjects will welfare surplus estimates that are \$0.76 farther away from their real welfare surplus.
+In terms of correctly classifying subjects, we can see that for this population the average probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects in the original $\text{HN}_{80}$ approach is a remarkably low 38\%.
+The probability of correctly classifying EUT subjects with the $\text{HN}_{80}$ is much greater than that of $\mathit{RDU_{Prelec}}$ subjects at 88\%, and rapidly approaches the 95\% limit after only 3 repetitions.
+The $\mathit{RDU_{Prelec}}$ subjects however, are not correctly classified 95\% of the time for any of the repetitions, as seen in the second row second column of each plot, and only reaches 80\% correct classification probebaility with greater than 400 lottery pairs per subject.
+
+Looking at the fifth column of Tables \ref{tb:HN1_win05_pop} and \ref{tb:HN1_default_pop}, we see that going from the $\text{HN}_{80}$ approach to the Default approach, $\mathit{RDU_{Prelec}}$ subjects have an improvement in the accuracy of their expected WSD of \$2.60, while EUT subjects only have a decrease of \$0.62.
+That is, the average $\mathit{RDU_{Prelec}}$ subject will have a welfare surplus estimate that is \$2.66 closer to their real welfare surplus under the Default approach, while the average EUT subjects will welfare surplus estimates that are \$0.62 farther away from their real welfare surplus.
 To put it another way, assume a grand population made up of the two populations of EUT and $\mathit{RDU_{Prelec}}$ subjects we've posited here.
-The proportion of EUT subjects in this grand population would have to be greater than 89.6\% for the loss of the WSD for EUT subjects to outweigh the gain to $\mathit{RDU_{Prelec}}$ subjects.{\footnotemark}
-Thus, if we expect real subjects to employ parameters similar to those assumed here, and if we expect the proportion of EUT subjects to be lower than  89.6\% of the population, the Default approach will produce more accurate welfare surplus estimates than the HN approach.
+The proportion of EUT subjects in this grand population would have to be greater than 80.7\% for the loss of the WSD for EUT subjects to outweigh the gain to $\mathit{RDU_{Prelec}}$ subjects.{\footnotemark}
+Thus, if we expect real subjects to employ parameters similar to those assumed here, and if we expect the proportion of EUT subjects to be lower than  80.7\% of the population, the Default approach will produce more accurate welfare surplus estimates than the $\text{HN}_{80}$ approach.
 Given the results presented in Figure \ref{fig:HN_pvals} and the power calculations presented throughout this chapter, the evidence would weigh against a population of real subjects with such a high proportion of EUT subjects.
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
-	For $p = 0.896$, $p \times 0.76 \approx (1 - p) \times 6.55$.
-	For $p > 0.895$, $p \times 0.76 > (1 - p) \times 6.55$.
+	For $p = 0.807$, $p \times 0.62 \approx (1 - p) \times 2.6$.
+	For $p > 0.807$, $p \times 0.62 > (1 - p) \times 2.6$.
 }
 
-Choosing between either the HN or Default approach and the $\text{HN}_{1040}$ approach, however, requires other considerations in real experiments.
-In both the HN and Default approaches, the experimental protocol and instruments were identical, and thus comparing the expected WSD of the two approaches is an appropriate way of choosing between the approaches.
+Choosing between the Default approach or one of the $\text{HN}_\text{C}$ approaches, however, requires consideration of more than just the classification or welfare surplus accuracy in real experiments.
+In both the $\text{HN}_{80}$ and Default approaches, the experimental protocol and instruments were identical, and thus comparing the expected WSD of the two approaches is an appropriate way of choosing between the approaches.
 The $\text{HN}_{1040}$ approach, however, changes the size of the experimental instrument dramatically and would therefore require changes in the experimental protocol.
+Even a more moderate increase in the number of lottery pairs to increase the probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects, to 400 for intance, can create methodological concerns.
 Unlike our simulated subjects, real subjects may experience boredom or fatigue should the experiment be conducted in one sitting, and they may experience changes in the background wealth, risks, or beliefs should the experiment be conducted over several days.
 Any of these factors may plausibly result in a subject employing one functional at the beginning of the experiment and another functional by the end.
 Indeed, \textcite{Hey2001} test the hypothesis that subjects change the functional they use when lottery tasks are repeated 5 times by presenting subjects with a 100 lottery pair battery over 5 days.
@@ -1152,37 +1498,55 @@ Experimenters need to weigh these methodological concerns against their ability 
 
 \section{Conclusions}
 
-Experimental economists have been attempting to classify subjects as employing particular utility models for several decades.
-These attempts generally stem from an effort to gather evidence concerning whether or not EUT adequately described the choice behavior of experimental subjects.
-One of the most popular studies that engage in classifying subjects is \textcite{Hey1994}, in which subjects are classified as employing 1 of 11 potential models.
-A key issue with this process, however, is that as the number of considered models increases, the probability of type I and type II errors in the classification process also increase \textit{certeris peribus}.
-\textcite[1314-1315]{Hey1994} were aware of this problem, stating that Monte Carlo simulations could shed light on the extent of this problem, but also that \enquote{it is not clear how one should judge} this issue.
+This chapter demonstrates a method for conducting a power analysis over a wide range of potential data generating process (DGP), shows that conducting individual level classification with subjects responding to fewer than several hundred lottery pairs is likely to lead to frequent misclassifications, and that these misclassifications can be costly in terms of subjective welfare surplus.
+Though inferential objectives vary greatly across the experimental literature, many researchers estimate multiple structural models of utility and classify individual subjects as employing one based on their estimates.
 
-Monte Carlo work to shed light on the probability of type I and type II errors in classification processes has been very rare.
-A notable example is \textcite{Wilcox2015}, where several data generating processes are simulated in order to help clarify the strengths and limitations of the classification methodology employed.
-\textcite{Harrison2016}, among others, argue that the correct way to judge the classification of subjects is on the basis of the welfare consequences of the classification.
-They argue that classifying subjects making choices over insurance products on the basis of a binary \enquote{take-up} metric is an all too common approach that fails to incorporate the risk and time preferences of the agents making the decisions.
-This leads to characterizations of welfare that are devoid of information concerning the subjective evaluations of what is actually good for the agent.
-The issue with the \enquote{take-up} metric is not just that it methodologically less sound, but that it may lead to policy prescriptions that are deeply costly in terms of subjective welfare.
+Given the inferential objective of \textcite{Harrison2016} of assessing the subjective welfare consequences of the decision to purchase, or not to purchase, a particular insurance product, I present mixed evidence.
+The capacity of the classification process to correctly classify a subject as employing either the EUT or $\mathit{RDU_{Prelec}}$ model is relatively low for parameterizations of these models we expect real subjects to employ.
+For a hypothetical population parameterized by the point estimates of real subject data, the probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects is shown to be less than 40\%.
+However, although misclassification results in negative welfare consequences for the subjects, these negative consequences are not particularly massive, averaging only several dollars across the population.
+Nonetheless, I conclude that utilizing the proposed \enquote{Default} approach of classification or increasing the sample size by several hundred lottery pairs per subject would result in more accurate subjective welfare estimates.
 
-The broad arguments of \textcite{Harrison2016} against the \enquote{take-up} measure should extend to classification processes generally.
-That is, the response to the concerns of \textcite{Hey1994} about how one should judge the possibility of type I and type II errors in the classification process is how accurately does the \enquote{winning} model characterize the welfare of the subject in a domain that is welfare relevant.
-The experimental protocol of \textcite{Harrison2016} provides a useful avenue for an investigation into this question.
-The lottery task provides an instrument measuring the risk preferences of individual subjects and classify them as employing a particular model, and the insurance task provides the welfare relevant domain.
+These two approaches, increasing the sample size and disregarding classification altogether, are not the only options available.
+There exists the possibility of alternative experimental design and/or econometric procedures.
+Econometrically, one can imagine a Baysian approach in which small groups of subjects are grouped together based on observable characteristics, age, sex, education, etc., and then pooled estimations from these subgroups being used as priors to inform the individual level estimates of the members of the groups.
+Different classification processes could be used as well
 
-I conduct a simulation analysis to investigate this question by replicating the experimental protocol and classification process employed by \textcite{Harrison2016}.
-I find that the probability of type I and type II errors varies with the model actually employed by the subject, and with the values of the parameters associated with the model, at least for the two models I consider.
-Importantly, for wide ranges of values of probability weighting parameters associated with the $\mathit{RDU_{Prelec}}$ model, the probability of falsely classifying a subject as employing an EUT model (a type II error) is not trivial and can lead to very inaccurate welfare surplus estimates.
-The probability of classifying an EUT subject as $\mathit{RDU_{Prelec}}$ (a type I error) is often greater than 10\% for a wide range of parameters, but the welfare cost of these misclassification is substantially less than for $\mathit{RDU_{Prelec}}$ subjects.
 
-Given these results, I propose two alternative approaches.
-The first is to collect a much larger sample of choice data from each subject in order to decrease the probability of type I and type II errors, and employ the same classification process with this much larger dataset.
-I show that this approach leads to significantly lower type I and type II errors when classifying subjects, and that the resulting welfare surplus estimates are highly accurate.
-The second is to abandon the effort to first statistically distinguish between EUT and $\mathit{RDU_{Prelec}}$ subjects and instead utilize the $\mathit{RDU_{Prelec}}$ model when it was available, and the EUT model otherwise.
-This second approach was motivated by the low cost to EUT subjects of misclassification, the high cost to $\mathit{RDU_{Prelec}}$ subjects of misclassification and the relatively high frequency of these subjects being misclassified.
-I demonstrate for a hypothetical population of EUT and $\mathit{RDU_{Prelec}}$ subjects employing parameters that experimenters might reasonably expect subjects to employ, that in order for the average accuracy of the welfare surplus estimates to be \textit{lower} under this second approach, the population would have to consist of greater than 89.6\% EUT subjects.
-While the Default approach puts the accuracy of the welfare surplus estimates at the forefront, the $\text{HN}_{1040}$ approach still relies on the accuracy of the classification process in itself. 
-In proposing the Default approach, the high cost of a type II error was weighed against both the cost of a type I error, and the additional scientific gain of demonstrating the existence of subjects that engage in probability weighting.
+
+
+
+%Experimental economists have been attempting to classify subjects as em
+%These attempts generally stem from an effort to gather evidence concerning whether or not EUT adequately described the choice behavior of experimental subjects.
+%One of the most popular studies that engage in classifying subjects is \textcite{Hey1994}, in which subjects are classified as employing 1 of 11 potential models.
+%A key issue with this process, however, is that as the number of considered models increases, the probability of type I and type II errors in the classification process also increase \textit{certeris peribus}.
+%\textcite[1314-1315]{Hey1994} were aware of this problem, stating that Monte Carlo simulations could shed light on the extent of this problem, but also that \enquote{it is not clear how one should judge} this issue.
+
+%Monte Carlo work to shed light on the probability of type I and type II errors in classification processes has been very rare.
+%A notable example is \textcite{Wilcox2015}, where several data generating processes are simulated in order to help clarify the strengths and limitations of the classification methodology employed.
+%\textcite{Harrison2016}, among others, argue that the correct way to judge the classification of subjects is on the basis of the welfare consequences of the classification.
+%They argue that classifying subjects making choices over insurance products on the basis of a binary \enquote{take-up} metric is an all too common approach that fails to incorporate the risk and time preferences of the agents making the decisions.
+%This leads to characterizations of welfare that are devoid of information concerning the subjective evaluations of what is actually good for the agent.
+%The issue with the \enquote{take-up} metric is not just that it methodologically less sound, but that it may lead to policy prescriptions that are deeply costly in terms of subjective welfare.
+
+%The broad arguments of \textcite{Harrison2016} against the \enquote{take-up} measure should extend to classification processes generally.
+%That is, the response to the concerns of \textcite{Hey1994} about how one should judge the possibility of type I and type II errors in the classification process is how accurately does the \enquote{winning} model characterize the welfare of the subject in a domain that is welfare relevant.
+%The experimental protocol of \textcite{Harrison2016} provides a useful avenue for an investigation into the statistical power of individual level classification, and the consequences of this classification in terms of subjective welfare.
+%The lottery task provides an instrument measuring the risk preferences of individual subjects and classify them as employing a particular model, and the insurance task provides the welfare relevant domain.
+
+%I conduct a simulation analysis to investigate this question by replicating the experimental protocol and classification process employed by \textcite{Harrison2016}.
+%I find that the probability of type I and type II errors varies with the model actually employed by the subject, and with the values of the parameters associated with the model, at least for the two models I consider.
+%Importantly, for wide ranges of values of probability weighting parameters associated with the $\mathit{RDU_{Prelec}}$ model, the probability of falsely classifying a subject as employing an EUT model (a type II error) is not trivial and can lead to very inaccurate welfare surplus estimates.
+%The probability of classifying an EUT subject as $\mathit{RDU_{Prelec}}$ (a type I error) is often greater than 10\% for a wide range of parameters, but the welfare cost of these misclassification is substantially less than for $\mathit{RDU_{Prelec}}$ subjects.
+%
+%Given these results, I propose two alternative approaches.
+%The first is to collect a much larger sample of choice data from each subject in order to decrease the probability of type I and type II errors, and employ the same classification process with this much larger dataset.
+%I show that this approach leads to significantly lower type I and type II errors when classifying subjects, and that the resulting welfare surplus estimates are highly accurate.
+%The second is to abandon the effort to first statistically distinguish between EUT and $\mathit{RDU_{Prelec}}$ subjects and instead utilize the $\mathit{RDU_{Prelec}}$ model when it was available, and the EUT model otherwise.
+%This second approach was motivated by the low cost to EUT subjects of misclassification, the high cost to $\mathit{RDU_{Prelec}}$ subjects of misclassification and the relatively high frequency of these subjects being misclassified.
+%I demonstrate for a hypothetical population of EUT and $\mathit{RDU_{Prelec}}$ subjects employing parameters that experimenters might reasonably expect subjects to employ, that in order for the average accuracy of the welfare surplus estimates to be \textit{lower} under this second approach, the population would have to consist of greater than 89.6\% EUT subjects.
+%While the Default approach puts the accuracy of the welfare surplus estimates at the forefront, the $\text{HN}_{1040}$ approach still relies on the accuracy of the classification process in itself. 
+%In proposing the Default approach, the high cost of a type II error was weighed against both the cost of a type I error, and the additional scientific gain of demonstrating the existence of subjects that engage in probability weighting.
 
 That there is an asymmetry between subjects employing either the EUT or $\mathit{RDU_{Prelec}}$ model in both the probability of misclassification and the welfare consequences of misclassification is important when choosing an experimental design and econometric procedure.
 Since adherence to EUT is posited as the null hypothesis of the classification process, we should expect there to be fewer misclassified EUT subjects than $\mathit{RDU_{Prelec}}$ subjects.
