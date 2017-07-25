@@ -229,14 +229,8 @@ The next two rules indicate parameter values that, although mathematically possi
 \textcite{Wakker2008} details how the CRRA utility function has certain asymptotic unattractive properties around 1.
 These properties may create numerical issues for the optimizer, and so estimated values very near 1 are viewed as less credible and are excluded from the analysis.
 
-
-
-%%%%%
-%% EDIT : immediately below, look in the data to see how much of the data is actually dropped from the analysis
-%%%%%
-
-
 The classification process proposed by HN applies to all the remaining, non-excluded data.
+For 9 subjects, no model passed the exclusionary rules.
 The log-likelihood function given in equation (\ref{eq4:ll}) is equally applicable to all four models considered by HN, and seems a natural metric to declare a \enquote{winning} model among the 4 alternatives proposed.
 However, since the RDU models nest EUT as a special case (noted in equation \ref{eq4:pw:eut}), \textit{a priori} we would expect RDU models to produce greater log-likelihoods than an EUT model on any given dataset, numerical issues aside.
 HN \parencite*[102]{Harrison2016} note this issue and propose the additional qualification on RDU models that the probability weighting function implied by the estimated model must be statistically significantly different from a linear function, the special case of EUT, at the 10, 5, or 1 percent significance levels.
@@ -291,26 +285,32 @@ However, power analyses are rarely conducted in parallel with econometric estima
 \textcite{McCloskey1996} find that only 4.4\% of the 181 papers published in \textit{The American Economic Review} reported the power of the test they were performing.
 \textcite[6]{Zhang2013} review all papers published in the journal \textit{Experimental Economics} for the years 2010-2012, and find that no paper stated the optimal sample size for their analyses, and only one paper mentions power as an issue.
 
-%%%%%
-%% EDIT: Need to work on the below
-%%%%%
-
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
 	A \enquote{power analysis} is a process for assessing the probability of type I and type II errors for a given econometric test on data.
-	This usually involves simulating independent variables, specifying an effect size, simulating a dependent variable given the independent variables and the effect size, and then testing if the effect size can 
+	This usually involves simulating independent variables, specifying an effect size, simulating a dependent variable given the independent variables and the effect size, and then testing how frequently the effect size can recovered from multiple repetitions of the simulated data.
 }
 
 
 There are some examples of experimental economists utilizing power calculations to inform their analysis or experimental designs.
 \textcite{Rutstrom2009} conduct a power analysis by simulating agent behavior in a Matching Pennies games and choosing payoffs that would result in the best chance of identifying the effect they sought to identify if it were there.
 \textcite[2]{Brown2016} conduct a power analysis to inform the choice of sample size for their experiments.
-In this instance, \textcite{Rutstrom2009} conduct a power analysis in order to influence the design of their experiment.
+In this instance, \textcite{Rutstrom2009} and \textcite{Brown2016} conduct a power analysis in order to influence the design of their experiment.
+
 \textcite[8]{Wilcox2015} conducts Monte Carlo simulations of agents responding to a lottery battery, all of which operate the CRRA utility function, the $\mathit{RDU_{Prelec}}$ probability weighting function, and the CU stochastic model.
 \textcite{Wilcox2015} designates four data generating processes (DGP) by specifying four parametrizations of these models and uses them to generate choice data, with each DGP making choices on the instrument 1000 times.
 He then estimates non-parametric RDU models for each of the 1000 choice realizations per DGP and classifies the resulting estimates into one of 5 categories, one for each of the DGPs and an additional \enquote{unclassified} category.
 This is an example of using power analysis to lend support to a methods and conclusions of the research.
 Both \textit{a priori} power analysis, as done by \textcite{Rutstrom2009} and \textcite{Brown2016}, and \textit{ex post} power analysis, as done by \textcite{Wilcox2015}, are useful for understanding the statistical support for experimental research as well as its limitations.
+
+There are also theoretical aspects of experimental design that may increase statistical power.
+\textcite{Loomes1998} (LS) utilize multiple the Marshack Machina (MM) triangles to construct lottery pairs that \enquote{provide good coverage of the space within each triangle, and also span a range of gradients sufficiently wide to accommodate most subjects' risk attitudes.}
+Since a lottery is a point in the MM triangle, if an agent conforms to EUT and is indifferent between two lotteries, a straight line can be connected between the two lotteries in the triangle with every point on the line indicating a lottery that the agent would also be indifferent to.
+Thus by varying the gradient of the lines connecting lottery pairs, a wide range of risk attitudes, at least for agents employing the EUT functional, can potentially measured.
+Additionally, the use of lottery pairs on the \enquote{bottom-edge} of the MM triangle theoretically can increase the statistical power of an instrument to discriminate between subjects employing the EUT or RDU functional.
+Lotteries on the edges of a MM triangle space indicate that one or more outcomes have a low probability.
+LS \parencite*[595]{Loomes1998} note the conclusion of \textcite[1285]{Harless1994} that \enquote{nonlinear weighting of small probabilities is an important factor in explaining observed choices.}
+These techniques of varying the gradient of lottery pairs in the MM triangle and constructing lottery pairs closer to the edges of the triangle were adopted by HN to inform the construction of their lottery battery \parencite*[99]{Harrison2016}, both to increase the precision of estimates of risk aversion parameters, and to help discern between agents employing the EUT or RDU functionals.
 
 I interrogate the statistical power of the instrument and classification process to correctly classify subjects in HN, and the accuracy of the welfare calculations given classifications.
 I conduct this analysis via simulation methods similar to those defined by \textcite{Feiveson2002}, which resemble an extension of the Monte Carlo analysis performed by \textcite{Wilcox2015}.
@@ -498,9 +498,8 @@ Since it is the probability weighing function that defines $\mathit{RDU_{Prelec}
 However, the relatively low probability with which $\mathit{RDU_{Prelec}}$ subjects are correctly classified as $\mathit{RDU_{Prelec}}$ over a wide range of parameters is surprising.
 Looking at Figure \ref{fig:HN1_win_pre} we see that for most of the parameter values considered, the probability of an $\mathit{RDU_{Prelec}}$ subject being correctly classified as $\mathit{RDU_{Prelec}}$ is below 50\% and that for most of these values, it is more likely that an $\mathit{RDU_{Prelec}}$ subject is classified as EUT than as $\mathit{RDU_{Prelec}}$.
 
-%%%%%
-%% EDIT: Add a final paragraph here about the main story
-%%%%%
+The statistical results presented here generally show wide variation of the power of the HN instrument to correctly classify subjects as employing either the EUT or $\mathit{RDU_{Prelec}}$ functionals across parameter spaces.
+This wide variation in power for different DGP suggests that power analysis conducted on only several DGP, as is done in \textcite{Wilcox2015} for example, should be extended to incorporate more DGP across the ranges of parameters an exmperimenter may expect real subjects to employ.
 
 \subsection{\texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Insurance Task Welfare Expectations}
 \label{sec4:WT}
@@ -1489,32 +1488,57 @@ Given the results presented in Figure \ref{fig:HN_pvals} and the power calculati
 Choosing between the Default approach or one of the $\text{HN}_\text{C}$ approaches, however, requires consideration of more than just the classification or welfare surplus accuracy in real experiments.
 In both the $\text{HN}_{80}$ and Default approaches, the experimental protocol and instruments were identical, and thus comparing the expected WSD of the two approaches is an appropriate way of choosing between the approaches.
 The $\text{HN}_{1040}$ approach, however, changes the size of the experimental instrument dramatically and would therefore require changes in the experimental protocol.
-Even a more moderate increase in the number of lottery pairs to increase the probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects, to 400 for intance, can create methodological concerns.
+Even a more moderate increase in the number of lottery pairs, to 400 for intance,to increase the probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects can create methodological concerns.
 Unlike our simulated subjects, real subjects may experience boredom or fatigue should the experiment be conducted in one sitting, and they may experience changes in the background wealth, risks, or beliefs should the experiment be conducted over several days.
 Any of these factors may plausibly result in a subject employing one functional at the beginning of the experiment and another functional by the end.
 Indeed, \textcite{Hey2001} test the hypothesis that subjects change the functional they use when lottery tasks are repeated 5 times by presenting subjects with a 100 lottery pair battery over 5 days.
-He concludes that there is some evidence that some subjects make more precise choices (operate a lower $\lambda$ value) with repetition.
+He concludes that \enquote{Across the repetitions the variablility of responses declines for some subjects but stays constant for for others (and indeed actually increases for a small number of subjects.)}
 Experimenters need to weigh these methodological concerns against their ability to provide more accurate estimates of welfare, and better classification accuracy.
 
 \section{Conclusions}
 
-This chapter demonstrates a method for conducting a power analysis over a wide range of potential data generating process (DGP), shows that conducting individual level classification with subjects responding to fewer than several hundred lottery pairs is likely to lead to frequent misclassifications, and that these misclassifications can be costly in terms of subjective welfare surplus.
+This chapter demonstrates a method for conducting a power analysis over a wide range of potential data generating processes (DGP), shows that conducting individual level classification with subjects responding to fewer than several hundred lottery pairs is likely to lead to frequent misclassifications, and that these misclassifications can be costly in terms of subjective welfare surplus.
 Though inferential objectives vary greatly across the experimental literature, many researchers estimate multiple structural models of utility and classify individual subjects as employing one based on their estimates.
 
-Given the inferential objective of \textcite{Harrison2016} of assessing the subjective welfare consequences of the decision to purchase, or not to purchase, a particular insurance product, I present mixed evidence.
+Given the inferential objective of \textcite{Harrison2016} of assessing the subjective welfare consequences of the decision to purchase, or not to purchase a particular insurance product, I present mixed evidence.
 The capacity of the classification process to correctly classify a subject as employing either the EUT or $\mathit{RDU_{Prelec}}$ model is relatively low for parameterizations of these models we expect real subjects to employ.
-For a hypothetical population parameterized by the point estimates of real subject data, the probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects is shown to be less than 40\%.
+For a hypothetical population parameterized by the point estimates of real subject data, the average probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects is shown to be less than 40\%.
 However, although misclassification results in negative welfare consequences for the subjects, these negative consequences are not particularly massive, averaging only several dollars across the population.
-Nonetheless, I conclude that utilizing the proposed \enquote{Default} approach of classification or increasing the sample size by several hundred lottery pairs per subject would result in more accurate subjective welfare estimates.
+Nonetheless, I conclude that utilizing the proposed \enquote{Default} approach of classification, in which subjects are classified as $\mathit{RDU_{Prelec}}$ if feasible and EUT otherwise, or increasing the sample size by several hundred lottery pairs per subject would result in more accurate subjective welfare estimates.
 
-These two approaches, increasing the sample size and disregarding classification altogether, are not the only options available.
-There exists the possibility of alternative experimental design and/or econometric procedures.
-Econometrically, one can imagine a Baysian approach in which small groups of subjects are grouped together based on observable characteristics, age, sex, education, etc., and then pooled estimations from these subgroups being used as priors to inform the individual level estimates of the members of the groups.
-Different classification processes could be used as well
+These two approaches, increasing the sample size and disregarding classification altogether, are not the only options available to increase the accuracy of the classification process or the accuracy of welfare surplus estimates.
+There exists the possibility of alternative experimental designs and/or econometric procedures.
+Econometrically, one can imagine a Baysian approach in which small groups of subjects are grouped together based on observable characteristics, e.g. age, sex, education, and then pooled estimations from these subgroups being used as priors to inform the individual level estimates of the members of the groups.
+Non or semi-parameter estimation techniques may fare better in terms of classification accuracy.
+These econometric approaches could be performed on existing data, though power analysis should be performed to test if they improve classification accuracy or the accuracy of welfare surplus estimates.
 
+In terms of instrument design, there are more than 1 septillion ($> 2^{80}$) possible choice patterns in the HN lottery instrument.
+Reducing this choice space while maintaining the same number of lottery pairs would require a different experimental procedure, perhaps by explicitly prohibiting subjects from selecting certain choice patterns, but this could reduce the chance of choice errors causing a misidentification.
+Of course, prohibiting certain choice patterns would require additional econometric restrictions as choices across individual lottery pairs could no longer be said to be independent.
+The task of modifying the experimental design and econometric procedure is Herculean, and this chapter, unfortunately, can not provide much guidance with respect to this task beyond increasing the sample size.
 
+One of the more difficult questions this chapter hoped to help address is that of \enquote{how much does this matter?}
+By representing the cost of misclassification as a function of the difference between estimates of welfare surplus and the known, \enquote{real} welfare surplus of our simulated subjects, we bring the question of \enquote{how much?} into a normative domain that economists are familiar with.
+However, it remains unclear \textit{by how much} do estimates of welfare surplus need to deviate from real welfare surplus before they truly \enquote{matter.}
+\textcite{Harrison1989, Harrison1992} argues specifically that when differences in consumer surplus between choices amounted to fractions of a penny in First Price Auction experiments, the choices didn't matter to the subjects, and so conclusions drawn from these choices should not matter much to economists either.
+Generally, he argues that the dominance precept of \textcite{Smith1982} needs to be taken into serious consideration when drawing conclusions from the choice behavior of economic agents.
+\textcite[21]{Hey2001} raises similar concerns about assessing the \textit{economic} significance of results showing that subjects may employ different functionals when faced with the same choice task over 5 days:
 
+\blockquote{
+	The problem with these analyses is that they are essentially statistical in nature.
+	We as economists, might be more interested in the \textit{economic} significance of the results. 
+	Given that the EU preference function is much easier to apply to the economic analysis of behaviour, we might want to know how far wrong we might be if we use the EU functional rather than the alternatives in such applications.
+	It is not obvious how we might answer this question as it depends upon the particular application.
+	But we could ask how often we would make mistakes in the prediction of behaviour using the various preference functions.
+	This depends upon the predictions we are wanting to make.
+	One possibility is to use the specific questions asked in this experiment --- though it should be noted that the results of this analysis does depend on the specific questions.
+	It might be better to use some kind of generally-accepted set of questions --- which can be used to test the various functions --- but such a set is not available and is not clear how such a set could be constructed (and then made generally-acceptable).
+}
 
+This chapter addresses the first concern in the above by demonstrating how much the cost is in economic terms of using the EUT functional instead of some alternative, and I conclude that the cost can be very high for those subjects who undertake significant deviations from EUT.
+I also conclude that doing the reverse, employing an RDU function when available, results in relatively \textit{little} cost to EUT subjects and improves the accuracy of estimates of welfare surplus for subjects employing an $\mathit{RDU_{Prelec}}$ functional.
+As for the second point raised by Hey of using \enquote{some kind of generally-accepted set of questions} to assess the economic significance of a classification process, I take the insurance policy task of HN to conduct such an economic analysis.
+Though this instrument usefully characterizes the choice domain of interest to HN given their inferential objective, it isn't clear that this particular instrument is suitable when assessing the welfare consequences of misclassification given different inferential objectives, or even that any instrument could be suitably constructed to be generally applicable to many different inferential objectives.
 
 %Experimental economists have been attempting to classify subjects as em
 %These attempts generally stem from an effort to gather evidence concerning whether or not EUT adequately described the choice behavior of experimental subjects.
@@ -1538,7 +1562,7 @@ Different classification processes could be used as well
 %I find that the probability of type I and type II errors varies with the model actually employed by the subject, and with the values of the parameters associated with the model, at least for the two models I consider.
 %Importantly, for wide ranges of values of probability weighting parameters associated with the $\mathit{RDU_{Prelec}}$ model, the probability of falsely classifying a subject as employing an EUT model (a type II error) is not trivial and can lead to very inaccurate welfare surplus estimates.
 %The probability of classifying an EUT subject as $\mathit{RDU_{Prelec}}$ (a type I error) is often greater than 10\% for a wide range of parameters, but the welfare cost of these misclassification is substantially less than for $\mathit{RDU_{Prelec}}$ subjects.
-%
+
 %Given these results, I propose two alternative approaches.
 %The first is to collect a much larger sample of choice data from each subject in order to decrease the probability of type I and type II errors, and employ the same classification process with this much larger dataset.
 %I show that this approach leads to significantly lower type I and type II errors when classifying subjects, and that the resulting welfare surplus estimates are highly accurate.
@@ -1548,22 +1572,22 @@ Different classification processes could be used as well
 %While the Default approach puts the accuracy of the welfare surplus estimates at the forefront, the $\text{HN}_{1040}$ approach still relies on the accuracy of the classification process in itself. 
 %In proposing the Default approach, the high cost of a type II error was weighed against both the cost of a type I error, and the additional scientific gain of demonstrating the existence of subjects that engage in probability weighting.
 
-That there is an asymmetry between subjects employing either the EUT or $\mathit{RDU_{Prelec}}$ model in both the probability of misclassification and the welfare consequences of misclassification is important when choosing an experimental design and econometric procedure.
-Since adherence to EUT is posited as the null hypothesis of the classification process, we should expect there to be fewer misclassified EUT subjects than $\mathit{RDU_{Prelec}}$ subjects.
-We can imagine that if we posited a degree of probability weighing as the null hypothesis, we would expect there to be fewer misclassified $\mathit{RDU_{Prelec}}$ subjects and more misclassified EUT subjects.
-However, the more meaningful difference in welfare surplus estimates between the two models is due to the $\mathit{RDU_{Prelec}}$ model nesting EUT.
-As was stated before, EUT subjects can be represented by the $\mathit{RDU_{Prelec}}$ by setting $\alpha = \beta = 1$, whereas $\mathit{RDU_{Prelec}}$ subjects can only be accurately described by EUT if they employ the special case of RDU Prelec that is equivalent to EUT.
+%That there is an asymmetry between subjects employing either the EUT or $\mathit{RDU_{Prelec}}$ model in both the probability of misclassification and the welfare consequences of misclassification is important when choosing an experimental design and econometric procedure.
+%Since adherence to EUT is posited as the null hypothesis of the classification process, we should expect there to be fewer misclassified EUT subjects than $\mathit{RDU_{Prelec}}$ subjects.
+%We can imagine that if we posited a degree of probability weighing as the null hypothesis, we would expect there to be fewer misclassified $\mathit{RDU_{Prelec}}$ subjects and more misclassified EUT subjects.
+%However, the more meaningful difference in welfare surplus estimates between the two models is due to the $\mathit{RDU_{Prelec}}$ model nesting EUT.
+%As was stated before, EUT subjects can be represented by the $\mathit{RDU_{Prelec}}$ by setting $\alpha = \beta = 1$, whereas $\mathit{RDU_{Prelec}}$ subjects can only be accurately described by EUT if they employ the special case of RDU Prelec that is equivalent to EUT.
 
-In choosing EUT as the null hypothesis in the classification process, we implicitly adopt a Popperian stance that deviation from EUT, as the orthodox theory of utility for choice under risk, is a bold prediction requiring a severe test. 
-However, should we accept the accumulated evidence that some subjects do in fact deviate from EUT, the costliness of type II errors should be weighed against the benefit of accumulating additional evidence about the existence of these phenomena.
-The HN and $\text{HN}_{1040}$ approaches seek to sure up the evidence of probability weighting, whereas the Default takes the existing evidence as sufficiently convincing and seeks only to make accurate welfare predictions. 
-Choosing between approaches should involve weighing one’s priors about the population under investigation, the accuracy of the various potential approaches in producing welfare estimates in a domain that is relevant, and how much tolerance should be given for inaccuracy. 
+%In choosing EUT as the null hypothesis in the classification process, we implicitly adopt a Popperian stance that deviation from EUT, as the orthodox theory of utility for choice under risk, is a bold prediction requiring a severe test. 
+%However, should we accept the accumulated evidence that some subjects do in fact deviate from EUT, the costliness of type II errors should be weighed against the benefit of accumulating additional evidence about the existence of these phenomena.
+%The HN and $\text{HN}_{1040}$ approaches seek to sure up the evidence of probability weighting, whereas the Default takes the existing evidence as sufficiently convincing and seeks only to make accurate welfare predictions. 
+%Choosing between approaches should involve weighing one’s priors about the population under investigation, the accuracy of the various potential approaches in producing welfare estimates in a domain that is relevant, and how much tolerance should be given for inaccuracy. 
 
 I conclude by agreeing with \textcite[14]{Gelman2013}: \enquote{Criticism is easy, doing research is hard.}
 The simulation analysis performed in this chapter provides valuable insight into the power of a given instrument, but does not make recommendations on how to design an instrument to achieve a particular level of statistical power beyond the unsurprising result that power increases with sample size.
 It is incredibly difficult to develop an experimental design that allows for the identification of a model that subjects actually employ, or even to identify if the subject engages in probability weighting at all.
 The lottery instrument utilized by \textcite[98-99]{Harrison2016} is designed to incorporate the experimental findings of \textcite{Camerer1989}, \textcite{Harless1992} and \textcite{Loomes1998}, among others, that offer design elements specifically introduced to help identify probability weighting.
-That the probability of correctly identifying probability weighting using this instrument is relatively low speaks to the difficulty of conducting research in this domain.
+The relatively low probability of correctly identifying probability weighting using this instrument speaks to the difficulty of conducting research in this domain.
 
 \onlyinsubfile{
 \newpage
