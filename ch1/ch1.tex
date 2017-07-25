@@ -1,9 +1,9 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\onehalfspacing
+\doublespacing
 \setcounter{chapter}{0}
-\chapter{Weird Data in Experiments, and Economists' Reactions to Them}
+\chapter{Choice Anomalies in Experiments, and Economists' Reactions to Them}
 
 \lltoc
 
@@ -23,13 +23,8 @@ The possible explanations concerning economic theory included misspecified incen
 The possible explanations involving experimental method included confusion and misunderstanding, low frequency of errors/small sample sizes, unsophisticated subjects, and, my favorite, that the experimenters were psychologists.
 Grether and Plott then detail the ways in which each of these possibilities could potentially lead to the observed seemingly theory-inconsistent data, discuss how the previous literature by psychologists inadequately control for these various possibilities, and how their experiment attempts to impose adequate controls.
 
-In identifying these possibilities, \textcite{Grether1979} touch on aspects of conducting economic laboratory experiments which are later codified as necessary precepts for valid controlled experiments by \textcite{Smith1982}.{\footnotemark} 
+In identifying these possibilities, \textcite{Grether1979} touch on aspects of conducting economic laboratory experiments which are later codified as necessary precepts for valid controlled experiments by \textcite{Smith1982}.
 These precepts will be elaborated upon later.
-
-\addtocounter{footnote}{-1}
-\stepcounter{footnote}\footnotetext{
-	Notably missing from \textcite{Harrison2001} is a restriction on psychologists from conducting experiments.
-}
 
 To better understand the nature of the preference reversal phenomenon as described by \textcite{Grether1979}, the subsequent critiques of their method, and potential accommodations of these seemingly inconsistent data, a description of the relevant details of the experiment is needed.
 Subjects were students recruited from economics and political science classes, promised a minimum of \money{5} for participation and told that the experiment would take no longer than one hour.
@@ -64,7 +59,6 @@ The totals of the different choices for the groups of incentivized subjects are 
 Experiment 1 in Table \ref{tb:GP1979-res} only includes the group which was paid with real money, while Experiment 2-1 and Experiment 2-2 in Table \ref{tb:GP1979-res} represent experiment 2 groups 1 and 2, respectively,  where the differences between the groups are detailed above.
 The mean difference in reported prices for inconsistent choices from experiment 1 is reported in Table \ref{tb:GP1979-mv}, \textcite{Grether1979} did not report these statistics for experiment 2.
 In Table \ref{tb:GP1979-mv} the \enquote{Predicted} preference reversal is that of selecting the $P$ bet in the direct comparison and stating a higher selling price for the \$ bet, and the \enquote{Unpredicted} preference reversal is selecting the \$ bet in the direct comparison and stating a higher selling price for the $P$ bet.
-
 
 \begin{table}
 	\caption{\textcite{Grether1979} - Results for Incentivized Experiments}
@@ -102,8 +96,6 @@ In Table \ref{tb:GP1979-mv} the \enquote{Predicted} preference reversal is that 
 	\end{tabularx}
 \end{table}
 
-\break
-
 \begin{table}
 	\caption{ \textcite{Grether1979} - Experiment 1:\\Mean Values of Reversals (in Dollars)}
 	\label{tb:GP1979-mv}
@@ -120,7 +112,6 @@ In Table \ref{tb:GP1979-mv} the \enquote{Predicted} preference reversal is that 
 
 	\end{tabularx}
 \end{table}
-
 
 In Table \ref{tb:GP1979-res} two things are apparent.
 The first is the degree of inconsistent choices from subjects who chose the $P$ bet in a binary choice option and then reported a higher price for the \$ bet from exactly the same pair in the BDM task.
@@ -578,13 +569,13 @@ This concept is illustrated in Figure (\ref{fig:H1992:Dom-a}) below from \textci
 	\label{fig:H1992:Dom}
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{H1992-a.png}
+		\includegraphics[width=\linewidth]{ch1/figures/H1992-a.png}
 		\caption{}
 		\label{fig:H1992:Dom-a}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{H1992-b.png}
+		\includegraphics[width=\linewidth]{ch1/figures/H1992-b.png}
 		\caption{}
 		\label{fig:H1992:Dom-b}
 	\end{subfigure}
@@ -834,8 +825,7 @@ Thus the probability of choosing any lottery conditional on this randomly drawn 
 
 \noindent where $\beta^{n*}$ is the vector of parameters randomly drawn by subject $n$.
 Given this relationship, the unconditional choice probability is just the probability of observing $\beta^{n*}$ given some joint distribution of the elements of $\beta$, $G_\beta(x|\alpha^n)$, where $\alpha^n$ is a vector of parameters which defines the shape of the distribution.
-
-\noindent Let $B_m= \lbrace B | V(S_m | \beta) \geq V(R_m|\beta) \rbrace$.
+Let $B_m= \lbrace B | V(S_m | \beta) \geq V(R_m|\beta) \rbrace$.
 Then the unconditional probability that a subject chooses lottery $S_m$ is:
 
 \begin{equation}
@@ -921,9 +911,9 @@ One of these challenges in the form of experiments initially conducted by psycho
 As stated by \textcite{Grether1979}: \enquote{Taken at face value the data are simply inconsistent with preference theory and have broad implications about research priorities in economics.}
 
 The challenge to explain the mounting apparent violations of contemporary economic theory, however, did not go unheeded.
-Theorists noted that it wasn't necessary to forgo the transitivity axiom as suggested by \textcite[623]{Grether1979}, which along with the completeness axiom forms the basis for what is sometimes labelled as \enquote{rationality} in economics.
+Theorists noted that it wasn't necessary to forego the transitivity axiom as suggested by \textcite[623]{Grether1979}, which along with the completeness axiom forms the basis for what is sometimes labelled as \enquote{rationality} in economics.
 Instead, it was shown by \textcite{Holt1986} and later by \textcite{Karni1987} that should the independence axiom be rejected, there exist preferences which conform to the observed apparent violation of choice.
-The \enquote{Anticipated Utility} theory of \textcite{Quiggin1982}, now referred to as \enquote{Rank Dependent Utility}, provides an axiomization of such a theory of utility without the independent axiom.
+The \enquote{Anticipated Utility} theory of \textcite{Quiggin1982}, now referred to as \enquote{Rank Dependent Utility,} provides an axiomization of such a theory of utility without the independent axiom.
 A more radical departure from Expected Utility Theory was \enquote{Regret  Theory} initially proposed independently by \textcite{Bell1982} and \textcite{Loomes1982}, then axiomized by \textcite{Fishburn1987}, which abandons the transitivity axiom altogether.
 \textcite{Loomes1989} test this theory on a replication of the \textcite{Grether1979} experiments and find that it fits the entire dataset better than Expected Utility Theory.
 
@@ -931,7 +921,7 @@ Economics as an experimental science has also progressed greatly over the past h
 Using the framework of these precepts, \textcite{Harrison1994} addresses the \textcite{Grether1979} experiments directly by stating that the dominance criteria put forth by \textcite{Smith1982} wasn't met in the original experiment and that several of the subsequent replications which purport to address the dominance issue do not do so.
 Some experimental modifications employed in replications in fact may decrease the saliency of the rewards offered.
 In this line of thought, the theory is less to blame than the experiments employed.
-\textcite[236-239]{Harrison1994} replicated the\textcite{Grether1979} experiments with some modifications to increase the cost of reporting a selling price inconsistent with a subject's own latent preferences and observed a precipitous drop in the proportion of subjects displaying an apparent preference reversal.
+\textcite[236-239]{Harrison1994} replicated the \textcite{Grether1979} experiments with some modifications to increase the cost of reporting a selling price inconsistent with a subject's own latent preferences and observed a precipitous drop in the proportion of subjects displaying an apparent preference reversal.
 
 A powerful supplement to current economic theory is the idea of choice as a stochastic processes as opposed to a deterministic one.
 Some stochastic models regard apparent violations of economic theory as the result of some randomness of latent preferences while others regard them as \enquote{mistakes} or \enquote{choice errors} from stochastic noise in the evaluation of alternatives.
