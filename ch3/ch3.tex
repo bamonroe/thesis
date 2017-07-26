@@ -178,7 +178,7 @@ While it is theoretically possible to have a mixture model with greater than two
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
 	For an example of why it could be problematic to make inferences about a population from an estimate which represents the mean of a distribution of preferences consider a population that has preferences distributed as $\textit{Logit-Normal} \sim \mathcal{N}(0,5)$.
-	Logit-Normal, which is a distribution in which the logistic function, $\Omega$, is applied to the realization of a Normal distribution $N(\mu, \sigma^2)$.
+	Logit-Normal is a distribution in which the logistic function, $\Lambda$, is applied to the realization of a Normal distribution $N(\mu, \sigma^2)$.
 	See Figure 2 of \textcite[83]{Andersen2012}.
 	This distribution is highly bi-modal, and the area around the mean of the distribution has very low density.
 	Thus, if a single stochastic specification is estimated on a sample from this population, the estimated parameters representing their distributional means give highly misleading information about the choice behavior we would expect from individual agents sampled from this population.
@@ -186,7 +186,7 @@ While it is theoretically possible to have a mixture model with greater than two
 	A similar approach is utilized by \textcite{Conte2011}.
 }
 
-Estimating parameter vectors for every subject in a sample helps to improve on this limitation, as can \enquote{random coefficients}, discussed below.
+Estimating parameter vectors for every subject in a sample helps to improve on this limitation, as can \enquote{random coefficients,} discussed below.
 If every subject has an individually estimated parameter vector, then an analyst can use the distribution of these estimates to approximate the distribution of parameter vectors of the population from which this sample was drawn.
 However, the individually estimated parameters are still estimates, and thus they all have associated standard errors and positive probabilities of misidentification.
 The likelihood of misidentification typically decreases with the number of choice tasks presented to subjects, just as standard errors are negatively correlated with sample size.
@@ -387,7 +387,7 @@ The first of these observed choice behaviors is often referred to as multiple sw
 \textcite[1647]{Holt2002} observe that 28 of their 212 subjects exhibited MSB.
 Rather than discussing all of the potential reasons why a subject would exhibit MSB, we will assume a normatively coherent stochastic model and discuss the implications of MSB within it.
 
-The HL-MPL instrument is a useful instrument to discuss the welfare implications of stochastic models not only because it is popular, but because the observed MSB is an apparent violation of EUT that is easy to notice visually without estimation.
+The HL-MPL instrument is a useful instrument to discuss the welfare implications of stochastic models because the observed MSB is an apparent violation of EUT that is easy to notice visually without estimation.
 As was discussed in Chapter 2, when utilizing normatively coherent stochastic models, observed violations of EUT necessarily imply that some welfare has been forgone by the agent because of the violation according to EUT.
 In Savage's terms, one would have something to \enquote{reproach} oneself for by violating the theory \parencite[230]{Moscati2016}.
 Since there is no deterministic EUT utility function which allows either the switching back and forth from option A to option B or the selection of a guaranteed, lower outcome over a guaranteed, higher outcome, it must be the case that the observance of MSB implies that some welfare has been forgone, at least under an EUT framework.
@@ -1243,6 +1243,25 @@ First I discuss the effect on welfare expectations of the parameters governing t
 Thus, we first look at Figures \ref{fig:S-Wel-um}, \ref{fig:S-Err-um}, \ref{fig:S-Wel-us} and \ref{fig:S-Err-us}.
 Figures \ref{fig:S-Wel-um} and \ref{fig:S-Err-um} demonstrate the effect of the mean of the distribution of the $\lambda$ term on welfare and the error frequencies, while Figures \ref{fig:S-Wel-us} and \ref{fig:S-Err-us} demonstrate the effect of the standard deviation of the $\lambda$ term on the same statistics.
 
+
+\begin{figure}[h!]
+	\center
+	\caption{Mean of Lambda against Welfare}
+	%\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Wel-um.pdf}
+	\includegraphics[width=\textwidth]{figures/AggPlots/S-Wel-um.pdf}
+	\label{fig:S-Wel-um}
+\end{figure}
+
+\begin{figure}[h!]
+	\center
+	\caption{Mean of Lambda against Errors}
+	%\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Err-um.pdf}
+	\includegraphics[width=\textwidth]{figures/AggPlots/S-Err-um.pdf}
+	\label{fig:S-Err-um}
+\end{figure}
+
+
+
 The results of the plots of stochastic model parameters are mostly intuitive and unsurprising.
 Looking at Figures \ref{fig:S-Wel-um} and \ref{fig:S-Err-um}, as the mean of the distribution increases, the expected welfare and expected proportion of 0-error choice patterns monotonically decreases, while the expected number of choice errors monotonically increases.
 Because $\lambda$ has a gamma distribution, for any given mean, a higher standard deviation implies that the mass of the distribution shifts closer towards $0$.
@@ -1254,6 +1273,39 @@ This directly translates into greater expected welfare than those populations wi
 \stepcounter{footnote}\footnotetext{
 	Since $\lambda$ is in the denominator of each exponential transformation, as $\lambda \to 0$, ${\Prob}(y_t = a) \to 1$ for $a = 1$ and ${\Prob}(y_t = a) \to 0$ for $a\neq1$ regardless of the other parameters.
 }
+
+\begin{figure}[h!]
+	\center
+	\caption{Standard Deviation of Lambda against Welfare}
+	%\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Wel-us.pdf}
+	\includegraphics[width=\textwidth]{figures/AggPlots/S-Wel-us.pdf}
+	\label{fig:S-Wel-us}
+\end{figure}
+
+\begin{figure}[h!]
+	\center
+	\caption{Standard Deviation of Lambda against Errors}
+	%\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Err-us.pdf}
+	\includegraphics[width=\textwidth]{figures/AggPlots/S-Err-us.pdf}
+	\label{fig:S-Err-us}
+\end{figure}
+
+\begin{figure}[h!]
+	\center
+	\caption{Standard Deviation of CRRA against Welfare}
+	%\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Wel-rs.pdf}
+	\includegraphics[width=\textwidth]{figures/AggPlots/S-Wel-rs.pdf}
+	\label{fig:S-Wel-rs}
+\end{figure}
+
+\begin{figure}[h!]
+	\center
+	\caption{Standard Deviation of CRRA against Errors}
+	%\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Err-rs.pdf}
+	\includegraphics[width=\textwidth]{figures/AggPlots/S-Err-rs.pdf}
+	\label{fig:S-Err-rs}
+\end{figure}
+
 
 Looking at Figures \ref{fig:S-Wel-us} and \ref{fig:S-Err-us}, we can see that $\sigma_\lambda$ is far less influential than $\mu_\lambda$.
 In the (A) and (C) charts of Figure \ref{fig:S-Wel-us}, the slopes of the LOESS lines are slightly positive, but mostly flat other than the line for the lowest quartile of $\mu_\lambda$.
@@ -1277,6 +1329,22 @@ Thus, the mean of the distribution always represents the point of the distributi
 In Figures \ref{fig:S-Wel-rm} and \ref{fig:S-Err-rm}, each tick mark on the x-axis represent the values of the CRRA parameter at which an agent would be indifferent between lotteries for some row of the HL-MPL instrument.
 From left to right, the first tick mark corresponds to the value of the CRRA parameter that would make an agent indifferent between the lotteries in the first row of the instrument, the second tick mark corresponds the second row of the instrument, and so on.
 There are only 9 ticks because the there does not exist any CRRA parameter which would set an agent to be indifferent between the lotteries in row 10 of the instrument.
+
+\begin{figure}[h!]
+	\center
+	\caption{Mean of CRRA against Welfare}
+	%\includegraphics[height=.28\paperheight]{figures/AggPlots/S-Wel-rm.pdf}
+	\includegraphics[width=\textwidth]{figures/AggPlots/S-Wel-rm.pdf}
+	\label{fig:S-Wel-rm}
+\end{figure}
+
+\begin{figure}[h!]
+	\center
+	\caption{Mean of CRRA against Errors}
+	\includegraphics[width=\textwidth]{figures/AggPlots/S-Err-rm.pdf}
+	\label{fig:S-Err-rm}
+\end{figure}
+
 
 I begin by first discussing the effect of $\mu_r$ on choice errors as displayed in Figure \ref{fig:S-Err-rm}.
 Something that is immediately apparent is that the orange LOESS line, depicting populations with low standard deviations of CRRA parameters, is much more volatile than the other quartile lines.
@@ -1325,6 +1393,22 @@ The metric developed in equation (\ref{eq3:Dstat}) is not perfect, we should exp
 Looking at Figure \ref{fig:D-Wel-smooth}, plots (A) and (C), we can confirm what was suspected to be driving the shape of the plots in Figure \ref{fig:S-Err-rm}.
 As $D$ increases, and more of the density of the CRRA distribution is shifted onto the points describing indifference, the greater the expected number of errors we should observe.
 
+\begin{figure}[h!]
+	\center
+	\caption{D Statistic against Welfare}
+	%\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Wel-D.pdf}
+	\includegraphics[width=\textwidth]{figures/AggPlots/S-Wel-D.pdf}
+	\label{fig:D-Wel-smooth}
+\end{figure}
+
+\begin{figure}[h!]
+	\center
+	\caption{D Statistic against Errors}
+	%\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Err-D.pdf}
+	\includegraphics[width=\textwidth]{figures/AggPlots/S-Err-D.pdf}
+	\label{fig:D-Err-smooth}
+\end{figure}
+
 This effect is remarkably monotonic across every decile of $\mu_\lambda$, though the effect is strongest for lower deciles.
 What should be no surprise is that for the highest 3 deciles of $\mu_\lambda$ we observe close to $0\%$ of the populations considered to produce choice patterns with no choice errors, as can be seen in plot (C).
 The variance statistics in plots (B) and (D) are generally monotonic, but not universally so.
@@ -1352,27 +1436,6 @@ Similarly to what was seen in Figure \ref{fig:D-Wel-smooth}, in Figure \ref{fig:
 What is also clear from Figures \ref{fig:D-Wel-smooth} and \ref{fig:D-Err-smooth} is that the preference aspect of the utility model, represented by $D$, contributes far less to expected choice errors and, more importantly, to expected welfare than is contributed by the stochastic aspects of the model.
 Looking at the lowest decile lines in Figures \ref{fig:D-Wel-smooth} and \ref{fig:D-Err-smooth}, we can see that a relatively large increase in $D$ is needed to cause the same effect as moving to the next lowest decile.
 Comparing the lowest decile with the highest decile reveals tremendous changes in expected errors and expected welfare while holding $D$ constant for the populations analyzed.
-
-%\subsection{EUT Populations with Logit-Normal Distributed Preferences}
-%
-%In the previous subsection, we discussed the expected welfare outcomes of populations with normally distributed preferences and gamma distributed stochastic errors faced with the HL-MPL.
-%We now turn our attention to populations with Logit-Normal distributed preferences.
-%However, rather than redo Figures (\ref{fig:S-Wel-rm}) through (\ref{fig:S-Err-us}) with the new populations, we will restrict this analysis to re-examining the D statistic of equation (\ref{eq3:Dstat}) and Figures (\ref{fig:D-Wel-smooth}) and (\ref{fig:D-Err-smooth}).
-%
-%The Logit-Normal distribution is defined as a Logit transformation of a Normal distribution.
-%\begin{align}
-%	\begin{split}
-%		X \sim \mathcal{N}(\mu,\sigma)\\
-%		Y = \frac{\exp(X)}{1 + \exp(X)}
-%	\end{split}
-%\end{align}
-%
-%\noindent where $Y$ is distributed Logit-Normally.
-%One of the benefits of this distribution is no extra parameters are needed in comparison to a standard normal distribution.
-%A minor drawback of this distribution is that it is bounded between $[0,1]$, but this is easily rectified by \enquote{scaling} and \enquote{shifting} the distribution.
-%For our analysis, we will scale every distribution by a fixed constant of $3.45$ and every the distribution by a fixed constant of $-1.9$.
-%This will result in every distribution being bounded between $[-1.9,1.55]$, just outside of the lower and upper indifference boundaries of the HL-MPL.
-%A somewhat
 
 The general analysis of the population level data reveals several somewhat expected results, and several somewhat unexpected results.
 Firstly it is clear, and unsurprising, that the means of both the CRRA and $\lambda$ distributions individually drive a great deal of the variation in the number of expected choice errors and the expected welfare of a population.
@@ -1419,81 +1482,7 @@ Theses results should caution economists and policy makers concerned with the de
 In a warning to those who would wish to \enquote{nudge} the behavior of agents to particular patterns of choice, this exercise has shown that policy makers should take care about the choice patterns they may which to nudge a agent into.
 For many agents, it would be to their detriment to nudge them from a pattern of choices which contain obvious errors to one which, on appearance to an informed observer, would contain none.
 Analyses of experiments involving risky choice that rely on tests which measure differences in choice frequencies around certain lottery pairs should note how the frequency of choice errors and \enquote{consistent} choice patterns vary with the distribution of risk preferences in a population.
-For the example population given in \ref{tb:TopTenEUT}, 
-
-\newpage
-
-\section{Figures}
-
-\begin{figure}[hp!]
-	\center
-	\caption{Mean of CRRA against Welfare}
-	\includegraphics[height=.28\paperheight]{figures/AggPlots/S-Wel-rm.pdf}
-	\label{fig:S-Wel-rm}
-\end{figure}
-
-\begin{figure}[hp!]
-	\center
-	\caption{Mean of CRRA against Errors}
-	\includegraphics[height=.29\paperheight]{figures/AggPlots/S-Err-rm.pdf}
-	\label{fig:S-Err-rm}
-\end{figure}
-
-\begin{figure}[hp!]
-	\center
-	\caption{Standard Deviation of CRRA against Welfare}
-	\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Wel-rs.pdf}
-	\label{fig:S-Wel-rs}
-\end{figure}
-
-\begin{figure}[hp!]
-	\center
-	\caption{Standard Deviation of CRRA against Errors}
-	\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Err-rs.pdf}
-	\label{fig:S-Err-rs}
-\end{figure}
-
-\begin{figure}[hp!]
-	\center
-	\caption{Mean of Lambda against Welfare}
-	\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Wel-um.pdf}
-	\label{fig:S-Wel-um}
-\end{figure}
-
-\begin{figure}[hp!]
-	\center
-	\caption{Mean of Lambda against Errors}
-	\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Err-um.pdf}
-	\label{fig:S-Err-um}
-\end{figure}
-
-\begin{figure}[hp!]
-	\center
-	\caption{Standard Deviation of Lambda against Welfare}
-	\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Wel-us.pdf}
-	\label{fig:S-Wel-us}
-\end{figure}
-
-\begin{figure}[hp!]
-	\center
-	\caption{Standard Deviation of Lambda against Errors}
-	\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Err-us.pdf}
-	\label{fig:S-Err-us}
-\end{figure}
-
-\begin{figure}[hp!]
-	\center
-	\caption{D Statistic against Welfare}
-	\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Wel-D.pdf}
-	\label{fig:D-Wel-smooth}
-\end{figure}
-
-\begin{figure}[hp!]
-	\center
-	\caption{D Statistic against Errors}
-	\includegraphics[height=.3\paperheight]{figures/AggPlots/S-Err-D.pdf}
-	\label{fig:D-Err-smooth}
-\end{figure}
+%For the example population given in \ref{tb:TopTenEUT}, 
 
 \newpage
 
