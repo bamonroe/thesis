@@ -870,12 +870,37 @@ In this population, suppose that for both EUT and $\mathit{RDU_{Prelec}}$ agents
 For the $\mathit{RDU_{Prelec}}$ agents the $\alpha$ parameter is distributed log-normal with a mean of 1.50 and a standard deviation of 0.1, and the $\beta$ parameter is also distributed log-normal with a mean of .7 and a standard deviation of 0.1.
 %The CRRA and $\lambda$ values are are roughly the same for both the EUT and $\mathit{RDU_{Prelec}}$ pooled estimates conducted above, and the $\alpha$ and $\beta$ parameters are the .
 Assume that for each model, none of the marginal distributions are correlated.
-Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_welfare}), for each of the two model populations specified above, we draw 10,000 agents from the hypothetical population and predict classification probabilities and WSD.
+Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_welfare}), for each of the two model populations specified above, we draw 10,000 agents from the hypothetical population and predict classification probabilities and WSD for the Default approach and $\text{HN}_\text{C}$ for $C \in \lbrace 80, 240, 400, 560, 720, 880, 1040 \rbrace$.
+Figures \ref{fig:hyp_default} and \ref{fig:hyp_win05} show the kernel density plots for the real welfare surplus of these populations, the welfare surplus estimates of those subjects that are classified as EUT or $\mathit{RDU_{Prelec}}$, and the expected welfare surplus estimates given the classification probabilities by population.
+Note that these figures show welfare surplus estimates, \textit{not} the WSD metric, which is shown in the tables below.
+
+\begin{figure}[h!]
+	\center
+	\caption{Welfare Surplus, $\text{HN}_{80}$ Instrument\\Default Approach}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/Hypo-HNG_1-default.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/Hypo-HNG_1-default.pdf}
+	}
+	\label{fig:hyp_default}
+\end{figure}
+\begin{figure}[h!]
+	\center
+	\caption{Welfare Surplus, $\text{HN}_{80}$ Instrument\\HN Approach}
+	\onlyinsubfile{
+		\includegraphics[width=\textwidth]{figures/Hypo-HNG_1-win_05.pdf}
+	}
+	\notinsubfile{
+		\includegraphics[width=\textwidth]{ch4/figures/Hypo-HNG_1-win_05.pdf}
+	}
+	\label{fig:hyp_win05}
+\end{figure}
 
 \break
 
 \onlyinsubfile{
-
+\onehalfspacing
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
 	\caption{Expected Welfare Surplus Difference, Default Approach}
@@ -923,7 +948,8 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 		]{tables/HNG_1-default_full-table.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+\doublespacing
+\onehalfspacing
 \begin{table}[ht!] %	\centering %	\captionsetup{justification=centering}
 	\centering
 	\caption{Expected Welfare Surplus Difference, $\text{HN}_{80}$ Approach}
@@ -971,55 +997,8 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 		]{tables/HNG_1-win_05_full-table.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
-\begin{table}[ht!] %	\centering %	\captionsetup{justification=centering}
-	\centering
-	\caption{Expected Welfare Surplus Difference, $\text{HN}_{240}$ Approach}
-	\label{tb:HN3_win05_pop}
-	\begin{adjustbox}{}
-	\pgfplotstabletypeset[
-		col sep=comma,
-		every head row/.style={
-			after row=\hline
-		},
-		display columns/0/.style={
-			string type,
-			column name = {}
-		},
-		display columns/1/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {p(EUT)}
-		},
-		display columns/2/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {p(Prelec)}
-		},
-		display columns/3/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {$\text{WSD}_{\text{EUT}}$}
-		},
-		display columns/4/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {$\text{WSD}_{\text{Prelec}}$}
-		},
-		display columns/5/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Expected WSD}
-		},
-		]{tables/HNG_3-win_05_full-table.csv} % path/to/file
-	\end{adjustbox}
-\end{table}
-
+\doublespacing
+\onehalfspacing
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
 	\caption{Expected Welfare Surplus Difference, $\text{HN}_{400}$ Approach}
@@ -1067,7 +1046,8 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 		]{tables/HNG_5-win_05_full-table.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+\doublespacing
+\onehalfspacing
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
 	\caption{Expected Welfare Surplus Difference, $\text{HN}_{560}$ Approach}
@@ -1115,7 +1095,8 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 		]{tables/HNG_7-win_05_full-table.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+\doublespacing
+\onehalfspacing
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
 	\caption{Expected Welfare Surplus Difference, $\text{HN}_{1040}$ Approach}
@@ -1163,8 +1144,10 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 		]{tables/HNG-win_05_full-table.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
+\doublespacing
 }
 \notinsubfile{
+\onehalfspacing
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
 	\caption{Expected Welfare Surplus Difference, Default Approach}
@@ -1212,7 +1195,8 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 		]{ch4/tables/HNG_1-default_full-table.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+\doublespacing
+\onehalfspacing
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
 	\caption{Expected Welfare Surplus Difference, $\text{HN}_{80}$ Approach}
@@ -1260,55 +1244,8 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 		]{ch4/tables/HNG_1-win_05_full-table.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
-\begin{table}[ht!] %	\centering %	\captionsetup{justification=centering}
-	\centering
-	\caption{Expected Welfare Surplus Difference, $\text{HN}_{240}$ Approach}
-	\label{tb:HN3_win05_pop}
-	\begin{adjustbox}{}
-	\pgfplotstabletypeset[
-		col sep=comma,
-		every head row/.style={
-			after row=\hline
-		},
-		display columns/0/.style={
-			string type,
-			column name = {}
-		},
-		display columns/1/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {p(EUT)}
-		},
-		display columns/2/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {p(Prelec)}
-		},
-		display columns/3/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {$\text{WSD}_{\text{EUT}}$}
-		},
-		display columns/4/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {$\text{WSD}_{\text{Prelec}}$}
-		},
-		display columns/5/.style={
-			precision = 2,
-			fixed,
-			zerofill,
-			column name = {Expected WSD}
-		},
-		]{ch4/tables/HNG_3-win_05_full-table.csv} % path/to/file
-	\end{adjustbox}
-\end{table}
-
+\doublespacing
+\onehalfspacing
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
 	\caption{Expected Welfare Surplus Difference, $\text{HN}_{400}$ Approach}
@@ -1356,7 +1293,8 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 		]{ch4/tables/HNG_5-win_05_full-table.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+\doublespacing
+\onehalfspacing
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
 	\caption{Expected Welfare Surplus Difference, $\text{HN}_{560}$ Approach}
@@ -1404,7 +1342,8 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 		]{ch4/tables/HNG_7-win_05_full-table.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
-
+\doublespacing
+\onehalfspacing
 \begin{table}[h!] %	\centering %	\captionsetup{justification=centering}
 	\centering
 	\caption{Expected Welfare Surplus Difference, $\text{HN}_{1040}$ Approach}
@@ -1452,11 +1391,12 @@ Utilizing the fitted models from equations (\ref{eq4:GAM}) and (\ref{eq4:GAM_wel
 		]{ch4/tables/HNG-win_05_full-table.csv} % path/to/file
 	\end{adjustbox}
 \end{table}
+\doublespacing
 }
 
 \break
 
-In Tables \ref{tb:HN1_default_pop} through \ref{tb:HN13_win05_pop} we see the average of the predictions for the hypothetical population for the Default approach and the $\text{HN}_\text{C}$ approach for $C \in \lbrace 80, 240, 400, 560, 1040\rbrace$.
+In Tables \ref{tb:HN1_default_pop} through \ref{tb:HN13_win05_pop} we see the average of the predictions for the hypothetical population for the Default approach and the $\text{HN}_\text{C}$ approach for $C \in \lbrace 80, 400, 560, 1040\rbrace$.
 The names of the rows in these tables give the model that the agents actually employ.
 In the first two columns of each table, we see the average probability of an agent employing a model given by the name of the row being classified as the model given in the column.
 In the third and fourth columns of each table, we see the average WSD should the agent be classified as the model given in the column name.
@@ -1465,15 +1405,21 @@ In the fifth column of each table, we see the average expected WSD for the row p
 In Tables \ref{tb:HN1_default_pop} through \ref{tb:HN13_win05_pop} we see a snapshot of the patterns depicted in the Figures presented throughout this chapter.
 Correctly classified EUT subjects are better characterized under any of the $\text{HN}_\text{C}$ approaches than under the Default Approach, as can be seen by comparing the first row, third column of each table.
 Correctly classified $\mathit{RDU_{Prelec}}$ subjects are better characterized under the Default approach than under the $\text{HN}_{80}$ approach, though just barely so, as can been seen by comparing the second row, fourth columns of Tables \ref{tb:HN1_default_pop} and \ref{tb:HN1_win05_pop}.
-All subjects are more likely to be correctly classified, and have better a expected WSD for $\text{HN}_\text{C}$ approaches with $C \in \lbrace 240, 400, 560, 1040\rbrace$.
+All subjects are more likely to be correctly classified, and have better a expected WSD for $\text{HN}_\text{C}$ approaches with $C \in \lbrace 400, 560, 1040\rbrace$.
 What these tables show more clearly, however, is the cost in terms of welfare surplus of choosing between these approaches given populations of agents we might readily encounter in experiments with real subjects.
 
 In terms of correctly classifying subjects, we can see that for this population the average probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects in the original $\text{HN}_{80}$ approach is a remarkably low 38\%.
-The probability of correctly classifying EUT subjects with the $\text{HN}_{80}$ is much greater than that of $\mathit{RDU_{Prelec}}$ subjects at 88\%, and rapidly approaches the 95\% limit after only 3 repetitions.
-The $\mathit{RDU_{Prelec}}$ subjects however, are not correctly classified 95\% of the time for any of the repetitions, as seen in the second row second column of each plot, and only reaches 80\% correct classification probebaility with greater than 400 lottery pairs per subject.
+The probability of correctly classifying EUT subjects with the $\text{HN}_{80}$ is much greater than that of $\mathit{RDU_{Prelec}}$ subjects at 88\%, and rapidly approaches the 95\% limit.
+The $\mathit{RDU_{Prelec}}$ subjects however, are not correctly classified 95\% of the time for any of the repetitions, as seen in the second row second column of each plot, and only reaches 80\% correct classification probability with greater than 400 lottery pairs per subject.
+
+In Figures \ref{fig:hyp_default} and \ref{fig:hyp_win05} we see the differences between the estimated welfare surplus and the real welfare surplus for the original HN approach and the Default Approach for the $\text{HN}_{80}$ instrument.
+These figures provide some distributional information, as well as show the raw welfare surplus estimates for these two approaches whereas Tables \ref{tb:HN1_default_pop} and \ref{tb:HN1_win05_pop} provide metrics for the average and expected WSD, and classification probabilities for the same approaches.
+The raw figures show that the average real welfare surplus for EUT subjects is roughly {\$}15, and for $\mathit{RDU_{Prelec}}$ is roughly {\$}28.
+This means that the expected WSD for $\mathit{RDU_{Prelec}}$ subjects in the $\text{HN}_{80}$ approach of -{\$}7.90, shown in the second row, fifth column of Table \ref{tb:HN1_win05_pop}, is particularly large with respect to the $\mathit{RDU_{Prelec}}$ subjects' average real welfare surplus.
 
 Looking at the fifth column of Tables \ref{tb:HN1_win05_pop} and \ref{tb:HN1_default_pop}, we see that going from the $\text{HN}_{80}$ approach to the Default approach, $\mathit{RDU_{Prelec}}$ subjects have an improvement in the accuracy of their expected WSD of \$2.60, while EUT subjects only have a decrease of \$0.62.
 That is, the average $\mathit{RDU_{Prelec}}$ subject will have a welfare surplus estimate that is \$2.66 closer to their real welfare surplus under the Default approach, while the average EUT subjects will welfare surplus estimates that are \$0.62 farther away from their real welfare surplus.
+This difference is roughly 10\% of the real welfare surplus for $\mathit{RDU_{Prelec}}$ subjects, and only about 4\% of the EUT subjects' real welfare surplus.
 To put it another way, assume a grand population made up of the two populations of EUT and $\mathit{RDU_{Prelec}}$ subjects we've posited here.
 The proportion of EUT subjects in this grand population would have to be greater than 80.7\% for the loss of the WSD for EUT subjects to outweigh the gain to $\mathit{RDU_{Prelec}}$ subjects.{\footnotemark}
 Thus, if we expect real subjects to employ parameters similar to those assumed here, and if we expect the proportion of EUT subjects to be lower than  80.7\% of the population, the Default approach will produce more accurate welfare surplus estimates than the $\text{HN}_{80}$ approach.
@@ -1503,24 +1449,24 @@ Though inferential objectives vary greatly across the experimental literature, m
 Given the inferential objective of \textcite{Harrison2016} of assessing the subjective welfare consequences of the decision to purchase, or not to purchase a particular insurance product, I present mixed evidence.
 The capacity of the classification process to correctly classify a subject as employing either the EUT or $\mathit{RDU_{Prelec}}$ model is relatively low for parameterizations of these models we expect real subjects to employ.
 For a hypothetical population parameterized by the point estimates of real subject data, the average probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects is shown to be less than 40\%.
-However, although misclassification results in negative welfare consequences for the subjects, these negative consequences are not particularly massive, averaging only several dollars across the population.
-Nonetheless, I conclude that utilizing the proposed \enquote{Default} approach of classification, in which subjects are classified as $\mathit{RDU_{Prelec}}$ if feasible and EUT otherwise, or increasing the sample size by several hundred lottery pairs per subject would result in more accurate subjective welfare estimates.
+However, although misclassification results in negative welfare consequences for the subjects, these negative consequences are not particularly massive, and the gain of the alternative \enquote{Default} approach, in which subjects are classified as $\mathit{RDU_{Prelec}}$ if feasible and EUT otherwise, averages only several dollars across the hypothetical population of $\mathit{RDU_{Prelec}}$ subjects.
+Nonetheless, I conclude that utilizing the proposed Default approach of classification or increasing the sample size by several hundred lottery pairs per subject \textit{would} result in more accurate subjective welfare estimates in aggregate for populations of EUT and $\mathit{RDU_{Prelec}}$ subjects we may expect to encounter in experiments.
 
 These two approaches, increasing the sample size and disregarding classification altogether, are not the only options available to increase the accuracy of the classification process or the accuracy of welfare surplus estimates.
 There exists the possibility of alternative experimental designs and/or econometric procedures.
 Econometrically, one can imagine a Baysian approach in which small groups of subjects are grouped together based on observable characteristics, e.g. age, sex, education, and then pooled estimations from these subgroups being used as priors to inform the individual level estimates of the members of the groups.
-Non or semi-parameter estimation techniques may fare better in terms of classification accuracy.
+Additionally, non or semi-parameter estimation techniques may fare better in terms of classification accuracy.
 These econometric approaches could be performed on existing data, though power analysis should be performed to test if they improve classification accuracy or the accuracy of welfare surplus estimates.
 
-In terms of instrument design, there are more than 1 septillion ($> 2^{80}$) possible choice patterns in the HN lottery instrument.
-Reducing this choice space while maintaining the same number of lottery pairs would require a different experimental procedure, perhaps by explicitly prohibiting subjects from selecting certain choice patterns, but this could reduce the chance of choice errors causing a misidentification.
+In terms of instrument design, there are more than 1 septillion ($10^{24} < 2^{80}$) possible choice patterns in the HN lottery instrument.
+Reducing this choice space while maintaining the same number of lottery pairs would require a different experimental procedure, but this could reduce the chance of choice errors causing a misidentification, perhaps by explicitly prohibiting subjects from selecting certain choice patterns which are likely to lead to misclassification.
 Of course, prohibiting certain choice patterns would require additional econometric restrictions as choices across individual lottery pairs could no longer be said to be independent.
-The task of modifying the experimental design and econometric procedure is Herculean, and this chapter, unfortunately, can not provide much guidance with respect to this task beyond increasing the sample size.
+The task of modifying the experimental design and econometric procedure while guarding against concerns proposed by experimental methodology is Herculean, and this chapter, unfortunately, can not provide much guidance with respect to this task beyond increasing the sample size.
 
 One of the more difficult questions this chapter hoped to help address is that of \enquote{how much does this matter?}
 By representing the cost of misclassification as a function of the difference between estimates of welfare surplus and the known, \enquote{real} welfare surplus of our simulated subjects, we bring the question of \enquote{how much?} into a normative domain that economists are familiar with.
 However, it remains unclear \textit{by how much} do estimates of welfare surplus need to deviate from real welfare surplus before they truly \enquote{matter.}
-\textcite{Harrison1989, Harrison1992} argues specifically that when differences in consumer surplus between choices amounted to fractions of a penny in First Price Auction experiments, the choices didn't matter to the subjects, and so conclusions drawn from these choices should not matter much to economists either.
+\textcite{Harrison1989, Harrison1992} argues specifically that when differences in consumer surplus between choices amount to fractions of a penny in First Price Auction experiments, the choices didn't matter to the subjects, and so conclusions drawn from these choices should not matter much to economists either.
 Generally, he argues that the dominance precept of \textcite{Smith1982} needs to be taken into serious consideration when drawing conclusions from the choice behavior of economic agents.
 \textcite[21]{Hey2001} raises similar concerns about assessing the \textit{economic} significance of results showing that subjects may employ different functionals when faced with the same choice task over 5 days:
 
