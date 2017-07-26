@@ -12,57 +12,58 @@
 In Chapter 1 we described the efforts of economists to account for apparent violations of Expected Utility Theory (EUT) in economic experiments.
 Some of these efforts were directed at the development of alternative deterministic theories of utility, such as Prospect Theory by \textcite{Kahneman1979}, Rank Dependent Utility (RDU) by \textcite{Quiggin1982}, and Regret Theory by \textcite{Bell1982}, \textcite{Loomes1982}.
 Other efforts were focused on the redevelopment of stochastic models, such as the constant error or \enquote{tremble} model by \textcite{Harless1994}, the Strong Utility model by \textcite{Hey1994}, the random preference model by \textcite{Loomes1995}, along with many derivatives of the Strong Utility model.
-Much of the newly proposed theoretical explanations of the apparent violations of EUT we tested experimentally.
+Many of the newly proposed theoretical explanations of the apparent violations of EUT were tested experimentally.
 A well known example is that of \textcite{Hey1994} (HO), who conduct an experiment to test if any of a variety of generalizations (and one restriction) of EUT can explain experimentally collected data significantly better than EUT while utilizing the Strong Utility model.
-HO engage in picking "winning" models for each subject on the basis of their estimates for each model and whether each model can be said to be different from EUT.
+HO pick "winning" models for each subject on the basis of their estimates for each model and whether each model can be operationally distinguished different from EUT.
 They conclude that \enquote{our study indicates that behavior can be reasonably well modelled (to what might be termed a \enquote{reasonable approximation}) as \enquote{EU plus noise.}}
 
 However, HO note:
 \enquote{The inferences that can be drawn \textelp{} about the adequacy or otherwise of EU are not, however, clear cut - mainly because of the large number of generalizations of EU under consideration.
-As this research has evolved, and then number of generalizations under consideration has increased, the number of subjects for whom EU emerges as \enquote{the winners} has declined. 
+As this research has evolved, and the number of generalizations under consideration has increased, the number of subjects for whom EU emerges as \enquote{the winners} has declined.
 This is inevitable, though it is not clear how one should judge the rate of decline.
 \textelp{} Monte Carlo work would be needed to shed more accurate light on such issues}
 
-The concerns raised by HO can be considered that of statistical power and how much economists should care about potential misidentification, that is, how much should we care about type I and type II errors.
-In this chapter, we will analyze the experimental instruments utilized by \textcite{Harrison2016} (HN) for its ability to accurately recover the utility functions of agents faced with the instruments.
-The analysis will focus firstly on the ability of the instrument to correctly classify an agent employing one of four different utility models, as is done in HN, and secondly on the welfare consequences of this characterization.
+The concerns raised by HO can largely be considered as referring to statistical power, and to the weight economists should place on type I versus type II identification errors.
+That there are asymmetries in the probability of type I and type II errors should be of little surprise to most econometricians, but the degree of asymmetry in the \textit{cost} of these errors, I argue, is more important.
+In this chapter, we will analyze the experimental instruments utilized by \textcite{Harrison2016} (HN) for recovering the utility functions of agents.
+The analysis will focus firstly on the capacity of the HN procedure to correctly classify an agent as employing one of four different utility models, and secondly on the welfare consequences of this characterization.
 Thus we attempt to remove some uncertainty about the power of the instrument, and propose metrics to address the question of how much economists should care about statistical power issues by linking them directly with welfare evaluations.
 
 To begin this analysis, we will describe and replicate the classification and welfare calculation exercises of HN.
-Next we will conduct a simulation analysis on the lottery instrument used in HN to determine the frequency of misclassification for two of the four models in question, and the welfare consequences thereof.
+Next we will conduct a simulation analysis of the lottery instrument used in HN to determine the frequency of misclassification for two of the four models utilized by HN, and the welfare consequences thereof.
 We next propose two ways to potentially alleviate the welfare concerns of misidentification.
 
 \section{Estimating a Benchmark using \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2015)}}
 \label{sec4:Bench}
 
-\textcite{Harrison2016} report the results of an experiment intended to evaluate the welfare consequences of individuals' decisions to purchase insurance.
+HN report the results of an experiment intended to evaluate the welfare consequences of individuals' decisions to purchase insurance.
 This is in part a response to the large literature cited by \textcite[92]{Harrison2016} which evaluates insurance on the basis of \enquote{take-up}: the rate at which individuals purchase insurance.
 They argue that although a take-up metric is transparent and easy to measure, it doesn't allow for statements about whether an individual \textit{should} have taken up the insurance product, and it does not quantify the consumer surplus from making the correct insurance purchase decision.
 These are, however, precisely the kind of normative welfare statements that economists should be making about the economic choices of agents.
 They are also the kind of normative welfare statements that can be made from estimating the utility functions of individuals and evaluating their choices with respect to these functions.
 
-\textcite{Harrison2016} address the problem of evaluating the welfare consequences of the decision to purchase insurance or not by conducting a 2-part experiment.
+HN address the problem of evaluating the welfare consequences of the decision to purchase insurance or not by conducting a 2-part experiment.
 In the first part each subject is presented with a battery of 80 lottery pairs and asked to select one lottery from each pair that will be played out for payment.
 This part will be referred to as the \enquote{lottery task} throughout.
 The responses of each subject to the lottery task are used to estimate utility functions for that individual.
 In the second part each subject is endowed with \money{20} and presented with 24 choices where they are asked to choose between a lottery which will result in a loss of \money{15} with some probability $p$ or no loss of the initial endowment with probability $(1-p)$, and a certain amount of money between \money{15.20} and \money{19.80}.
 The choice of the certain amount of money is framed as the purchase of insurance against the risk of loss in the lottery option.
 This part will be referred to as the \enquote{insurance task} throughout.
-Both of these instruments are detailed in full in the Appendix (to be added).
+Both of these instruments are detailed in full in Appendix C of \textcite{Harrison2016}.
 
-For each individual, \textcite{Harrison2016} use the data recovered in the lottery task to estimate four models which can be described in the framework of Rank Dependent Utility (RDU) as first proposed by \textcite{Quiggin1982}:
+For each individual, HN use the data recovered in the lottery task to estimate four models which can be described in the framework of Rank Dependent Utility (RDU) as first proposed by \textcite{Quiggin1982}:
 \begin{equation}
 	\label{eq4:RDU}
-	RDU = \sum_{i=1}^{I} \left[ w_i(p) \times u(x_i) \right]
+	RDU = \sum_{c=1}^{C} \left[ w_c(p) \times u(x_c) \right]
 \end{equation}
-\noindent where $i$ indexes the outcomes, $x_i$, from $\{1,\ldots,I\}$ with $i=1$ being the smallest outcome in the lottery and $i=I$ being the greatest outcome in the lottery, $u(\cdot)$ is a standard utility function, $w_i(\cdot)$ decision weight function applied to outcome $i$ given the distribution of probabilities in the lottery ranked by outcome, $p$.
-The decision weight function, $w_i(\cdot)$, takes the form:
+\noindent where $c$ indexes the outcomes, $x_c$, from $\{1,\ldots,C\}$ with $c=1$ being the smallest outcome in the lottery and $c=C$ being the greatest outcome in the lottery, $u(\cdot)$ is a standard utility function, $w_c(\cdot)$ decision weight function applied to outcome $c$ given the distribution of probabilities in the lottery ranked by outcome, $p$.
+The decision weight function, $w_c(\cdot)$, takes the form:
 \begin{equation}
 	\label{eq4:dweight}
-	w_i(p) =
+	w_c(p) =
 	\begin{cases}
-		\omega\left(\displaystyle\sum_{j=i}^I p_j\right) - \omega\left(\displaystyle\sum_{k=i+1}^I p_k\right) & \text{for } i<I \\
-		\omega(p_i) & \text{for } i = I
+		\omega\left(\displaystyle\sum_{k=c}^C p_k\right) - \omega\left(\displaystyle\sum_{k=c+1}^C p_k\right) & \text{for } c<C \\
+		\omega(p_c) & \text{for } c = C
 	\end{cases}
 \end{equation}
 \noindent where the probability weighting function, $\omega(\cdot)$, can take a variety of parametric or non-parametric forms.
@@ -70,32 +71,32 @@ HN estimate four probability weighting functions (pwf).
 The first pwf is the linear function:
 \begin{equation}
 	\label{eq4:pw:eut}
-	\omega(p_i) = p_i
+	\omega(p_c) = p_c
 \end{equation}
 
 \noindent The second pwf is the power function ($\mathit{RDU_{Pow}}$) used by \textcite{Quiggin1982}:
 \begin{equation}
 	\label{eq4:pw:pow}
-	\omega(p_i)=p_i^\gamma
+	\omega(p_c)=p_c^\gamma
 \end{equation}
 
 \noindent where $\gamma > 0$. 
 The third pwf is the \enquote{Inverse-S} shaped function ($\mathit{RDU_{Invs}}$) popularized by \textcite{Tversky1992}:
 \begin{equation}
 	\label{eq4:pw:inv}
-	\omega(p_i) = \frac{p_i^\gamma}{\biggl(p_i^\gamma + {(1-p_i)}^\gamma\biggr)^{ \frac{1}{\gamma} } }
+	\omega(p_c) = \frac{p_c^\gamma}{\biggl(p_c^\gamma + {(1-p_c)}^\gamma\biggr)^{ \frac{1}{\gamma} } }
 \end{equation}
 
 \noindent where $\gamma > 0$. 
 The fourth pwf is the flexible function proposed by \textcite{Prelec1998} ($\mathit{RDU_{Prelec}}$):
 \begin{equation}
 	\label{eq4:pw:pre}
-	\omega(p_i)=\exp(-\beta(-\ln(p_i))^\alpha)
+	\omega(p_c)=\exp(-\beta(-\ln(p_c))^\alpha)
 \end{equation}
 \noindent where $\alpha > 0$ and $\beta > 0$.
 
 The functional form of an RDU model with the linear probability weighting function in equation (\ref{eq4:pw:eut}) is equivalent to Expected Utility Theory (EUT), and will be referred to as EUT throughout.
-In all the remaining probability weighting functions, there exist values for the probability weighting parameters which allow $w_i(p) = p_i$, the special case of EUT.
+In all the remaining probability weighting functions, there exist values for the probability weighting parameters which allow $w_c(p) = p_c$, the special case of EUT.
 For all four models, \textcite{Harrison2016} use the CRRA utility function:
 \begin{equation}
 	\label{eq4:CRRA}
@@ -103,42 +104,42 @@ For all four models, \textcite{Harrison2016} use the CRRA utility function:
 \end{equation}
 \noindent where $r$ is the coefficient of relative risk aversion proposed by \textcite{Pratt1964}.
 
-I continue to use the notation used in chapters 2 and 3 to describe a choice scenario by a subject, but limit it to a binary choice between two options, $j$ and $k$.
-In this framework a choice of option $j$ in task $t$ is indicated by the function $y_t = j$, where $y_t = 1 \geq^n y_t = 2$.
-The values of $j$ and $k$ do not indicate the order or frame with which the options in task $t$ were presented to the subject, but rather the ordinal rank the subject's utility function assigns to the options, with 1 always being the option of greatest utility.
+I continue to use the notation used in chapters 2 and 3 to describe a choice scenario by a subject, but limit it to a binary choice between two options, $a$ and $b$.
+In this framework a choice of option $a$ in task $t$ is indicated by the function $y_t = a$, where $y_t = 1 \geq^i y_t = 2$.
+The values of $a$ and $b$ do not indicate the order or frame with which the options in task $t$ were presented to the subject, but rather the ordinal rank the subject's utility function assigns to the options, with 1 always being the option of greatest utility.
 This notation is useful when describing the welfare consequences of choices below.
 
 \textcite{Harrison2016} also use Contextual Utility (CU), as defined by \textcite{Wilcox2008}, as the stochastic model.
-Thus for the models utilized, the probability that option $j$ is chosen is given by:
+Thus for the models utilized, the probability that option $a$ is chosen is given by:
 \begin{align}
 	\label{eq4:RE.2}
 	\begin{split}
-		{\Prob}(y_t = j) &= {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda_n} \left[ G(\beta_n,X_{kt}) - G(\beta_n,X_{jt}) \right] \right)\\
-		&= 1 - F\left( \dfrac{G(\beta_n,X_{kt}) - G(\beta_n,X_{jt})}{D(\beta_n,X_t)\lambda_n }  \right)
+		{\Prob}(y_t = a) &= {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda_i} \left[ G(\beta_i,X_{bt}) - G(\beta_i,X_{at}) \right] \right)\\
+		&= 1 - F\left( \dfrac{G(\beta_i,X_{bt}) - G(\beta_i,X_{at})}{D(\beta_i,X_t)\lambda_i }  \right)
 	\end{split}
 \end{align}
 
-\noindent where $\epsilon_t$ is a mean 0 error term, $F$ is a symmetric cumulative distribution function (cdf), meaning $1 - F(x)  = F(-x)$, $G(\cdot)$ is the RDU utility model that takes the parameters $\beta_n$ to calculate the utility of lottery $j$ or $k$ in task $t$ comprised of outcomes and probabilities $X_{jt}$, and $\lambda_n$ is a precision parameter.
+\noindent where $\epsilon_t$ is a mean 0 error term, $F$ is a symmetric cumulative distribution function (cdf), meaning $1 - F(x)  = F(-x)$, $G(\cdot)$ is the RDU utility model that takes the parameters $\beta_i$ to calculate the utility of lottery $a$ or $b$ in task $t$ comprised of outcomes and probabilities $X_{at}$, and $\lambda_i$ is a precision parameter.
 The function $D(\cdot)$ separates contextual utility from a Strong Utility model:
 \begin{align}
 	\label{eq4:W.cu}
 	\begin{split}
-		&D(\beta_n,X_t) = \mathit{max}[u(x_{it})] - \mathit{min}[u(x_{it})]\\
-		&\mathit{st.}\; w_i(x_{it}) \neq 0
+		&D(\beta_i,X_t) = \mathit{max}[u(x_{ct})] - \mathit{min}[u(x_{ct})]\\
+		&\mathit{st.}\; w_c(x_{ct}) \neq 0
 	\end{split}
 \end{align}
 
 Usually, the Normal or Logistic cdf is chosen for $F$, and I employ the Logistic cdf for all calculations throughout.
-Given that each choice considered here only involves two lottery options, we can define the probability of choosing option $j$ given a particular model, parameter set $\beta_n$, precision parameter $\lambda_n$, and outcomes and probabilities of option $j$, $X_{jt}$, as
+Given that each choice considered here only involves two lottery options, we can define the probability of choosing option $a$ given a particular model, parameter set $\beta_i$, precision parameter $\lambda_i$, and outcomes and probabilities of option $a$, $X_{at}$, as
 \begin{equation}
 	\label{eq4:RE.f}
-	{\Prob}(y_t=j) =\dfrac{\exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)}{  \exp\!\left( \dfrac{ G(\beta_n,X_{jt}) }{ D(\beta_n,X_{t})\lambda_n }  \right) + \exp\!\left( \dfrac{ G(\beta_n,X_{kt}) }{ D(\beta_n,X_{t})\lambda_n }  \right)    }
+	{\Prob}(y_t=j) =\dfrac{\exp\!\left( \dfrac{ G(\beta_i,X_{at}) }{ D(\beta_i,X_{t})\lambda_i }  \right)}{  \exp\!\left( \dfrac{ G(\beta_i,X_{at}) }{ D(\beta_i,X_{t})\lambda_i }  \right) + \exp\!\left( \dfrac{ G(\beta_i,X_{bt}) }{ D(\beta_i,X_{t})\lambda_i }  \right)    }
 \end{equation}
 
 \noindent These choice probabilities in turn are logged and summed to produce a log-likelihood function for each of the four different models:
 \begin{equation}
 	\label{eq4:ll}
-	\ensuremath{\mathit{LL_n}} = \sum_{t}^T \ln \left[ {\Prob}(y_t) \right]
+	\ensuremath{\mathit{LL_i}} = \sum_{t}^T \ln \left[ {\Prob}(y_t) \right]
 \end{equation}
 
 As a metric of welfare, \textcite{Harrison2016} primarily use the consumer surplus (CS) of each choice.
@@ -148,8 +149,8 @@ Since the CRRA utility function defined in equation (\ref{eq4:CRRA}) is used for
 \begin{align}
 	\label{eq4:CEcalc}
 	\begin{split}
-		&\sum_{i=1}^{I} w_i(p) \frac{x_{ij}^{(1-r)}}{(1-r)} = \frac{ {\CE}_j^{(1-r)}}{(1-r)}\\
-		&{\CE}_j =  \left( (1-r) \times \sum_{i=1}^{I} w_i(p) \frac{x_{ij}^{1-r}}{(1-r)} \right)^{ \displaystyle\nicefrac{1}{(1-r)} } ,
+		&\sum_{c=1}^{C} w_c(p) \frac{x_{ca}^{(1-r)}}{(1-r)} = \frac{ {\CE}_a^{(1-r)}}{(1-r)}\\
+		&{\CE}_a =  \left( (1-r) \times \sum_{c=1}^{C} w_c(p) \frac{x_{ca}^{1-r}}{(1-r)} \right)^{ \displaystyle\nicefrac{1}{(1-r)} } ,
 	\end{split}
 \end{align}
 
@@ -157,14 +158,14 @@ Since the CRRA utility function defined in equation (\ref{eq4:CRRA}) is used for
 
 \begin{equation}
 	\label{eq4:wsurplus}
-	\Delta W_{nt} =  {\CE}_{nyt} - {\CE}_{n1t}^Z ,
+	\Delta W_{it} =  {\CE}_{iyt} - {\CE}_{i1t}^Z ,
 \end{equation}
 
 \noindent and the accumulated welfare surplus as:
 
 \begin{equation}
 	\label{eq4:wsurplusT}
-	\Delta W_{nT} = \sum_{t=1}^T \left( {\CE}_{nyt} - {\CE}_{n1t}^Z \right)
+	\Delta W_{iT} = \sum_{t=1}^T \left( {\CE}_{iyt} - {\CE}_{i1t}^Z \right)
 \end{equation}
 
 \noindent where the $y$ subscript indicates the option chosen (either 1 or 2 in the binary scenario we consider here), and the $Z$ superscript indicates the remaining, unchosen options, of which the {\CE} with the greatest value, designated by the subscript 1, is considered the foregone opportunity.
@@ -172,18 +173,18 @@ Since the CRRA utility function defined in equation (\ref{eq4:CRRA}) is used for
 \textcite[106]{Harrison2016} consider an additional metric of forgone welfare surplus as the difference between the maximal {\CE} for every choice and the {\CE} of the option actually chosen by the subject
 \begin{equation}
 	\label{eq4:wforgone}
-	\Delta F_{nt} = -1 \times \left( {\CE}_{n1t} - {\CE}_{nyt} \right) , 
+	\Delta F_{it} = -1 \times \left( {\CE}_{i1t} - {\CE}_{iyt} \right) , 
 \end{equation}
 
 \noindent and the accumulated forgone welfare surplus
 
 \begin{equation}
 	\label{eq4:wforgoneT}
-	\Delta F_{nT} = \sum_{t=1}^T  -1 \times \left( {\CE}_{n1t} - {\CE}_{nyt} \right)
+	\Delta F_{iT} = \sum_{t=1}^T  -1 \times \left( {\CE}_{i1t} - {\CE}_{iyt} \right)
 \end{equation}
 
 \noindent With these metrics, the best possible value for any subject is 0, which would indicate that all choices made were optimal, whereas any positive value indicates the amount of welfare surplus forgone by the subject due to choice errors.
-These metrics line up easily with the metrics defined in equations (\ref{eq4:wsurplus}) and (\ref{eq4:wsurplusT}), as should $y_t \neq 1$, ${\CE}_{n1t}^Z = {\CE}_{n1t}$.
+These metrics line up easily with the metrics defined in equations (\ref{eq4:wsurplus}) and (\ref{eq4:wsurplusT}), as should $y_t \neq 1$, ${\CE}_{i1t}^Z = {\CE}_{i1t}$.
 
 \textcite{Harrison2016} estimate values of the CRRA utility parameter, $r$, the probability weighting parameters, $\gamma, \alpha, \beta$, and the stochastic parameter $\lambda$, for each of the models presented above via maximum likelihood estimation (MLE) using the choices made by the subjects in the lottery task.
 \textcite[107,110]{Harrison2016} initially calculate the welfare consequences of the choices made by each subject by using only the point estimates from the MLE, and then employ a bootstrap method which incorporates the covariance matrix of the standard errors.
@@ -193,7 +194,6 @@ For each subject's parameter estimates 500 draws of parameter sets were taken, t
 Since the covariance matrix used in the bootstrap method draws parameters from the joint distribution with respect to their density in the joint distribution, only a simple average is needed.
 
 The experimental subjects consisted of 111 undergraduate students enrolled in several different colleges at Georgia State University, USA.
-All experimental sessions were conducted in 2014 at the ExCEN experimental lab of Georgia State University.
 Every subject received, and expected to receive, a guaranteed \money{5} show up fee, but no specific information about the experiment or expected earnings was communicated to the subjects before the experiment \parencite[98]{Harrison2016}.
 The full set of instructions delivered to the subjects is available in Appendix C of \textcite{Harrison2016}.
 
@@ -203,7 +203,7 @@ The full set of instructions delivered to the subjects is available in Appendix 
 HN employ a multi-step process for picking a \enquote{winning} model for each subject.
 First, all four models models cited in equations (\ref{eq4:pw:eut}), (\ref{eq4:pw:pow}), (\ref{eq4:pw:inv}), (\ref{eq4:pw:pre}) are estimated for each subject.
 Next, data are dropped from analysis on the basis of an \textit{ex ante} defined set of \enquote{exclusionary rules} applied to every model estimated on the subjects.
-Finally, a \enquote{classification process} is employed to choose a model to categorize the subject as.
+Finally, a \enquote{classification process} is employed map a best-fitting model to each subject.
 HN propose 4 exclusionary rules:
 \begin{itemize}
 	\item Any estimate for which the optimizer did not return a convergence code indicating both a gradient near 0 and a negative definite Hessian.
@@ -222,7 +222,7 @@ The log-likelihood function given in equation (\ref{eq4:ll}) is equally applicab
 However, since RDU models nest EUT as a special case (noted in equation \ref{eq4:pw:eut}), \textit{a priori} we would expect RDU models to produce greater log-likelihoods than an EUT model on any given dataset.
 \textcite[102]{Harrison2016} note this issue and propose the additional qualification on RDU models that the probability weighting function implied by the estimated model must be statistically significantly different from a linear function, the special case of EUT, at the 10, 5, or 1 percent significance levels.
 
-The null hypothesis for the $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ models is $H_0: \gamma = 1$, and the null for the $\mathit{RDU_{Prelec}}$ model is $H_0: \alpha = \beta = 1$.
+The null hypothesis for the $\mathit{RDU_{Pow}}$ and $\mathit{RDU_{Invs}}$ models is $H_0: \gamma = 1$, and the null hypothesis for the $\mathit{RDU_{Prelec}}$ model is $H_0: \alpha = \beta = 1$.
 Non-linear Wald tests are used to test these hypotheses.
 Any RDU model that fails to reject the null hypothesis is removed from consideration as a \enquote{winning} model.
 If the EUT model did not converge for the subject in question, the models considered will only consist of the RDU models which tested as different to EUT.
@@ -231,10 +231,10 @@ The \enquote{winning} model for each subject is chosen from among the models whi
 The winning model is then used to calculate the welfare consequences of the subject's choices on the insurance task.
 
 When I utilize the same classification processes employed by \textcite{Harrison2016} on their data, we see a somewhat different distribution of subjects classified to the 4 models in Figure \ref{fig:HN_pvals}.
-These differences are relatively minor, showing somewhat more RDU subjects and less EUT subjects than reported by HN.
+These differences are relatively minor, showing somewhat more RDU subjects and fewer EUT subjects than reported by HN.
 Further details on differences are given in Appendix B (to be added).
-I do however, replicate in Figure \ref{fig:HN_CS} almost exactly the distribution of per-choice consumer surplus presented in Figure 10 of \textcite[108]{Harrison2016}.
-This suggests a degree of leeway in the classification process in terms of its effect on the characterization of subjects' welfare.
+I do however, replicate in Figure \ref{fig:HN_CS} the distribution of per-choice consumer surplus presented in Figure 10 of \textcite[108]{Harrison2016}.
+Figure 10 of \textcite{Harrison2016} and Figure \ref{fig:HN_CS} are not visually distinguishable, and the mean welfare surplus metric is the same.
 
 \begin{figure}[h!]
 	\center
@@ -275,24 +275,24 @@ However, power analyses are rarely conducted in parallel with econometric estima
 There are some examples of experimental economists utilizing power calculations to inform their analysis or experimental designs.
 \textcite{Rutstrom2009} conduct a power analysis by simulating agent behavior in a matching pennies games and choosing payoffs that would result in the best chance of identifying the effect they sought to identify if it were there.
 In this instance, \textcite{Rutstrom2009} conduct a power analysis in order to influence the design of their experiment.
-\textcite[8]{Wilcox2015} conduct Monte Carlo simulations of agents responding to a lottery battery all of which operate the CRRA utility function, the $\mathit{RDU_{Prelec}}$ probability weighting function, and the CU stochastic model.
+\textcite[8]{Wilcox2015} conducts Monte Carlo simulations of agents responding to a lottery battery, all of which operate the CRRA utility function, the $\mathit{RDU_{Prelec}}$ probability weighting function, and the CU stochastic model.
 \textcite{Wilcox2015} designates four data generating processes (DGP) by specifying four parametrizations of these models and uses them to generate choice data, with each DGP making choices on the instrument 1000 times.
-They then estimate non-parametric RDU models for each of the 1000 choice realizations per DGP and classify the resulting estimates into one of 5 categories, one for each of the DGP and an additional \enquote{unclassified} category.
-This is an example of using power analysis to lend support to the researchers methods and conclusions.
+They then estimate non-parametric RDU models for each of the 1000 choice realizations per DGP and classify the resulting estimates into one of 5 categories, one for each of the DGPs and an additional \enquote{unclassified} category.
+This is an example of using power analysis to lend support to a researcher's methods and conclusions.
 Both of these kinds of analysis are useful for understanding the statistical support for experimental research as well as its limitations.
 
-In this section, we interrogate the statistical power of the instrument and classification process to correctly classify subjects given the instrument presented in \textcite{Harrison2016}, and in turn how accurate the welfare calculations are given a classification.
-I conduct this analysis via simulation methods similar to those defined by \textcite{Feiveson2002} and which resemble an extension of the Monte Carlo analysis performed by \textcite{Wilcox2015}.
+We interrogate the statistical power of the instrument and classification process to correctly classify subjects given the instrument presented in \textcite{Harrison2016}, and to investigate the accuracy of the welfare calculations given classifications.
+I conduct this analysis via simulation methods similar to those defined by \textcite{Feiveson2002}, which resemble an extension of the Monte Carlo analysis performed by \textcite{Wilcox2015}.
 \textcite[108]{Feiveson2002} briefly describes a simulation method for determining the power of an experiment:
 
 \blockquote{\textins{W}e contemplate a hypothetical scenario in which the identically sized experiment could be run over and over, each time collecting new data and doing a new hypothesis test. 
 If this scenario can be adequately modeled, we may thus estimate power by simulating data from multiple replications of the experiment and simply calculate the proportion of rejections \textins{of the null hypothesis} as an estimate of the power.}
 
-\textcite[109]{Feiveson2002} outline this method in more detail, and conclude the process by noting \enquote{The estimated power for a \textins{specified significance level} test is simply the proportion of observations (out of \textins{some large number of replications}) for which the p-value is less than \textins{the specified significance level}.}
+\textcite[109]{Feiveson2002} outlines this method in more detail, and concludes by noting \enquote{The estimated power for a \textins{specified significance level} test is simply the proportion of observations (out of \textins{some large number of replications}) for which the p-value is less than \textins{the specified significance level}.}
 In this framework, and given the nature of the classification process defined previously, should an EUT subject be classified as employing an $\mathit{RDU_{Prelec}}$ model, this would constitute a type I error (a \enquote{false positive} of probability weighting), and should an $\mathit{RDU_{Prelec}}$ subject be classified as employing an EUT model this would constitute a type II error (a \enquote{false negative} of no probability weighting).
 The probability of a type II error is called the \enquote{power} of the test and when researchers engage in \textit{ex ante} power analysis, they typically aim for a power of 80\% \parencite{Cohen1988, Gelman2014}, and significance level (\enquote{p-value}) of either 1, 5, or 10\%.
 
-I simulate subjects conforming to the EUT and $\mathit{RDU_{Prelec}}$ models, have these simulated subjects respond to both the lottery and insurance task, estimate the subjects' parameter sets given their responses to the lottery task, classify each subject based on the classification process employed by HN described in the previous section, and calculate the welfare surplus for each subject based on the winning model.{\footnotemark}
+I simulate subjects conforming to the EUT and $\mathit{RDU_{Prelec}}$ models, have these simulated subjects respond to both the lottery and insurance task, estimate the subjects' parameter sets given their responses to the lottery task, classify each subject based on the classification process employed by HN as described in the previous section, and calculate the welfare surplus for each subject based on the winning model.{\footnotemark}
 A simulated subject is represented by a single parameter set and an assigned model.
 For each model, we employ the CRRA utility function defined in (\ref{eq4:CRRA}) and the CU stochastic model defined in equations (\ref{eq4:RE.2}) and (\ref{eq4:W.cu}).
 For EUT subjects, the parameter set consists of $\lbrace r, \lambda \rbrace$, and for $\mathit{RDU_{Prelec}}$ subjects $\lbrace r, \alpha, \beta, \lambda \rbrace$.
@@ -332,14 +332,14 @@ This process ensures that subjects' choices are made probabilistically with resp
 }
 
 After the subjects have made choices, each of the models we consider is estimated for each subject on the choices made in the lottery task.
-Any model which didn't converge with a gradient close to 0 and a negative definite Hessian matrix or converged on parameters outside of exclusionary rules defined in the previous section was also dropped from consideration.
+Any model which didn't converge with a gradient close to 0 and a negative definite Hessian matrix or converged on parameters outside of exclusionary rules defined in the previous section was dropped from consideration.
 Each subject was then classified based on the classification process defined in the previous section using a 5\% significance level.
 If no model met the consideration criteria, the subject was classified \enquote{NA}.
 The welfare surplus of the choices made on the insurance task are then calculated using the parameters of the winning model.
 
-This process of classification simulation differs from that employed by \textcite{Wilcox2015} in that I simulate a total of 500k DGP, each producing a single set of choice data, whereas \textcite{Wilcox2015} simulate 4 GDP, each producing 1000 sets of choice data.
+This process of classification simulation differs from that employed by \textcite{Wilcox2015} in that I simulate a total of 500,000 DGP, each producing a single set of choice data, whereas \textcite{Wilcox2015} simulate 4 GDP, each producing 1000 sets of choice data.
 The approach of \textcite{Wilcox2015} allows for individual DGP to not be characterized by a single set of choices, while the approach I employ allows us to see how the power of the instrument changes with resect to a wide range of DGP.
-The limitation of the approach I employ of only generating one choice data set per DGP I believe is mitigated by the large number of simulated subjects employed.
+The limitation of the approach I employ of only generating one choice data set per DGP is mitigated by the large number of simulated subjects.
 Consider an EUT subject with a CRRA parameter of 0.5 and a $\lambda$ value of 0.1.
 There is only one choice dataset for this particular subject, but there are approximately 430 subjects, and thus 430 more choice datasets, in the range CRRA $\in (0.475,0.525)$, and $\lambda \in (0.09, 0.11)$.
 If we can consider the choice probabilities for subjects in this range of parameters to be similar, we can have relatively accurate power estimations for subjects in this range.
@@ -347,7 +347,7 @@ If we can consider the choice probabilities for subjects in this range of parame
 \subsection{\texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Classification Power}
 
 With this assumption of similarity, we fit generalized additive models (GAM) \parencite{Hastie1986} to the classification data to make predictions of classification likelihoods.
-First we subset the data based on the models the simulated subjects actually operate, either EUT or $\mathit{RDU_{Prelec}}$.
+First we separate the data into subsets based on the models the simulated subjects actually operate, either EUT or $\mathit{RDU_{Prelec}}$.
 For each pooled group we fit a GAM model predicting whether EUT or $\mathit{RDU_{Prelec}}$ was the winning model, or if no model was declared a winner (all considered models failed the exclusionary rules).
 \begin{align}
 	\label{eq4:GAM}
@@ -361,9 +361,9 @@ For each pooled group we fit a GAM model predicting whether EUT or $\mathit{RDU_
 \noindent where $N$ is one of EUT, $\mathit{RDU_{Prelec}}$, or \enquote{NA} and $s(\cdot)$ indicates some smooth, potentially non-linear function of its arguments.
 
 The dependent variable in each of the GAM models in equation (\ref{eq4:GAM}) is either 1 if the subject was classified as model $N$, or 0 if the subject was not.
-The independent variables in each model are smooth functions of the actual parameter values the subjects operates.
+The independent variables in each model are smooth functions of the actual parameter values the subject operates.
 For every model, each parameter gets its own smooth function.
-Thus, 3 fitted GAM models for each of the two model types in the population, resulting in 6 fitted models in total.
+Thus, 3 GAM models are fitted for each of the two model types in the population, resulting in 6 fitted models in total.
 I then repeat this process but drop subjects that were classified as \enquote{NA} from the data before fitting the models.
 This results in 4 additional models.
 Given the fitted models and a parameter set for a model type, we can use a fitted GAM model to predict the probability that a subject with the given parameter set will be classified as any of the $N$ models.
@@ -409,7 +409,7 @@ The results of this fitting process are presented in Figures \ref{fig:HN1_win_mu
 \end{figure}
 
 In Figures \ref{fig:HN1_win_mu}, \ref{fig:HN1_win_eut}, and \ref{fig:HN1_win_pre} the X-axis is the simulated subjects' values of the parameter for that plot, and the Y-axis is the probability that a given model was declared the winner.
-In each Figure the solid red line indicates the estimates for the EUT model, the dotted green line indicates the estimates for the $\mathit{RDU_{Prelec}}$ model, and the short dashed blue line indicates the estimates for non-convergence or excluded.
+In each Figure the solid red line indicates the estimates for the EUT model, the dotted green line indicates the estimates for the $\mathit{RDU_{Prelec}}$ model, and the short dashed blue line indicates the estimates for non-convergence or exclusion.
 In all figures, the 95\% confidence interval is given by the long dashed lines surrounding the lines given above.
 In each Figure, the second row contains estimates derived from all the subjects, while the first row only contains estimates derived from subjects that were classified as either EUT or $\mathit{RDU_{Prelec}}$.
 
@@ -425,30 +425,31 @@ In Figure \ref{fig:HN1_win_pre} and in the right column of Figure \ref{fig:HN1_w
 
 The results presented in Figures \ref{fig:HN1_win_mu}, \ref{fig:HN1_win_eut} and \ref{fig:HN1_win_pre} offer both surprising and intuitive results.
 In Figure \ref{fig:HN1_win_mu} we see that the likelihood EUT subjects being misclassified as $\mathit{RDU_{Prelec}}$, $\mathit{RDU_{Prelec}}$ subjects being misclassified as EUT, and either type of subject failing to produce any estimates that pass the exclusionary criteria, increases with $\lambda$.
-This is very intuitive. 
+This is intuitively reasonable.
 As the $\lambda$ parameter increases, the likelihood that a subject makes a choice error increases.
 For EUT subjects, these choices errors can present as probability weighting when there is none, and for $\mathit{RDU_{Prelec}}$ subjects these choice errors can present as linear probability weighting.
-Another way to characterize this effect is to say that as $\lambda$ increases the noise in the data increases, indeed as $\lambda \to \infty$ choice probabilities for every option are equal, resulting in totally random data.
+Another way to characterize this effect is to say that as $\lambda$ increases the noise in the data increases.
+Indeed, as $\lambda \to \infty$ choice probabilities for every option are equal, resulting in totally random data.
 The more noise there is in the data, the lower the likelihood of the optimizer converging on reasonable, or any, estimates, and the greater the likelihood that any latent process will be identified as another.
 
-In in the third and fourth columns of Figure \ref{fig:HN1_win_pre} we have additionally intuitive results.
+In in the third and fourth columns of Figure \ref{fig:HN1_win_pre} we have additional intuitive results.
 We can see in these columns that the probability of an $\mathit{RDU_{Prelec}}$ subject being classified as EUT peaks when the probability weighting parameters approach the value of 1, and diminishes as the parameter values move away from 1.
 Since the $\mathit{RDU_{Prelec}}$ model nests EUT when $\alpha = \beta = 1$, we should expect the likelihood of misclassification to increase around these values.
 It appears the $\alpha$ parameter plays a more decisive role in the classification probability for the range of parameter values we consider; the probability of a $\mathit{RDU_{Prelec}}$ subject being classified as $\mathit{RDU_{Prelec}}$ drops at a greater rate as the $\alpha$ parameter approaches 1 than as the $\beta$ parameter approaches 1 from either the left or the right.
 
-Also somewhat intuitive, in Figure \ref{fig:HN1_win_eut} we see that the probability of an EUT subject being classified as EUT is greater for values of CRRA $> 0$ than for values of CRRA $< 0$, though only modestly so.
+In Figure \ref{fig:HN1_win_eut} we see that the probability of an EUT subject being classified as EUT is greater for values of CRRA $> 0$ than for values of CRRA $< 0$, though only modestly so.
 Values of CRRA $> 0$ indicate risk aversion in an EUT model, and the design of the HN lottery instrument placed more emphasis on identifying degrees of risk aversion than identifying degrees of risk seeking (CRRA values $ < 0$) in EUT subjects.
-Similarly, in Figure \ref{fig:HN1_win_pre} we see that the CRRA parameter has very little effect on the probability of a $\mathit{RDU_{Prelec}}$ subject being classified as $\mathit{RDU_{Prelec}}$.
+Similarly, in Figure \ref{fig:HN1_win_pre} we see that the CRRA parameter has very little effect on the probability of a $\mathit{RDU_{Prelec}}$ subject being correctly classified as $\mathit{RDU_{Prelec}}$.
 Since it is the probability weighing function that defines a $\mathit{RDU_{Prelec}}$ as being different from EUT, it should not be surprising that the utility parameter has little effect on on the probability of $\mathit{RDU_{Prelec}}$ subjects being correctly classified.
 
-However, the relatively low probability with which $\mathit{RDU_{Prelec}}$ subjects are classified as $\mathit{RDU_{Prelec}}$ over a wide range of parameters is surprising.
-Looking at Figure \ref{fig:HN1_win_pre} we see that for most of the parameter values considered, the probability of an $\mathit{RDU_{Prelec}}$ subject being classified as $\mathit{RDU_{Prelec}}$ is below 50\% and that for most of these values, it is more likely that an $\mathit{RDU_{Prelec}}$ subject is classified as EUT than as $\mathit{RDU_{Prelec}}$.
+However, the relatively low probability with which $\mathit{RDU_{Prelec}}$ subjects are correctly classified as $\mathit{RDU_{Prelec}}$ over a wide range of parameters is surprising.
+Looking at Figure \ref{fig:HN1_win_pre} we see that for most of the parameter values considered, the probability of an $\mathit{RDU_{Prelec}}$ subject being correctly classified as $\mathit{RDU_{Prelec}}$ is below 50\% and that for most of these values, it is more likely that an $\mathit{RDU_{Prelec}}$ subject is classified as EUT than as $\mathit{RDU_{Prelec}}$.
 
 \subsection{\texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Insurance Task Welfare Expectations}
 \label{sec4:WT}
 
-The probabilities provided in Figures \ref{fig:HN1_win_mu}, \ref{fig:HN1_win_eut} and \ref{fig:HN1_win_pre} are useful in terms of describing the degree of success the classification process has in correctly identifying the model operated by a subject.
-The classification process itself however is only useful to economists in as much as it provides us with a model that allows us to make normative characterizations of subjects' choices.
+The probabilities provided in Figures \ref{fig:HN1_win_mu}, \ref{fig:HN1_win_eut} and \ref{fig:HN1_win_pre} are useful for describing the degree of success of the classification process has in correctly identifying the model operated by a subject.
+The classification process itself, however, is only useful to economists insofar as it provides us with a model that allows us to make normative characterizations of subjects' choices.
 Given our simulation process, we can measure the success of the classification process in normative terms by calculating the difference in the estimated welfare surplus of the choices made in the HN insurance task against actual welfare surplus for each subject.
 
 Utilizing the definition of accumulated welfare surplus given by equation (\ref{eq4:wsurplusT}), we follow \textcite[110-111]{Harrison2016} and bootstrap the estimated welfare surplus of the subjects.
@@ -466,10 +467,10 @@ Therefore the difference between the estimated and real welfare is given by:
 
 \begin{equation}
 	\label{eq4:wsurplusDiff}
-	\text{WSD}_N = \Delta W_{nT}(\hat{\Omega}_N) - \Delta W_{nT}(\Omega)
+	\text{WSD}_N = \Delta W_{iT}(\hat{\Omega}_N) - \Delta W_{iT}(\Omega)
 \end{equation}
 
-\noindent where $N$ is the model the subject has been classified as employing, $\Omega$ is the set of parameters that define the utility function actually employed by subject $n$, and $\hat{\Omega}_N$ is the set of estimated parameters for model $N$ for subject $n$.
+\noindent where $N$ is the model the subject has been classified as employing, $\Omega$ is the set of parameters that define the utility function actually employed by subject $i$, and $\hat{\Omega}_N$ is the set of estimated parameters for model $N$ for subject $i$.
 If the subject has been misclassified, $\Omega$ and $\hat{\Omega}_N$ will not represent the same set of parameters.
 Just as we predicted probabilities of classification in equation (\ref{eq4:GAM}), we can predict the difference in estimated welfare surplus and real welfare surplus given by equation (\ref{eq4:wsurplusDiff}).
 \begin{align}
@@ -483,7 +484,7 @@ Just as we predicted probabilities of classification in equation (\ref{eq4:GAM})
 \noindent where $N$ indicates the model that the subject was classified as, $M$ indicates the model the subject actually operates, and $s(\cdot)$ indicates some smooth, potentially non-linear function of its arguments.
 Values of 0 for equation (\ref{eq4:GAM_welfare}) thus indicate that the subject's estimate welfare surplus equals the subject's real welfare surplus.
 Thus 4 fitted models, one for each combination of 2 $M$ models and 2 $N$ models.
-Additionally, given our estimates of the probability of EUT and $\mathit{RDU_{Prelec}}$ subjects being classified as employing EUT or $\mathit{RDU_{Prelec}}$, we can calculate point estimates the expected welfare surplus difference (WSD) by multiplying the probabilities presented in the top row of Figures \ref{fig:HN1_win_eut} and \ref{fig:HN1_win_pre} with the estimated welfare surplus difference given by equation (\ref{eq4:GAM_welfare}).
+Additionally, given our estimates of the probability of EUT and $\mathit{RDU_{Prelec}}$ subjects being classified as employing EUT or $\mathit{RDU_{Prelec}}$ respectively, we can calculate point estimates for the expected welfare surplus difference (WSD) by multiplying the probabilities presented in the top row of Figures \ref{fig:HN1_win_eut} and \ref{fig:HN1_win_pre} with the estimated welfare surplus difference given by equation (\ref{eq4:GAM_welfare}).
 We present the WSD estimates for subjects that were classified as either EUT or $\mathit{RDU_{Prelec}}$, as well as the expected welfare surplus estimates, in Figures \ref{fig:HN1_wel_mu}, \ref{fig:HN1_wel_eut}, and \ref{fig:HN1_wel_pre}.
 Since the subjects which didn't converge on either EUT or $\mathit{RDU_{Prelec}}$ (labeled \enquote{NA} previously) didn't produce estimates with which we can make welfare calculations, they are not plotted.
 
@@ -529,10 +530,10 @@ Since the subjects which didn't converge on either EUT or $\mathit{RDU_{Prelec}}
 As before, the solid red line represents subjects that were classified as EUT and the dotted green line represents subjects that were classified as $\mathit{RDU_{Prelec}}$.
 In these figures, however, the dashed blue line represents the expected WSD.
 
-The discussion about how the classification process relates to the welfare surplus of the subject being classified is in many ways more important than the previous discussion of the accuracy of the process itself.
-This is because economists distinguish themselves from decision theorists by making normative statements about how an individuals economic choices relate to their economic well-being.
+Assessment of how the classification process relates to the welfare surplus of the subject being classified is in many ways more important than the accuracy of the process itself.
+This is because economists distinguish themselves from decision theorists by making normative statements about how an individual's choices relate to their economic well-being.
 The accuracy of the classification process is valuable only in as much as it can aid in the accuracy of the normative statements we can construct using this process.
-\textcite[25]{Leamer2012} makes a similar statement when discussing the general fallibility of macroeconomic models: \enquote{Fortunately, our goal as economists is not soundness, but usefulness.}
+\textcite[25]{Leamer2012} makes a similar statement when discussing the general fallibility of macroeconomic models: \enquote{\textins{O}ur goal as economists is not soundness, but usefulness.}
 
 From Figures \ref{fig:HN1_wel_mu}, \ref{fig:HN1_wel_eut} and \ref{fig:HN1_wel_pre}, we can see that there are parameter values for every model where the WSD is not noticeably different between correctly and incorrectly classified subjects, and in some cases the WSD for misclassified subjects is closer to 0 than for correctly classified subjects.
 In Figure \ref{fig:HN1_wel_pre} we can see that of the $\mathit{RDU_{Prelec}}$ subjects that have $\alpha$ values close to 1, the subjects that have been classified as EUT instead of $\mathit{RDU_{Prelec}}$ have WSD that are somewhat closer to 0 than the subjects that had been classified as $\mathit{RDU_{Prelec}}$.
@@ -554,22 +555,22 @@ The $\mathit{RDU_{Prelec}}$ model is flexible, which allows it to fit data well,
 The analyses thus far constitute \textit{ex post} power analyses of the experimental instrument and classification process employed by HN, and an analysis of the expected welfare characterizations thereof, though it is limited to only 2 of the 4 models employed by HN.
 The power analysis aspect of this process constitutes a statistical inquiry into an experimental protocol and is similar to other \textit{ex ante} and \textit{ex post} power analyses.
 The welfare characterization aspect of this analysis constitutes the economic inquiry into this experimental protocol.
-Both inquires are important, but making accurate predictions or characterizations about the welfare consequences of choices by economic agents should be of greater value to economists than the descriptive accuracy of the model used to derived these calculations.{\footnotemark}
+Both inquires are important, but making accurate predictions or characterizations about the welfare consequences of choices by economic agents should be of greater importance to economists than the descriptive accuracy of the model used to derive these calculations.{\footnotemark}
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
-	Indeed, I make this argument against the Random Preferences stochastic model in Chapter 2.
+	I make this argument against the Random Preferences stochastic model in Chapter 2.
 }
 
-The two inquiries are related (as noted by \textcite[105]{Harrison2016}), a model is needed in order to make calculations of consumer surplus and thus we need a reasonable method for selecting a model to make these calculations.
+The two inquiries are related (as noted by \textcite[105]{Harrison2016}).
+A model is needed in order to make calculations of consumer surplus and thus we need a reasonable method for selecting a model on which to base these calculations.
 However, if our objective is to generate accurate welfare characterizations, and not necessarily accurate model classifications, then we should explore how different experimental designs, model specifications, and model selection processes influence the accuracy of welfare characterizations.
 For instance, the selection of the number and type of lottery pairs should be influenced by how they result in more accurate welfare predictions in the choice domain that is welfare relevant to the experimenter; the insurance task in the case of HN.
-Indeed, the argument of \textcite{Harrison2016} in favor of developing a structural model of risk preferences and estimating the parameters of these models to make welfare characterizations is that this process provides a better assessment of the welfare consequences of purchasing insurance than the \enquote{take-up} metric.{\footnotemark}
 
-\addtocounter{footnote}{-1}
-\stepcounter{footnote}\footnotetext{
-	The \enquote{take-up} metric \textit{does} make a normative statement about insurance purchase decisions, \enquote{take-up is good, failure to take-up is bad}.
-}
+%\addtocounter{footnote}{-1}
+%\stepcounter{footnote}\footnotetext{
+%	The \enquote{take-up} metric \textit{does} make a normative statement about insurance purchase decisions, \enquote{take-up is good, failure to take-up is bad}.
+%}
 
 These kind of enquires into how differing experimental methods affect the accuracy of welfare characterizations are themselves experiments of a kind.
 In this section we propose two modifications to the experimental protocol employed by HN and investigate how they differ in terms of expected welfare surplus predictions.
@@ -618,11 +619,11 @@ The plots of the expected WSD for the original HN method, and the two new approa
 Looking first at the classification power of the $\text{HN}_{1040}$ instrument in Figures \ref{fig:HN_win_eut} and \ref{fig:HN_win_pre}, we see that the new instrument has significantly improved power overall, and that the variation of power over the range of parameter values follows much the same pattern as the original HN instrument.
 In Figure \ref{fig:HN_win_eut} we see that classification power is largely uniform across the entire range of parameters considered, with some small increase in the probability of EUT subjects classified as $\mathit{RDU_{Prelec}}$ as $\lambda$ values increase, and small increase in the probability of EUT subjects being classified as EUT as the CRRA value increases.
 The probability of correctly classifying EUT subjects as EUT is greater under the $\text{HN}_{1040}$ instrument than the HN instrument across the entire range of parameters considered.
-The rate of non-convergence in the $\text{HN}_{1040}$ instrument however is also noticeably different in the $\text{HN}_{1040}$ instrument; it is not perceptibly different from 0 across the entire range of parameters considered.
+The rate of non-convergence in the $\text{HN}_{1040}$ instrument, however, is also noticeably different in the $\text{HN}_{1040}$ instrument; it is not perceptibly different from 0 across the entire range of parameters considered.
 
 In Figure \ref{fig:HN_win_pre} we see that classification power of the $\text{HN}_{1040}$ instrument follows the patterns of the HN instrument, but more rapid changes in the slopes of the lines for each parameter except the CRRA parameter.
 The probability of an $\mathit{RDU_{Prelec}}$ subject being misclassified as EUT increases rapidly as the $\lambda$ parameter increases, and as either of the probability weighting parameters approach 1 from either side.
-The probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects as $\mathit{RDU_{Prelec}}$ however is again universally higher under the $\text{HN}_{1040}$ instrument, and the probability of non-convergence is nearly 0 for almost the entire range of parameters considered.
+The probability of correctly classifying $\mathit{RDU_{Prelec}}$ subjects however is again universally higher under the $\text{HN}_{1040}$ instrument, and the probability of non-convergence is nearly 0 for almost the entire range of parameters considered.
 The probability of misclassification increases somewhat as $\lambda$ increases, as $\alpha$ and the CRRA parameters decrease, and increases rapidly as the $\beta$ parameter goes below 0.5.
 
 That we should generally see the same patterns as before, but with significantly greater probabilities of correctly classifying subjects across the whole ranges of parameter values considered should not be a surprise.
@@ -656,20 +657,20 @@ With a different composition of the type of lottery pairs we would expect to see
 	\label{fig:HN_wel_pre}
 \end{figure}
 
-The value of this increase classification power, as was stated before, lies in its ability to make better welfare characterizations.
+The value of this increased classification power, as stated before, lies in the superior leverage we gain for making better welfare characterizations.
 We can see the estimates of welfare surplus given the classification based on the $\text{HN}_{1040}$ instrument in Figures \ref{fig:HN_wel_eut} and \ref{fig:HN_wel_pre}.
 In Figure \ref{fig:HN_wel_eut} we see that for EUT subjects classified correctly as EUT, given by the solid red line, the expected WSD is imperceptibly different from 0 across much of the range of parameters considered.
 In addition, even though EUT subjects classified as $\mathit{RDU_{Prelec}}$ have generally worse WSD estimates, given the high likelihood of EUT subjects being correctly classified as EUT the expected WSD is also very close to 0 for much of the parameter ranges considered.
-This indicates that not only is the classification process much more accurate, but the parameter estimates for the models are likely to more accurate as well.
-We see that as the CRRA value goes below $-0.5$ and the $\lambda$ value increase, WSD becomes more negative for subjects classified as either model.
-In Figure \ref{fig:HN_wel_pre} we see that for $\mathit{RDU_{Prelec}}$ subjects classified correctly as $\mathit{RDU_{Prelec}}$ the expected WSD is also very close to 0 across much of the range of parameters considered.
+This indicates that not only is the classification process much more accurate, but the parameter estimates for the models are likely to be more accurate as well.
+We see that as the CRRA value goes below $-0.5$ and the $\lambda$ value increases, WSD becomes more negative for subjects classified as either model.
+In Figure \ref{fig:HN_wel_pre} we see that for $\mathit{RDU_{Prelec}}$ subjects classified correctly the expected WSD is also very close to 0 across much of the range of parameters considered.
 As probability weighting parameters get close to 0 we see the WSD deviate more from 0 than for the rest of the range. 
 
 In Figures \ref{fig:HN1_def_wel_eut} and \ref{fig:HN1_def_wel_pre} we can see the WSD estimates for the Default approach, where subjects are classified as employing a $\mathit{RDU_{Prelec}}$ model if it hasn't been excluded, and EUT otherwise.
 In \ref{fig:HN1_def_wel_eut} we see clearly that the WSD for EUT subjects classified as either model approaches 0 as the CRRA parameter increases, and the WSD generally becomes more negative as $\lambda$ increases.
 For both the CRRA and $\lambda$ parameters, there is little difference in the welfare estimates of subjects classified as either EUT or $\mathit{RDU_{Prelec}}$.
 In \ref{fig:HN1_def_wel_pre} on the other hand, we see there is generally a large gap between $\mathit{RDU_{Prelec}}$ subjects classified as either model with subjects classified as $\mathit{RDU_{Prelec}}$ being significantly better characterized than those classified as EUT.
-But since the probability of an $\mathit{RDU_{Prelec}}$ subject being classified as employing an $\mathit{RDU_{Prelec}}$ model is so great under this approach, the expected WSD does not deviate very much from the WSD of given by the $\mathit{RDU_{Prelec}}$ model.
+But since the probability of an $\mathit{RDU_{Prelec}}$ subject being correctly classified is so great under this approach, the expected WSD does not deviate very much from the WSD of given by the $\mathit{RDU_{Prelec}}$ model.
 
 \begin{figure}[h!]
 	\center
@@ -697,9 +698,9 @@ But since the probability of an $\mathit{RDU_{Prelec}}$ subject being classified
 	\label{fig:HN1_def_wel_pre}
 \end{figure}
 
-Neither of these cases should be all that surprising.
+Neither of these cases should be surprising.
 The $\mathit{RDU_{Prelec}}$ model nests the EUT model, thus EUT subjects can be accurately represented by an $\mathit{RDU_{Prelec}}$ model by setting $\alpha = \beta = 1$.
-However, the EUT model does not allow for probability weighting, and thus $\mathit{RDU_{Prelec}}$ subjects that employ a large amount of probability weighting are classified as EUT will have their welfare surplus greatly miss characterized.
+However, the EUT model does not allow for probability weighting, and thus $\mathit{RDU_{Prelec}}$ subjects that employ a large amount of probability weighting and are classified as EUT will have their welfare surplus significantly mischaracterized.
 
 In Figures \ref{fig:exwel-eut} and \ref{fig:exwel-pre} we can see the expected WSD of all three methods.
 The original HN instrument is given by the solid red line, the $\text{HN}_{1040}$ approach is given by the dashed blue line, and the Default approach is given by the dotted green line.
@@ -744,7 +745,8 @@ These differences are also much greater than the differences for the EUT subject
 These differences should matter to researchers.
 How much they should matter depends on the population of subjects the experimenter expects to encounter and how much inaccuracy is tolerable in the characterization of welfare.
 If we consider a world that is made up only of agents employing some parameterization of either the EUT or $\mathit{RDU_{Prelec}}$ models we consider here, the proportion of the population belonging to either model should influence how much we care about these differences.
-If most of the EUT agents in the population operate a CRRA parameter greater than 0.4, we might not care which approach is used to classify EUT subjects, if a significant proportion of them are risk seeking (CRRA $< 0$), we may care.
+If most of the EUT agents in the population operate a CRRA parameter greater than 0.4, we might not care which approach is used to classify EUT subjects.
+But if a significant proportion of them are risk seeking (CRRA $< 0$), we may care.
 Likewise, if the $\mathit{RDU_{Prelec}}$ agents in the population don't engage in significant amounts of probability weighting, choosing between the various approaches presented may not matter a great deal in terms of welfare characterizations.
 
 Looking at the estimation results presented in Appendix C of \textcite{Harrison2016}, we see that the median CRRA parameter for the fitted EUT models across is 0.41, and almost 70\% of fitted $\mathit{RDU_{Prelec}}$ models have a probability weighting parameter greater than 1.5 or less than 0.5, indicating significant probability weighting.
@@ -1054,7 +1056,7 @@ In the first two columns of each table, we see the average probability of an age
 In the third and fourth columns of each table, we see the average WSD should the agent be classified as the model given in the column name.
 In the fifth column of each table, we see the average expected WSD for the row population.
 
-In tables \ref{tb:HN1_win05_pop}, \ref{tb:HN1_default_pop}, and \ref{tb:HN_win05_pop} we see a snapshot of the patterns seen in the Figures presented throughout this chapter.
+In tables \ref{tb:HN1_win05_pop}, \ref{tb:HN1_default_pop}, and \ref{tb:HN_win05_pop} we see a snapshot of the patterns depicted in the Figures presented throughout this chapter.
 As was seen in the previous Figures, correctly classified EUT subjects are better characterized under the HN approach than under the Default Approach, correctly classified $\mathit{RDU_{Prelec}}$ subjects are better characterized under the Default approach than under the HN approach, and all subjects are better characterized under the $\text{HN}_{1040}$ approach.
 What these tables show more cleanly however is the cost in terms of welfare surplus of choosing between these three approaches given populations of agents we might readily encounter in experiments with real subjects.
 
@@ -1076,9 +1078,9 @@ In both the HN and Default approaches, the experimental protocol and instruments
 The $\text{HN}_{1040}$ approach however changes the size of the experimental instrument dramatically and would therefore require changes in the experimental protocol.
 Unlike our simulated subjects, real subjects may experience boredom or fatigue should the experiment be conducted in one sitting, and they may experience changes in the background wealth, risks, or beliefs should the experiment be conducted over several days.
 Any of these factors may plausibly result in a subject employing one functional at the beginning of the experiment and another functional by the end.
-Indeed, \textcite{Hey2001} test the hypothesis that subjects change their employing functional when lottery tasks are repeated several times by presenting the subjects with a 100 lottery pair battery over several days.
+Indeed, \textcite{Hey2001} test the hypothesis that subjects change their operated functionals when lottery tasks are repeated several times by presenting the subjects with a 100 lottery pair battery over several days.
 They conclude that there is some evidence that some subjects make more precise choices (operate a lower $\lambda$ value) with repetition.
-Experimenters need to weigh these experimental methodology concerns of presenting subjects with large lottery batteries against their ability to provide more accurate estimates of welfare, and better classification accuracy.
+Experimenters need to weigh these methodological concerns against their ability to provide more accurate estimates of welfare, and better classification accuracy.
 
 \section{Conclusions}
 
@@ -1089,7 +1091,7 @@ A key issue with this process, however, is that as the number of considered mode
 \textcite[1314-1315]{Hey1994} were aware of this problem, stating that Monte Carlo simulations could shed light on the extent of this problem, but also that \enquote{it is not clear how one should judge} this issue.
 
 Monte Carlo work to shed light on the probability of type I and type II errors in classification processes has been very rare.
-A notable example would be that of \textcite{Wilcox2015}, wherein several data generating processes are simulated in order to help clarify the strengths and limitations of the classification methodology employed.
+A notable example is \textcite{Wilcox2015}, where several data generating processes are simulated in order to help clarify the strengths and limitations of the classification methodology employed.
 \textcite{Harrison2016}, among others, argue that the correct way to judge the classification of subjects is on the basis of the welfare consequences of the classification.
 They argue that classifying subjects making choices over insurance products on the basis of a binary \enquote{take-up} metric is an all too common approach that fails to incorporate the risk and time preferences of the agents making the decisions.
 This leads to characterizations of welfare that are devoid of information concerning the subjective evaluations of what is actually good for the agent.
@@ -1097,8 +1099,8 @@ The issue with the \enquote{take-up} metric is not just that it methodologically
 
 The broad arguments of \textcite{Harrison2016} against the \enquote{take-up} measure should extend to classification processes generally.
 That is, the response to the concerns of \textcite{Hey1994} about how one should judge the possibility of type I and type II errors in the classification process is how accurately does the \enquote{winning} model characterize the welfare of the subject in a domain that is welfare relevant.
-The experimental protocol of \textcite{Harrison2016} provides a useful avenue for an investigation into this very question.
-The lottery task provides an instrument use to measure the risk preferences of individual subjects and classify them as employing a particular model, and the insurance task provides the welfare relevant domain.
+The experimental protocol of \textcite{Harrison2016} provides a useful avenue for an investigation into this question.
+The lottery task provides an instrument measuring the risk preferences of individual subjects and classify them as employing a particular model, and the insurance task provides the welfare relevant domain.
 
 I conduct a simulation analysis to investigate this question by replicating the experimental protocol and classification process employed by \textcite{Harrison2016}.
 I find that the probability of type I and type II errors varies with the model actually employed by the subject, and with the values of the parameters associated with the model, at least for the two models I consider.
@@ -1109,19 +1111,27 @@ Given these results, I propose two alternative approaches.
 The first is to collect a much larger sample of choice data from each subject in order to decrease the probability of type I and type II errors, and employ the same classification process with this much larger dataset.
 I show that this approach leads to significantly lower type I and type II errors when classifying subjects, and that the resulting welfare surplus estimates are highly accurate.
 The second is to abandon the effort to first statistically distinguish between EUT and $\mathit{RDU_{Prelec}}$ subjects and instead utilize the $\mathit{RDU_{Prelec}}$ model when it was available, and the EUT model otherwise.
-This second approach was motivated by the low cost to EUT subjects of misclassification, the high cost to $\mathit{RDU_{Prelec}}$ subjects of misclassification and its relatively high probability for these subjects.
+This second approach was motivated by the low cost to EUT subjects of misclassification, the high cost to $\mathit{RDU_{Prelec}}$ subjects of misclassification and the relatively high frequency of these subjects being misclassified.
 I demonstrate for a hypothetical population of EUT and $\mathit{RDU_{Prelec}}$ subjects employing parameters that experimenters might reasonably expect subjects to employ, that in order for the average accuracy of the welfare surplus estimates to be \textit{lower} under this second approach, the population would have to consist of greater than 89.6\% EUT subjects.
-Both of these approaches put at the forefront the accuracy of the welfare surplus estimates, not the accuracy of the classification process in itself.
-Choosing between any approach should involve weighing one's priors about the population under investigation, the accuracy of the various potential approaches in producing welfare estimates in a domain that is relevant, and how much tolerance should be given for inaccuracy.
+While the Default approach puts the accuracy of the welfare surplus estimates at the forefront, the $\text{HN}_{1040}$ approach still relies on the accuracy of the classification process in itself. 
+In proposing the Default approach, the high cost of a type II error was weighed against both the cost of a type I error, and the additional scientific gain of demonstrating the existence of subjects that engage in probability weighting.
+
+That there is an asymmetry between subjects employing either the EUT or $\mathit{RDU_{Prelec}}$ model in both the probability of misclassification and the welfare consequences of misclassification is important when choosing an experimental design and econometric procedure.
+Since adherence to EUT is posited as the null hypothesis of the classification process, we should expect there to be fewer misclassified EUT subjects than $\mathit{RDU_{Prelec}}$ subjects.
+We can imagine that if we posited a degree of probability weighing as the null hypothesis, we would expect there to be fewer misclassified $\mathit{RDU_{Prelec}}$ subjects and more misclassified EUT subjects.
+However, the more meaningful difference in welfare surplus estimates between the two models is due to the $\mathit{RDU_{Prelec}}$ model nesting EUT.
+As was stated before, EUT subjects can be represented by the $\mathit{RDU_{Prelec}}$ by setting $\alpha = \beta = 1$, whereas $\mathit{RDU_{Prelec}}$ subjects can only be accurately described by EUT if they employ the special case of RDU Prelec that is equivalent to EUT.
+
+In choosing EUT as the null hypothesis in the classification process, we implicitly adopt a Popperian stance that deviation from EUT, as the orthodox theory of utility for choice under risk, is a bold prediction requiring a severe test. 
+However, should we accept the accumulated evidence that some subjects do in fact deviate from EUT, the costliness of type II errors should be weighed against the benefit of accumulating additional evidence about the existence of these phenomena.
+The HN and $\text{HN}_{1040}$ approaches seek to sure up the evidence of probability weighting, whereas the Default takes the existing evidence as sufficiently convincing and seeks only to make accurate welfare predictions. 
+Choosing between approaches should involve weighing one’s priors about the population under investigation, the accuracy of the various potential approaches in producing welfare estimates in a domain that is relevant, and how much tolerance should be given for inaccuracy. 
 
 I conclude by agreeing with \textcite[14]{Gelman2013}: \enquote{Criticism is easy, doing research is hard.}
 The simulation analysis performed in this chapter provides valuable insight into the power of a given instrument, but does not make recommendations on how to design an instrument to achieve a particular level of statistical power beyond the unsurprising result that power increases with sample size.
 It is incredibly difficult to develop an experimental design that allows for the identification of a model that subjects actually employ, or even to identify if the subject engages in probability weighting at all.
-The lottery instrument utilized by \textcite[98-99]{Harrison2016} is was designed to incorporate the experimental findings of \textcite{Camerer1989}, \textcite{Harless1992} and \textcite{Loomes1998}, among others, that offer design elements specifically introduced to help identify probability weighting.
-That the probability of correctly of correctly identifying probability weighting using this instrument is relatively low speaks to the difficulty of conducting research in this domain.
-Going forward it may 
-
-
+The lottery instrument utilized by \textcite[98-99]{Harrison2016} is designed to incorporate the experimental findings of \textcite{Camerer1989}, \textcite{Harless1992} and \textcite{Loomes1998}, among others, that offer design elements specifically introduced to help identify probability weighting.
+That the probability of correctly identifying probability weighting using this instrument is relatively low speaks to the difficulty of conducting research in this domain.
 
 \break
 \section{Appendix - Numerical Optimizations}
