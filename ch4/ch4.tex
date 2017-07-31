@@ -5,7 +5,9 @@
 \doublespacing
 \setcounter{chapter}{3}
 
+\singlespacing
 \chapter{Welfare Inferences From Experimental Instruments}
+\doublespacing
 
 \lltoc % Table of contents only when locally compiled
 
@@ -43,7 +45,9 @@ To begin this analysis, I describe and replicate the classification and welfare 
 Next I conduct a simulation analysis of the lottery instrument used in HN to determine the frequency of misclassification for two of the four models utilized by HN, and the welfare consequences of this misclassification.
 I next propose two ways to potentially alleviate the welfare concerns of misidentification.
 
+\singlespacing
 \section{Estimating a Benchmark using \texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2015)}}
+\doublespacing
 \label{sec4:Bench}
 
 HN report the results of an experiment intended to evaluate the welfare consequences of individuals' decisions to purchase insurance.
@@ -83,21 +87,18 @@ In the special case of EUT, the probability weighting function is just the ident
 	\label{eq4:pw:eut}
 	\omega(p_c) = p_c
 \end{equation}
-
 \noindent HN estimate 3 probability weighting functions for the RDU models.
 The first pwf is the power function ($\mathit{RDU_{Pow}}$) used by \textcite{Quiggin1982}:
 \begin{equation}
 	\label{eq4:pw:pow}
 	\omega(p_c)=p_c^\gamma
 \end{equation}
-
 \noindent where $\gamma > 0$. 
 The second pwf is the \enquote{Inverse-S} shaped function ($\mathit{RDU_{Invs}}$) popularized by \textcite{Tversky1992}:
 \begin{equation}
 	\label{eq4:pw:inv}
 	\omega(p_c) = \frac{p_c^\gamma}{\biggl(p_c^\gamma + {(1-p_c)}^\gamma\biggr)^{ \frac{1}{\gamma} } }
 \end{equation}
-
 \noindent where $\gamma > 0$. 
 The third pwf is the flexible function proposed by \textcite{Prelec1998} ($\mathit{RDU_{Prelec}}$):
 \begin{equation}
@@ -128,7 +129,6 @@ Thus for the models utilized, the probability that option $a$ is chosen is given
 		&= 1 - F\left( \dfrac{G(\beta_i,X_{bt}) - G(\beta_i,X_{at})}{D(\beta_i,X_t)\lambda_i }  \right)
 	\end{split}
 \end{align}
-
 \noindent where $\epsilon_t$ is a mean 0 error term, $F$ is a symmetric cumulative distribution function (cdf), meaning $1 - F(x)  = F(-x)$, $G(\cdot)$ is the RDU utility model that takes the parameters $\beta_i$ to calculate the utility of lottery $a$ or $b$ in task $t$ comprised of outcomes and probabilities $X_{at}$, and $\lambda_i$ is a precision parameter.
 The function $D(\cdot)$ separates contextual utility from a Strong Utility model:
 \begin{align}
@@ -146,7 +146,6 @@ Given that each choice considered here only involves two lottery options, we can
 	\label{eq4:RE.f}
 	{\Prob}(y_t=j) =\dfrac{\exp\!\left( \dfrac{ G(\beta_i,X_{at}) }{ D(\beta_i,X_{t})\lambda_i }  \right)}{  \exp\!\left( \dfrac{ G(\beta_i,X_{at}) }{ D(\beta_i,X_{t})\lambda_i }  \right) + \exp\!\left( \dfrac{ G(\beta_i,X_{bt}) }{ D(\beta_i,X_{t})\lambda_i }  \right)    }
 \end{equation}
-
 \noindent These choice probabilities in turn are logged and summed to produce a log-likelihood function for each of the four different models:
 \begin{equation}
 	\label{eq4:ll}
@@ -156,7 +155,6 @@ Given that each choice considered here only involves two lottery options, we can
 As a metric of welfare, HN primarily use the consumer surplus (CS) of each choice.
 The CS of each choice is defined as the difference between the certainty equivalent ({\CE}) of the chosen option and the certainty equivalent of the unchosen option.
 Since the CRRA utility function defined in equation (\ref{eq4:CRRA}) is used for all models discussed, we can define the {\CE} as:
-
 \begin{align}
 	\label{eq4:CEcalc}
 	\begin{split}
@@ -164,36 +162,27 @@ Since the CRRA utility function defined in equation (\ref{eq4:CRRA}) is used for
 		&{\CE}_a =  \left( (1-r) \times \sum_{c=1}^{C} w_c(p) \frac{x_{ca}^{1-r}}{(1-r)} \right)^{ \displaystyle\nicefrac{1}{(1-r)} } ,
 	\end{split}
 \end{align}
-
 \noindent and the welfare surplus metric derived from this {\CE} for any choice as:
-
 \begin{equation}
 	\label{eq4:wsurplus}
 	\Delta W_{it} =  {\CE}_{iyt} - {\CE}_{i1t}^Z ,
 \end{equation}
-
 \noindent and the accumulated welfare surplus as:
-
 \begin{equation}
 	\label{eq4:wsurplusT}
 	\Delta W_{iT} = \sum_{t=1}^T \left( {\CE}_{iyt} - {\CE}_{i1t}^Z \right)
 \end{equation}
-
 \noindent where the $y$ subscript indicates the option chosen (either 1 or 2 in the binary scenario we consider here), and the $Z$ superscript indicates the remaining, unchosen options, of which the {\CE} with the greatest value, designated by the subscript 1, is considered the foregone opportunity.
-
 HN \parencite*[106]{Harrison2016} consider an additional metric of forgone welfare surplus as the difference between the maximal {\CE} for every choice and the {\CE} of the option actually chosen by the subject
 \begin{equation}
 	\label{eq4:wforgone}
 	\Delta F_{it} = -1 \times \left( {\CE}_{i1t} - {\CE}_{iyt} \right) , 
 \end{equation}
-
 \noindent and the accumulated forgone welfare surplus
-
 \begin{equation}
 	\label{eq4:wforgoneT}
 	\Delta F_{iT} = \sum_{t=1}^T  -1 \times \left( {\CE}_{i1t} - {\CE}_{iyt} \right)
 \end{equation}
-
 \noindent With these metrics, the best possible value for any subject is 0, which would indicate that all choices made were optimal, whereas any positive value indicates the amount of welfare surplus forgone by the subject due to choice errors.
 These metrics line up easily with the metrics defined in equations (\ref{eq4:wsurplus}) and (\ref{eq4:wsurplusT}), as should $y_t \neq 1$, ${\CE}_{i1t}^Z = {\CE}_{i1t}$.
 
@@ -208,7 +197,9 @@ The experimental subjects consisted of 111 undergraduate students enrolled in se
 Every subject received, and expected to receive, a guaranteed \money{5} show up fee, but no specific information about the experiment or expected earnings was communicated to the subjects before the experiment HN \parencite*[98]{Harrison2016}.
 The full set of instructions delivered to the subjects is available in Appendix C of HN.
 
+\singlespacing
 \subsection{Individual Level Estimation}
+\doublespacing
 \label{sec4:ILE}
 
 HN employ a multi-step process for picking a \enquote{winning} model for each subject.
@@ -274,7 +265,9 @@ Figure 10 of HN and Figure \ref{fig:HN_CS} are not visually distinguishable, and
 	\label{fig:HN_CS}
 \end{figure}
 
+\singlespacing
 \section{Individual Classification and Welfare Estimation Accuracy}
+\doublespacing
 \label{sec4:IC}
 
 Whether the results presented in Figure \ref{fig:HN_pvals} provide an accurate estimation of the proportions of subjects belonging to those models depends on our confidence in the classification process to correctly classify a subject as one of these four models, as well as our confidence that the subjects in the experiments actually belong to one of the four models we test for.
@@ -381,7 +374,9 @@ This process of classification simulation differs from that employed by \textcit
 The approach of \textcite{Wilcox2015} allows for individual DGP to be characterized by multiple sets of choices, while the approach I employ allows us to see how the power of the instrument changes with resect to a wide range of DGP.
 The limitation of the approach I employ of only generating one choice data set per DGP is mitigated by the large number of simulated subjects and the statistical methods employed to predict classification probabilities described below.
 
+\singlespacing
 \subsection{\texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Classification Power}
+\doublespacing
 
 Consider a simulated subject X which employs the EUT model with a CRRA parameter of 0.5 and a $\lambda$ value of 0.1.
 Additionally consider the 2-dimensional parameter space Z, where CRRA $\in (0.475,0.525)$, $\lambda \in (0.09, 0.11)$ and the parameters are uncorrelated in the space.
@@ -396,12 +391,12 @@ These more developed approaches account for certain edge cases which makes them 
 
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
-	Given that the parameter space is very dense with 250,000 points per model, and that the parameters are uncorrelated in the space, the na{\"\i}ve averaging approach is likely to make predictions similar to that of the LOESS and GAM approaches for most of the data.
-	However, there are multiple reasons to prefer either the LOESS or GAM approaches over the na{\"\i}ve simple averaging approaches for our purposes.
+	Given that the parameter space is very dense, with 250,000 points per model, and that the parameters are uncorrelated in the space, the na{\"\i}ve averaging approach is likely to make predictions similar to that of the LOESS and GAM approaches for most of the data.
+	However, there are several reasons to prefer either the LOESS or GAM approaches over the na{\"\i}ve simple averaging approaches for our purposes.
     The properties of \enquote{smoothers} at the edges of the parameter space are of particular interest.
-	The na{\"\i}ve averaging approach works well when the point of interest X is in the midpoint of the range Z, but as X approaches the edge of the full parameter space, a Z space can no longer be constructed with X as the midpoint, leading to estimates for X being biased towards (or equal to) the estimates of the actual midpoint of Z.
-	The LOESS and GAM approaches handle these cases in part by weighting parameters based on their distance to the point X.
-	Since the simulated parameter space approaches the edge of the feasible domain of the parameters, $\lambda, \alpha$ and $\beta$ must all be greater than 0, we need an approach that is useful at the edges of parameter spaces.
+	The na{\"\i}ve averaging approach works well when the point of interest X is close to the midpoint of the range Z, but as X approaches the edge of the full parameter space, a Z space can no longer be constructed with X as the midpoint, leading to estimates for X being biased towards (or equal to) the estimates of the actual midpoint of Z.
+	The LOESS and GAM approaches handle these cases, in part by weighting parameters based on their distance to the point X.
+	Since the $\lambda, \alpha$ and $\beta$ parameters must all be greater than 0, and we simulate parameter sets close to these limits, we need an approach that is useful at the edges of parameter spaces.
 }
 
 Both the LOESS and GAM approaches would allow for predictions of classification probabilities for any set of parameters covered by the range of parameters simulated, but the GAM approach is utilized throughout.
@@ -512,7 +507,9 @@ Looking at Figure \ref{fig:HN1_win_pre} we see that for most of the parameter va
 The statistical results presented here generally show wide variation of the power of the HN instrument to correctly classify subjects as employing either the EUT or $\mathit{RDU_{Prelec}}$ functionals across parameter spaces.
 This wide variation in power for different DGP suggests that power analysis conducted on only several DGP, as is done in \textcite{Wilcox2015} for example, should be extended to incorporate more DGP across the ranges of parameters an experimenter may expect real subjects to employ.
 
+\singlespacing
 \subsection{\texorpdfstring{\textcite{Harrison2016}}{Harrison and Ng (2016)} Insurance Task Welfare Expectations}
+\doublespacing
 \label{sec4:WT}
 
 The probabilities provided in Figures \ref{fig:HN1_win_mu}, \ref{fig:HN1_win_eut} and \ref{fig:HN1_win_pre} are useful for describing the degree of success of the classification process has in correctly identifying the model employed by a subject if the subject employs one of the two models considered here.
@@ -523,7 +520,6 @@ Utilizing the definition of accumulated welfare surplus given by equation (\ref{
 We generate 500 random draws from a multivariate normal distribution using the point estimates of the parameters of the winning model as the means of the marginal distributions, and the inverse of the estimated Hessian matrix as the covariance matrix.{\footnotemark}
 With each draw we calculate equation (\ref{eq4:wsurplusT}) and define the estimated welfare surplus as the average of these 500 calculations.
 Therefore the difference between the estimated welfare surplus, given by this bootstrap method, and real welfare surplus, which we can observe directly for the simulated subjects, is given by:
-
 \addtocounter{footnote}{-1}
 \stepcounter{footnote}\footnotetext{
 	All the probability weighing parameters and the $\lambda$ parameter are restricted mathematically to be greater than 0.
@@ -531,12 +527,10 @@ Therefore the difference between the estimated welfare surplus, given by this bo
 	When generating the multivariate normal distribution described, we use the raw parameter estimates to generate the distribution and exponentiated the marginal distributions of the parameters that are restricted to be greater than 0.
 	Thus, these resulting marginal distributions are actually log-normal distributions.
 }
-
 \begin{equation}
 	\label{eq4:wsurplusDiff}
 	\text{WSD}_N = \Delta W_{iT}(\hat{\Omega}_N) - \Delta W_{iT}(\Omega)
 \end{equation}
-
 \noindent where $N$ is the model the subject has been classified as employing, $\Omega$ is the set of parameters that define the utility function actually employed by subject $i$, and $\hat{\Omega}_N$ is the set of estimated parameters for model $N$ for subject $i$.
 Values of 0 for equation (\ref{eq4:wsurplusDiff}) indicate that the subject's estimated welfare surplus equals the subject's real welfare surplus, and thus the welfare estimates are \enquote{accurate} in terms of their approximation of the real welfare surplus.
 Since equation (\ref{eq4:wsurplusDiff}) is based on equation (\ref{eq4:wsurplusT}), and this equation is based on the {\CE} of the lotteries in a lottery pair, the units of the welfare surplus difference (WSD) are the same monetary units as the {\CE}s of the lotteries.
@@ -552,7 +546,6 @@ The data are first separated into subsets based on the models the simulated subj
 		(\text{WSD}_{N,M} | M = \mathit{RDU_{Prelec}}) &= s(r) + s(\alpha) + s(\beta) + s(\lambda)
 	\end{split}
 \end{align}
-
 \noindent where $N$ indicates the model that the subject was classified as, $M$ indicates the model the subject actually employs, and $s(\cdot)$ indicates some smooth, potentially non-linear function of its arguments.
 A model is fitted for each combination of the 2 $M$ models and 2 $N$ models, and so 4 models are fitted in total.
 Additionally, given our estimates of the probability of EUT and $\mathit{RDU_{Prelec}}$ subjects being classified as employing EUT or $\mathit{RDU_{Prelec}}$ respectively, we can calculate point estimates for the expected WSD by multiplying the probabilities presented in the top row of Figures \ref{fig:HN1_win_eut} and \ref{fig:HN1_win_pre} with the predicted WSD given by equation (\ref{eq4:GAM_welfare}).
@@ -623,7 +616,9 @@ That subjects actually employing a $\mathit{RDU_{Prelec}}$ model are badly chara
 Probability weighting is what distinguishes RDU models from EUT models, and so when this is ignored by classifying an $\mathit{RDU_{Prelec}}$ subject as EUT, the consequences in terms of welfare surplus estimates can be meaningful.
 On the other hand, RDU models nest EUT as a special case, and so when EUT subjects are misclassified as $\mathit{RDU_{Prelec}}$ there is the possibility that even though the estimated probability weighting parameters are statistically significantly different from 1, the magnitude of this difference is small enough to not matter as much in terms of welfare surplus.
 
+\singlespacing
 \section{Alternative Approaches for Welfare Prediction}
+\doublespacing
 
 The analyses thus far constitute \textit{ex post} power analyses of the experimental instrument and classification process employed by HN, and an analysis of the expected welfare characterizations that can be made with this classification process.
 The power analysis aspect of this process constitutes a statistical inquiry into an experimental protocol and is similar to other \textit{ex ante} and \textit{ex post} power analyses.
@@ -849,7 +844,9 @@ This suggests that the increased number of lottery pairs not only provides a gre
 	\label{fig:exwel-pre}
 \end{figure}
 
+\singlespacing
 \subsection{How Much Does This Matter?}
+\doublespacing
 
 These differences should matter to researchers as a matter of methodological principle.
 How much they should matter depends on the population of subjects the experimenter expects to encounter and how much inaccuracy is tolerable in the characterization of welfare.
@@ -1442,7 +1439,9 @@ Indeed, \textcite{Hey2001} test the hypothesis that subjects change the function
 He concludes that \enquote{Across the repetitions the variablility of responses declines for some subjects but stays constant for for others (and indeed actually increases for a small number of subjects.)}
 Experimenters need to weigh these methodological concerns against their ability to provide more accurate estimates of welfare, and better classification accuracy.
 
+\singlespacing
 \section{Conclusions}
+\doublespacing
 
 This chapter demonstrates a method for conducting a power analysis over a wide range of potential DGP, shows that conducting individual level classification with subjects responding to fewer than several hundred lottery pairs is likely to lead to frequent misclassifications, and that these misclassifications can be costly in terms of the measurement of subjective welfare surplus.
 Though inferential objectives vary greatly across the experimental literature, many researchers estimate multiple structural models of utility and classify individual subjects as employing one based on their estimates.
