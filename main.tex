@@ -6,7 +6,8 @@
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage{geometry}
-\usepackage{setspace}	% For line spacing
+\usepackage[nodisplayskipstretch]{setspace}
+\setstretch{1.5}
 \usepackage[style = american]{csquotes}	% For quoting
 \usepackage[hidelinks]{hyperref} %To make references into links
 \usepackage{amsmath}	% For equation stuff
@@ -66,6 +67,7 @@
 \renewbibmacro{in:}{}
 \addbibresource{/home/bam/thesis/library.bib}	% The path to the bibliography file
 
+% Deal with spacing between equations and text
 
 % Convenience Commands
 \newcommand\CE{\ensuremath{\mathit{CE}}}    % Certainty Equivalent
