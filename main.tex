@@ -67,7 +67,9 @@
 
 \usepackage[stretch=15]{microtype}	% Read about this, tested it, and was sold.
 \usepackage[american]{babel}
-\usepackage[backend=biber, uniquename=false, refsegment=chapter, doi=false, isbn=false, url=false, style=authoryear-comp, maxnames=99]{biblatex}	%For bibliography stuff
+\usepackage[backend=biber, bibstyle=IEEEtran, uniquename=false, refsegment=chapter, doi=false, isbn=false, url=false, style=authoryear-comp, maxnames=99]{biblatex}	%For bibliography stuff
+%\renewcommand*{\revsdnamepunct}{} 
+\DefineBibliographyExtras{english}{\let\finalandcomma=\empty}
 \renewbibmacro{in:}{}
 \addbibresource{/home/bam/thesis/library.bib}	% The path to the bibliography file
 
