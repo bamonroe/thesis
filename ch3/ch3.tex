@@ -486,19 +486,12 @@ The metrics described in equations (\ref{eq3:SLiT}) and (\ref{eq3:MTBn}) through
 In the HL-MPL instrument there are a total of $2^{10}=1024$ choice patterns that can be observed.
 To begin the discussion of the welfare implications of stochastic choice models, we calculate the values for equations (\ref{eq3:SLiT}), and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) for all $\mathit{TT} =1024$ choice patterns and all $e \in[0,T]$ for the given $\theta$, with $H=2.5 \times 10^6$.
 
-%%%%%
-%%%%%
-%EDIT: NEED TO CHANGE THE ABOVE
-%%%%%
-%%%%%
-
 To make clear how the result of these equations are arrived at, we can work through the calculations step by step.
 First, we select a choice pattern from one of the $1024$ choice patterns possible with the HL-MPL instrument, for example, the choice of option A for the first five rows and option B for rows $6$ through $10$.
 Next a $\beta_i$ vector is drawn from the joint distribution defined by $\theta$.
 As an example, we assume $\beta_i = \lbrace r = 0.65, \lambda = .35\rbrace$ was drawn; recall that we are also assuming EUT with a CU stochastic model.
 Utilizing this $\beta_i$ and choice pattern, we can evaluate the various metrics proposed.
 First, we evaluate equation (\ref{eq3:PiT}), the likelihood that agent $i$ would produce this choice pattern, utilizing equation (\ref{eq3:RE}) to calculate choice probabilities for the individual tasks:
-
 \begin{align}
 	\label{eq3:example_PiT}
 	\begin{split}
