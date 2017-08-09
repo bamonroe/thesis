@@ -386,7 +386,7 @@ These approaches account for certain edge cases which makes them more attractive
 
 Both the LOESS and GAM approaches would allow for predictions of classification probabilities for any set of parameters covered by the range of parameters simulated, but the GAM approach is utilized throughout.
 The GAM approach allows us to predict the probability that a subject employing a particular model is classified as EUT, $\mathit{RDU_{Prelec}}$, or unable to be classified.\footnote{
-	If neither the EUT nor the $\mathit{RDU_{Prelec}}$ model passed the exclusionary rules defined in the previous section, no model would be declared the winner and the subject would be classified as \enquote{NA}.
+	If neither the EUT nor the $\mathit{RDU_{Prelec}}$ model passed the exclusionary rules defined in the previous section, no model would be declared the winner and the subject would be classified as \enquote{NA.}
 }
 First we separate the data into subsets based on the models the simulated subjects actually employ, either EUT or $\mathit{RDU_{Prelec}}$.
 For each pooled group we fit a GAM model predicting whether the subjects were classified as EUT, $\mathit{RDU_{Prelec}}$, or unclassified.
