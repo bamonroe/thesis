@@ -13,7 +13,7 @@
 Given the discussion about how the various stochastic models generally support incorporation of the normative notion of welfare, I reintroduce the question asked earlier in Chapter 2, section 2.2:
 \enquote{What are the likely welfare implications of an economic agent's choices in an incentivized risky environment given an assumed stochastic model of risky choice?}
 The conclusion for the Random Preference (RP) model and its derivative, the Random Preference Per Option (RPPO) model, is \enquote{no perfectly coherent statements can be made.}
-As stated in the conclusion of Chapter 2, the Random Error (RE) and Tremble (TR) models do not suffer from this inadequacy, and will be referred to as \enquote{coherent models}.
+As stated in the conclusion of Chapter 2, the Random Error (RE) and Tremble (TR) models do not suffer from this inadequacy, and will be referred to as \enquote{coherent models.}
 %In this chapter, I continue to answer the primary question by utilizing coherent stochastic models, a popular experimental preference elicitation instrument, and simulation methods to derive numerical characterizations of welfare.
 
 Many stochastic models make specific restrictions on the probabilities associated with certain special choice scenarios.
@@ -103,7 +103,7 @@ We could take the log of equation (\ref{eq3:PiT}) and conduct standard maximum l
 
 We can utilize this estimator to recover the {\CE} for every option in every task, and then utilize these \CE s to recover our best estimate of the proportion of welfare the subject obtained.
 While conducting welfare analysis given individually estimated parameter vectors is rare in the economics literature,\footnote{
-	Examples of this kind of analysis are \textcite{Harrison2016}, \textcite{Harrison2017} and \textcite{Harrison2017a}.
+	Examples of this kind of analysis are \textcite{Harrison2016, Harrison2017} and \textcite{Harrison2017a}.
 } the recovery of parameter vectors through MLE is relatively common.
 \textcite{Hey1994}, \textcite{Wilcox2015} and \textcite{Hey2001} provide several examples of parameter estimation.
 These particular examples, however, are distinctly different from other uses of MLE in experimental economics, primarily because equation (\ref{eq3:Bn}) is estimated for every subject individually, as opposed to pooling all subject data together and estimating a parameter vector for one, representative agent (RA), as proposed in the pioneering \textcite{Camerer1994}.
@@ -287,7 +287,7 @@ The results presented below are therefore numerical approximations of statistics
 The formulae presented below for $\theta$ could be extended to incorporate standard errors associated with he elements of $\hat{\theta}$, but additional assumptions about the sampled population would need to be made.
 In this section I demonstrate that knowledge of the distribution of preferences in a population, given by $\theta$, can provide useful information about the expected welfare of individual agents from this population for any given pattern of choices.
 
-To make this discussion more concrete, we can utilize one of the HL-MPL instruments alluded to earlier and displayed in Table (\ref{tb:HL-MPL}).
+To make this discussion more concrete, we can utilize one of the HL-MPL instruments alluded to earlier and displayed in Table \ref{tb:HL-MPL}.
 In the HL experiment subjects were presented with this table, without the \enquote{Expected Payoff Difference} and \enquote{CRRA for Indifference} columns, and asked to select one option from each row.
 The \enquote{Option A} column indicates the outcomes and associated probabilities for option A in each of 10 tasks, and similarly for the \enquote{Option B} column.
 The \enquote{CRRA for Indifference} column indicates the CRRA value that would make an EUT agent indifferent between option A and option B.
@@ -402,7 +402,6 @@ The first metric, calculated for a choice pattern $y_t \times T$, is equivalent 
 \noindent where ${\CE}_{iyt}$ is the {\CE} of the option chosen, indicated by the subscript $y$, by agent $i$ in task $t$, and ${\CE}_{i1t}^Z$ is the {\CE} of the option that is ordinally ranked the highest among the set of \textit{unchosen} alternatives, $Z$, with respect to the agent's preferences, given by $\beta_i$, in task $t$.
 Throughout this chapter, we will refer to the metric in equation (\ref{eq3:WST}) as the \enquote{welfare surplus} metric.
 The second metric we propose to characterize the welfare implications of choices is similar to the concept of auction and market \enquote{efficiency} proposed by \textcite{Plott1978}:
-
 \begin{equation}
 	\label{eq3:WET}
 	\%W_{iT} = \frac{\displaystyle\sum_{t=1}^{T} {\CE}_{iyt} }{\displaystyle\sum_{t=1}^{T} {\CE}_{i1t}}
@@ -487,19 +486,12 @@ The metrics described in equations (\ref{eq3:SLiT}) and (\ref{eq3:MTBn}) through
 In the HL-MPL instrument there are a total of $2^{10}=1024$ choice patterns that can be observed.
 To begin the discussion of the welfare implications of stochastic choice models, we calculate the values for equations (\ref{eq3:SLiT}), and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) for all $\mathit{TT} =1024$ choice patterns and all $e \in[0,T]$ for the given $\theta$, with $H=2.5 \times 10^6$.
 
-%%%%%
-%%%%%
-%EDIT: NEED TO CHANGE THE ABOVE
-%%%%%
-%%%%%
-
 To make clear how the result of these equations are arrived at, we can work through the calculations step by step.
 First, we select a choice pattern from one of the $1024$ choice patterns possible with the HL-MPL instrument, for example, the choice of option A for the first five rows and option B for rows $6$ through $10$.
 Next a $\beta_i$ vector is drawn from the joint distribution defined by $\theta$.
 As an example, we assume $\beta_i = \lbrace r = 0.65, \lambda = .35\rbrace$ was drawn; recall that we are also assuming EUT with a CU stochastic model.
 Utilizing this $\beta_i$ and choice pattern, we can evaluate the various metrics proposed.
 First, we evaluate equation (\ref{eq3:PiT}), the likelihood that agent $i$ would produce this choice pattern, utilizing equation (\ref{eq3:RE}) to calculate choice probabilities for the individual tasks:
-
 \begin{align}
 	\label{eq3:example_PiT}
 	\begin{split}
@@ -764,7 +756,7 @@ The results of these equations for the 10 most likely choice patterns to be obse
 	\end{adjustbox}
 \end{table}
 
-For the \enquote{Choice in Row} column in Table (\ref{tb:TopTenEUT}), $0$ indicates a choice of A for the row, and $1$ indicates a choice of B.
+For the \enquote{Choice in Row} column in Table \ref{tb:TopTenEUT}, $0$ indicates a choice of A for the row, and $1$ indicates a choice of B.
 Note that the choice pattern that is mostly likely to be observed from a sample drawn from the specified population governed by $\theta$, shown in the first row where \textit{Rank} is $1$, is the choice pattern we would observe from an agent described by a deterministic choice process with preferences at the mean of the distribution of $r$.
 The next two most likely choice patterns, where \textit{Rank} is $2$ and $3$, correspond to the choice pattern we would observe from agents described by a deterministic choice process with preferences one standard deviation either side of the mean of the distribution of $r$.
 
@@ -776,19 +768,19 @@ These patterns do, however, produce relatively high expected welfare efficiency 
 The welfare surplus metric is less informative in this comparison: it is more useful in making absolute rather than relative statements about welfare.
 
 The relatively large values of $ 1 - P_E(e = 0)$, which imply that most choice patterns contain at least $1$ choice error, is mainly due to the shape and location of the distribution of $r$.
-The mean of $r$, at $0.65$, lies just next to the indifference boundary between rows 6 and 7 of the HL-MPL instrument, as indicated in the column \enquote{CRRA for Indifference} of Table (\ref{tb:HL-MPL}).
+The mean of $r$, at $0.65$, lies just next to the indifference boundary between rows 6 and 7 of the HL-MPL instrument, as indicated in the column \enquote{CRRA for Indifference} of Table \ref{tb:HL-MPL}.
 That means that the bulk of the $r$ values drawn from this distribution define utility values that indicate near indifference between the A and B lotteries in row 7 of the HL-MPL instrument.
 All RE models increase the probability of a choice error the closer an agent is to being indifferent between 2 options, so it should not be a surprise that with this particular choice of distribution for $r$ we have a large proportion of choice errors.
 Similarly, since many agents in this population would be nearly indifferent between the A and B lotteries in row 7 of the HL-MPL, the expected cost of the choice errors in row 1 in welfare terms is realtively low, as can be seen by the value in the \enquote{Welfare Efficiency} being very close to 1.
 
-The fourth and fifth most likely choice patterns in Table (\ref{tb:TopTenEUT}), where \textit{Rank} is $4$ and $5$, are not consistent with any deterministic EUT preferences.
+The fourth and fifth most likely choice patterns in Table \ref{tb:TopTenEUT}, where \textit{Rank} is $4$ and $5$, are not consistent with any deterministic EUT preferences.
 These patterns display what we will call \enquote{Light MSB}: not including the choice made in row 10, the agent has \enquote{switched} between choosing A and B three times.\footnote{
 	The reason that row 10 is not included in this definition is because we are making a distinction between patterns which do and do not include a choice of A in row 10 later.
 }
 Because MSB is not consistent with any deterministic EUT preferences, $P_E(e=0)=0$ for these patterns.
 In fact, the only choice patterns in which $P_E(e=0)>0$ will be those which are \enquote{Consistent}: displaying a choice pattern that can be rationalized by some deterministic EUT preferences.
 
-Despite the patterns in rows 4 and 5 of Table (\ref{tb:TopTenEUT}) being obviously inconsistent with a deterministic EUT process, they both are more likely to be observed from agents drawn from a population defined by $\theta$, and obtain greater welfare surplus than the sixth most likely choice pattern which is \enquote{Consistent.}
+Despite the patterns in rows 4 and 5 of Table \ref{tb:TopTenEUT} being obviously inconsistent with a deterministic EUT process, they both are more likely to be observed from agents drawn from a population defined by $\theta$, and obtain greater welfare surplus than the sixth most likely choice pattern which is \enquote{Consistent.}
 The likelihood of the \enquote{Light MSB} choice patterns in rows 4 and 5, displayed in the \enquote{Simulated Likelihood} column, are greater than the likelihood of the choice pattern in row 6, which is consistent.
 The welfare efficiency metric for row 5, displayed in the \enquote{Welfare Efficiency} column, is greater than that of row 6, and the welfare surplus metrics for both rows 4 and 5 are greater than for row 6.
 Since metrics for all $TT = 1024$ choice patterns were calculated, we will see in the discussion below that these two Light MSB patterns are both more likely to be observed and to be less costly in terms of welfare surplus than 6 out of 10 \enquote{Consistent} patterns.
@@ -825,8 +817,8 @@ For any given point plotted, any other point to the Southeast of that point indi
 For instance, any point in the shaded region of Figure \ref{fig:ConFOSD} represents a choice pattern that is both more likely to be observed and has a lower expected welfare efficiency than pattern Y.
 
 Figure \ref{fig:ConFOSD} shows that the choice of A in row 10 greatly decreases the SLL of the pattern, but barely decreases the expected ratio of obtained welfare to maximal welfare, all else being equal.
-For example, the most likely consistent choice pattern is the top right-most red dot in Figure \ref{fig:ConFOSD}, labeled \enquote{X}, which corresponds to row 1 of Table 2 and has a welfare efficiency of 0.986 and a SL of 0.036.
-The most likely choice pattern with a choice of A in row 10 is the top right-most green dot, labeled \enquote{Y}.
+For example, the most likely consistent choice pattern is the top right-most red dot in Figure \ref{fig:ConFOSD}, labeled \enquote{X,} which corresponds to row 1 of Table 2 and has a welfare efficiency of 0.986 and a SL of 0.036.
+The most likely choice pattern with a choice of A in row 10 is the top right-most green dot, labeled \enquote{Y.}
 This pattern is identical to the \enquote{X} pattern other than the selection of A in row 10 and has a welfare efficiency of 0.938 and a SL of 0.00246.
 The ratio of welfare obtained to maximum welfare differs only by 0.0483, but pattern X is about 14.63 times more likely to be observed than pattern Y.\footnote{
 	Probability of X $\div$ Probability of Y = 0.036 $\div$ 0.00246 = 14.63
@@ -853,7 +845,7 @@ However, as we can see from Figure \ref{fig:ConFOSD} and Table \ref{tb:TopTenEUT
 The above discussion focuses on a population that is entirely composed of EUT conforming agents.
 Individual level estimates from \textcite{Hey1994} and the mixture model estimates from \textcite{Harrison2009} show that many populations are likely not composed entirely of EUT agents.
 We can extend the example above, defining the population as being composed of some mixture of EUT agents and RDU agents.
-By \enquote{mixture}, we mean that there will be two subpopulations of a grand population, with agents employing either the EUT or RDU functions.
+By \enquote{mixture,} we mean that there will be two subpopulations of a grand population, with agents employing either the EUT or RDU functions.
 
 Before beginning the analysis of this mixture population, we can extend the metrics utilized in equations (\ref{eq3:SLiT}) and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) to be defined for mixed populations.
 This is implemented in much the same way as mixture models were defined in equation (\ref{eq3:PT_Mix}); each metric, $Q_m$, for subpopulation $m$ is weighted by the proportion of the subpopulation in the grand population, $M$.
@@ -905,7 +897,7 @@ This results in $\theta^{RDU} = \lbrace  0.65 ,0.3^2,  0.563 , 0.26 , 169 , 7.69
 
 Once again, we employ $2.5 \times 10^6$ draws from this joint distribution times and calculate the values for equations (\ref{eq3:SLiT}) and (\ref{eq3:MTBn}) through (\ref{eq3:EPWTe}) for all $\mathit{TT} =1024$ choice patterns and all $e \in[0,T]$ for the RDU subpopulation.
 With the results of the calculations for the EUT subpopulation calculated previously, and the results of the same calculations for the RDU population, we can mix each of these metrics as described in equation (\ref{eq3:Metric_Mix}) with $\pi_{EUT} = 0.7$ and $\pi_{RDU} = 0.3$.
-Again, it is impractical to display the results of all metrics for all $1024$ choice patterns, so first, we recreate Table (\ref{tb:TopTenEUT}) with the results of the RDU metrics.
+Again, it is impractical to display the results of all metrics for all $1024$ choice patterns, so first, we recreate Table \ref{tb:TopTenEUT} with the results of the RDU metrics.
 
 \begin{table}[ht]
 	\centering
@@ -1070,16 +1062,6 @@ For every choice pattern in the top ten most likely to be observed choice patter
 For the top 3 choice patterns, the difference between the proportion of EUT agents \textit{in the total population} and the proportion of EUT agents \textit{that generated the choice pattern} is greater than 20 percentage points.
 In fact, it is more likely than not that these choice patterns are generated by the RDU subpopulation.
 This is despite the fact that the EUT subpopulation makes up $70\%$ of the grand population, and that the top three most likely to be observed choice patterns in the grand population all correspond to the same top three choice patterns in the EUT subpopulation.
-
-%% EDIT
-% The below needs to be tamed
-
-%The above discussion of the three populations helps to illuminate the idea that knowledge of the distribution of preferences in a sample allows an analyst to achieve a better interpretation of observed patterns of choice.
-%Table 2 demonstrates that for many choice patterns which can be described as \enquote{consistent} with EUT, the EUT function which rationalizes an individual agent's data actually misrepresents the agent's \enquote{true} preferences.
-%Similar conclusions can be drawn for a population comprised entirely of RDU agents.
-%The consequence of this misrepresentation is that an agent is assumed to have made choices that maximize her subjective welfare when this is not the case.
-%In our particular choice of exemplary EUT and RDU population parameters, for every agent who displays a \enquote{consistent} choice pattern it is more likely than not that their \enquote{true} underlying preferences are best characterized by a utility function which does not rationalize their observed choice behavior.
-%This general result is just as applicable to choice patterns described by RDU as it is to patterns described by EUT as well as for other coherent stochastic models.
 
 It should also be clear from Table 2 and Figure \ref{fig:ConFOSD} that not all choice patterns that are consistent with EUT should be judged as superior to choice patterns which are apparently inconsistent with EUT from the perspective of welfare realization as consumer surplus or welfare efficiency.
 

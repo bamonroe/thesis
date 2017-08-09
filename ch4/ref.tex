@@ -33,7 +33,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 The concerns raised by HO can largely be considered as referring to statistical power, and to the weight economists should place on type I versus type II identification errors.
 That there are asymmetries in the probability of type I and type II errors should be of little surprise to most econometricians, but the degree of asymmetry in the \textit{cost} of these errors, I argue, is more important.
 In this chapter, I analyze the experimental instruments utilized by \textcite{Harrison2016} (HN) for recovering the utility functions of agents.
-The HN experiment, detailed in more depth below, is utilized for this analysis because it links the econometric classification of individual subjects and the measurement of their risk preferences directly with welfare evaluation for the decision maker.
+The HN experiment, detailed in depth below, is utilized for this analysis because it links the econometric classification of individual subjects and the measurement of their risk preferences directly with welfare evaluation for the decision maker.
 Estimation of the welfare consequences of a subject's choices allows economists to make a judgement about how much the individual gains or loses, in expectation, about any given choice.
 In the case of the HN experiment, the focus is on how much the subject gains or loses when purchasing, or not purchasing, an insurance policy.
 \textcite{Harrison1989, Harrison1992}, in what has become known as the \enquote{Flat Maximum} or \enquote{Payoff Dominance} critique, argues that as the difference in utility between two options approaches zero, the subject cares less and less about choosing one option over the other, and so economists should care less and less about the choices over options where the utility difference approaches zero.
@@ -375,7 +375,7 @@ We could potentially improve this approach by fitting a probit or logit model to
 We could then consider a different subject Y with a new Z space distributed around its parameters and repeat the process.
 
 These approaches are na{\"\i}ve versions of other \enquote{smoothing} approaches such as local regressions (LOESS) due to \textcite{Cleveland1979} and \textcite{Cleveland1992}, and generalized additive models (GAM) due to \textcite{Hastie1986}.
-These approaches account for certain edge cases which makes them more attractive than the na{\"\i}ve approaches above.\footnote{
+These approaches account for certain edge cases which makes them more attractive than the na{\"\i}ve approaches.\footnote{
 	Given that the parameter space is very dense, with 250,000 points per model, and that the parameters are uncorrelated in the space, the na{\"\i}ve averaging approach is likely to make predictions similar to that of the LOESS and GAM approaches for most of the data.
 	However, there are several reasons to prefer either the LOESS or GAM approaches over the na{\"\i}ve simple averaging approaches for our purposes.
     The properties of \enquote{smoothers} at the edges of the parameter space are of particular interest.
@@ -386,7 +386,7 @@ These approaches account for certain edge cases which makes them more attractive
 
 Both the LOESS and GAM approaches would allow for predictions of classification probabilities for any set of parameters covered by the range of parameters simulated, but the GAM approach is utilized throughout.
 The GAM approach allows us to predict the probability that a subject employing a particular model is classified as EUT, $\mathit{RDU_{Prelec}}$, or unable to be classified.\footnote{
-	If neither the EUT nor the $\mathit{RDU_{Prelec}}$ model passed the exclusionary rules defined in the previous section, no model would be declared the winner and the subject would be classified as \enquote{NA}.
+	If neither the EUT nor the $\mathit{RDU_{Prelec}}$ model passed the exclusionary rules defined in the previous section, no model would be declared the winner and the subject would be classified as \enquote{NA.}
 }
 First we separate the data into subsets based on the models the simulated subjects actually employ, either EUT or $\mathit{RDU_{Prelec}}$.
 For each pooled group we fit a GAM model predicting whether the subjects were classified as EUT, $\mathit{RDU_{Prelec}}$, or unclassified.
@@ -452,7 +452,7 @@ In each Figure the solid red line indicates the estimates for the EUT model, the
 In all figures, the 95\% confidence interval is given by the dotted lines surrounding the lines given above.
 In each Figure, the second row contains estimates derived from all the subjects, while the first row only contains estimates derived from subjects that were classified as either EUT or $\mathit{RDU_{Prelec}}$.
 
-In Figure \ref{fig:HN1_win_mu}, the first column contains estimates for EUT subjects, while the second column contains estimates for $\mathit{RDU_{Prelec}}$ subjects.
+In Figure \ref{fig:HN1_win_mu} the first column contains estimates for EUT subjects, while the second column contains estimates for $\mathit{RDU_{Prelec}}$ subjects.
 The X-axis of this figure is the value of the $\lambda$ parameter.
 Thus, the top-left plot shows the probability of an EUT subject with a converged model being classified as either EUT or $\mathit{RDU_{Prelec}}$ for a range of $\lambda$ values.
 In Figures \ref{fig:HN1_win_eut} and \ref{fig:HN1_win_pre}, the column titles indicate the parameter given on the X-axis.
