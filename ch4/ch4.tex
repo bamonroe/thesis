@@ -375,7 +375,7 @@ We could potentially improve this approach by fitting a probit or logit model to
 We could then consider a different subject Y with a new Z space distributed around its parameters and repeat the process.
 
 These approaches are na{\"\i}ve versions of other \enquote{smoothing} approaches such as local regressions (LOESS) due to \textcite{Cleveland1979} and \textcite{Cleveland1992}, and generalized additive models (GAM) due to \textcite{Hastie1986}.
-These more developed approaches account for certain edge cases which makes them more attractive than the na{\"\i}ve approaches above.\footnote{
+These approaches account for certain edge cases which makes them more attractive than the na{\"\i}ve approaches above.\footnote{
 	Given that the parameter space is very dense, with 250,000 points per model, and that the parameters are uncorrelated in the space, the na{\"\i}ve averaging approach is likely to make predictions similar to that of the LOESS and GAM approaches for most of the data.
 	However, there are several reasons to prefer either the LOESS or GAM approaches over the na{\"\i}ve simple averaging approaches for our purposes.
     The properties of \enquote{smoothers} at the edges of the parameter space are of particular interest.
