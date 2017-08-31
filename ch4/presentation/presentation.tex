@@ -12,7 +12,7 @@
 \usepackage{graphicx}	% For Graphics
 \usepackage[backend=biber, uniquename=false, doi=false, isbn=false, url=false, style=authoryear-comp, maxnames=99]{biblatex}	%For bibliography stuff
 \renewbibmacro{in:}{}
-\addbibresource{/home/bam/thesis/thesis/library.bib}	% The path to the bibliography file
+\addbibresource{/home/bam/thesis/library.bib}	% The path to the bibliography file
 %For Tables
 \usepackage{tabularx}
 \newcolumntype{Y}{>{\centering\arraybackslash}X} % A centered column type that sucks up excess space
@@ -272,7 +272,27 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 	\item $\lambda \rightarrow 0$, choice probabilities become either 0 or 1.
 	
 \end{itemize}
+\end{frame}
 
+\begin{frame}
+\frametitle{Don't Sweat the Math}
+\begin{itemize}
+	\item CRRA is just a function that can be concave (risk aversion), convex (risk seeking), or linear (risk neutral).
+\end{itemize}
+\begin{itemize}
+	\item RDU
+		\begin{itemize}
+			\item Conceptually, think pessimistic people overweight the probability of something bad happening.
+			\item I make a choice about purchasing car insurance knowing the real probability of an accident, but acting as if that risk is higher.
+		\end{itemize}
+\end{itemize}
+\begin{itemize}
+	\item Contextual Utility Stochastic Model
+		\begin{itemize}
+			\item As the difference in utility grows, the probability of choosing the highest valued option grows.
+			\item Some agents generally more attuned to the difference in utilities than others.
+		\end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -290,27 +310,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 	\item Pick the winner based on \textcite{Harrison2016} method
 \end{itemize}
 \end{frame}
-%
-%\begin{frame}
-%\frametitle{Simulation Process}
-%\begin{itemize}
-%	\item Fit 6 General Additive Models (GAM) \parencite{Hastie1986} across all the simulated data
-%	\begin{align}
-%		\label{eq4:GAM}
-%		\begin{split}
-%			{\Prob}(win = EUT ~&|~ S = EUT) = s(r) + s(\lambda)\\
-%			{\Prob}(win = RDU ~&|~ S = EUT) = s(r) + s(\lambda)\\
-%			{\Prob}(win = NA  ~&|~ S = EUT) = s(r) + s(\lambda)\\
-%			{\Prob}(win = EUT ~&|~ S = RDU) = s(r) + s(\alpha) + s(\beta) + s(\lambda)\\
-%			{\Prob}(win = RDU ~&|~ S = RDU) = s(r) + s(\alpha) + s(\beta) + s(\lambda)\\
-%			{\Prob}(win = NA  ~&|~ S = RDU) = s(r) + s(\alpha) + s(\beta) + s(\lambda)
-%		\end{split}
-%	\end{align}
-%	\item Use logit linking function.
-%	\item Allows us to predict probability of a model being the winner, given model employed by subject and parameters
-%\end{itemize}
-%\end{frame}
-%
+
 \section{Power Results}
 \begin{frame}
 \frametitle{EUT Subjects}
@@ -411,7 +411,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 	\center
 	\caption{Welfare Surplus Difference of \enquote{Winning} Models for $\mathit{RDU_{Prelec}}$ subjects}
 	\includegraphics[height = 6.5cm, keepaspectratio]{../figures/HNG_1/win_05-PRE-wel-HNG_1.pdf}
-	\label{fig:HN1_wel_eut}
+	\label{fig:HN1_wel_pre}
 \end{figure}
 \end{frame}
 
@@ -425,7 +425,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 			\item Better lottery pairs?
 			\item More lottery pairs?
 			\item Design Change?
-			\item Classification procedure?
+			\item Econometrics?
 		\end{itemize}
 	\item Analysis was repeated on lottery instruments from \textcite{Hey1994}, \textcite{Loomes2002}, \textcite{Schmidt2004}
 		\begin{itemize}
@@ -438,16 +438,18 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 \begin{frame}
 \frametitle{Alternative Approaches - Two Proposals}
 \begin{itemize}
-	\item ${HN}_{1040}$ Approach
+	\item ${HN}_{C}$ Approach
 		\begin{itemize}
-			\item Increase then number of choices made by subject 13-fold (1040 per subject).
+			\item Increase the number of choices made by subjects 3, 5, 7, 9, 11 and 13 fold.
+				\begin{itemize}
+					\item Results in 240, 400, 560, 720, 880, 1040.
+				\end{itemize}
 			\item Familiar recommendation from statisticians, increase sample size.
 		\end{itemize}
 	\item \enquote{Default} Approach
 		\begin{itemize}
 			\item Abandon any effort to classify subjects, focus on maximizing the accuracy of welfare estimates.
 			\item Whenever a $\mathit{RDU_{Prelec}}$ model has converged for a subject, use it, otherwise use the EUT model. ($\mathit{RDU_{Prelec}}$ is the \enquote{default} model)
-			\item Motivated by the lower costs to EUT subjects being classified as $\mathit{RDU_{Prelec}}$ compared to $\mathit{RDU_{Prelec}}$ subjects being classified as EUT.
 		\end{itemize}
 	\item Same simulated subjects from before
 \end{itemize}
@@ -478,7 +480,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 \begin{itemize}
 	\item Any Better? It depends.
 		\begin{itemize}
-			\item Everyone better off using ${HN}_{1040}$.
+			\item All subjects have more accurate estimates with more lottery pairs.
 			\item $\mathit{RDU_{Prelec}}$ Subjects better off under Default approach, EUT subjects slightly worse off.
 		\end{itemize}
 	\item Choosing between any approach should involve weighing one's priors about the population under investigation, the accuracy of the various potential approaches in producing welfare estimates in a domain that is relevant, and how much tolerance should be given for inaccuracy.
@@ -490,11 +492,12 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 \frametitle{Hypothetical Case}
 \begin{itemize}
 	\item Consider two populations, one of EUT subjects, one of $\mathit{RDU_{Prelec}}$ subjects
+	\item Use pooled estimates from \textcite{Harrison2016} subjects.
 		\begin{itemize}
-			\item $r       \sim \mathit{N}(0.4, 0.1)$
+			\item $r       \sim \mathit{N}(0.5, 0.1)$
 			\item $\lambda \sim \mathit{Lognormal}(0.1, 0.02)$
-			\item $\alpha  \sim \mathit{Lognormal}(0.65, 0.1)$
-			\item $\lambda \sim \mathit{Lognormal}(1.65, 0.1)$
+			\item $\alpha  \sim \mathit{Lognormal}(1.5, 0.1)$
+			\item $\lambda \sim \mathit{Lognormal}(0.7, 0.1)$
 		\end{itemize}
 	\item Predict average WSD for each of these populations
 \end{itemize}
@@ -601,13 +604,112 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 
 \begin{frame}
 \frametitle{Hypothetical Case}
+\begin{table}[h!] 
+	\centering
+	\caption{Expected Welfare Surplus Difference (WSD), $\text{HN}_{240}$ Approach}
+	\label{tb:HN1_win05_pop}
+	\adjustbox{max width = \textwidth}{
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(EUT)}
+		},
+		display columns/2/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(Prelec)}
+		},
+		display columns/3/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{EUT}}$}
+		},
+		display columns/4/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{Prelec}}$}
+		},
+		display columns/5/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Expected WSD}
+		},
+		]{../tables/HNG_3-win_05_full-table.csv} % path/to/file
+	}
+\end{table}
+
+\begin{table}[h!] 
+	\centering
+	\caption{Expected Welfare Surplus Difference (WSD), $\text{HN}_{400}$  Approach}
+	\label{tb:HN1_default_pop}
+	\adjustbox{max width = \textwidth}{
+	\pgfplotstabletypeset[
+		col sep=comma,
+		every head row/.style={
+			after row=\hline
+		},
+		display columns/0/.style={
+			string type,
+			column name = {}
+		},
+		display columns/1/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(EUT)}
+		},
+		display columns/2/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {p(Prelec)}
+		},
+		display columns/3/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{EUT}}$}
+		},
+		display columns/4/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {$\text{WSD}_{\text{Prelec}}$}
+		},
+		display columns/5/.style={
+			precision = 2,
+			fixed,
+			zerofill,
+			column name = {Expected WSD}
+		},
+		]{../tables/HNG_5-win_05_full-table.csv} % path/to/file
+	}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hypothetical Case}
 \begin{itemize}
 	\item From  HN to Default
 		\begin{itemize}
-			\item EUT accuracy decreases by 0.76
-			\item $\mathit{RDU_{Prelec}}$ increases by 6.55
+			\item EUT accuracy decreases by \$0.62.
+			\item $\mathit{RDU_{Prelec}}$ increases by \$2.60.
 		\end{itemize}
-	\item This population would need to be greater than 89.6\% EUT subjects for HN approach to result in more accurate welfare estimates on average.
+	\item This population would need to be greater than 80.7\% EUT subjects for HN approach to result in more accurate welfare estimates on average.
 		\begin{itemize}
 			\item Current evidence and power calculations done here don't support that level of EUT subjects.
 		\end{itemize}
@@ -619,14 +721,14 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 \frametitle{Caution and Wild Speculation}
 \begin{itemize}
 	\item \textcite{Gelman2013}: \enquote{Criticism is easy, doing research is hard.}
-	\item ${HN}_{1040}$ approach not feasible
+	\item ${HN}_{1040}$ approach not feasible, ${HN}_{400}$ may not be.
 		\begin{itemize}
 			\item Experimental environments are limited, and have good reason to remain so.
 		\end{itemize}
-	\item All models are wrong
+	\item Subjects almost certainly do not employ these specific utility models
 		\begin{itemize}
-			\item Economic models are ment to be useful approximations of intentionality of choice in incentivized environments
-			\item Models presented here are themselves useful constructs on top of full theoretical models
+			\item Not the same thing as saying \enquote{agents do not adhere to EUT or RDU.}
+			\item Economic models are ment to be useful approximations of choice behavior in incentivized environments
 			\item It could be the case that subjects employ other weird models, and the Default approach leaves them worse off than the HN approach, with both approaches equally \enquote{wrong}.
 		\end{itemize}
 \end{itemize}
@@ -649,6 +751,7 @@ This is inevitable, though it is not clear how one should judge the rate of decl
 			\item Time preferences are estimated jointly with risk preferences
 			\item Can misidentification in the one lead to misidentification in the other?
 			\item Is hyperbolic discounting misidentified exponential discounting?
+			\item Other experimental evidence from jointly estimating risk preferences?
 		\end{itemize}
 \end{itemize}
 \end{frame}
