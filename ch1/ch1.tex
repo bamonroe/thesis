@@ -76,7 +76,7 @@ In Table \ref{tb:GP1979-mv} the \enquote{Predicted} preference reversal is that 
 		{\$}             & {\quad174} &        145 &           22 &    7       &      83.33\% &        12.64\% \\[-.1em]
 		Indifferent      & {\quad3}   &            &              &            &              &                \\[-.1em]\hline
 		                                                                                      &                \\[-.5em]
-		\multicolumn{3}{c}{Experiment 2}                                                                       \\[0em]\hline
+		\multicolumn{3}{c}{Experiment 2-1}                                                                       \\[0em]\hline
 		\multicolumn{2}{l}{\underline{Selling Price}}                                                          \\[0em]
 		P                & {\quad44}  & 8         & 30          & 6    & 18.18\%   & 68.18\%                   \\[-.1em]
 		{\$}             & {\quad72}  & 54        & 15          & 3    & 75.00\%   & 20.83\%                   \\[-.1em]
@@ -84,9 +84,9 @@ In Table \ref{tb:GP1979-mv} the \enquote{Predicted} preference reversal is that 
 		\multicolumn{3}{l}{\underline{Equivalent Price}}                                                       \\[0em]
 		P                & {\quad44}  & 4         & 34          & 6    & 9.09\%    & 68.18\%                   \\[-.1em]
 		{\$}             & {\quad72}  & 59        & 11          & 2    & 81.94\%   & 15.28\%                   \\[-.1em]
-		Indifferent      &            &           &             &      &           &                           \\[-.1em]\hline
+		Indifferent      & {\quad0}   &           &             &      &           &                           \\[-.1em]\hline
 		                                                                           &                           \\[-.5em]
-		\multicolumn{3}{c}{Experiment 2-1}                                                                     \\[0em]\hline
+		\multicolumn{3}{c}{Experiment 2-2}                                                                     \\[0em]\hline
 		\multicolumn{2}{l}{\underline{Selling Price}}                                                          \\[0em]
 		P                & {\quad44}  & 16        & 27          & 1    & 36.36\%   & 61.36\%                   \\[-.1em]
 		{\$}             & {\quad64}  & 54        & 9           & 1    & 84.38\%   & 14.06\%                   \\[-.1em]
@@ -195,7 +195,7 @@ In addition, they proposed the following candidate probability weighting functio
 		1.1564 p,     & 0 \leq p \leq 0.1833 \\
 		0.9p + 0.047, & 0.1833 \leq p \leq 0.7 \\
 		0.5p + 0.327, & 0.7 \leq p \leq 0.98 \\
-		p^10,         & 0.98
+		p^{10},       & 0.98 \leq 1
 	\end{cases}\label{eq:KS1987-pw}\\
 	u(x) &= 
 	\begin{cases} 
@@ -204,6 +204,7 @@ In addition, they proposed the following candidate probability weighting functio
 		6.75x + 49,   & 12 \leq x
 	\end{cases}\label{eq:KS1987-ux}
 \end{align}
+\noindent Given equations (\ref{eq:KS1987-pw}) and (\ref{eq:KS1987-ux}), an outcome 10 with a probability of .9 would have a probability weight of $f(0.9) = 0.5\times0.9 + 0.327 = 0.77$, and a utility of $u(10) = 10 \times 10 + 10 = 110$.
 
 Using two lotteries from the \textcite{Grether1979} experiments ($A$ and $B$ below), they set up the value function:
 \begin{equation}
@@ -232,7 +233,7 @@ Solving equations (\ref{eq:KS1987-Alot}) and (\ref{eq:KS1987-VA}) for the possib
 		4  & $45.25^*$      & 45.06          & $2 \leq \Pi(k) \leq 3$ \\
 		5  & 43.70          & 39.61          & $1 \leq \Pi(k) \leq 2$ \\
 		6  & 39.48          & 39.48          & $\Pi(k) \leq 1$        \\\hline
-		7  & $3.065 = C(A)$ & $3.065 = C(A)$ & $3.038 = C(B)$
+		7  & $3.065 = C(A)$ & $3.038 = C(A)$ & $3.038 = C(B)$
 	\end{tabular}
 \end{table}
 
@@ -277,7 +278,7 @@ Thus $\psi(\cdot)$ incorporates the transformation of the outcomes into \enquote
 	A_i \succcurlyeq  A_k \Leftrightarrow \sum_{j} p_j \, \psi ( x_{ij} , x_{kj} ) \geq  0
 \end{equation}
 \noindent where $A_i$ and $A_k$ are actions $i$ and $k$, respectively.
-Two important assumptions are made about $\psi(\cdot)$: first, $\psi(\cdot)$ is skew-symmetric, i.e. $\psi(x_{ij},x_{kj}) = -\psi(x_{ij},x_{kj})$, and second it is convex, i.e. if $x_3 > x_2 > x_1$, then $\phi(x_3,x_1) > \psi(x_3,x_2) + \psi(x_2,x_1)$.
+Two important assumptions are made about $\psi(\cdot)$: first, $\psi(\cdot)$ is skew-symmetric, i.e. $\psi(x_{ij},x_{kj}) = -\psi(x_{ij},x_{kj})$, and second it is convex, i.e. if $x_3 > x_2 > x_1$, then $\psi(x_3,x_1) > \psi(x_3,x_2) + \psi(x_2,x_1)$.
 This convexity allows subjects to be \enquote{regret} averse and is the basis for the prediction of the preference reversal phenomenon.
 
 Using this notation, \textcite{Loomes1989} denote the $P$ bets and {\$} bets as actions, and modify the choice of a selling price for the BDM mechanism as a binary choice between an action which returns a constant amount of money for certain, $C$, and either the $P$ bet or the {\$} bet.
@@ -293,7 +294,7 @@ Using this notation, \textcite{Loomes1989} denote the $P$ bets and {\$} bets as 
 		                    C   &   c   &   c   &   c   &   c   
 	\end{tabular}
 \end{table}
-\noindent where the columns represent 4 states of the world, $S_1 , \ldots , S_4$, with associated probabilities $p_1, \ldots, p_2$, and the rows represent the different actions, {\$} bet, $P$ bet, and a certainty $C$, with potential outcomes $a,b,c,d$ and $e$ such that $a > b > c > d,e$.
+\noindent where the columns represent 4 states of the world, $S_1 , \ldots , S_4$, with associated probabilities $p_1, \ldots, p_4$, and the rows represent the different actions, {\$} bet, $P$ bet, and a certainty $C$, with potential outcomes $a,b,c,d$ and $e$ such that $a > b > c > d,e$.
 If $p_1 + p_3 > 0.5 > p_1 + p_2$ then the first 2 rows correspond to the {\$} bet and $P$ bet from \textcite{Grether1979}.
 These actions can be made into 3 pairwise choices, $\lbrace P , {\$} \rbrace , \lbrace P,C \rbrace , \lbrace {\$}, C \rbrace$, called a \enquote{triple.}
 Applying the formula from (\ref{eq:LSS1989:mu3}) to the outcomes and probabilities of Table \ref{tb:LSS1989:ASO} generates the following preference relations:
@@ -308,7 +309,7 @@ The less common preference reversal is observed if the {\$} bet is chosen over t
 The first of these two preference reversals is predicted by Regret Theory when $p_2 =0$ and $d \geq e$ in equations (\ref{eq:LSS1989:PD}), (\ref{eq:LSS1989:DC}), and (\ref{eq:LSS1989:CP}), while the second one is not.
 \textcite[143]{Loomes1989} call the first of these preference reversals the \enquote{predicted} preference reversal, and the second the \enquote{unpredicted} preference reversal.
 
-\textcite{Loomes1989} design three experiments to test whether subjects who display the preference reversal phenomenon follow Regret Theory instead of EUT by utilizing the special case of $p_2 = 2$ and $d \geq e$.
+\textcite{Loomes1989} design three experiments to test whether subjects who display the preference reversal phenomenon follow Regret Theory instead of EUT by utilizing the special case of $p_2 = 0$ and $d \geq e$.
 The first two experiments confront subjects with different sets of triples, called the \enquote{choice-only} design, while the third experiment had some subjects face the BDM mechanism to elicit selling prices for each lottery as in \textcite{Grether1979}, called the \enquote{standard} design, and some subjects use the \enquote{choice-only} design.
 \textcite[142]{Loomes1989} state that their null hypothesis is that subjects make choices in accordance with EUT but make mistakes randomly such that there should be an equal proportion of subjects who display the \enquote{predicted} preference reversal and subjects who display the \enquote{unpredicted} preference reversal for any given triple.
 They state that they will reject this EUT null hypothesis in favor of the alternative of Regret Theory if the frequency of subjects displaying the \enquote{predicted} preference reversal is significantly higher than subjects displaying the \enquote{unpredicted} preference reversal to an extent that can't be attributed to chance.
@@ -332,7 +333,7 @@ The bets used in the pairwise comparisons are presented in Table \ref{tb:LSS1989
 	\end{tabular}
 \end{table}
 
-The subjects in Experiment 1 were split into 4 subsamples, $A$, $B$, $C$, and $D$, each of which made pairwise choices across one triple, $({\$}_1,P_1,C)$, where $C$ varied for each subsample as shown in Table \ref{tb:LSS1989:Exp12} below.
+The subjects in Experiment 1 were split into 4 subsamples, $A$, $B$, $C$, and $D$, each of which made pairwise choices across one triple, $({\$}_1,P_1,C)$, where $C$ varied for each subsample as shown in the \enquote{Triple} column of Table \ref{tb:LSS1989:Exp12} below.
 The subjects in Experiment 2 were split into 2 subsamples, $E$ and $F$, each of which faced 4 triples, with each triple containing the ${\$}_2$ bet and either the $P_2$ bet or $P_3$ bet and unique values of $C$ for each triple.
 The subsamples for Experiment 2 differed only by the values of $C$ in their triples.
 This is also shown in Table \ref{tb:LSS1989:Exp12}, along with the number of subjects who responded with particular patterns of choice for each triple.
@@ -348,20 +349,20 @@ This is also shown in Table \ref{tb:LSS1989:Exp12}, along with the number of sub
 			            &           &     & {\$} & {\$} &  C & $ C\dagger$ & ${\$}^*$ & {\$} &  C  & C  \\[-.5em]
 		Triple          & Subsample &   n &  C &  P &  C & $ P\dagger$ &  $C^*$ &  P &  C  & P  \\\hline
                         &           &     & \multicolumn{8}{c}{Experiment 1}                    \\
-		${\$}_t,P_t,2.50$ &         A &  71 &  2 &  9 &  1 &           1 &      3 & 27 &  19 & 9  \\
-		${\$}_t,P_t,2.50$ &         B &  70 &  1 &  4 &  1 &           2 &     12 & 15 &  32 & 3  \\
-		${\$}_t,P_t,2.50$ &         C &  72 &  1 &  4 &  4 &           0 &      7 &  6 &  44 & 6  \\
-		${\$}_t,P_t,2.50$ &         D &  70 &  5 &  4 &  4 &           0 &      4 &  4 &  50 & 2  \\
+		${\$}_t,P_t,2.50(C)$ &         A &  71 &  2 &  9 &  1 &           1 &      3 & 27 &  19 & 9  \\
+		${\$}_t,P_t,3.50(C)$ &         B &  70 &  1 &  4 &  1 &           2 &     12 & 15 &  32 & 3  \\
+		${\$}_t,P_t,4.50(C)$ &         C &  72 &  1 &  4 &  4 &           0 &      7 &  6 &  44 & 6  \\
+		${\$}_t,P_t,5.50(C)$ &         D &  70 &  5 &  4 &  4 &           0 &      4 &  4 &  50 & 2  \\
 		Total           &           & 283 &  9 & 21 & 10 &           3 &     26 & 40 & 145 & 20 \\
                         &           &     & \multicolumn{8}{c}{Experiment 2}                    \\
-		${\$}_2,P_2,2.50$ &         E &  60 & 14 & 17 &  3 &           1 &      7 &  8 &   8 & 2  \\
-		${\$}_2,P_2,2.50$ &         E &  60 & 17 &  8 & 10 &           0 &      8 &  4 &  13 & 0  \\
-		${\$}_2,P_3,2.50$ &         E &  60 &  7 & 22 &  0 &           1 &      2 & 15 &   9 & 4  \\
-		${\$}_2,P_3,2.50$ &         E &  60 &  7 & 18 &  3 &           2 &      7 &  5 &  14 & 4  \\
-		${\$}_2,P_2,2.50$ &         F &  60 & 19 & 11 &  3 &           2 &     11 &  1 &   9 & 4  \\
-		${\$}_2,P_2,2.50$ &         F &  60 & 20 &  3 & 11 &           1 &      6 &  0 &  18 & 1  \\
-		${\$}_2,P_3,2.50$ &         F &  60 &  9 & 21 &  2 &           1 &      2 & 10 &   7 & 8  \\
-		${\$}_2,P_3,2.50$ &         F &  60 & 17 &  5 &  7 &           4 &      6 &  1 &  14 & 6  \\\bottomrule
+		${\$}_2,P_2,2.25(C)$ &         E &  60 & 14 & 17 &  3 &           1 &      7 &  8 &   8 & 2  \\
+		${\$}_2,P_2,3.75(C)$ &         E &  60 & 17 &  8 & 10 &           0 &      8 &  4 &  13 & 0  \\
+		${\$}_2,P_3,2.25(C)$ &         E &  60 &  7 & 22 &  0 &           1 &      2 & 15 &   9 & 4  \\
+		${\$}_2,P_3,3.75(C)$ &         E &  60 &  7 & 18 &  3 &           2 &      7 &  5 &  14 & 4  \\
+		${\$}_2,P_2,3.00(C)$ &         F &  60 & 19 & 11 &  3 &           2 &     11 &  1 &   9 & 4  \\
+		${\$}_2,P_2,4.50(C)$ &         F &  60 & 20 &  3 & 11 &           1 &      6 &  0 &  18 & 1  \\
+		${\$}_2,P_3,3.00(C)$ &         F &  60 &  9 & 21 &  2 &           1 &      2 & 10 &   7 & 8  \\
+		${\$}_2,P_3,4.50(C)$ &         F &  60 & 17 &  5 &  7 &           4 &      6 &  1 &  14 & 6  \\\bottomrule
                    \multicolumn{11}{r}{* indicates the \enquote{predicted} preference reversal} \\[-.5em]
          \multicolumn{11}{r}{$\dagger$ indicates the \enquote{unpredicted} preference reversal} \\
 
@@ -540,7 +541,7 @@ Dominance is the third necessary precept for conducting a valid experiment propo
 \textcite[934]{Smith1982} defines dominance as selecting rewards such that \enquote{The reward structure dominates any subjective costs (or values) associated with participation in the activities of an experiment.}
 \textcite[1426]{Harrison1992} refines this definition and states that dominance \enquote{requires that the reward of sending a message corresponding to a null hypothesis be \enquote{perceptibly and motivationally greater} than the reward of sending an alternative hypothesis.}
 
-If the messages corresponding to the null and alternative hypotheses are $m_0$ and $m_a$, respectively, then dominance requires that the values associated with sending each of these messages, $v_0$ and $v_a$ respectively, be such that $v_0 > v+a + \delta$, where $\delta$ is the subjective cost to the agent of sending message $m_0$ instead of message $m_a$ \parencite[1427]{Harrison1992}.
+If the messages corresponding to the null and alternative hypotheses are $m_0$ and $m_a$, respectively, then dominance requires that the values associated with sending each of these messages, $v_0$ and $v_a$ respectively, be such that $v_0 > v_a + \delta$, where $\delta$ is the subjective cost to the agent of sending message $m_0$ instead of message $m_a$ \parencite[1427]{Harrison1992}.
 This concept is illustrated in Figure (\ref{fig:H1992:Dom-a}) below from \textcite[1427]{Harrison1992}:
 
 \begin{figure}[h!]
@@ -841,7 +842,9 @@ Should the function $F(\cdot)$ take the form of the logistic c.d.f. then the cho
 
 Because utility structures such as EUT and RDU are unique up to affine transformations, $\lambda^n$ can be any arbitrarily chosen constant and choice probabilities would still be preference order preserving.
 The choice of $\lambda_m$ is however a defining distinction between SU and MU models.
-\textcite{Wilcox2008} proposes and \textcite{Wilcox2011} expands upon a MU model called \enquote{contextual utility} (CU) model. This expands equation (\ref{eq:W2008:Pm2}) by setting $\lambda^n$ to the following:
+\textcite{Wilcox2008} proposes and \textcite{Wilcox2011} expands upon a MU model called \enquote{contextual utility} (CU) model.
+A \enquote{context} in this model refers to the set of outcomes in a lottery or collection of lotteries that have non-zero probabilities.
+This expands equation (\ref{eq:W2008:Pm2}) by setting $\lambda^n$ to the following:
 \begin{equation}
 	\lambda^n = \frac{1}{\lambda^{n*} \left[ u^n_{m0}(z) - u^n_{m(I-1)}(z) \right]}
 \end{equation}
@@ -850,10 +853,10 @@ The choice of $\lambda_m$ is however a defining distinction between SU and MU mo
 It is this property which makes the latent random variable defined in equation (\ref{eq:W2008:ym}) heteroscedastic with respect to the context of the lottery pair.
 It has several appealing implications.
 
-First and foremost, CU allows the \enquote{more risk averse than} relation derived by \textcite{Pratt1964} for deterministic risky choice to be extended to the\enquote{stochastically more risk averse than} relation across multiple contexts.
+First and foremost, CU allows the \enquote{more risk averse than} relation derived by \textcite{Pratt1964} for deterministic risky choice to be extended to the\enquote{stochastically more risk averse than} (SMRA) relation across multiple contexts.
 \textcite[89]{Wilcox2011} defines it thus: \enquote{Agent a is stochastically more risk averse than agent b \textelp{} iff $P^a > P^b$ for every \textins{mean preserving spread} pair $\lbrace S, T \rbrace$.}
 A mean preserving spread (MPS) pair is simply a pair of lotteries with equal expected values.
-SU models only allow such relations within contexts, while CU allows for this relation across contexts.
+SU models only allow the SMRA relation arcoss pairs that share a context, while CU allows for this relation across contexts.
 Second, CU only conforms to moderate stochastic transitivity, hence its inclusion as a MU model.
 This allows CU to be descriptively more appealing as potential choice patterns which violate strong stochastic transitivity are acceptable with moderate stochastic transitivity.
 
