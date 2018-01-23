@@ -64,7 +64,7 @@ RDU is characterized by the following function:
 	\label{eq2:RDU}
 	RDU = \sum_{c=1}^{C} \left[ w_c(p) \times u(x_c) \right]
 \end{equation}
-\noindent where $c$ indexes the outcomes, $x_c$, from $\{1,\ldots,C\}$ with $c=1$ being the smallest outcome in the lottery and $c=I$ being the largest outcome in the lottery, $u(\cdot)$ returns the utility of its argument, $w_c(\cdot)$ returns the decision weight applied to outcome $c$ given the distribution of probabilities ranked by outcome, $p$.
+\noindent where $c$ indexes the outcomes, $x_c$, from $\{1,\ldots,C\}$ with $c=1$ being the smallest outcome in the lottery and $c=C$ being the largest outcome in the lottery, $u(\cdot)$ returns the utility of its argument, $w_c(\cdot)$ returns the decision weight applied to outcome $c$ given the distribution of probabilities ranked by outcome, $p$.
 
 The utility function $u(\cdot)$ can take many functional forms due to it being unique up to an affine transformation, and can be normalized in various was, as illustrated by \textcite{Hey1994}.
 It will sometimes be useful to use a specific functional form to make certain concepts clearer, and in such cases the constant relative risk aversion (CRRA) function will be employed:
@@ -80,7 +80,7 @@ The decision weight function, $w_c(\cdot)$, takes the form:
 	\label{eq2:dweight}
 	w_c(p) =
 	\begin{cases}
-		\omega\left(\displaystyle\sum_{a=c}^C p_a\right) - \omega\left(\displaystyle\sum_{k=c+1}^C p_b\right) & \text{for } c<C \\
+		\omega\left(\displaystyle\sum_{a=c}^C p_a\right) - \omega\left(\displaystyle\sum_{b=c+1}^C p_b\right) & \text{for } c<C \\
 		\omega(p_c) & \text{for } c = C
 	\end{cases}
 \end{equation}
@@ -89,7 +89,7 @@ Many functions have been proposed for $\omega(\cdot)$.
 One is the \enquote{Inverse-S} shaped function popularized by \textcite{Tversky1992}:
 \begin{equation}
 	\label{eq2:pw:kahneman}
-	\omega(p_c) = \frac{p_c^\gamma}{\biggl(\sum\limits_{k=1}^{C} p_b^\gamma\biggr)^{ \frac{1}{\gamma} } }
+	\omega(p_c) = \frac{p_c^\gamma}{\biggl(p_b^\gamma + (1 - p_b)^\gamma \biggr)^{ \frac{1}{\gamma} } }
 \end{equation}
 \noindent Another is the power function used by \textcite{Quiggin1982}:
 \begin{equation}
@@ -106,7 +106,7 @@ In all cases there exist values for the shaping parameters which allow $w_c(p) =
 When both a decision weight function applied to probabilities and a utility function applied to outcomes are defined, we have what is called a utility structure.
 
 To make a general point about notation, consider lottery $a$ with $C_a = 2$ possible outcomes, and lottery $b$ with $C_b = 3$ possible outcomes.
-Suppose that $x_c^a \neq x_c^b \; \forall i$.
+Suppose that $x_c^a \neq x_c^b \; \forall c$.
 A lottery $a^*$ can be constructed with $C_{a^*}= C_a + C_b = 5$ such that it is equivalent to lottery $a$ by adding the outcomes in lottery $b$ to lottery $a$ and setting the probabilities associated with each of these added outcomes equal to $0$.
 Similarly for lottery $b$.
 This equivalence property holds for all EUT and RDU functional forms as zero probability outcomes are given no weight in either structure.
@@ -170,7 +170,7 @@ Note the implication concerning first order stochastic dominance (FOSD)\footnote
 	\end{align*}
 	where $c$ ranks the outcomes of lotteries $a$ and $b$ as described in equation (\ref{eq2:RDU}).
 	All deterministic theories of utility require the dominant option to be chosen over the dominated option.} with the above specification. Should $X_a$ FOSD $X_b$, there is no monotonic preference relation $\beta^*$ that will allow $G(\beta^*,X_{bt}) \geq G(\beta^*,X_{at})$.
-Thus, if we observe $y_t = k$ in such a scenario, the RP model collapses econometrically.
+Thus, if we observe $y_t = b$ in such a scenario, the RP model collapses econometrically.
 
 RE models are consistent with a model of the latent choice process that assumes that the utility of each option is evaluated with some error term, which is assumed to be homoscedastic with the SU model and generally assumed to be heteroscedastic with the derivative models of SU, but with a mean of $0$ in either case.
 A choice is characterized as incorporating this error.
@@ -196,7 +196,7 @@ Assuming a binary choice scenario, the error terms and utility functions must sa
 \begin{align}
 	\label{eq2:RE.2}
 	\begin{split}
-	{\Prob}(y_t = j) &= {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda_n} \left[ G(\beta_n,X_{bt}) - G(\beta_n,X_{at}) \right] \right)\\
+	{\Prob}(y_t = a) &= {\Prob}\left(  \epsilon_t \geq \frac{1}{\lambda_n} \left[ G(\beta_n,X_{bt}) - G(\beta_n,X_{at}) \right] \right)\\
 	&= 1 - F\left( \dfrac{G(\beta_n,X_{bt}) - G(\beta_n,X_{at})}{D(\beta_n,X_t)\lambda_n^* }  \right)
 	\end{split}
 \end{align}
@@ -221,7 +221,7 @@ The agent is said to \enquote{tremble} with probability $\phi_n$ and select amon
 	\label{eq2:TR.f}
 	{\Prob}(y_t=a) = (1-\phi) {\Prob}(y_t=a) + \frac{\phi}{A}.
 \end{equation}
-When \textcite{Harless1994} proposed the TR model, the underlying choice process was made deterministic, assuming that ${\Prob}_0(y_t=1) = 1$.
+When \textcite{Harless1994} proposed the TR model, the underlying choice process was made deterministic so that the option with the greatest utility has a choice probability of 1: ${\Prob}_0(y_t=1) = 1$.
 \textcite{Loomes2002} however, proposed that ${\Prob}_0(y_t=a)$ is generated from the RP model as specified in equation (\ref{eq2:RP.f}).
 
 \singlespacing
@@ -710,7 +710,8 @@ With a $ {\Prob}(y_{\mathit{Buy}} = \mathit{Buy})(1 - {\Prob}(y_{\mathit{Sell}}=
 \begin{align}
 	\begin{split}
 		\%W_{(B,C),T} &= \frac{\displaystyle\sum_{t=1}^{T} {\CE}_{(B,C),y,t} }{\displaystyle\sum_{t=1}^{T} {\CE}_{(B,C),1,t}} = \frac{55 + 55}{55.5 + 55} \approx 0.995 \\
-		\Delta W_{(B,C),T} &= \sum_{t=1}^T \left( {\CE}_{(B,C),y,t} - {\CE}_{(B,C)1,T}^Z \right)= \genfrac{}{}{0pt}{}{55 - 55.5}{+ 55.5 - 55} = 0
+		%\Delta W_{(B,C),T} &= \sum_{t=1}^T \left( {\CE}_{(B,C),y,t} - {\CE}_{(B,C)1,T}^Z \right)= \genfrac{}{}{0pt}{}{55 - 55.5}{+ 55.5 - 55} = 0
+		\Delta W_{(B,C),T} &= \sum_{t=1}^T \left( {\CE}_{(B,C),y,t} - {\CE}_{(B,C)1,T}^Z \right)= 55 - 55.5 + 55.5 - 55 = 0
 	\end{split}
 \end{align}
 
