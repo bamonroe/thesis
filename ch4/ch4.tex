@@ -144,7 +144,7 @@ HN utilized the Logistic cdf and I employ the Logistic cdf for all calculations 
 Given that each choice considered here only involves two lottery options, we can define the probability of choosing option $a$ given a particular model, parameter set $\beta_i$, precision parameter $\lambda_i$, and outcomes and probabilities of option $a$, $X_{at}$, as
 \begin{equation}
 	\label{eq4:RE.f}
-	{\Prob}(y_t=j) =\dfrac{\exp\!\left( \dfrac{ G(\beta_i,X_{at}) }{ D(\beta_i,X_{t})\lambda_i }  \right)}{  \exp\!\left( \dfrac{ G(\beta_i,X_{at}) }{ D(\beta_i,X_{t})\lambda_i }  \right) + \exp\!\left( \dfrac{ G(\beta_i,X_{bt}) }{ D(\beta_i,X_{t})\lambda_i }  \right)    }
+	{\Prob}(y_taj) =\dfrac{\exp\!\left( \dfrac{ G(\beta_i,X_{at}) }{ D(\beta_i,X_{t})\lambda_i }  \right)}{  \exp\!\left( \dfrac{ G(\beta_i,X_{at}) }{ D(\beta_i,X_{t})\lambda_i }  \right) + \exp\!\left( \dfrac{ G(\beta_i,X_{bt}) }{ D(\beta_i,X_{t})\lambda_i }  \right)    }
 \end{equation}
 \noindent These choice probabilities in turn are logged and summed to produce a log-likelihood function for each of the four different models:
 \begin{equation}
@@ -627,7 +627,7 @@ I additionally refer to the original lottery instrument proposed by HN as the $\
 The parameter estimates of the winning model from each approach are used to calculate the welfare surplus of the subject in the insurance task as before.
 Thus, the $\text{HN}_\text{C}$ approach changes the experimental instrument used to estimate models, leaving the exclusionary rules and classification process unchanged, while the Default approach leaves the experimental instrument and exclusionary rules unchanged and alters the classification process.
 The results of the classification process for the $\text{HN}_{1040}$ instrument are presented in Figures \ref{fig:HN_win_eut}, \ref{fig:HN_win_pre}, and the estimated WSD results are presented in Figures \ref{fig:HN_wel_eut} and \ref{fig:HN_wel_pre}.
-The probability of correctly classifying subjects for each of the $\text{HN}_\text{C}$ instruments is presented in Figures \ref{fig:HNC_correct_eut} for EUT subjects and \ref{fig:HNC_correct_eut} for $\mathit{RDU_{Prelec}}$ subjects.
+The probability of correctly classifying subjects for each of the $\text{HN}_\text{C}$ instruments is presented in Figures \ref{fig:HNC_correct_eut} for EUT subjects and \ref{fig:HNC_correct_pre} for $\mathit{RDU_{Prelec}}$ subjects.
 The estimated WSD for the Default approach are given in Figures \ref{fig:HN1_def_wel_eut} and \ref{fig:HN1_def_wel_pre}.
 The plots of the expected WSD for the Default approach, and the $\text{HN}_\text{C}$ for all C are given in Figures \ref{fig:exwel-eut} and \ref{fig:exwel-pre}.
 
@@ -1408,7 +1408,7 @@ Even a more modest increase in the number of lottery pairs, to 400 for intance, 
 Unlike our simulated subjects, real subjects may experience boredom or fatigue should the experiment be conducted in one sitting, and they may experience changes in the background wealth, risks, or beliefs should the experiment be conducted over several days.
 Any of these factors may plausibly result in a subject employing one functional at the beginning of the experiment and another functional by the end.
 Indeed, \textcite{Hey2001} test the hypothesis that subjects change the functional they use when lottery tasks are repeated 5 times by presenting subjects with a 100 lottery pair battery over 5 days.
-He concludes that \enquote{Across the repetitions the variablility of responses declines for some subjects but stays constant for for others (and indeed actually increases for a small number of subjects.)}
+He concludes that \enquote{Across the repetitions the variablility of responses declines for some subjects but stays constant for others (and indeed actually increases for a small number of subjects.)}
 Experimenters need to weigh these methodological concerns against their ability to provide more accurate estimates of welfare, and better classification accuracy.
 
 \singlespacing
