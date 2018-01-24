@@ -4,4 +4,5 @@
 !*.tex
 !*/
 !*/*.tex
-
+diff.tex
+!repnotes

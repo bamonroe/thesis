@@ -48,7 +48,10 @@ That is, subjects have convex indifference curves in the Marshack-Machina Triang
 The model itself has some restrictive aspects for estimation: \enquote{First, the likelihood function, although continuous everywhere, is not smoothly so; there are kinks in the function with resulting discontinuities in the derivatives.
 Second, for certain parameter sets, certain observations are \textit{impossible}} [emphasis in the original] \parencite*[164]{Hey1995}.
 Out of a sample of 45 subjects, \textcite{Hey1995} find only 4 subjects to whom they can fit the model at all, and of these 4, for only 2 does the \enquote{Quadratic Mixture} model fit better than a RE type model, and of these 2, for only 1 subject are the estimated coefficients plausible \parencite*[167]{Hey1995}.
-It appears that continued investigation of this class of models has essentially ceased since these and additional results by \textcite{Camerer1994}.
+Continued investigation of this class of models has largely ceased since these and additional results by \textcite{Camerer1994}.\footnote{
+	\textcite{Sopher2000} provide the only experimental evidence I'm aware of subsequent to the results of \textcite{Camerer1994} that are favorable to the \enquote{stochastic options} theory.
+	This study however does not employ the same kind of statistical tests as either \textcite{Hey1995}.
+}
 Keeping with this pattern, when referring to stochastic models for the remainder of this text I do not include this class of models in our definition.
 
 These general classes of stochastic choice constitute the bulk of the research on stochastic models, with the RE models possibly being the most widely employed models when estimating utility parameters from choice data.
@@ -120,12 +123,14 @@ Each element of $t$, $X_a$, is a vector of the option's observable characteristi
 When presented with such a task, should the subject have a deterministic choice process and preference structure, the subject is assumed to choose option $a$ over the alternative $b$ if and only if the utility of option $a$ was at least as great the utility of option $b$:
 \begin{equation}
 	\label{eq2:ychoice}
-	y_t = j \;\Leftrightarrow\; X_{at} \succcurlyeq X_{bt} \;\Leftrightarrow\; G(\beta_n , X_a) \geq G(\beta_n , X_b)
+	y_t = a \;\Leftrightarrow\; X_{at} \succcurlyeq X_{bt} \;\Leftrightarrow\; G(\beta_n , X_a) \geq G(\beta_n , X_b)
 \end{equation}
 
-\noindent where $G(\cdot)$ is some utility structure such as RDU in equation (\ref{eq2:RDU}), $\beta_n$ is the unobservable vector of parameters of the utility structure for subject $n$, such as probability weights and utilities of outcomes, $X$ is as defined above, and $y_t=a$ is a function that records which option $a$ is selected.
+\noindent where $G(\cdot)$ is some utility structure such as RDU in equation (\ref{eq2:RDU}), $\beta_n$ is the unobservable vector of parameters of the utility structure for subject $n$, such as probability weights and utilities of outcomes, $X$ is as defined above, and $y_t=a$ is a function that records which option $a$ is chosen.
+The function $y_t$ indicates the \textit{chosen} alternative in task $t$, not the option \textit{most preferred} by the agent.
+In the case of a stochastic choice process, $y_t$ does not \textit{necessarily} indicate which option in a set of alternatives is most preferred by the agent.
 
-In this deterministic case, the preference relation $\succcurlyeq$ provides all the necessary conditions for the creation of a utility function $G(\cdot)$, meaning it is complete, transitive, and continuous.
+In the deterministic case presented in equation (\ref{eq2:ychoice}), the preference relation $\succcurlyeq$ provides all the necessary conditions for the creation of a utility function $G(\cdot)$, meaning it is complete, transitive, and continuous.
 Consequently, $\succcurlyeq$ provides a complete ranking of all the available alternatives in task $t$.
 It will be convenient to denote this ranking explicitly throughout this chapter by setting the $a$ subscript of option $X_{at}$ equal to its ranking in task $t$:
 \begin{equation}
@@ -137,7 +142,8 @@ It will be convenient to denote this ranking explicitly throughout this chapter 
 	\label{eq2:utilityrank}
 	G(\beta_n,X_{1t}) \geq G(\beta_n,X_{2t}) \geq \ldots \geq G(\beta_n,X_{at}) \geq \ldots \geq G(\beta_n,X_{At})
 \end{equation}
-\noindent With $y_t$ defined and the options in task $t$ ranked, we can also define the set of options in task $t$ not selected by subject $n$ as follows:
+\noindent It is worth reiterating that $y_t$ indicates the option \textit{chosen} in task $t$, while the value of the $a$ subscript indicates the rank of the option in terms of the agent's \textit{preference} in task $t$.
+With $y_t$ defined and the options in task $t$ ranked in terms of the subscript $a$, we can also define the set of options in task $t$ not selected by subject $n$ as follows:
 \begin{equation}
 	\label{eq2:emptyset}
 	Z = t \,\backslash\, y = \{z \in t \;|\; z \notin y \}.
@@ -290,8 +296,8 @@ For instance, if TR models predict that with some probability choices will be ma
 In contrast, the ability to manipulate the error term of the SU model in a tractable manner is part of what makes the SU model and its derivatives such popular models of stochastic choice.
 
 To understand the motivations for developing the differing models that are derivatives of SU models, I briefly describe the concept of stochastic transitivity.
-Borrowing from \textcite[210]{Wilcox2008}, consider three pairs of lotteries: $\{C,D\}$, $\{D,E\}$, and $\{C,E\}$, designated lotteries $1$, $2$, $3$, respectively.
-$P_1$ is the probability of choosing $C$ in lottery $1$, and $P_2$ and $P_3$, are the probabilities of choosing $D$ and $C$ from lotteries $2$ and $3$, respectively.
+Borrowing from \textcite[210]{Wilcox2008}, consider three pairs of lotteries: $\{C,D\}$, $\{D,E\}$, and $\{C,E\}$, designated pairs $1$, $2$, $3$, respectively.
+$P_1$ is the probability of choosing $C$ in pair $1$, and $P_2$ and $P_3$, are the probabilities of choosing $D$ and $C$ from pairs $2$ and $3$, respectively.
 We can define three forms of stochastic transitivity as follows:
 \begin{align*}
 	\text{Strong Stochastic Transitivity (SST):} \quad \mathit{min}(P_1,P_2) \geq 0.5 &\Rightarrow P_3 \geq \mathit{max}(P_1,P_2) \\
@@ -315,7 +321,9 @@ The first heteroscedastic model, (\ref{eq2:Hey2}), modeled the variance of the e
 	\lambda_n &= 1
 \end{align*}
 Thus if $\alpha > 0$, the longer (shorter) it takes a subject to answer the question, the more (less) \enquote{noisy} the subject's responses should be.
-This is, however, no reason to expect $\alpha > 0$ \textit{a priori}.
+There is, however, no reason to expect $\alpha > 0$ \textit{a priori}.\footnote{
+	Additionally, one might suspect that the time spent on a decision problem might itself be determined by the properties of the choice scenario, creating an endogeneity problem for this formulation.
+}
 
 The second heteroscedastic model, (H.3), modeled the error as an exponential function of the absolute value of the difference in utility of the alternatives multiplied by a coefficient, $\alpha$:
 \begin{align*}
@@ -339,7 +347,7 @@ All of the heteroscedastic models nest the homoscedastic SU model as a special c
 While (\ref{eq2:Hey3}) and (\ref{eq2:Hey4}) did not perform particularly well, (H.1) was rejected in favor of (\ref{eq2:Hey2}) for 27 of 80 subjects at the 1\% level, and 36 subjects at the 5\% level \parencite*[639]{Hey1995a}.
 
 Another derivative called the \enquote{Wandering Vector} (WV) model was proposed initially by \textcite{Carroll1980} and expanded on by \textcite{Carroll1991}.
-It makes the standard deviation of the error proportional to the Euclidean distance of the probability vectors of the two alternative lotteries, $a$ and $b$.
+It makes the standard deviation of the error proportional to the Euclidean distance between the probability vectors of the two alternative lotteries, $a$ and $b$.
 \begin{align*}
 	D(\beta_n,X) = \left[  \sum_{c=1}^C (p_c^a - p_c^b)^2 \right]^{1/2}
 \end{align*}
@@ -359,7 +367,7 @@ It makes the standard deviation of the error proportional to the difference in u
 This model also satisfies MST and additionally allows for the \enquote{more risk averse than} relation of \textcite{Pratt1964} to be extended to the stronger \enquote{stochastically more risk averse than} relation.
 The \enquote{stochastically more risk averse than} relation of the CU model allows for interpersonal comparisons of risk-aversion in a way that is potentially more meaningful than with the SU model \parencite*[221]{Wilcox2008}.
 
-\textcite{Busemeyer1993} propose \enquote{Decision Field Theory} (DFT), which is limited in that it is only applicable to a pair of alternatives where one alternative is a certainty and the other is a lottery of only 2 outcomes.
+\textcite{Busemeyer1993} propose \enquote{Decision Field Theory} (DFT), which when considering a pair of alternatives where one alternative is a certainty and the other is a lottery of only 2 outcomes, can be formulated in terms of the $D(\cdot)$ function.
 If we define the set of outcomes that belong to the lottery as $H = \{x \in X_a \,|\, p_x < 1\} = \{h_1,h_2\}$ where $h_2 > h_1$ we have:
 \begin{align*}
 	D(\beta_n,X) = \left[ u(h_2) - u(h_1) \right] \sqrt{w_{h_1}(p)[1-w_{h_2}(p)]}
@@ -369,21 +377,22 @@ The reasoning behind DFT is ultimately psychological.
 This kind of decision problem is deemed choice under \enquote{uncertainty} rather than choice under \enquote{risk.}
 \enquote{Decision field theory was developed for this more natural type of uncertain decision problem} \parencite*[436]{Busemeyer1993}.
 
-\textcite{Blavatskyy2014} proposes a model (BF) deemed \enquote{Stronger Utility,} which is similar to the \enquote{incremental EU advantage model} initially proposed by \textcite{Fishburn1987}.
-It makes the standard deviation of the error proportional to the difference in the utility of two abstract lotteries.
+\textcite{Blavatskyy2014} proposes a model (BF) deemed \enquote{Stronger Utility,} which shares properties with the \enquote{incremental EU advantage model} initially proposed by \textcite{Fishburn1987}.
+There exist stochastic choice specifications which can be classified as both a \enquote{Stronger Utility} model and an \enquote{incremental EU advantage} model.
+The BF model makes the standard deviation of the error proportional to the difference in the utility of two abstract lotteries.
 The first abstract lottery is constructed to stochastically dominate all lotteries in the proposed decision scenario, but can itself be stochastically dominated by any other lottery which also scholastically dominates the proposed lotteries.
 The second abstract lottery is constructed to be stochastically dominated by both lotteries proposed in the decision scenario, while stochastically dominant any other lottery which is also stochastically dominated by both of the proposed lotteries.
 For FOSD pairs, this specification attaches a probability of 1 to the dominating option and 0 to the dominated  option.
 
 The three models proposed by \textcite{Hey1995a} don't make any special predictions about the likelihood of choosing options in particular scenarios, such as with FOSD pairs, other than to hypothesize that they improve on the explanatory fit of the SU model.
 They also require the estimation of additional parameters.
-The (H.2) and (H.4) models of \textcite{Hey1995a} are very similar to the method utilized by \textcite[142]{Harrison2009} in which observable characteristics are modeled as linear covariates of the core parameters to be estimated.
+The (H.2) and (H.4) models of \textcite{Hey1995a} are very similar to the method utilized by \textcite[142]{Harrison2009} in which observable characteristics of subjects are modeled as linear covariates of the core parameters to be estimated.
 However, \textcite{Hey1995a} models the standard deviation to be exponential functions of these observable characteristics instead of linear functions, making the heteroscedasticity multiplicative rather than additive.
 The linear specification utilized by \textcite{Harrison2009} is used to control for observable heterogeneity of subjects, not aspects of the choice scenario.
 The (H.3) model of \textcite{Hey1995a}, however, seems to reflect the same line of thinking as the subsequent derivatives of the SU model.
 
 The other RE models mentioned above, however, often add new implications which generally help ease some of the shortcomings of the SU model.
-The CU and the DFT models both have the benefit of extending the \enquote{more risk averse than} relation of \textcite{Pratt1964} to the \enquote{stochastically more risk averse than} relation.
+Both the CU model and the \enquote{sure thing vs two-outcome} DFT model discussed previously have the benefit of extending the \enquote{more risk averse than} relation of \textcite{Pratt1964} to the \enquote{stochastically more risk averse than} relation.
 DFT additionally requires that as the lottery becomes closer to first order stochastically dominating the {\CE}, the probability of selecting the dominant option approaches 1.
 The BF model also requires that the probability of selecting the dominant option is always 1.
 Both the WV and the CU models enforce MST as opposed to the more restrictive strong SST,  required by SU models.
@@ -459,6 +468,8 @@ If the utility function employed is monotonically increasing in the domain, as t
 
 With equations (\ref{eq2:CEcalc}) and (\ref{eq2:CErank}), we can also see that the {\CE} can itself be considered a utility function, it is complete, transitive, and continuous, which is all that is required for a utility function to be well defined.
 Utilizing the {\CE}s of options in a task is useful because of its potential to be considered a utility function, but also because it allows utility to be normalized to the units of the outcomes.
+This \enquote{{\CE}} approach is similar to the \enquote{money-metric utility} function by \textcite{Samuelson1974} employed to calculate welfare surplus.
+The \enquote{money-metric} utility function is used as a normalized utility function by, for instance, \textcite{Diewert1983} and \textcite{King1983}.
 
 We can employ the notation used for the set of unchosen alternatives, $Z$, derived in equation (\ref{eq2:emptyset}), to rank the ${\CE}$s of each unchosen alternative just as in equation (\ref{eq2:Zutilityrank}):
 \begin{equation}
@@ -492,7 +503,7 @@ Another metric, which also utilizes the {\CE}s, characterizes welfare received b
 \noindent A similar variation of (\ref{eq2:WPt}) could be:
 \begin{equation}
 	\label{eq2:WPT}
-	\%W_{nT} = \frac{\displaystyle\sum_{t=1}^{T} {\CE}_{ny} }{\displaystyle\sum_{t=1}^{T} {\CE}_{ny}}
+	\%W_{nT} = \frac{\displaystyle\sum_{t=1}^{T} {\CE}_{ny} }{\displaystyle\sum_{t=1}^{T} {\CE}_{n1}}
 \end{equation}
 
 All of these metrics have strengths and weaknesses.
@@ -528,12 +539,13 @@ In equations (\ref{eq2:RPPO.jorank}), (\ref{eq2:RPPO.jurank}), and (\ref{eq2:RPP
 As stated previously, the {\CE} of an option has the same utility function properties as $G(\cdot)$, and is additionally normalized by the units of the options themselves.
 If only one $\beta_n$ vector is drawn to derive cardinal values for the set of alternatives, we have the RP model discussed previously.
 
-But, with RPPO models, when evaluating another option $b$, such that $b \neq j$, another, potentially different, preference relation is drawn and each of the $A$ alternatives, including both $a$ and $b$, are ranked according to this preference relation:
+But, with RPPO models, when evaluating another option $b$, such that $b \neq a$, another, potentially different, preference relation is drawn and each of the $A$ alternatives, including both $a$ and $b$, are ranked according to this preference relation:
 \begin{equation}
 	\label{eq2:RPPO.korank}
 	X_{1t} \succcurlyeq^{nb} X_{2t} \succcurlyeq^{nb} \ldots \succcurlyeq^{nb} X_{at} \succcurlyeq^{nb} \ldots \succcurlyeq^{nb} X_{At}
 \end{equation}
-\noindent A utility function exists which represents these preference relations shaped by $\beta_n^b$:
+\noindent where $\succcurlyeq^{nb}$ represents the preference relation drawn by subject $n$ when considering option $b$ across all $A$ outcomes. 
+A utility function exists which represents these preference relations shaped by $\beta_n^b$:
 \begin{equation}
 	\label{eq2:RPPO.kurank}
 	G(\beta_n^b,X_{1t}) \geq G(\beta_n^b,X_{2t}) \geq \ldots \geq G(\beta_n^b,X_{at}) \geq \ldots \geq G(\beta_n^b,X_{At})
@@ -551,7 +563,7 @@ Second, if $\beta_n^a \neq \beta_n^b$, then there may be two different cardinal 
 The RPPO model takes the cardinal value of each option, evaluated using its own $\beta_n^*$  vector, and constructs an ordinal ranking of the set of alternatives based on these individual evaluations.
 To deal with the potential issue of comparing different utility functions cardinally, the utility functions $G(\cdot)$ should be normalized somehow.\footnote{ Without the normalization, the RPPO model requires an unusual interpretation of preference relations to accommodate particular aspects of relatively common $G(\cdot)$ functions.
 An example will be presented later that will make this clearer.} 
-In line with the previous discussion, we will assume a normalizing function which produces a {\CE} for each option based on its individually drawn $\beta_n^*$ vector.
+In line with the previous discussion, we will utilize the {\CE} for each option based on its individually drawn $\beta_n^*$ vector.
 
 Adding the superscripts $\{1,2,\ldots,x,\ldots,X\}$  to the {\CE} to indicate the option that it is associated with, and the subscripts $\{1,2,\ldots,a,\ldots,A\}$ to the {\CE} to represent its rank in the set of alternatives conditional on its individual $\beta_n^x$ vector, we could have the following ordinal ranking:
 \begin{equation}
@@ -613,7 +625,7 @@ To make this example concrete, we can work this problem out numerically assuming
 Amy operates with a random preference model of choice, Beth operates with a contextual utility model of choice, and Cate makes choices deterministically but with a tremble.
 Amy, Beth, and Cate all have the same utility structure of the RDU special case where $w_c(p)=p_c$ for all $p_c$ and incorporate the CRRA utility function from equation (\ref{eq2:CRRA}).
 Amy's distribution function $F_n(\beta|\alpha)$ is $N(\mu,\sigma^2) = N(0,0.01)$, thus normal with $\alpha$ featuring a mean equal to 0 and a standard deviation of 0.1.
-Beth operates a $\beta$ vector that is composed of $r=0$, and a $\lambda_n = 0.015$.
+Beth operates with a $\beta$ vector that is composed of $r=0$, and a $\lambda_n = 0.015$.
 Cate operates with a $\beta$ vector that is composed of $r=0$ and a probability of trembling of $\phi = 0.816$.
 All values picked in this example are for ease of calculation, but the implications hold when generalized to different parameter values.
 
@@ -1001,9 +1013,12 @@ With this interpretation of ES as a necessary criterion for a normative theory o
 In the SMP, at no point does an agent face a single choice that incorporates FOSD.
 Thus, taken in isolation, a choice to buy or sell the lottery ticket cannot be said to necessarily reveal anything about changes in the agent's welfare.
 Should an agent buy the ticket and then proceed to sell the ticket back for less money, the agent's choices consider as a set lead directly to her stock of assets being reduced by 1 unit.
-A normatively acceptable theory of choice must, at a minimum, describe the agent as having become worse off than if she had never engaged in the trades.
+For a considered theory to be a normatively acceptable theory of choice it must, at a minimum, describe the agent as having become worse off than if she had never engaged in the trades.
 
-This concept of describing objective betterment across aggregated choices is no different to previous uses of the standard money pump argument.
+This concept of describing objective betterment across aggregated choices is no different to previous uses of the standard money pump argument.\footnote{
+	Note that \textcite{Cubitt2001} do not dispute that the strict loss of a stock of assets, as happens when a subject is \enquote{money pumped} over a series of choices, is normatively unacceptable.
+	They argue that EUT is sufficient, but not necessary to prevent such a loss of assets.
+}
 Utilizing the above example of a standard money pump, it isn't until the extractor seeks to trade back a reduced quantity of the agent's original endowment, $A - \epsilon$, for her current stock of assets, $C$, that the agent is said to be made worse off.
 Furthermore, all trades prior to the final trade cannot be said to necessarily make the agent worse off, but are simply transfers of different stocks of goods.
 With all the trades aggregated together however, the final trade is what completes the extraction that leaves the agent with a smaller stock of assets.
@@ -1057,6 +1072,7 @@ They conduct an experiment replicating the design of \textcite{Grether1979}, whi
 \textcite{Chu1990} differ from the previous replications of \textcite{Grether1979} by actively engaging in arbitrage with subjects who committed apparent violations of transitivity, thus experimentally simulating the kind of market forces that would operate outside of the laboratory.
 \textcite[910]{Chu1990} find that incidences of apparent violations of transitivity were eliminated from all subjects' choices after an average of $1.71$ arbitrage transactions, and that \enquote{subjects displayed substantially fewer reversals \textins{apparently intransitive choices} after they were exposed to a marketlike environment in previous rounds of games.}
 The largest number of arbitrage transactions needed to induce conformity to the transitivity axiom was $3$, and this number of transactions occurred for only one subject across all of their treatments.
+On the other hand, \textcite{Braga2009}, in a similar experiment, find that while most anomalies are eliminated with market exposure, others arise as rounds progress and that there may be a \enquote{just enough} amount of market exposure to induce conformity to EUT.
 
 Our revised WCC criterion requires that exposure to market forces must induce a \enquote{correction} to choices that do not consistently lead to worse welfare outcomes, such as the arbitrage transactions implemented by \textcite{Chu1990}.
 TR and RE models handle this requirement in 2 ways.
@@ -1065,8 +1081,12 @@ Thus there is a built-in correcting mechanism in these models.
 Secondly, one could model the relevant stochastic parameters, $\phi$ in the case of the TR model and $D(\beta,X)$ or $\lambda$ in the case of RE models, as being determined in part by the number of choice problems (or arbitrage transactions) experienced with the assumption of a negative coefficient.
 With this specification, increased market interaction would lead to lower probabilities of mistakes, and in the limit would result in choices conforming with EUT, just as was observed by \textcite{Chu1990}.
 
-However, it isn't clear that RP models provide any guidance as to what should be corrected.
-In the stand-alone RP and RPPO models, \textit{all} choices result in optimal welfare, even if aggregated choices result in the strict reduction in the agent's stock of assets.
+%However, it isn't clear that RP models provide any guidance as to what should be corrected.
+However, it isn't clear which choices should be corrected given an RP model and a set of choices which don't conform to EUT.
+In the stand-alone RP model, each choice represents the welfare maximal option for the preference relation drawn for that task.
+Changing choices in an aggregate set of choices which deviate from EUT implies that some choices will 
+
+even if aggregated choices result in the strict reduction in the agent's stock of assets.
 Even if the parameters of the RP model are themselves determined by the number of choice scenarios experienced in a way that decreases the probability of a deviation from EUT, there is inherently no welfare relevant \enquote{correction} occurring;
 agents can be characterized as just as well off or potentially better off by \textit{not} approaching consistency with EUT.
 Thus, the RP class of models do not provide normatively useful statements with respect to the WCC criterion.
