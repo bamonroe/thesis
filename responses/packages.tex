@@ -1,0 +1,59 @@
+% utf8 support
+\usepackage[utf8]{inputenc} 
+% PDF font support
+\usepackage[T1]{fontenc}
+% lmodern fonts
+\usepackage{lmodern}
+% double spacing
+\usepackage[nodisplayskipstretch]{setspace} 
+
+\usepackage[justification=centering]{caption}
+
+\usepackage{geometry}
+
+% For quoting
+\usepackage[style = american]{csquotes}	
+%To make references into links
+\usepackage[hidelinks]{hyperref} 
+% For equation stuff
+\usepackage{amsmath}	
+% For math symbols
+\usepackage{amssymb}	
+% For Bold math Symbols
+\usepackage{bm}			
+% For nice looking fractions
+\usepackage{nicefrac}	
+% For Graphics
+\usepackage{graphicx}	
+% Read about this, tested it, and was sold.
+\usepackage[stretch=15]{microtype}	
+\usepackage[raggedright]{titlesec}
+
+% Stuff for Tables
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X} % A centered column type that sucks up excess space
+% For \toprule, \midrule, and \bottomrule
+\usepackage{booktabs}		
+
+% Squish things onto the page
+\usepackage{adjustbox}
+
+% bibliography stuff
+\usepackage[american]{babel}
+\usepackage[backend=biber, bibstyle=IEEEtran, uniquename=false, doi=false, isbn=false, url=false, style=authoryear-comp, maxnames=99]{biblatex}
+% No Oxford Commas
+\DefineBibliographyExtras{english}{\let\finalandcomma=\empty}
+% Don't put "in:" in anything
+\renewbibmacro{in:}{}
+% The path to the bibliography file
+\addbibresource{/home/bam/thesis/library.bib}	
+
+% Convenience Commands
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu} % Command to make a shorter overline/longer bar
+
+% Make a break a column title into 2 lines
+\newcommand{\cnline}[2][c]{%
+	\setlength{\extrarowheight}{0em}
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}
+	\setlength{\extrarowheight}{5em}
+}

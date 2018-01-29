@@ -1,0 +1,109 @@
+\documentclass[12pt,a4paper]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\include{packages}
+
+\title{Responses to Thesis Reports}
+\author{Brian Albert Monroe}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+% Set up the commands for when full document is compiled together
+\pagenumbering{arabic}
+\maketitle
+
+% Set some globals
+
+
+On reflection, it looks like I've made a typo on page 119, $L_T^m$ should instead be $L_t^m$.
+I'm not sure what I was thinking because I wrote underneath it \enquote{$L_T^m$ is the likelihood of the choice data across the T tasks explained by model m given the vector $\beta$}, which is an accurate description of what that is.
+I think it should rather be:
+\begin{align}
+	\begin{split}
+		P_T    &= \prod_t^T \left [ \sum_m^M \pi_m \times L_t^m(\beta^m) \right ] \\
+		{LP}_T &= \sum_t^T \left [ ln \left ( \sum_m^M \pi_m \times L_t^m(\beta^m) \right ) \right ]
+	\end{split}
+\end{align}
+So the probabilities of individual observations would be mixed, then logged then summed.
+
+I believe the suggestion is instead:
+\begin{align}
+	\begin{split}
+		P_T    &= \sum_m^M \left [ \pi_m \times \prod_t^T L_t^m(\beta^m) \right ] \\
+		{LP}_T &= ln \left ( \sum_m^M \left [ \pi_m \times \prod_t^T L_t^m(\beta^m) \right ] \right )
+	\end{split}
+\end{align}
+This \enquote{multiplies up the task/subject probs across all $t$ tasks, and then weights those by the mixture distribution \enquote{pi} terms, and finally takes the ln of those.}
+
+On page 123 I have the following:
+\begin{align}
+	\begin{split}
+		P_{it}(\theta)     &= \int P_{it}(\beta_i)f(\beta | \theta) d\beta \\
+		L_{iT}             &= \prod_t^T P_{it}(\theta)                     \\
+		{LL}_{iT}(\theta)  &= \sum_t^T \ln(P_{it}(\theta))                  \\
+		{SL}_{iT}(\theta)  &= \prod_t^T \left [ \sum_h^H \frac{P_{it}(\beta^h)}{H}  \right] \\
+		{SLL}_{NT}(\theta) &= \sum_{i=1}^N \left (  \sum_t^T  \left [ \ln \left( \sum_h^H \frac{P_{it}(\beta^h)}{H} \right ) \right] \right )
+	\end{split}
+\end{align}
+where $P_{it}(\beta_i)$ is the choice probability of task $t$ for subject $i$ given the preference vector $\beta_i$.
+
+I believe the suggestion that this should be:
+\begin{align}
+	\begin{split}
+		L_{T}(\beta)       &= \prod_t^T P_{t}(\beta)                     \\
+		L_{T}(\theta)      &= \int L_{T}(\beta) f(\beta | \theta) d\beta \\
+		{LL}(\theta)       &= \ln({L}_{T}(\theta))                       \\
+		{SL}_{T}(\theta)   &= \sum_h^H \frac{L_{T}(\beta^h)}{H}          \\
+		{SLL}_{T}(\theta)  &= \sum_{i=1}^N \left [ \ln \left ( \sum_h^H \frac{L_{Ti}(\beta^h)}{H} \right ) \right ]
+	\end{split}
+\end{align}
+
+\end{document}

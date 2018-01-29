@@ -1,0 +1,232 @@
+\documentclass[12pt,a4paper]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\include{packages}
+
+\title{Outline for Defense}
+\author{Brian Albert Monroe}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+% Set up the commands for when full document is compiled together
+\pagenumbering{arabic}
+\maketitle
+
+% Set some globals
+
+
+\doublespacing
+
+\section{Chapter 1 Choice Anomalies in Experiments, and Economists’ Reactions to Them}
+
+\begin{itemize}
+	\item \textcite{Grether1979} experiments
+		\begin{itemize}
+			\item Lottery pair choices and minimum selling price
+			\item “The inconsistency is deeper than the mere
+lack of transitivity or even stochastic transitivity. It suggests that no optimization
+principles of any sort lie behind even the simplest of human choices and that
+the uniformities in human choice behavior which lie behind market behavior may
+result from principles which are of a completely different sort from those generally
+accepted.”
+		\end{itemize}
+	\item Alternative theories
+		\begin{itemize}
+			\item Regret Theory, \textcite{Bell1982}, \textcite{Loomes1982}
+			\item Rank Dependent Utility Theory, \textcite{Quiggin1982}
+		\end{itemize}
+	\item \textcite{Smith1982} Necessary Precepts for Valid Inferences from Economic Experiments. 
+		\begin{itemize}
+			\item Agents choose messages, and institution determine allocations via the rules that carry messages into allocation.
+			\item Non-satiation, Salience, Dominance, and Privacy
+				\begin{itemize}
+					\item Saliance, understand the tasks, don't decieve subjects
+					\item Dominance, monetary awards, \enquote{correct} monetary awards
+				\end{itemize}
+		\end{itemize}
+	\item \textcite{Holt2002} and Multiple Price List
+		\begin{itemize}
+			\item Switching Behavior is inconsistent with EUT and RDU
+		\end{itemize}
+	\item Stochastic Models
+		\begin{itemize}
+			\item Deviations are do to realization of stochastic choice processes
+		\end{itemize}
+\end{itemize}
+
+\section{Chapter 2 The Normative Promise of Stochastic Models}
+\begin{itemize}
+	
+	\item \textcite{Camerer1994}, \textcite{Hey1994}, and \textcite{Loomes1995}
+		\begin{itemize}
+			\item Tremble Models, TR
+			\item Random Error Models, RE
+			\item Random Preference Models, RP
+		\end{itemize}
+	\item Many different RE models
+	\item Any model can be combined mathematically with any other model
+	\item RP models fail when faced with FOSD, need to be combined with TR or RE to overcome it.
+	\item Evidence for the various models is very mixed, but more recent literature points to a heteroskedastic RE derivitive with EUT or RDU.
+	\item I define notation for probabilities, borrowing much from \textcite{Wilcox2008}, and Certainty Equivalents (CE)
+	\item the CE is the basis of two proposed welfare metrics.
+		\begin{itemize}
+			\item Welfare Surplus
+			\item Choice Efficiency
+		\end{itemize}
+
+	\item Stochastic Money Pump
+		\begin{itemize}
+			\item An Extractor offers to sell and buy back a lottery ticket as many times an an agent pleases, but buys it back for .50 less than the purchase price.
+			\item Buying and selling result in an agents stock of assets being stictly reduced.
+			\item Amy (RP), Beth (RE), Cate (TR)
+			\item Amy experiences a gain in welfare in the event of an extraction
+			\item This inconsistency isn't resolved when RP is combined with TR.
+		\end{itemize}
+	\item Normative Critera
+		\begin{itemize}
+			\item Economic Sustainability.
+				\begin{itemize}
+					\item Being eliminated is the worst outcome. Non-strategically approaching the worst outcome leaves you worse off.
+				\end{itemize}
+			\item Willingness to Correct Choices
+				\begin{itemize}
+					\item Market forces should drive away deviations fromm a normative theory.
+				\end{itemize}
+		\end{itemize}
+
+\end{itemize}
+
+\section{Chapter 3 The Welfare Implications of Stochastic Models}
+
+\begin{itemize}
+	\item Discuss common estimation strategies
+		\begin{itemize}
+			\item Maximum likelihood estimation (MLE)
+			\item MLE with observable covariates
+			\item MLE with mixture models
+			\item MLE on the individual level
+		\end{itemize}
+	\item Discuss Maximum Simulated Likelihood (MSL)
+	\item Discuss how the properties of MSL can be used to derrive Unconditional welfare measurements
+		\begin{itemize}
+			\item Construction of unconditional error pobabilities
+		\end{itemize}
+	\item Example EUT and RDU populations are simulated and unconditional metrics derrived for all possible chocie patterns
+	\item Unconditional probability and unconditional welfare metrics are correlated but coefficient is not 1.
+		\begin{itemize}
+			\item Particularly noticable when pairs contain FOSD alternatives
+		\end{itemize}
+	\item 200k populations are simulated and expectations and variances of the metrics are calculated for each candidate population.
+	\item population paramaterizations interact with the population to produce errors and welfare loss
+		\begin{itemize}
+			\item populations with preferences near indifference points of the instrument produce more errors
+			\item populations with preferences near indifference points produce more costly errors.
+			\item Stochastic parameters drive welfare loss to a greater extent than preference parameters.
+		\end{itemize}
+	
+\end{itemize}
+
+\section{Chapter 4 Welfare Inferences From Experimental Instruments}
+	\begin{itemize}
+		\item \textcite{Hey1994} attempt to classifiy subjects via individual estimation as best conforming to one of 11 models.
+		\item They note concerns about the potential statistical power of such a classification process, but very little work has been done to discuss the extent of the power issues of this kind.
+		\item \textcite{Loomes2002} develop an instrument which has properties they claim improves the classification likelihood between RDU and EUT preferences, but no power calculations are done
+		\item \textcite{Harrison2016} utilize the instrument construction strategy to measure the risk preferences of subjects and calculate the gains and losses of welfare surplus in a task framed as the purchase of insurance.
+		\item \textcite{Harrison2016} the calculation of welfare surplus depends firstly on the classification of subjects as adhering to either EUT or one of three RDU models by testing if the probability weighting parameters are different from the special case of EUT.
+		\item This chaper conducts a power analysis of this classification procedure and calculates the cost in terms of miscalculated welfare surplus of the miss-classification.
+		\item The power analysis is as follows:
+			\begin{itemize}
+				\item Draw a set of preference parameters for either EUT or RDU
+				\item Simulate a choice set based on the calculated choice probabilities of the drawn parameters using the instrument for \textcite{Harrison2016}
+				\item Conduct Maximum Likelihood estimation for EUT and RDU models
+				\item Classifiy the subject as either EUT or RDU on the basis of the estimates
+				\item Calculate the welfare surplus metric given the estimates, and calculate the welfare surplus of the known, simulated parameters.
+				\item Repeat this process 500 thousand times and predict classifation probabilities.
+			\end{itemize}
+		\item The results are somewhat striking
+			\begin{itemize}
+				\item For large bands of feasible EUT preferences, the probability of correctly classifying EUT subjects as EUT is less than 80\%
+				\item For large bands of feasible RDU preferences, the probability of correctly classifying RDU subjects as RDU is less than 50\%
+			\end{itemize}
+		\item As the value of $\lambda$ increases the probability of miscalculation increases
+		\item As either of the probability weighting parameters approach the special case of EUT, RDU subjects are misclassified as EUT.
+		\item These Misclassifications are almost uniformly costly, though far more so for RDU subjects than EUT subjects, particularly when RDU subjects hevily weight probabilities.
+		\item I suggest 2 alternative approaches:
+			\begin{itemize}
+				\item The \enquote{Default} approach, where a subject is classified as RDU if a model can converge for them, and EUT otherwise.
+				\item Increase the sample size per subject
+			\end{itemize}
+		\item The Default approach helps RDU subjects by a lot and only hurts EUT subjects in a minor way
+		\item All subjects are better of with increased sample sizes
+		\item I propose a hypothetical population of agents using the estimates of \textcite{Harrison2016} as moments for the distribution of preferences
+			\begin{itemize}
+				\item Under the Default approach, the hypothetical population would need to consist of greater than 80.7\% for the loss to EUT subjects to outweigh the gain to RDU subjects.
+				\item For EUT subjects to be correctly classified more than 80\% of the time, approximatly 240 observations are needed per subject.
+				\item For RDU subjects to be correctly classified more than 80\% of the time, more than 400 observations are needed.
+			\end{itemize}
+		\item I respond to Hey's concerns about power by saying that far more obersavtions than are typically used in experiments are needed for this inferential objective.
+		\item Contrary to his intuition, I find that if a default method is to be used, it should be RDU, not EUT.
+		\item I conclude by saying experimental constuction is difficult, and that despite the theoertical motivations for the experimental process and instruments, the probablity of accuratly the inferential objective in this domain remains low.
+	\end{itemize}
+
+
+
+
+
+
+
+
+
+\newpage
+
+\printbibliography
+
+\end{document}
